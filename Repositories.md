@@ -1,26 +1,24 @@
-# Repositories
+# Types
 
-## Types
-
-### Hosted
+## Hosted
 
 Hosted repositories allow deployment of artifacts.
 
-### Proxy
+## Proxy
 
 Proxy repositories serve artifacts which are resolved from remote repositories and cached for local resolution.
 
-### Group
+## Group
 
 A repository group is a special kind of repository which aggregates a list of repositories and serves it's contents under the same URL. 
 
-### Virtual
+## Virtual
 
 Virtual repositories are not yet implemented.
 
-## Layouts
+# Layouts
 
-### Maven 2.x/3.x
+## Maven 2.x/3.x
 
 This is currently the only supported layout.
 
