@@ -6,6 +6,8 @@ Hosted repositories allow deployment of artifacts.
 
 ## Proxy
 
+**Note: Proxy repositories are not yet implemented.**
+
 Proxy repositories serve artifacts which are resolved from remote repositories and cached for local resolution.
 
 ## Group
@@ -14,7 +16,9 @@ A repository group is a special kind of repository which aggregates a list of re
 
 ## Virtual
 
-Virtual repositories are not yet implemented.
+**Note: Virtual repositories are not yet implemented.**
+
+Virtual repositories provide a bridge between different layout formats.
 
 # Layouts
 
