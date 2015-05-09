@@ -6,12 +6,14 @@ The `maven-metadata.xml` file is a place where Maven stores basic information ab
 - What the latest deployed version of an artifact is
 - What the most recent released version of an artifact is
 - What plugins can be found under a `groupId`
+- What other artifacts (apart from the main one) have been deployed to the repository (along with their extensions)
 
 ## What types of metadata are there and where are they stored?
 
 - Artifact root-level `maven-metadata.xml`. This is used for storing the top-level versions of artifacts. For example, if an artifact has versions `1.0`, `1.1`, `1.2`, this `maven-metadata.xml` will only contain version information about them. Consider the following `maven-metadata.xml`:
 
     ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
     <metadata>
         <groupId>org.carlspring</groupId>
         <artifactId>metadata-example</artifactId>
@@ -27,8 +29,59 @@ The `maven-metadata.xml` file is a place where Maven stores basic information ab
         </versioning>
      </metadata>
      ```
+- Artifact version-level `maven-metadata.xml`. This is used only for timestamped `SNAPSHOT` versioned artifaccts. The purpose of this file is to contain a list of the existing timestamped artifacts, while at the same time specifying which one of them is the latest deployed one that should be used as the actual `SNAPSHOT` artifact to be resolved by Maven. The following is a brief example which illustrates the case where two timestamped `SNAPSHOT` artifacts have been deployed. Each deployment of an artifact increments the `<buildNumber/>` and updates the `<timestamp/>` fields.
 
-- Artifact version-level `maven-metadata.xml`. This is used only for timestamped `SNAPSHOT` versioned artifaccts. The purpose of this file is to contain a list of the existing timestamped artifacts, while at the same time specifying which one of them is the latest deployed one that should be used as the actual `SNAPSHOT` artifact to be resolved by Maven. 
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <metadata>
+        <groupId>org.carlspring.strongbox</groupId>
+        <artifactId>strongbox-metadata</artifactId>
+        <version>2.0-SNAPSHOT</version>
+        <versioning>
+            <snapshot>
+                <timestamp>20150508.221712</timestamp>
+                <buildNumber>2</buildNumber>
+            </snapshot>
+            <lastUpdated>20150508221310</lastUpdated>
+            <snapshotVersions>
+                <snapshotVersion>
+                    <classifier>javadoc</classifier>
+                    <extension>jar</extension>
+                    <value>2.0-20150508.220658-1</value>
+                    <updated>20150508220658</updated>
+                </snapshotVersion>
+                <snapshotVersion>
+                    <extension>jar</extension>
+                    <value>2.0-20150508.220658-1</value>
+                    <updated>20150508220658</updated>
+                </snapshotVersion>
+                <snapshotVersion>
+                    <extension>pom</extension>
+                    <value>2.0-20150508.220658-1</value>
+                    <updated>20150508220658</updated>
+                </snapshotVersion>
+                <snapshotVersion>
+                    <classifier>source-release</classifier>
+                    <extension>jar</extension>
+                    <value>2.0-20150508.221205-2</value>
+                    <updated>20150508221205</updated>
+                </snapshotVersion>
+                <snapshotVersion>
+                    <classifier>javadoc</classifier>
+                    <extension>jar</extension>
+                    <value>2.0-20150508.221205-2</value>
+                    <updated>20150508221205</updated>
+                </snapshotVersion>
+                <snapshotVersion>
+                    <extension>pom</extension>
+                    <value>2.0-20150508.221205-2</value>
+                    <updated>20150508221205</updated>
+                </snapshotVersion>
+            </snapshotVersions>
+        </versioning>
+    </metadata>
+    ```
+
 - Group-level plugin information for plugins. This is a top-level `maven-metadata.xml` file containing a list of the available plugins under this `groupId`.
 
 ##What's the difference between `maven-metadata.xml` and `maven-metadata-xyz.xml`?
