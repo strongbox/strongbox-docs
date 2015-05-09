@@ -11,7 +11,22 @@ The `maven-metadata.xml` file is a place where Maven stores basic information ab
 
 - Artifact root-level `maven-metadata.xml`. This is used for storing the top-level versions of artifacts. For example, if an artifact has versions `1.0`, `1.1`, `1.2`, this `maven-metadata.xml` will only contain version information about them. Consider the following `maven-metadata.xml`:
 
-TODO: Provide an example.
+    ```xml
+    <metadata>
+        <groupId>org.carlspring</groupId>
+        <artifactId>properties-injector</artifactId>
+        <versioning>
+            <latest>1.2</latest>
+            <release>1.2</release>
+            <versions>
+                <version>1.0</version>
+                <version>1.1</version>
+                <version>1.2</version>
+            </versions>
+            <lastUpdated>20150509185437</lastUpdated>
+        </versioning>
+     </metadata>
+     ```
 
 - Artifact version-level `maven-metadata.xml`. This is used only for timestamped `SNAPSHOT` versioned artifaccts. The purpose of this file is to contain a list of the existing timestamped artifacts, while at the same time specifying which one of them is the latest deployed one that should be used as the actual `SNAPSHOT` artifact to be resolved by Maven. 
 - Group-level plugin information for plugins. This is a top-level `maven-metadata.xml` file containing a list of the available plugins under this `groupId`.
