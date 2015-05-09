@@ -14,7 +14,7 @@ The `maven-metadata.xml` file is a place where Maven stores basic information ab
     ```xml
     <metadata>
         <groupId>org.carlspring</groupId>
-        <artifactId>properties-injector</artifactId>
+        <artifactId>metadata-example</artifactId>
         <versioning>
             <latest>1.2</latest>
             <release>1.2</release>
