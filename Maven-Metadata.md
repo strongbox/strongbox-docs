@@ -62,13 +62,12 @@ The `maven-metadata.xml` file is a place where Maven stores basic information ab
                     <updated>20150508220658</updated>
                 </snapshotVersion>
                 <snapshotVersion>
-                    <classifier>source-release</classifier>
+                    <classifier>javadoc</classifier>
                     <extension>jar</extension>
                     <value>2.0-20150508.221205-2</value>
                     <updated>20150508221205</updated>
                 </snapshotVersion>
                 <snapshotVersion>
-                    <classifier>javadoc</classifier>
                     <extension>jar</extension>
                     <value>2.0-20150508.221205-2</value>
                     <updated>20150508221205</updated>
