@@ -124,7 +124,7 @@ The `<release/>` field is used to point to the most-recently deployed release ar
 ## What produces the `maven-metadata.xml` files and who manages it?
 When you deploy an artifact to a remote repository, Maven will check if there is an existing `maven-metadata.xml` (of the respectively required type(s)) on the remote host. If the file(s) exist, Maven will use that data, merge the necessary changes into a new copy and then overwrite the data on the remote. If there is no existing `maven-metadata.xml` in the remote repository, Maven will generate a new one and deploy it.
 
-Sometimes the data in the repository can become corrupt and this is when the repository manager needs to be told to rebuild it (or, alternatively, a scheduled task on the repository manager can take care of this). 
+Sometimes the data in the repository can become corrupt and this is when the repository manager needs to be told to rebuild it (or, alternatively, a scheduled task on the repository manager can take care of this to pre-emptively fix it). 
 
 ## What are the official resources on Maven metadata?
 - [Introduction](http://maven.apache.org/ref/3.3.3/maven-repository-metadata/index.html)
