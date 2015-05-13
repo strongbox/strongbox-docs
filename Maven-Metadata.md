@@ -30,7 +30,7 @@ The `maven-metadata.xml` file is a place where Maven stores basic information ab
      </metadata>
      ```
 
-- Artifact `version`-level `maven-metadata.xml` (located under, for example: `org/carlspring/strongbox/strongbox-metadata/2.0-SNAPSHOT/maven-metadata.xml`). This is used only for timestamped `SNAPSHOT` versioned artifaccts. The purpose of this file is to contain a list of the existing timestamped artifacts, while at the same time specifying which one of them is the latest deployed one that should be used as the actual `SNAPSHOT` artifact to be resolved by Maven. The following is a brief example which illustrates the case where two timestamped `SNAPSHOT` artifacts have been deployed. Each deployment of an artifact increments the `<buildNumber/>` and updates the `<timestamp/>` fields.
+- Artifact `version`-level `maven-metadata.xml` (located under, for example: `org/carlspring/strongbox/strongbox-metadata/2.0-SNAPSHOT/maven-metadata.xml`). This is used only for timestamped `SNAPSHOT` versioned artifacts. The purpose of this file is to contain a list of the existing timestamped artifacts, while at the same time specifying which one of them is the latest deployed one that should be used as the actual `SNAPSHOT` artifact to be resolved by Maven. The following is a brief example which illustrates the case where two timestamped `SNAPSHOT` artifacts have been deployed. Each deployment of an artifact increments the `<buildNumber/>` and updates the `<timestamp/>` fields.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
