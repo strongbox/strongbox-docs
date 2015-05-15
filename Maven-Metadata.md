@@ -111,6 +111,12 @@ The `maven-metadata.xml` file is a place where Maven stores basic information ab
     </metadata>
     ```
 
+When generating metadata, the following `maven-metadata.xml` files need to be produced for each of these cases:
+- For artifacts with a released version (for example, `1.2.3`, `1.2.4`, etc), under the path to the artifact's root directory (for example, `org/carlspring/strongbox/metadata`), there needs to be a `maven-metadata.xml` containing the list of released versions.
+- For artifacts with a `SNAPSHOT` version (for example, `1.2.3-SNAPSHOT`, `1.2.4-SNAPSHOT`, etc), under the path to the artifact's root directory (for example, `org/carlspring/strongbox/metadata`), there will need to be a `maven-metadata.xml` containing the list of `SNAPSHOT` versions. In addition to that, in each of the version directories, a separate `maven-metadata.xml` needs to exist, which, (as explained above), will contain a mapping of which timestamped artifacts have been deployed and which one of them represents the latest `SNAPSHOT`.
+- For Maven plugins, under the plugin's `groupId` path there needs to be a `maven-metadata.xml` which lists all the plugins under this `groupId`. In addition, depending on whether this is a release or `SNAPSHOT` version, the same rules for artifacts apply, as explained above.
+
+
 ## What is the `latest` field used for?
 The `<latest/>` field is used to point to the most-recently deployed (release, or `SNAPSHOT`) artifact. Please note, that this is not always necessarily the highest available version. For example, if you have several active branches under version control from which you're deploying versions of the artifact (for example `1.2` and `2.0` branches from which you respectively release artifacts with versions `1.2.1`, `1.2.2`, etc. and `2.0.1`, `2.0.2`), you may have the case where an artifact from the `1.2` branch been deployed while at the same time there is also a `2.0.3` version as well. Depending on the repository type, the `<latest/>` field may also be pointing to `SNAPSHOT` artifacts as well.
 
