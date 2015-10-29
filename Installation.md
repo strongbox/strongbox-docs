@@ -27,7 +27,7 @@
 * Setup
   * Setup Script Variables (in $STRONGBOX_HOME/bin/strongbox):
     * Set the `STRONGBOX_HOME` variable to point to your installation of strongbox (this would normally be `/usr/local/strongbox`).
-    * Set the `RUN_AS_USER` variable to `strongbox`.
+    * Set the `RUN_AS_USER` variable to `strongbox`. Please, note that if you do not make this change, you may be taking a serious security risk.
   * Create a service
     * CentOs, Redhat, Suse
     ```
@@ -40,3 +40,11 @@
     ```
 
     * **[TODO]:** Debian, Ubuntu
+
+# Windows
+* Unzip the distribution.
+* Install the service:
+    ```
+    c:\java\strongbox>bin\strongbox.bat install
+    c:\java\strongbox>bin\strongbox.bat start
+    ```
