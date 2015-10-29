@@ -44,6 +44,7 @@
 # Windows
 * Unzip the distribution.
 * Install the service:
+
     ```
     c:\java\strongbox>bin\strongbox.bat install
     c:\java\strongbox>bin\strongbox.bat start
