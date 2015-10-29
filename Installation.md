@@ -28,4 +28,15 @@
   * Setup Script Variables (in $STRONGBOX_HOME/bin/strongbox):
     * Set the `STRONGBOX_HOME` variable to point to your installation of strongbox (this would normally be `/usr/local/strongbox`).
     * Set the `RUN_AS_USER` variable to `strongbox`.
+  * Create a service
+    * CentOs, Redhat, Suse
+    ```
+    $ sudo su -
+    $ cd /etc/init.d/
+    $ ln -s /usr/local/strongbox/bin/strongbox /etc/init.d/
+    $ chkconfig --add strongbox
+    $ service strongbox start
+    $ tail -F /usr/local/strongbox/logs/wrapper.log
+    ```
 
+    * **[TODO]:** Debian, Ubuntu
