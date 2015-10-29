@@ -15,6 +15,7 @@
     
     mkdir /usr/local/strongbox
     chown -R strongbox:strongbox /usr/local/strongbox/
+    chmod 770 /usr/local/strongbox/
     
     su - strongbox
     tar -zxf /path/to/strongbox-distribution*.tar.gz -C /usr/local/strongbox --strip-components=1
@@ -22,7 +23,7 @@
     ```
 
 * Setup
- * Setup Script Variables (in $STRONGBOX_HOME/bin/strongbox):
-   * Set the `STRONGBOX_HOME` variable to point to your installation of strongbox (this would normally be `/usr/local/strongbox`).
+  * Setup Script Variables (in $STRONGBOX_HOME/bin/strongbox):
+    * Set the `STRONGBOX_HOME` variable to point to your installation of strongbox (this would normally be `/usr/local/strongbox`).
     * Set the `RUN_AS_USER` variable to `strongbox`.
 
