@@ -1,7 +1,8 @@
 
 # Pre-requisites:
 * Java 1.8
-* Set JAVA_HOME to point to your Java installation.
+* Set the `JAVA_HOME` variable to point to your Java installation.
+* Set the `PATH` variable to include `$JAVA_HOME/bin`.
 
 # Linux
 
