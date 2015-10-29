@@ -47,5 +47,6 @@
 
     ```
     c:\java\strongbox>bin\strongbox.bat install
+    wrapper  | Strongbox: Distribution installed.
     c:\java\strongbox>bin\strongbox.bat start
     ```
