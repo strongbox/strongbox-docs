@@ -18,8 +18,10 @@
     chmod 770 /usr/local/strongbox/
     
     su - strongbox
-    tar -zxf /path/to/strongbox-distribution*.tar.gz -C /usr/local/strongbox --strip-components=1
-    ln -s /usr/local/strongbox/bin/wrapper-linux-x86-64 /usr/local/strongbox/bin/wrapper
+    tar -zxf /path/to/strongbox-distribution*.tar.gz \
+        -C /usr/local/strongbox --strip-components=1
+    ln -s /usr/local/strongbox/bin/wrapper-linux-x86-64 \
+        /usr/local/strongbox/bin/wrapper
     ```
 
 * Setup
