@@ -10,10 +10,10 @@
 
     ```
     sudo su -
+    mkdir /usr/local/strongbox
     groupadd strongbox
     useradd -d /usr/local/strongbox -g strongbox strongbox
     
-    mkdir /usr/local/strongbox
     chown -R strongbox:strongbox /usr/local/strongbox/
     chmod 770 /usr/local/strongbox/
     
