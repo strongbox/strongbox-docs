@@ -136,4 +136,4 @@ Sometimes the data in the repository can become corrupt and this is when the rep
 - [Introduction](http://maven.apache.org/ref/3.3.3/maven-repository-metadata/index.html)
 - [maven-metadata.xml reference](http://maven.apache.org/ref/3.3.3/maven-repository-metadata/repository-metadata.html)
 - [Javadocs](http://maven.apache.org/ref/3.3.3/maven-repository-metadata/apidocs/index.html)
-- [Maven+3.x+Compatibility+Notes] (https://cwiki.apache.org/confluence/display/MAVEN/Maven+3.x+Compatibility+Notes) (contains various useful comments on behavioral changes in Maven 3.x, compared to 2.x).
+- [Maven 3.x Compatibility Notes] (https://cwiki.apache.org/confluence/display/MAVEN/Maven+3.x+Compatibility+Notes) (contains various useful comments on behavioral changes in Maven 3.x, compared to 2.x).
