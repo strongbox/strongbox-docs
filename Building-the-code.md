@@ -1,7 +1,7 @@
 Please, place this [settings.xml](resources/settings.xml) file under your `~/.m2` directory.
 
 You will need to have:
-* Maven >= 3.3.3
+* Maven >= 3.3.9
 * Java 1.8
 
 Try building the [strongbox](https://github.com/strongbox/strongbox) code:
