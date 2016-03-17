@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+
+    <mirrors>
+        <mirror>
+            <id>carlspring</id>
+            <name>Carlspring Proxy</name>
+            <url>http://dev.carlspring.org/nexus/content/groups/carlspring</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+    </mirrors>
+
+    <profiles>
+        <profile>
+            <id>carlspring-repositories</id>
+
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <repositories>
+                <repository>
+                    <id>carlspring</id>
+                    <name>carlspring</name>
+                    <url>http://dev.carlspring.org/nexus/content/groups/carlspring</url>
+                    <layout>default</layout>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>carlspring</id>
+                    <name>carlspring</name>
+                    <url>http://dev.carlspring.org/nexus/content/groups/carlspring</url>
+                    <layout>default</layout>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+
+</settings>
