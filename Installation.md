@@ -39,7 +39,24 @@
     $ tail -F /usr/local/strongbox/logs/wrapper.log
     ```
 
-    * **[TODO]:** Debian, Ubuntu
+    * Debian, Ubuntu
+    ```
+    $ sudo su -
+    $ cd /etc/init.d/
+    $ ln -s /usr/local/strongbox/bin/strongbox /etc/init.d/
+    $ update-rc.d strongbox defaults
+    Adding system startup for /etc/init.d/strongbox ...
+      /etc/rc0.d/K20strongbox -> ../init.d/strongbox
+      /etc/rc1.d/K20strongbox -> ../init.d/strongbox
+      /etc/rc6.d/K20strongbox -> ../init.d/strongbox
+      /etc/rc2.d/S20strongbox -> ../init.d/strongbox
+      /etc/rc3.d/S20strongbox -> ../init.d/strongbox
+      /etc/rc4.d/S20strongbox -> ../init.d/strongbox
+      /etc/rc5.d/S20strongbox -> ../init.d/strongbox
+    $ service strongbox start
+    Starting Strongbox: Distribution...
+    $ tail -F /usr/local/strongbox/logs/wrapper.log
+    ```
 
 # Windows
 * Unzip the distribution.
