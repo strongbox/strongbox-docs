@@ -1,9 +1,10 @@
-Please, place this [[settings.xml|resources/maven/settings.xml]] file under your `~/.m2` directory.
-
+# Pre-requisites:
 You will need to have:
 * Maven >= 3.3.9
 * Java 1.8
+* Please, place this [[settings.xml|resources/maven/settings.xml]] file under your `~/.m2` directory.
 
+#Building
 Try building the [strongbox](https://github.com/strongbox/strongbox) code:
 
     mvn clean install
