@@ -37,7 +37,9 @@ To execute a test method of a test, run:
 
 Jenkins runs the tests in invoking a few Maven profiles, so that, for example, random ports can be allocated for the various plugins that open ports (such as the `jetty-maven-plugin`, `little-proxy-maven-plugin`, `orientdb-maven-plugin` and `unboundid-maven-plugin`, for example).
 
-    mvn clean install -Preserve-ports,run-it-tests,!set-default-ports -Dmaven.test.failure.ignore=false
+    mvn clean install \
+        -Preserve-ports,run-it-tests,!set-default-ports \
+        -Dmaven.test.failure.ignore=false
 
 # Jetty
 
@@ -47,6 +49,4 @@ Sometimes you may have to run Jetty and manually invoke some manual tests. To do
 
     cd strongbox-web-core
     mvn clean package -Djetty.block
-
-
 
