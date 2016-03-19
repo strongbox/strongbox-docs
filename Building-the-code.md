@@ -5,7 +5,7 @@ You will need to have:
 * Please, place this [[settings.xml|resources/maven/settings.xml]] file under your `~/.m2` directory.
 
 # Building
-Try building the [strongbox](https://github.com/strongbox/strongbox) code:
+Try building the [Strongbox](https://github.com/strongbox/strongbox) code:
 
     mvn clean install
 
