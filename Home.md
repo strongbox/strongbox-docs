@@ -1,1 +1,1 @@
-Welcome to the strongbox wiki!
+Welcome to the Strongbox wiki!
