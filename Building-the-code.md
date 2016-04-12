@@ -35,6 +35,13 @@ To execute a test method of a test, run:
 
     mvn clean install -Dtest=MyTest#testMyMethod
 
+## Executing the tests in remote debug mode
+
+To execute the tests in remote debug mode, run:
+
+    mvn clean install \
+        -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9001 -Xnoagent"
+
 ## Executing the tests like they are run in Jenkins
 
 Jenkins runs the tests in invoking a few Maven profiles, so that, for example, random ports can be allocated for the various plugins that open ports (such as the `jetty-maven-plugin`, `little-proxy-maven-plugin`, `orientdb-maven-plugin` and `unboundid-maven-plugin`, for example).
@@ -45,10 +52,19 @@ Jenkins runs the tests in invoking a few Maven profiles, so that, for example, r
 
 # Jetty
 
+## Running Jetty and the tests in remote debug mode
+
+To execute the tests in remote debug mode, run:
+
+    MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9001 -Xnoagent" \
+    mvn clean install \
+        -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9001 -Xnoagent"
+
+This will require you to connect with the remote debugger twice - once to the JVM running the `jetty-maven-plugin` and once for the Maven Surefire tests.
+
 ## Running Jetty in blocked mode
 
 Sometimes you may have to run Jetty and manually invoke some manual tests. To do this run:
 
     cd strongbox-web-core
     mvn clean package -Djetty.block
-
