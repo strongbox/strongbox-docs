@@ -13,6 +13,7 @@ If this doesn't work out of the box, then you might have to build and install th
 - [unboundid-maven-plugin](https://github.com/carlspring/unboundid-maven-plugin)
 - [little-proxy-maven-plugin](https://github.com/carlspring/little-proxy-maven-plugin)
 - [orientdb-maven-plugin](https://github.com/carlspring/orientdb-maven-plugin)
+- [maven-commons](https://github.com/carlspring/maven-commons/)
 - [commons-io](https://github.com/carlspring/commons-io/)
 - [commons-http](https://github.com/carlspring/commons-http/)
 - [logback-configuration](https://github.com/carlspring/logback-configuration)
