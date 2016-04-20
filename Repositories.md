@@ -10,6 +10,10 @@ Hosted repositories are a place where you can store artifacts.
 
 Proxy repositories serve artifacts which are resolved from remote repositories and cached for local resolution.
 
+These repositories are a cache for proxied external repositories and the cache may have an expiration. It's therefore important to keep in mind that these caches can be wiped at any time.
+
+When a proxy repository is initially created, it's empty. Due to this, before an initial cache is built, these repositories can be a bit slow at the beginning. Over time they become a lot faster, as the artifacts which are already cached are served from the local file system, instead of being re-requested over the network.
+
 It is not possible to store artifacts in these repositories.
 
 ## Group
