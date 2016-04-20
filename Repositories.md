@@ -14,6 +14,10 @@ Proxy repositories serve artifacts which are resolved from remote repositories a
 
 A repository group is a special kind of repository which aggregates a list of repositories and serves it's contents under the same URL. 
 
+It is not possible to store artifacts in these repositories, they only serve them artifacts available via the repositories they are set up to serve.
+
+Group repositories can contain other nested group repositories.
+
 ## Virtual
 
 **Note: Virtual repositories are not yet implemented.**
