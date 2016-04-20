@@ -20,6 +20,10 @@ It is not possible to store artifacts in these repositories, they only serve the
 
 Group repositories can contain other nested group repositories.
 
+Group repositories allow you to:
+* Define the ordering of the repositories they serve
+* Define routing rules
+
 ## Virtual
 
 **Note: Virtual repositories are not yet implemented.**
