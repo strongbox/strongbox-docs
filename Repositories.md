@@ -2,13 +2,15 @@
 
 ## Hosted
 
-Hosted repositories allow deployment of artifacts.
+Hosted repositories are a place where you can store artifacts.
 
 ## Proxy
 
 **Note: Proxy repositories are not yet implemented.**
 
 Proxy repositories serve artifacts which are resolved from remote repositories and cached for local resolution.
+
+It is not possible to store artifacts in these repositories.
 
 ## Group
 
