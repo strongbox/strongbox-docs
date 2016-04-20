@@ -12,15 +12,15 @@ Proxy repositories serve artifacts which are resolved from remote repositories a
 
 These repositories are a cache for proxied external repositories and the cache may have an expiration. It's therefore important to keep in mind that these caches can be wiped at any time.
 
-When a proxy repository is initially created, it's empty. Due to this, before an initial cache is built, these repositories can be a bit slow at the beginning. Over time they become a lot faster, as the artifacts which are already cached are served from the local file system, instead of being re-requested over the network.
+When a proxy repository is initially created, it's empty. Due to this, before an initial cache is built, these repositories can be a bit slow at the beginning. However, over a reasonably short amount time they become a lot faster, as the artifacts which are already cached are served from the local file system, instead of being re-requested over the network.
 
-It is not possible to store artifacts in these repositories.
+It is not possible to deploy artifacts to these repositories.
 
 ## Group
 
 A repository group is a special kind of repository which aggregates a list of repositories and serves it's contents under the same URL. 
 
-It is not possible to store artifacts in these repositories, they only serve them artifacts available via the repositories they are set up to serve.
+It is not possible to deploy artifacts to these repositories, they only serve them artifacts available via the repositories they are set up to serve.
 
 Group repositories can contain other nested group repositories.
 
