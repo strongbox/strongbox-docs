@@ -71,4 +71,4 @@ The web application is located in the [strongbox-webapp](https://github.com/stro
 
 #### The Distributions
 
-The [strongbox-assembly](https://github.com/strongbox/strongbox-assembly) project produces the final binary distributions which are then made public under the [releases|https://github.com/strongbox/strongbox-assembly/releases] section.
+The [strongbox-assembly](https://github.com/strongbox/strongbox-assembly) project produces the final binary distributions which are then made public under the [releases](https://github.com/strongbox/strongbox-assembly/releases) section.
