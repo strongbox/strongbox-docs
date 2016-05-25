@@ -29,7 +29,7 @@
     * Set the `STRONGBOX_HOME` variable to point to your installation of strongbox (this would normally be `/usr/local/strongbox`).
     * Set the `RUN_AS_USER` variable to `strongbox`. Please, note that if you do not make this change, you may be taking a serious security risk.
   * Create a service
-    * CentOs, Redhat, Suse
+    * CentOS, Redhat, Suse
     ```
     $ sudo su -
     $ cd /etc/init.d/
