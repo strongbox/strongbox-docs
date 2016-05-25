@@ -6,7 +6,7 @@ Hosted repositories are a place where you can store artifacts.
 
 ## Proxy
 
-**Note: Proxy repositories are not yet implemented.**
+**Note: Proxy repositories are not yet fully implemented.**
 
 Proxy repositories serve artifacts which are resolved from remote repositories and cached for local resolution.
 
