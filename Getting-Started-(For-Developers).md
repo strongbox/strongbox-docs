@@ -53,7 +53,7 @@ This is a brief breakdown of the modules:
 
 ## Additional Modules
 
-All the [Strongbox](https://github.com/strongbox/strongbox) modules are organized under the [Strongbox](https://github.com/strongbox) group.
+All the [Strongbox](https://github.com/strongbox/strongbox) modules are organized under the [Strongbox](https://github.com/strongbox) organization.
 
 ### Integration Tests
 
