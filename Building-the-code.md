@@ -69,3 +69,15 @@ Sometimes you may have to run Jetty and manually invoke some manual tests. To do
 
     cd strongbox-web-core
     mvn clean package -Djetty.block
+
+# Keeping Forks in Sync
+
+First, you need to have added the original remote (this is a one time only set up task):
+
+    git remote add strongbox https://github.com/strongbox/strongbox.git
+
+Then in order to sync your fork with the original remote, execute the following:
+
+    git fetch strongbox
+    git checkout master		
+    git merge strongbox/master
