@@ -72,3 +72,11 @@ The web application is located in the [strongbox-webapp](https://github.com/stro
 #### The Distributions
 
 The [strongbox-assembly](https://github.com/strongbox/strongbox-assembly) project produces the final binary distributions which are then made public under the [releases](https://github.com/strongbox/strongbox-assembly/releases) section.
+
+# Creating New Modules/Projects
+
+* Each new modules needs to extend the `strongbox-parent`, from where it should be extending the dependencies and the configuration for Maven plugins. Modules should not contain any artifact or plugin versions.
+
+* All modules need to have a README.md file describing in brief what the module is and give brief pointers on what classes and tests are of primary interest.
+
+* Each project in the [Strongbox](https://github.com/strongbox/) organization needs to have a copy of the [LICENSE.md](https://github.com/strongbox/strongbox/blob/master/LICENSE) file.
