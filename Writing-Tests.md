@@ -1,9 +1,9 @@
 # General
 
 * All code must be accompanied with sufficiently thorough test cases which validate the functionality.
-* Test cases should be self-sufficient and not rely on data produced by other tests, or the outcome of other tests in any other way.
+* Test cases should be self-sufficient and not rely on data produced by other tests, or the outcome of other tests in any other way. A test case may, however, generate all it's resources via the `setUp` method; however, such generation should be done just once for all the tests.
 * If tests are failing, they are a top priority.
-* Pull requests shall not be merged, if there are failing tests.
+* Pull requests will not be merged, if there are failing tests.
 * If working on the REST API, the respective REST client should be used. For any new functionality, there will have to be respective methods in the [RestClient](https://github.com/strongbox/strongbox/blob/master/strongbox-rest-client/src/main/java/org/carlspring/strongbox/client/RestClient.java) (or related client).
 
 # Artifact-related Tests
