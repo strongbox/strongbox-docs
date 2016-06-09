@@ -118,19 +118,4 @@ For test cases which rely on ports that are dynamically assigned by Maven (this 
     @Autowired
     private AssignedPorts assignedPorts;
     
-    @Before
-    public void setUp()
-            throws Exception
-    {
-        if (!BASEDIR.exists())
-        {
-            //noinspection ResultOfMethodCallIgnored
-            BASEDIR.mkdirs();
-
-            client = new ArtifactClient();
-            client.setUsername("maven");
-            client.setPassword("password");
-            client.setPort(assignedPorts.getPort("port.jetty.listen"));
-            client.setContextBaseUrl("http://localhost:" + client.getPort());
-        }
-    }
+    private int jettyPort assignedPorts.getPort("port.jetty.listen");
