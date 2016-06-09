@@ -80,3 +80,7 @@ The [strongbox-assembly](https://github.com/strongbox/strongbox-assembly) projec
 * All modules need to have a README.md file describing in brief what the module is and give brief pointers on what classes and tests are of primary interest.
 
 * Each project in the [Strongbox](https://github.com/strongbox/) organization needs to have a copy of the [LICENSE.md](https://github.com/strongbox/strongbox/blob/master/LICENSE) file.
+
+# See Also
+* [Writing Tests](https://github.com/strongbox/strongbox/wiki/Writing-Tests)
+* [REST API](https://github.com/strongbox/strongbox/wiki/REST-API)
