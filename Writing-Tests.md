@@ -110,3 +110,27 @@ For example:
 
         assertFalse("Failed to empty trash for repository '" + REPOSITORY_WITH_TRASH + "'!", ARTIFACT_FILE_IN_TRASH.exists());
     }
+
+# Dealing With Ports
+
+For test cases which rely on ports that are dynamically assigned by Maven (this is related to testing such code via Jenkins builds), you can use the [AssignedPorts](https://github.com/strongbox/strongbox/blob/master/strongbox-testing/strongbox-testing-core/src/main/java/org/carlspring/strongbox/testing/AssignedPorts.java).
+
+    @Autowired
+    private AssignedPorts assignedPorts;
+    
+    @Before
+    public void setUp()
+            throws Exception
+    {
+        if (!BASEDIR.exists())
+        {
+            //noinspection ResultOfMethodCallIgnored
+            BASEDIR.mkdirs();
+
+            client = new ArtifactClient();
+            client.setUsername("maven");
+            client.setPassword("password");
+            client.setPort(assignedPorts.getPort("port.jetty.listen"));
+            client.setContextBaseUrl("http://localhost:" + client.getPort());
+        }
+    }
