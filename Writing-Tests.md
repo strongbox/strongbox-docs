@@ -12,6 +12,8 @@ For artifact-related test, you would normally want to extend the [TestCaseWithAr
 
 ## Generating Artifacts
 
+The [ArtifactGenerator](https://github.com/strongbox/strongbox/blob/master/strongbox-testing/strongbox-testing-core/src/main/java/org/carlspring/strongbox/artifact/generator/ArtifactGenerator.java) class provides various methods for generating valid Maven test artifacts.
+
 To generate an artifact, you can use the following code:
 
     generateArtifact(REPOSITORY_BASEDIR_RELEASES.getAbsolutePath(),
@@ -24,8 +26,9 @@ If you're generating this from your test's `setUp` method, please, make sure tha
 
 ## Deploying Artifacts
 
-The following is an example of artifact deployment taken from the [ArtifactDeployerTest](https://github.com/strongbox/strongbox/blob/master/strongbox-testing/strongbox-testing-core/src/test/java/org/carlspring/strongbox/artifact/generator/ArtifactDeployerTest.java):
+The [ArtifactDeployer](https://github.com/strongbox/strongbox/blob/master/strongbox-testing/strongbox-testing-core/src/main/java/org/carlspring/strongbox/artifact/generator/ArtifactDeployer.java) class provides a way to deploy Maven artifacts to a repository.
 
+The following is an example of artifact deployment taken from the [ArtifactDeployerTest](https://github.com/strongbox/strongbox/blob/master/strongbox-testing/strongbox-testing-core/src/test/java/org/carlspring/strongbox/artifact/generator/ArtifactDeployerTest.java):
 
     private static ArtifactClient client;
     
