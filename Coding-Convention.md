@@ -1,12 +1,12 @@
 It is important to have consistency across the codebase. This won't necessarily make your code work better, but it might help make it more understandable and less irritating to go through when doing a code review, extending with new functionality, or adding code to.
 
-When re-indenting code, please make a single commit with just the indentation changes and make sure you describe them in the commit message. Mixing a re-indentation and actual functional changes in the same commit make things much less easier to track and figure out.
+* When re-indenting code, please make a single commit with just the indentation changes and make sure you describe them in the commit message. Mixing a re-indentation and actual functional changes in the same commit make things much less easier to track and figure out.
 
-Within methods, please try to leave spaces between logical units of code to improve readability.
+* Within methods, please try to leave spaces between logical units of code to improve readability.
 
-Please, use four spaces, instead of a tab.
+* Please, use four spaces, instead of a tab.
 
-Please, consider the following and example of how to indent your code.
+* Please, consider the following an example of how to indent your code.
 
 ```
 package com.bar;
