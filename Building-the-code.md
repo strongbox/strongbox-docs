@@ -18,6 +18,16 @@ If this doesn't work out of the box, then you might have to build and install th
 - [commons-http](https://github.com/carlspring/commons-http/)
 - [logback-configuration](https://github.com/carlspring/logback-configuration)
 
+## Building and capturing the stdout and stderr to a log file
+
+To build and redirect all the output to a file, run:
+
+    mvn clean install -DskipTests > build.log 2>&1
+
+To build and redirect all the output to a file, and tail the log in real-time, run:
+
+    mvn clean install -DskipTests > build.log 2>&1 | tail -n 500 -f build.log
+
 # Tests
 
 ## Skipping tests
