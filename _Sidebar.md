@@ -7,7 +7,7 @@
 * [[REST API]]
 
 **Developer Guide**
-* [[Getting Started (For Developers)]]
+* [[Getting Started]]
 * [[Building the code]]
 * [[Coding Convention]]
 * [[Writing Tests]]
