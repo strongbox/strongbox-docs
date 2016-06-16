@@ -11,8 +11,8 @@ Strongbox is an opensource Artifact Repository Manager written in Java.
  * Sharing the libraries among themselves and manually copying them
  * Having to list all the required external repositories in their build files
 * Control over what artifacts are allowed within the company
-* Artifacts are not stored under the version control system, hence keeping the VCS lightweight and clean from binary products.
+* Artifacts are not stored under the version control system, hence keeping it lightweight and clean from binary products.
 * Developers don't have to build all the libraries from sources all the time, hence:
- * Less time to build, more time to code.
- * You don't have to grant access to third-parties to your VCS in order to share your code with them.
+ * Less time to build, more time to code
+ * You don't have to grant access to third-parties to your VCS in order to share your code with them
 * The continuous integration servers don't have to rely on external services to resolve artifacts and builds are faster. If the remote repository, which is being proxied, is down, the artifacts can still be resolved from the cache, if they have previously been requested.
