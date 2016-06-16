@@ -1,10 +1,10 @@
 **User Guide**
-* [[Storages]]
-* [[Repositories]]
 * [[Installation]]
 * [[Integrating build tools with Strongbox]]
 * [[Maven Metadata]]
 * [[REST API]]
+* [[Repositories]]
+* [[Storages]]
 
 **Developer Guide**
 * [[Getting Started]]
