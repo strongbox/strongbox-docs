@@ -5,6 +5,7 @@ Strongbox is an opensource Artifact Repository Manager written in Java.
 * Provide a way to resolve artifacts from other third-party repositories on the Internet (via [proxy](Repositories#proxy) repositories)
 * Provide a way to serve multiple artifact repositories under the same URL (via [group](Repositories#group) repositories)
 * Access control over the repositories
+* Search for artifacts
 
 # Benefits of an artifact repository manager
 * Access to external repositories is handled via proxy repositories which is especially useful in company environments, as it reduces the bandwidth towards external sites, due to a build up of a local cache. The benefit of this can mainly be experienced with release repositories, due to the fact that the artifacts in them are guaranteed to never change, hence no further attempts to resolve an artifact from external sources is made after the initial one.
