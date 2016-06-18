@@ -8,7 +8,9 @@ The logging in the application is set up using:
 
 # Dependencies
 
-If you have `strongbox-commons` as a (direct, or transitive) dependency of your module, you will be able to use the logging, without having to specify the dependencies yourself. If for one reason, or another you do not want to have this dependency, you will need the following dependencies:
+## Configuration
+
+If you have `strongbox-commons` as a (direct, or transitive) dependency of your module, you will be able to use the logging, without having to specify the dependencies yourself. If, for one reason, or another, you do not want to have this dependency, you will need the following dependencies instead:
 
     <!-- Logging -->
     <dependency>
@@ -24,9 +26,33 @@ If you have `strongbox-commons` as a (direct, or transitive) dependency of your 
         <artifactId>logback-classic</artifactId>
     </dependency>
 
+## Dependency Conflicts
+
+Dependencies which have transitive dependencies on different versions of the libraries below, will most-likely cause dependency conflicts:
+
+* `log4j`
+* `commons-logging`
+* `commons-logging-api`
+
+In order to exclude them as transitive dependencies, you will need to have something similar to this example
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${version.spring}</version>
+        
+        <exclusions>
+            <!-- Exclude Commons Logging -->
+            <exclusion>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+
 # Logging Configuration File Location
 
-The logging is controlled via the `strongbox/strongbox-resources/strongbox-common-resources/src/main/resources/logback.xml`. This resource should be copied wherever necessary using:
+The logging is controlled via the [`strongbox/strongbox-resources/strongbox-common-resources/src/main/resources/logback.xml`](https://github.com/strongbox/strongbox/blob/master/strongbox-resources/strongbox-common-resources/src/main/resources/logback.xml). This resource should be copied wherever necessary using:
 
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -56,6 +82,7 @@ The logging is controlled via the `strongbox/strongbox-resources/strongbox-commo
             </execution>
         </executions>
     </plugin>
+
 
 # Enabling Low-level Logging For Jersey
 
