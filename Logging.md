@@ -6,6 +6,24 @@ The logging in the application is set up using:
 * `jcl-over-slf4j` (to control Jersey and Spring output)
 * [`logback-configuration`](https://github.com/carlspring/logback-configuration)
 
+# Dependencies
+
+If you have `strongbox-commons` as a (direct, or transitive) dependency of your module, you will be able to use the logging, without having to specify the dependencies yourself. If for one reason, or another you do not want to have this dependency, you will need the following dependencies:
+
+    <!-- Logging -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jul-to-slf4j</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+    </dependency>
+
 # Logging Configuration File Location
 
 The logging is controlled via the `strongbox/strongbox-resources/strongbox-common-resources/src/main/resources/logback.xml`. This resource should be copied wherever necessary using:
