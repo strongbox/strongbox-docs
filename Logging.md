@@ -51,4 +51,6 @@ Customized logging configuration (per project) should be avoided, but for debugg
 
 # Configuring the Logging via The REST API
 
+The logging can be configured via the REST API. We have created a separate project called [`logback-configuration`](https://github.com/carlspring/logback-configuration) for this purpose.
+
 For details on how to configure the logging and resolve the log files via the REST API, please check the [here](http://strongbox.carlspring.org/docs/rest/api.html).
