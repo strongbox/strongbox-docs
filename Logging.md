@@ -34,7 +34,7 @@ Dependencies which have transitive dependencies on different versions of the lib
 * `commons-logging`
 * `commons-logging-api`
 
-In order to exclude them as transitive dependencies, you will need to have something similar to this example
+In order to exclude them as transitive dependencies, you will need to have something similar to this example:
 
     <dependency>
         <groupId>org.springframework</groupId>
