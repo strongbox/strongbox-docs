@@ -10,6 +10,7 @@
 * [[Getting Started]]
 * [[Building the code]]
 * [[Coding Convention]]
+* [[Logging]]
 * [[Writing Tests]]
 
 **Contributing/Licensing**
