@@ -102,11 +102,6 @@ The `maven-metadata.xml` file is a place where Maven stores basic information ab
                 <prefix>relocation</prefix>
                 <artifactId>relocation-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <name>system-properties-maven-plugin</name>
-                <prefix>system-properties</prefix>
-                <artifactId>system-properties-maven-plugin</artifactId>
-            </plugin>
         </plugins>
     </metadata>
     ```
