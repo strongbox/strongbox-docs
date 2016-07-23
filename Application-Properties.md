@@ -2,6 +2,7 @@ The following is a list of configuration properties, which can be used to custom
 
 | Property   |   Type   | Default Value | Description | 
 |:-----------|:--------:|:-------------:|-------------|
+| repository.config.xml | String | `etc/conf/strongbox.xml` | The path to the `strongbox.xml` file. |
 | strongbox.home | String |  |  |
 | strongbox.vault | String |  |  |
 | strongbox.storage.booter.basedir | String |  |  |
