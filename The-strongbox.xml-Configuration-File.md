@@ -13,6 +13,8 @@ The cases in which this file is required are:
 
 # The Configuration File
 
+The following is an example of a `strongbox.xml` configuration file:
+
     <configuration>
     
         <version>1.0</version>
