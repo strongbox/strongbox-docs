@@ -2,7 +2,7 @@
 
 This resource file describes the configuration of the server.
 
-The property controlling this file is `repository.config.xml`.
+The property controlling this file is `repository.config.xml`. The default location for this resource is `etc/conf/strongbox.xml`.
 
 The cases in which this file is required are:
 * During the very first server launch when there is no data in the database
