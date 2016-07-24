@@ -5,7 +5,7 @@
 * [[Maven Metadata]]
 * [[REST API]]
 * [[Repositories]]
-* Resources
+* Configuration Files
   * [[The strongbox.xml Configuration File]]
 * [[Storages]]
 
