@@ -162,4 +162,4 @@ Follow these rules for the service implementation:
 * Annotate your class with the Spring `@Service` and `@Transactional` annotations.
 * Add `synchronized` modifier on all of your service class methods.
 * Do **not** define your service class as public and use interface instead of class for injection (with `@Autowired`); this follows the best practice principles from Joshua Bloch 'Effective Java' book called Programming to Interface
-* _Optional_ - feel free to use @Cacheable whenever you need to use second level cache that's already configured in the project (do not forget to modify `ehcache.xml` file accordingly) 
+* _Optional_ - feel free to use `@Cacheable` whenever you need to use second level cache that's already configured in the project (do not forget to modify `ehcache.xml` file accordingly) 
