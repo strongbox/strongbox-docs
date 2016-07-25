@@ -15,7 +15,7 @@
 * [[Coding Convention]]
 * [[Logging]]
 * [[Writing Tests]]
-* [[Getting started with persistence]]
+* [[Getting Started With Persistence]]
 
 **Contributing/Licensing**
 * [License](https://github.com/strongbox/strongbox/blob/master/LICENSE)
