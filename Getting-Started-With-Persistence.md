@@ -1,10 +1,12 @@
 ## Abstract
-This page contains explanations and code samples for developers who need to store their entities in the database. 
 
-The Strongbox project uses [OrientDB](http://orientdb.com/orientdb/) as internal persistent storage through Spring Data interface that's implemented in open source project [spring-data-orientdb](https://github.com/orientechnologies/spring-data-orientdb).
+This page contains explanations and code samples for developers who need to store their entities into the database. 
 
-## Adding dependencies
-Let's assume that you as Strongbox developer was asked to create a new module or writing persistence code in the existing module that do not contain persistence dependencies yet. Otherwise you will have proper section in `pom.xml` as you will see in the code sample below. So, your module pom.xml file should contain the following code snippet in the `<dependencies>` section:
+The Strongbox project uses [OrientDB](http://orientdb.com/orientdb/) as its internal persistent storage through the [Spring Data](http://projects.spring.io/spring-data/) interface which, in term, is implemented as the [spring-data-orientdb](https://github.com/orientechnologies/spring-data-orientdb) open source project.
+
+## Adding Dependencies
+
+Let's assume that you, as a Strongbox developer, need to create a new module or write some persistence code in an existing module that does not contain any persistence dependencies yet. (Otherwise you will already have the proper `<dependencies/>` section in your `pom.xml`, similar to the one in the example below). You will need to add the following code snippet to your module's `pom.xml` under the `<dependencies>` section:
 
     <dependency>
         <groupId>${project.groupId}</groupId>
@@ -12,17 +14,20 @@ Let's assume that you as Strongbox developer was asked to create a new module or
         <version>${project.version}</version>
     </dependency>
 
-Notice that there is no need to define dependencies on OrientDB or Spring Data directly. It's already done in the `strongbox-data-service` module.
+Notice that there is no need to define any direct dependencies on OrientDB or Spring Data - it's already done via the `strongbox-data-service` module.
 
-## Creating your entity class
-Assume that you have some POJO and you need to save it in the database and probably have at least CRUD operation's under it as well. Your package will end up with the domain we believe and the name we just picked up was `MyEntity`. If you want to store that entity properly you need to adopt the following rules:
-* extend `org.carlspring.strongbox.data.domain.GenericEntity` to receive all required fields and logic from superclass
-* define getters and setters according to `JavaBeans` coding conventions for all non-transient properties in your class
-* define default empty constructor for safety (even if compiler will create one for you if and only if you do not define other constructors) and to follow `JPA` and `java.io.Serializable` standards
-* override properly `equals() `and `hashCode()` methods according to java hashCode contract (your entity could be used in the collection classes like `java.util.Set` somewhere, and, if you do not define such methods properly other developers or yourself will be not able to use your entity)
-* _optional_ - define proper `toString()` implementation to let yourself and other developers see something meaningful in the debug messages
+## Creating Your Entity Class
 
-The complete source code example that follows all requirements could looks like the following:
+Let's now assume that you have a POJO and you need to save it to the database (and that you probably have at least CRUD operation's implemented in it as well). Place your code under the `org.carlspring.strongbox.domain.yourstuff` package. For the sake of the example, let's pick `MyEntity` as the name of your entity.
+
+If you want to store that entity properly you need to adopt the following rules:
+* Extend the `org.carlspring.strongbox.data.domain.GenericEntity` class to inherit all required fields and logic from the superclass.
+* Define getters and setters according to the `JavaBeans` coding convention for all non-transient properties in your class.
+* Define a default empty constructor for safety (even if the compiler will create one for you, if you don't define any other constructors) and follow the `JPA` and `java.io.Serializable` standards.
+* Override the `equals() `and `hashCode()` methods according to java `hashCode` contract (because your entity could be used in collection classes such as `java.util.Set` and if you don't define such methods properly other developers or yourself will be not able to use your entity).
+* _Optional_ - define a `toString()` implementation to let yourself and other developers see something meaningful in the debug messages.
+
+The complete source code example that follows all requirements should look something like this:
 
     package org.carlspring.strongbox.domain;
     
@@ -53,9 +58,17 @@ The complete source code example that follows all requirements could looks like 
         @Override
         public boolean equals(Object o)
         {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o)
+            {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass())
+            {
+                return false;
+            }
+            
             MyEntity myEntity = (MyEntity) o;
+
             return Objects.equal(property, myEntity.property);
         }
     
@@ -71,23 +84,25 @@ The complete source code example that follows all requirements could looks like 
             final StringBuilder sb = new StringBuilder("MyEntity{");
             sb.append("property='").append(property).append('\'');
             sb.append('}');
+            
             return sb.toString();
         }
     }
 
-## Creating DAO layer
-You will need to create at least repository and service classes to take advantages of [spring-data-orientdb](https://github.com/orientechnologies/spring-data-orientdb) code generation.
+## Creating a DAO Layer
 
-For the repository class (don't forget, interface is also class in Java) you will need to follow this rules:
-* extend Spring Configuration with package name where your repository classes are defined for current module to make repositories observable using `@EnableOrientRepositories` annotation:
+You will need to create at least a repository and service classes to take advantage of [spring-data-orientdb](https://github.com/orientechnologies/spring-data-orientdb)'s code generation.
+
+For the repository class, (don't forget that the interface is also a class in Java), you will need to follow this rules:
+* Extend Spring Configuration with the package name that your repository classes are defined for the current module to make repositories observable using the `@EnableOrientRepositories` annotation:
 
 `@EnableOrientRepositories(basePackages = "org.carlspring.strongbox.repository")`
 
-* put `@Transactional` on the top of the repository interface
-* let your interface to extend `OrientRepository<MyEntity>`
-* _optional_ - define any other methods according to Spring Data possibilities to generate respective service code (take a look at the example below)
+* Annotate the repository interface with the `@Transactional` annotation
+* Let your interface to the `OrientRepository<MyEntity>` class
+* _Optional_ - define any other methods according to the Spring Data possibilities to generate the respective service code (take a look at the example below).
 
-The complete code example for the repository class could looks like the following:
+The complete code example for the repository class should look something like this:
 
     package org.carlspring.strongbox.users.repository;
     
@@ -109,13 +124,13 @@ The complete code example for the repository class could looks like the followin
         MyEntity findByProperty(String property);
     }
 
-Besides the build-in CRUD methods we also define `findByProperty()` method that is equivalent to SQL code:
+Besides the built-in CRUD methods, we also define a `findByProperty()` method which is equivalent to the following SQL code:
 
-    select * from MyEntity where property = 'some_property';
+    SELECT * FROM MyEntity WHERE property = 'some_property';
 
-Feel free to create additional methods if you need them. For the complete reference on how to work with repositories please visit [Spring Data Commons : Using repositories](http://docs.spring.io/spring-data/data-commons/docs/current/reference/html/#repositories) page.
+Feel free to create additional methods if you need them. For the complete reference on how to work with repositories, please check the [Spring Data Commons : Using repositories](http://docs.spring.io/spring-data/data-commons/docs/current/reference/html/#repositories) reference.
 
-Similar requirements are defined for all service interfaces. Please review code sample below:
+Similar requirements are defined for all service interfaces. Please review the sample code below:
 
     package org.carlspring.strongbox.users.service;
     
@@ -138,12 +153,13 @@ Similar requirements are defined for all service interfaces. Please review code 
     
     }
 
-You will need to extend CrudService with the second type parameter that corresponds to your ID's data type. Usually it's just strings. Read more about ID's in the OrientDB [here](http://orientdb.com/docs/2.0/orientdb.wiki/Tutorial-Record-ID.html).
+You will need to extend the `CrudService` with the second type parameter that corresponds to your ID's data type. Usually it's just strings. To read more about ID's in OrientDB, check [here](http://orientdb.com/docs/2.0/orientdb.wiki/Tutorial-Record-ID.html).
 
-After that you will need to define implementation for your service class. Repository class implementation would be generated internally. Follow this rules for the service implementation:
-* name it like your service interface plus `Impl` tail, for example `MyEntityServiceImpl`
-* put Spring `@Service` and `@Transactional` annotations on top of your class
-* add `synchronized` modifier on all of your service class methods
-* do NOT define your service class as public and use interface instead of class for injection (with `@Autowired`); it follows best practice principle from Joshua Bloch 'Effective Java' book called Programming to Interface
-* _optional_ - feel free to use @Cacheable whenever you need to use second level cache that's already configured in the project (do not forget to modify `ehcache.xml` file accordingly) 
+After that you will need to define an implementation of your service class. The repository class implementation would be generated internally.
 
+Follow these rules for the service implementation:
+* Name it like your service interface with an `Impl` suffix, for example `MyEntityServiceImpl`.
+* Annotate your class with the Spring `@Service` and `@Transactional` annotations.
+* Add `synchronized` modifier on all of your service class methods.
+* Do **not** define your service class as public and use interface instead of class for injection (with `@Autowired`); this follows the best practice principles from Joshua Bloch 'Effective Java' book called Programming to Interface
+* _Optional_ - feel free to use @Cacheable whenever you need to use second level cache that's already configured in the project (do not forget to modify `ehcache.xml` file accordingly) 
