@@ -6,7 +6,7 @@
 * [[REST API]]
 * [[Repositories]]
 * Configuration Files
-  * [[The strongbox.xml Configuration File]]
+  * [[The strongbox.xml File]]
 * [[Storages]]
 
 **Developer Guide**
