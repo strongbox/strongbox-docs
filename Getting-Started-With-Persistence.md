@@ -160,6 +160,23 @@ After that you will need to define an implementation of your service class. The 
 Follow these rules for the service implementation:
 * Name it like your service interface with an `Impl` suffix, for example `MyEntityServiceImpl`.
 * Annotate your class with the Spring `@Service` and `@Transactional` annotations.
-* Add `synchronized` modifier on all of your service class methods.
+* Add `synchronized` modifier on all of your service class methods to avoid generation of `OConcurrentModificationException` when multiple threads would like to update the same record
 * Do **not** define your service class as public and use interface instead of class for injection (with `@Autowired`); this follows the best practice principles from Joshua Bloch 'Effective Java' book called Programming to Interface
 * _Optional_ - feel free to use `@Cacheable` whenever you need to use second level cache that's already configured in the project (do not forget to modify `ehcache.xml` file accordingly) 
+
+## Register entity schema in EntityManager
+Before using entities you will need to register them. Consider the following example:
+
+    @Autowired
+    private OObjectDatabaseTx databaseTx;
+
+    @PostConstruct
+    public void init() {
+        databaseTx.activateOnCurrentThread();
+        databaseTx.getEntityManager().registerEntityClass(MyEntity.class);
+    }
+
+Because database instance that was injected could be reused across the application and different threads according to internal OrientDB concurrency control we _MUST_ activate it on current thread before using it.
+
+## Multithreading
+Read more about multithreading control on [Java-Multi-Threading](http://orientdb.com/docs/2.1/Java-Multi-Threading.html) and [Concurrency](http://orientdb.com/docs/2.1/Concurrency.html) OrientDB manual pages.
