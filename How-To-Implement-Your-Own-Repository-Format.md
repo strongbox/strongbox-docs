@@ -1,4 +1,10 @@
 
+# Overview
+
+The following is a simplified illustration of how things are implemented:
+
+[ ![Strongbox Repository, Layout and Storage Provider Implementation](https://github.com/strongbox/strongbox/wiki/resources%2Fimages%2FStrongbox%20Repository%2C%20Layout%20and%20Storage%20Provider%20Implementation.png) ](https://github.com/strongbox/strongbox/wiki/resources%2Fimages%2FStrongbox%20Repository%2C%20Layout%20and%20Storage%20Provider%20Implementation.png)
+
 # Repository Providers
 
 Repository providers provide implementations for the different types of repositories. These are:
