@@ -16,6 +16,7 @@
 * [[Logging]]
 * [[Writing Tests]]
 * [[Getting Started With Persistence]]
+* [[How To Implement Your Own Repository Format]]
 
 **Contributing/Licensing**
 * [License](https://github.com/strongbox/strongbox/blob/master/LICENSE)
