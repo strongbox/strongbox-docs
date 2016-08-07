@@ -18,6 +18,10 @@ Repository providers provide implementations for the different types of reposito
 * Create a class that extends `AbstractRepositoryProvider` and implement the required methods of the `RepositoryProvider`.
 * Register the class with the `RepositoryProviderRegistry` by implementing the `register()` method.
 
+### Notes
+
+* `RepositoryProvider` implementations have `getInputStream` and `getOutputStream` methods which normally delegate to the associated layout provider. However, in certain cases such as the `GroupRepoisotryProvider` and `ProxyRepositoryProvider` classes, these methods are overridden completely.
+
 ## The `RepositoryProviderRegistry`
 
 All implementations of the `RepositoryProvider` need to be registered with the `RepositoryProviderRegistry`. This registry provides a way to list and resolve the available implementations.
