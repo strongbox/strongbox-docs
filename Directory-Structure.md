@@ -1,4 +1,4 @@
-# The Application's Configuration
+# The Server's Configuration
 
 The server's configuration files reside under the `strongbox` directory.
 
