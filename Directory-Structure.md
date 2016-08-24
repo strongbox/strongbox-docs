@@ -1,4 +1,4 @@
-h1. The Application's Configuration
+# The Application's Configuration
 
 The server's configuration files reside under the `strongbox` directory.
 
@@ -19,7 +19,7 @@ The server's configuration files reside under the `strongbox` directory.
       * truststore.jks
    * logback.xml
 
-h1. The Vault
+# The Vault
 
 The vault is the work area of the server. This includes things like the cache, location of the OrientDB files, storages and temporary directory reside.
 
