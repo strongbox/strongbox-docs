@@ -1,5 +1,6 @@
 **User Guide**
 * [[Application Properties]]
+* [[Directory Structure]]
 * [[Installation]]
 * [[Integrating build tools with Strongbox]]
 * [[Maven Metadata]]
