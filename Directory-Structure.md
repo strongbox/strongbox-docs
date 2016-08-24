@@ -8,6 +8,7 @@ The server's configuration files reside under the `strongbox` directory.
       * strongbox.xml
       * security-authentication.xml
       * security-authorization.xml
+      * security-users.xml
     * jetty/
       * jetty.xml
       * jetty-http.xml
