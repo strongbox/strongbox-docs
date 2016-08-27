@@ -10,7 +10,7 @@ Artifact routing rules allow you to control the searching in group repositories.
 
 The following example specifies that:
 - The `third-party` repository accepts lookups for `corp/foo` artifacts.
-- The `releases repository accepts lookups for `org.carlspring.strongbox.*`, or `org.carlspring.strongbox.*` artifacts.
+- The `releases` repository accepts lookups for `org.carlspring.strongbox.*`, or `org.carlspring.strongbox.*` artifacts.
 
     <configuration>
         ...
