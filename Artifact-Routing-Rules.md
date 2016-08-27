@@ -17,14 +17,14 @@ The following example specifies that:
             <routing-rules>
                 <accepted>
                     <rule-set group-repository="group-releases">
-                        <rule pattern=".*(com|org)/corp/foo.*">
+                        <rule pattern="^(com|org)/corp/foo.*">
                             <repositories>
                                 <repository>third-party-releases</repository>
                             </repositories>
                         </rule>
                     </rule-set>
                     <rule-set group-repository="*">
-                        <rule pattern=".*(com|org)/carlspring/strongbox.*">
+                        <rule pattern="^(com|org)/carlspring/strongbox.*">
                             <repositories>
                                 <repository>releases</repository>
                             </repositories>
@@ -43,7 +43,7 @@ The following example disable lookups for `springframework` in the `releases` re
         <routing-rules>
             <denied>
                 <rule-set group-repository="*">
-                    <rule pattern=".*org.springframework.*">
+                    <rule pattern="^org/springframework.*">
                         <repositories>
                             <repository>releases</repository>
                         </repositories>
