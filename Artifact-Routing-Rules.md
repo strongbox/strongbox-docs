@@ -12,27 +12,27 @@ The following example specifies that:
 * The `third-party` repository accepts lookups for `corp.foo` artifacts.
 * The `releases` repository accepts lookups for `org.carlspring.strongbox.*`, or `org.carlspring.strongbox.*` artifacts.
 
-    <configuration>
-        ...
-        <routing-rules>
-            <accepted>
-                <rule-set group-repository="group-releases">
-                    <rule pattern=".*(com|org)/corp/foo.*">
-                        <repositories>
-                            <repository>third-party-releases</repository>
-                        </repositories>
-                    </rule>
-                </rule-set>
-                <rule-set group-repository="*">
-                    <rule pattern=".*(com|org)/carlspring/strongbox.*">
-                        <repositories>
-                            <repository>releases</repository>
-                        </repositories>
-                    </rule>
-                </rule-set>
-            </accepted>
-        </routing-rules>    
-    </configuration>
+        <configuration>
+            ...
+            <routing-rules>
+                <accepted>
+                    <rule-set group-repository="group-releases">
+                        <rule pattern=".*(com|org)/corp/foo.*">
+                            <repositories>
+                                <repository>third-party-releases</repository>
+                            </repositories>
+                        </rule>
+                    </rule-set>
+                    <rule-set group-repository="*">
+                        <rule pattern=".*(com|org)/carlspring/strongbox.*">
+                            <repositories>
+                                <repository>releases</repository>
+                            </repositories>
+                        </rule>
+                    </rule-set>
+                </accepted>
+            </routing-rules>    
+        </configuration>
 
 ## Denied Patterns
 
