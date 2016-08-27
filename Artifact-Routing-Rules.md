@@ -43,7 +43,7 @@ The following example disable lookups for `springframework` in the `releases` re
         <routing-rules>
             <denied>
                 <rule-set group-repository="*">
-                    <rule pattern=".*springframework.*">
+                    <rule pattern=".*org.springframework.*">
                         <repositories>
                             <repository>releases</repository>
                         </repositories>
