@@ -1,5 +1,6 @@
 **User Guide**
 * [[Application Properties]]
+* [[Artifact Routing Rules]]
 * [[Directory Structure]]
 * [[Installation]]
 * [[Integrating build tools with Strongbox]]
