@@ -153,3 +153,6 @@ The following classes are related to various aspects of the configuration:
 | [`org.carlspring.strongbox.configuration.ConfigurationRepository`](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-api/src/main/java/org/carlspring/strongbox/configuration/ConfigurationRepository.java) | Repository class for handling CRUD operations against OrientDB. |
 
 The [strongbox.xml](https://github.com/strongbox/strongbox/blob/master/strongbox-resources/strongbox-storage-resources/strongbox-storage-api-resources/src/main/resources/etc/conf/strongbox.xml), which is packaged in the distribution, is located under the [strongbox-storage-api-resources](https://github.com/strongbox/strongbox/blob/master/strongbox-resources/strongbox-storage-resources/strongbox-storage-api-resources/)'s `src/main/resources/etc/conf` directory.
+
+# See Also
+* [[Artifact Routing Rules]]
