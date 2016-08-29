@@ -15,3 +15,11 @@ The above is an example for Maven, however, the idea of coordinates, is to provi
 # Information For Developers
 
 As the different repository formats have different coordinate systems, there needs to be a separate implementation of the [`ArtifactCoordinates`](https://github.com/strongbox/strongbox/tree/master/strongbox-commons/src/main/java/org/carlspring/strongbox/artifact/coordinates/ArtifactCoordinates.java) per repository layout, (best achieved by extending the [`AbstractArtifactCoordinates`](https://github.com/strongbox/strongbox/tree/master/strongbox-commons/src/main/java/org/carlspring/strongbox/artifact/coordinates/AbstractArtifactCoordinates.java)).
+
+## Mandatory Coordinates
+
+As a bare minimum, each implementation needs to provide the following two mandatory fields:
+* `id`
+* `version`
+
+The `id` would be the name/id of the artifact, whereas, the version would describe the version.
