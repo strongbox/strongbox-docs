@@ -1,7 +1,7 @@
 
 # General
 
-Artifact coordinates help you to identify an artifact (regardless of the type of artifact -- Maven, Ant, Nuget, RPM, etc).
+Artifact coordinates are an abstraction which allows you to identify an artifact (regardless of the type of artifact -- Maven, Ant, Nuget, RPM, etc).
 
 Coordinates could, for example be things like:
 * `groupId`
@@ -9,6 +9,8 @@ Coordinates could, for example be things like:
 * `version`
 * `type`
 * `classifier`
+
+The above is an example for Maven, however, the idea of coordinates, is to provide a more generic way to identify artifacts.
 
 # Information For Developers
 
