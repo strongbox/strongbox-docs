@@ -1,5 +1,6 @@
 **User Guide**
 * [[Application Properties]]
+* [[Artifact Coordinates]]
 * [[Artifact Routing Rules]]
 * [[Directory Structure]]
 * [[Installation]]
