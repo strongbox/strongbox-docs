@@ -22,4 +22,4 @@ As a bare minimum, each implementation needs to provide the following two mandat
 * `id`
 * `version`
 
-The `id` would be the name/id of the artifact, whereas, the version would describe the version.
+The `id` would be the name/id of the artifact, whereas, the `version` would describe the version.
