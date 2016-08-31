@@ -128,7 +128,7 @@ When you deploy an artifact to a remote repository, Maven will check if there is
 Sometimes the data in the repository can become corrupt and this is when the repository manager needs to be told to rebuild it (or, alternatively, a scheduled task on the repository manager can take care of this to pre-emptively fix it). 
 
 ## What are the official resources on Maven metadata?
-- [Introduction](http://maven.apache.org/ref/3.3.3/maven-repository-metadata/index.html)
-- [maven-metadata.xml reference](http://maven.apache.org/ref/3.3.3/maven-repository-metadata/repository-metadata.html)
-- [Javadocs](http://maven.apache.org/ref/3.3.3/maven-repository-metadata/apidocs/index.html)
+- [Introduction](http://maven.apache.org/ref/3.3.9/maven-repository-metadata/index.html)
+- [maven-metadata.xml reference](http://maven.apache.org/ref/3.3.9/maven-repository-metadata/repository-metadata.html)
+- [Javadocs](http://maven.apache.org/ref/3.3.9/maven-repository-metadata/apidocs/index.html)
 - [Maven 3.x Compatibility Notes] (https://cwiki.apache.org/confluence/display/MAVEN/Maven+3.x+Compatibility+Notes) (contains various useful comments on behavioral changes in Maven 3.x, compared to 2.x).
