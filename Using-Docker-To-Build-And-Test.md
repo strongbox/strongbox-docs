@@ -24,7 +24,9 @@ Create a tag for the current Dockerfile
 
 Run the master's standalone
 
-    docker run -it -p 127.0.0.1:18080:48080 strongbox/standalone:master strongbox/standalone /bin/bash
+    docker run -it -p 127.0.0.1:18080:48080 \
+           strongbox/standalone:master \
+           strongbox/standalone /bin/bash
 
 # Building And Testing
 
