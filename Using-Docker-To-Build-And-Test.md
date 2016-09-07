@@ -32,6 +32,14 @@ The source code is located under `/usr/src/strongbox`. Maven is already pre-conf
 
 For more details on how to build the code, check out [[Building The Code]].
 
+# The Strongbox Service
+
+There is a `init.d` startup script which is already set up.
+
+To start/stop/restart the Strongbox service, run:
+
+    /etc/init.d/strongbox start|stop|restart
+
 # See Also:
 
 * [Managing data volumes](https://docs.docker.com/engine/tutorials/dockervolumes/)
