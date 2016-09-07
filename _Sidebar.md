@@ -16,6 +16,7 @@
 * [[Getting Started]]
 * [[Building the code]]
 * [[Coding Convention]]
+* [[Using Docker To Build And Test]]
 * [[Logging]]
 * [[Writing Tests]]
 * [[Getting Started With Persistence]]
