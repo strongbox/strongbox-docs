@@ -26,6 +26,12 @@ Run the master's standalone
 
     docker run -it -p 127.0.0.1:18080:48080 strongbox/standalone:master strongbox/standalone /bin/bash
 
+# Building And Testing
+
+The source code is located under `/usr/src/strongbox`. Maven is already pre-configured for you and on the `$PATH`.
+
+For more details on how to build the code, check out [[Building The Code]].
+
 # See Also:
 
 * [Managing data volumes](https://docs.docker.com/engine/tutorials/dockervolumes/)
