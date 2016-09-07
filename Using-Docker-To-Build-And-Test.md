@@ -49,3 +49,4 @@ To start/stop/restart the Strongbox service, run:
 * [Managing data volumes](https://docs.docker.com/engine/tutorials/dockervolumes/)
 * [Dockefile OpenSuse](http://dockerfile.github.io/#/opensuse)
 * [[Building The Code]]
+* [[Installation]]
