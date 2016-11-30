@@ -133,7 +133,9 @@ public class Foo extends TestCase
                 {
                     label2:
                     for (int i = 0; i < 5; i++)
+                    {
                         doSomething(i);
+                    }
                 }
                 switch (a)
                 {
