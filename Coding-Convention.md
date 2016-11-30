@@ -91,8 +91,8 @@ public class Foo extends TestCase
     private FancyAnnotatedField f1;
     
     // Or... for longer values -- a value per line:
-    @FancyAnnotation(someArrayParameter = { "fooLongFooBarBlahFooBlahFooBarBlah",
-                                            "barFooBlahBlahBlahMoreBlahLongFooBlah" })
+    @FancyAnnotation(someArrayParameter = { "fooLongFooBarBlahFooBlahFoo",
+                                            "barFooBlahBlahBlahMoreBlahFoo" })
     private FancyAnnotatedField f2;
     
     
