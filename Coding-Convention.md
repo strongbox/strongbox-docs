@@ -214,6 +214,8 @@ public class Foo extends TestCase
 }
 ```
 
-Code Styles
+# Code Styles
+
+We have the following existing code styles which you can import in your IDE:
 * [strongbox-idea.xml](https://raw.githubusercontent.com/wiki/strongbox/strongbox/resources/codestyles/strongbox-idea.xml)
 * [strongbox-eclipse.xml](https://raw.githubusercontent.com/wiki/strongbox/strongbox/resources/codestyles/strongbox-eclipse.xml)
