@@ -1,7 +1,10 @@
 **User Guide**
-* [[Application Properties]]
 * [[Artifact Coordinates]]
-* [[Artifact Routing Rules]]
+* Configuration
+  * [[Application Properties]]
+  * [[Artifact Routing Rules]]
+  * Configuration Files
+    * [[The strongbox.xml File]]
 * [[Directory Structure]]
 * [[Installation]]
 * [[Integrating build tools with Strongbox]]
@@ -11,8 +14,6 @@
   * [[Maven Metadata]]
 * [[REST API]]
 * [[Repositories]]
-* Configuration Files
-  * [[The strongbox.xml File]]
 * [[Storages]]
 
 **Developer Guide**
