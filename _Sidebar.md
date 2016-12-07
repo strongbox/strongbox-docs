@@ -5,7 +5,7 @@
   * [[Artifact Routing Rules]]
   * Configuration Files
     * [[The strongbox.xml File]]
-* [[Directory Structure]]
+  * [[Directory Structure]]
 * [[Installation]]
 * [[Integrating build tools with Strongbox]]
 * Indexing
