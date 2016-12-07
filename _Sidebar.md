@@ -5,7 +5,10 @@
 * [[Directory Structure]]
 * [[Installation]]
 * [[Integrating build tools with Strongbox]]
-* [[Maven Metadata]]
+* Indexing
+  * [[Maven Indexer]]
+* Metadata
+  * [[Maven Metadata]]
 * [[REST API]]
 * [[Repositories]]
 * Configuration Files
