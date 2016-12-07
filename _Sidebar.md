@@ -1,5 +1,8 @@
 **User Guide**
-* [[Artifact Coordinates]]
+* Concepts
+  * [[Artifact Coordinates]]
+  * [[Repositories]]
+  * [[Storages]]
 * Configuration
   * [[Application Properties]]
   * [[Artifact Routing Rules]]
@@ -13,8 +16,6 @@
 * Metadata
   * [[Maven Metadata]]
 * [[REST API]]
-* [[Repositories]]
-* [[Storages]]
 
 **Developer Guide**
 * [[Getting Started]]
