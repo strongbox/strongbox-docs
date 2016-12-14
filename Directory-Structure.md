@@ -28,4 +28,8 @@ The vault is the work area of the server. This includes things like the cache, l
   * cache/
   * db/
   * storages/
+    * ${storageId}/
+      * ${repositoryId}/
+        * .index/
+        * .trash/
   * tmp/
