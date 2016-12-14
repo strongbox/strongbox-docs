@@ -30,6 +30,6 @@ The vault is the work area of the server. This includes things like the cache, l
   * storages/
     * ${storageId}/
       * ${repositoryId}/
-        * .index/
+        * [.index/](https://github.com/strongbox/strongbox/wiki/Maven-Indexer#where-are-the-maven-indexes-located)
         * .trash/
   * tmp/
