@@ -5,7 +5,7 @@ The server's configuration files reside under the `strongbox` directory.
 * strongbox/
   * etc/
     * conf/
-      * strongbox.xml
+      * [strongbox.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox.xml-File)
       * security-authentication.xml
       * security-authorization.xml
       * security-users.xml
