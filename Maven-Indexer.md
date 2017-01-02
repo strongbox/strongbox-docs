@@ -1,7 +1,7 @@
 
 # What Is The Maven Indexer?
 
-The Maven Indexer is a library created by the Apache Maven team which can produce a Lucene Index and carry out queries against it. This compressed index can be used by:
+The Maven Indexer is a library created by Sonatype and contributed to the Apache Maven team which can produce a Lucene Index and carry out queries against it. This packed index can be downloaded from the repository and be used by:
 * Artifact repository managers
  * Check if a remote host contains an artifact, class, etc
  * Check what versions of an artifact exist
