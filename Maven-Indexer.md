@@ -38,7 +38,7 @@ However, there are cases like for example:
 
 // TO DO
 
-## How Are Packed Used?
+## How Are Packed Indexes Used?
 
 // TO DO
 
