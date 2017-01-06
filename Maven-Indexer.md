@@ -32,6 +32,20 @@ However, there are cases like for example:
 - Some artifacts have gone missing (hdd error, or somebody removed them and you need to restore one, or a whole batch of them manually directly on the file system without not using the REST API)
 - You have added/removed some artifact(s) manually on the file system and would like to update the index
 
+# Packed Indexes
+
+## What Are Packed Indexes?
+
+// TO DO
+
+## How Are Packed Used?
+
+// TO DO
+
+## When Are Packed Indexes Generated?
+
+Packed indexes are generated when the index for a repository is rebuilt. They are not generated when a re-indexing request for a path in the repository is executed.
+
 # Information For Developers
 
 The code for the Maven indexing is located under the [strongbox-storage-indexing](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-indexing) module.
