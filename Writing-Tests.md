@@ -4,11 +4,14 @@
 * Test cases should be self-sufficient and not rely on data produced by other tests, or the outcome of other tests in any other way. A test case may, however, generate all it's resources via the `setUp` method; however, such generation should be done just once for all the tests.
 * If tests are failing, they are a top priority.
 * Pull requests will not be merged, if there are failing tests.
-* If working on the REST API, the respective REST client should be used. For any new functionality, there will have to be respective methods in the [RestClient](https://github.com/strongbox/strongbox/blob/master/strongbox-rest-client/src/main/java/org/carlspring/strongbox/client/RestClient.java) (or related client).
+* Don't use REST API for testing your service class methods. Test them directly.
+* Put `@Rollback(false)` if you want to persist something during the test execution. It will tell Spring to not to call `rollback()` on this class method transactions.
+* Use [rest-assured](https://github.com/rest-assured/rest-assured/wiki/GettingStarted#spring-mock-mvc) for testing REST API. Don't try to re-involve the bicycle and inherit all rest-assured initialization stuff from `RestAssuredBaseTest`. Mark your test as `@IntegrationTest` and take a look at the existing examples (subclasses of `RestAssuredBaseTest`). If you would like to have some init method with `@Before` annotation make sure that you will have `super.init()` as a first line in such kind of method.  
+* All tests **MUST be idempotent**, it means that we should be able to execute them multiple times from console or IDE and execution should not depends on how many times we ran this test.
 
 # Artifact-related Tests
 
-For artifact-related test, you would normally want to extend the [TestCaseWithArtifactGeneration](https://github.com/strongbox/strongbox/blob/master/strongbox-testing/strongbox-testing-core/src/main/java/org/carlspring/strongbox/testing/TestCaseWithArtifactGeneration.java) class, as it contains most of the required functionality; (any missing such methods which could be re-used, should 
+For artifact-related test you could create instance of TestCaseWithArtifactGeneration in your unit test or reuse one from `RestAssuredBaseTest`. Just delegate your call to super class field.
 
 ## Generating Artifacts
 
@@ -66,6 +69,7 @@ The following is an example of artifact deployment taken from the [ArtifactDeplo
         artifactDeployer.generateAndDeployArtifact(artifact, classifiers, "storage0", "releases", "jar");
     }
 
+_Notice_: if you are going to test REST API you need to create instance of `ArtifactDeployer` using superclass `buildArtifactDeployer()` method. It will inject appropriate instance of `RestClient` to it.
 
 ## Adding Artifacts To The Index
 
@@ -75,50 +79,35 @@ Please, note that the above class is not currently something you can extend outs
 
 # Testing REST calls
 
-## Testing REST Calls For Artifacts
+## How to write your own integration test
 
-For artifact-related REST calls you should use the [ArtifactClient](https://github.com/strongbox/strongbox/blob/master/strongbox-client/src/main/java/org/carlspring/strongbox/client/ArtifactClient.java) class.
+Here is sequence of actions for anyone who would like to write it's own REST API test.
+* extend `RestAssuredBaseTest` class
+* put `@IntegrationTest` and `@RunWith(SpringJUnit4ClassRunner.class)` on top of your class
+* review existing examples (subclasses of `RestAssuredBaseTest`)
 
-## Testing General REST Calls
+## How to use rest-assured
 
-For general purpose REST calls you should use the [RestClient](https://github.com/strongbox/strongbox/blob/master/strongbox-rest-client/src/main/java/org/carlspring/strongbox/client/RestClient.java) class.
+Here is the simplest example that will send HTTP GET request on /greeting endpoint:
 
-For example:
+    given().
+    when().
+    get("/greeting").
+    then().
+    statusCode(200);
 
-    private static ArtifactClient client;
-    
-    
-    @Before
-    public void setUp()
-            throws Exception
-    {
-        if (!BASEDIR.exists())
-        {
-            //noinspection ResultOfMethodCallIgnored
-            BASEDIR.mkdirs();
+`Notice`: you should have `import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.*;` in your test.
 
-            client = new ArtifactClient();
-            client.setUsername("maven");
-            client.setPassword("password");
-            client.setPort(assignedPorts.getPort("port.jetty.listen"));
-            client.setContextBaseUrl("http://localhost:" + client.getPort());
-        }
-    }
+## Where it differs from stock version of rest-assured
 
-    @Test
-    public void testDeleteArtifactAndEmptyTrashForRepository()
-            throws Exception
-    {
-        client.deleteTrash(STORAGE, REPOSITORY_WITH_TRASH);
+Instead of given() please use givenLocal() of `RestAssuredBaseTest`.
 
-        assertFalse("Failed to empty trash for repository '" + REPOSITORY_WITH_TRASH + "'!", ARTIFACT_FILE_IN_TRASH.exists());
-    }
+## Do I need to extend `RestAssuredArtifactClient` or write my own methods in unit tests?
 
-# Dealing With Ports
+Basically no. The only reason to extend that class is when you would like to reuse something between several unit tests (to avoid code duplication).
 
-For test cases which rely on ports that are dynamically assigned by Maven (this is related to testing such code via Jenkins builds), you can use the [AssignedPorts](https://github.com/strongbox/strongbox/blob/master/strongbox-testing/strongbox-testing-core/src/main/java/org/carlspring/strongbox/testing/AssignedPorts.java).
+## Referencies
 
-    @Autowired
-    private AssignedPorts assignedPorts;
-    
-    private int jettyPort assignedPorts.getPort("port.jetty.listen");
+Please review this excellent article. It contains a lot of cool examples: [unit-testing-spring-mvc-controllers-with-rest-assured](https://blog.jayway.com/2014/01/14/unit-testing-spring-mvc-controllers-with-rest-assured/)
+
+If you still have any questions please review original [usage wiki page by rest-assured](https://github.com/rest-assured/rest-assured/wiki/usage).
