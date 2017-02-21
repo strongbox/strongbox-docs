@@ -69,6 +69,6 @@ The base cron implementation classes are:
 # See Also
 * [[Maven Metadata]]
 * [[Maven Indexer]]
-* [[REST API]
+* [[REST API]]
 * [[Storages]]
 * [[Repositories]]
