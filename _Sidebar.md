@@ -9,6 +9,7 @@
   * Configuration Files
     * [[The strongbox.xml File]]
   * [[Directory Structure]]
+* [[Cron Tasks]]
 * [[Installation]]
 * [[Integrating build tools with Strongbox]]
 * Indexing
