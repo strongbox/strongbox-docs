@@ -61,3 +61,4 @@ The code for the Maven indexing is located under the [strongbox-storage-indexing
 * [Maven Indexing: Searching (Part II)](http://www.sonatype.com/people/2009/06/nexus-indexer-api-part-2/)
 * [Maven Indexing: Packing (Part III)](http://blog.sonatype.com/2009/09/nexus-indexer-api-part-3/)
 * [Maven Metadata](https://github.com/strongbox/strongbox/wiki/Maven-Metadata)
+* [Stackoverflow: [maven-indexer]](http://stackoverflow.com/questions/tagged/maven-indexer)
