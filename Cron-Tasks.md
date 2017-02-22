@@ -77,7 +77,7 @@ The base cron implementation classes are:
 
 // TODO: Explain the process of creating a new cron job
 
-// TODO: Explain how to define the cron variables/properties
+// TODO: Explain how to define the cron variables/properties when implementing a new cron task
 
 # See Also
 * [[Maven Metadata]]
