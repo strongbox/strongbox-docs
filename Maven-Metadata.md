@@ -135,3 +135,4 @@ Sometimes the data in the repository can become corrupt and this is when the rep
 
 # See Also
 - [How does Maven plugin prefix resolution work? Why is it resolving “findbugs” but not “jetty”?](http://stackoverflow.com/a/40206597/774183)
+- [Stackoverflow: [maven-metadata]](http://stackoverflow.com/questions/tagged/maven-metadata)
