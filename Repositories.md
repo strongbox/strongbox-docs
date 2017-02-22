@@ -1,3 +1,7 @@
+# General
+
+Similarly to sources and version control, artifact repositories are a place to store the compiled code. This reduces build times, as storing binaries in a central place removes the need to constantly recompile them. Version control, on the other hand is not an appropriate place to store binaries, as it causes source repositories to grow quite quickly and thus makes them gradually slower.
+
 # Types
 
 ## Hosted
@@ -38,7 +42,11 @@ Virtual repositories provide a bridge between different layout formats.
 
 ## Maven 2.x/3.x
 
-This is currently the only supported layout.
+Maven 2.x/3.x repositories are fully supported.
+
+## Nuget
+
+Nuget repository layout is currently under active development.
 
 # Policies
 
@@ -46,7 +54,7 @@ Repository policies define the type of artifact versions which will be handled b
 
 ## Snapshot
 
-Repositories of this kind will only allow artifacts with SNAPSHOT versions to be deployed.
+Repositories of this kind will only allow artifacts with `SNAPSHOT` versions to be deployed.
 
 ## Release
 
