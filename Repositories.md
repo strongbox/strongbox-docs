@@ -54,15 +54,15 @@ Repository policies define the type of artifact versions which will be handled b
 
 ## Snapshot
 
-Repositories of this kind will only allow artifacts with `SNAPSHOT` versions to be deployed.
+Repositories of this kind will only allow artifacts with snapshot versions (`1.1-SNAPSHOT`,`1.2-SNAPSHOT`, etc) to be deployed.
 
 ## Release
 
-Repositories of this kind will only allow artifacts with fixed/released versions to be deployed.
+Repositories of this kind will only allow artifacts with fixed/released versions (`1.1`, `1.2`, etc) to be deployed.
 
 ## Mixed
 
-Repositories of this kind will allow artifacts of both snapshot and release versions.
+Repositories of this kind will allow artifacts of both snapshot and release versions. This is usually used for group repositories.
 
 # See Also
 - [Maven: Introduction to Repositories](http://maven.apache.org/guides/introduction/introduction-to-repositories.html)
