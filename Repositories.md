@@ -62,7 +62,7 @@ Repositories of this kind will only allow artifacts with fixed/released versions
 
 ## Mixed
 
-Repositories of this kind will allow artifacts of both snapshot and release versions. This is usually used for group repositories.
+Repositories of this kind will allow artifacts of both snapshot and release versions. This is usually used for group repositories, as they might contain both snapshot and release repositories.
 
 # See Also
 - [Maven: Introduction to Repositories](http://maven.apache.org/guides/introduction/introduction-to-repositories.html)
