@@ -47,7 +47,7 @@ This task can periodically empty the trash.
 This cron task can perform cleanups of time-stamped snapshot builds.
 
 The cron task is be able to remove all timestamped artifacts based on the following rules:
-* **numberToKeep** : The number of artifacts to keep. For example, if this is set to 2 , versions 1 , 2  and 3  will be removed and only the last two (4  and 5 ) preserved.
+* **numberToKeep** : The number of artifacts to keep. For example, if this is set to 2, versions 1, 2  and 3  will be removed and only the last two (4  and 5) preserved.
 * **keepPeriod** : The period to keep artifacts
 
 The number of artifacts to keep takes precedence, ensuring that the **numberToKeep** are preserved.
@@ -76,6 +76,8 @@ The base cron implementation classes are:
 // TODO: Explain how to run the cron tests
 
 // TODO: Explain the process of creating a new cron job
+
+// TODO: Explain how to define the cron variables/properties
 
 # See Also
 * [[Maven Metadata]]
