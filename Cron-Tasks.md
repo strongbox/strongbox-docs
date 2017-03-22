@@ -74,9 +74,14 @@ The base cron implementation classes are:
 * Support Spring DI in Quartz job
 
 Quartz does not know anything about Spring dependency injection.
+
 But we need to be able to autowire Spring beans in Quartz job classes. So, it was created a custom job factory class called [AutowiringSpringBeanJobFactory](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/AutowiringSpringBeanJobFactory.java) to automatically autowire quartz objects using Spring. This class extends SpringBeanJobFactory and implements ApplicationContextAware.
-Then it was defined @Bean SpringBeanJobFactory in class with scheduler configuration [CronTasksConfig] (https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/CronTasksConfig.java) and setted it ApplicationContext.
-Then, it was attached to class SchedulerFactoryBean. And we get scheduler factory with DI support for @Autowired. 
+
+Then it was defined @Bean SpringBeanJobFactory in class with scheduler configuration [CronTasksConfig](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/CronTasksConfig.java) and setted it ApplicationContext.
+
+It was attached to class SchedulerFactoryBean. 
+
+And we get scheduler factory with DI support for @Autowired. 
 
 // TODO: Explain how to run the cron tests
 
