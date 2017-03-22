@@ -73,13 +73,13 @@ The base cron implementation classes are:
 
 ### Support For Spring Dependency Injection in Quartz Jobs
 
-As Quartz doesn't know anything about Spring dependency injection, we needed to be able to autowire Spring beans in Quartz job classes. So, we was created a custom job factory class called [`AutowiringSpringBeanJobFactory`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/AutowiringSpringBeanJobFactory.java) to automatically autowire Quartz objects using Spring. This class extends `SpringBeanJobFactory` and implements `ApplicationContextAware`.
+As Quartz doesn't know anything about Spring dependency injection and we needed to be able to autowire Spring beans in Quartz job classes, we created a custom job factory called [`AutowiringSpringBeanJobFactory`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/AutowiringSpringBeanJobFactory.java) to automatically autowire Quartz objects using Spring. This class extends `SpringBeanJobFactory` and implements `ApplicationContextAware`.
 
-Then it was defined bean `SpringBeanJobFactory` in class with scheduler configuration [`CronTasksConfig`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/CronTasksConfig.java) and setted it `ApplicationContext`. It was attached to class `SchedulerFactoryBean`. 
+In addition, we defined a `SpringBeanJobFactory` bean in class with scheduler configuration [`CronTasksConfig`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/CronTasksConfig.java) and setted it `ApplicationContext`. It was attached to class `SchedulerFactoryBean`. 
 
-And we get scheduler factory with DI support for `@Autowired`. 
+This is how we implemented a scheduler factory with dependency injection support for `@Autowired`. 
 
-### How To Execute The Run Cron Tests
+### How To Execute The Cron Tests
 
 The cron tests are not executed by default when the project is built. They are only executed only under a special Spring active profile which is defined in the [`@CronTaskTest`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/test/java/org.carlspring.strongbox.cron/context/CronTaskTest.java) annotation:
 
@@ -93,15 +93,15 @@ The Spring profile can be enabled like this:
 
 ### How To Create A New Cron Job
 
-A new cron job is created with extending class [`JavaCronJob`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/JavaCronJob.java) and overriding the `executeInternal(JobExecutionContext jobExecutionContext)` function.
+Cron jobs need to extend the [`JavaCronJob`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/JavaCronJob.java) class and override the `executeInternal(JobExecutionContext jobExecutionContext)` function.
 
 Every cron job runs in a separate thread. As we need to know the outcome of the job while testing, we use the [`JobManager`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/JobManager.java) class in all the cron jobs for saving the name of executed job.    
 
 ### Defining Cron Variables/Properties When Implementing A New Cron Task
 
-Various settings for cron tasks can be defined by adding a [`CronTaskConfiguration`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java) to your implementation clas.
+Settings for cron tasks can be defined by adding a [`CronTaskConfiguration`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java) to your implementation class.
 
-All properties of cron task are stored in the **Map<String, String> properties** field of the [CronTaskConfiguration](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java) class:
+The properties of cron task are stored in the **Map<String, String> properties** field of the [CronTaskConfiguration](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java) class:
 
  * **k** is the name of the property
  * **v** is the value of the property
