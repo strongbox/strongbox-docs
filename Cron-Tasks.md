@@ -84,6 +84,20 @@ And we get scheduler factory with DI support for @Autowired.
 
 ### Run the cron tests
 
+The cron tests are executed only under special spring active profile that we can see in created annotation [@CronTaskTest](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/test/java/org.carlspring.strongbox.cron/context/CronTaskTest.java):
+
+    @IfProfileValue(name = "spring.profiles.active", values = { "quartz-integration-test" }).
+
+This annotation [@CronTaskTest](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/test/java/org.carlspring.strongbox.cron/context/CronTaskTest.java) is needed to use in all cron tests.
+
+So, all cron tests aren't  executed when it was builded project.
+
+We need to point **-Dspring.profiles.active=quartz-integration-test** for running cron tests:
+
+    mvn clean install -Dspring.profiles.active=quartz-integration-test 
+
+
+
 // TODO: Explain how to run the cron tests
 
 // TODO: Explain the process of creating a new cron job
