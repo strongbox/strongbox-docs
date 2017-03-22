@@ -62,7 +62,7 @@ This task can be useful, in cases where an artifact has been copied to (or alter
 
 # Information for developers
 
-## Location Of Code
+## Location Of The Code
 The code for the cron tasks is located under the [strongbox-cron-tasks](https://github.com/strongbox/strongbox/tree/master/strongbox-cron-tasks) module.
 
 The base cron implementation classes are:
