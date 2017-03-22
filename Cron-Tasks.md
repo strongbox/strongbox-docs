@@ -95,18 +95,18 @@ The Spring profile can be enabled like this:
 
 A new cron job is created with extending class [`JavaCronJob`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/JavaCronJob.java) and overriding the `executeInternal(JobExecutionContext jobExecutionContext)` function.
 
-Every cron job runs in a separate thread. As we need to know the outcome of the job while testing, we use the [JobManager](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/JobManager.java) class in all the cron jobs for saving the name of executed job.    
+Every cron job runs in a separate thread. As we need to know the outcome of the job while testing, we use the [`JobManager`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/JobManager.java) class in all the cron jobs for saving the name of executed job.    
 
 ### Defining Cron Variables/Properties When Implementing A New Cron Task
 
 Various settings for cron tasks can be defined by adding a [`CronTaskConfiguration`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java) to your implementation clas.
 
-All properties of cron task are stored in the field **Map<String, String> properties** class [CronTaskConfiguration](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java):
+All properties of cron task are stored in the **Map<String, String> properties** field of the [CronTaskConfiguration](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java) class:
 
  * **k** is the name of the property
  * **v** is the value of the property
  
-We need to get object of class [CronTaskConfiguration](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java) from the job context in all job classes:
+We need to get object of class [`CronTaskConfiguration`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java) from the job context in all job classes:
 
     CronTaskConfiguration config = (CronTaskConfiguration) jobExecutionContext.getMergedJobDataMap().get("config");
 
