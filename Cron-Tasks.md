@@ -42,7 +42,7 @@ Each proxy repository needs to have a cron task that downloads the remote at a g
 
 This task can periodically empty the trash.
 
-## Remove Time-stamped Maven Snapshot Artifacts
+## Remove Timestamped Maven Snapshot Artifacts
 
 This cron task can perform cleanups of time-stamped snapshot builds.
 
