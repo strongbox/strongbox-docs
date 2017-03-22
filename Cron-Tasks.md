@@ -66,22 +66,22 @@ This task can be useful, in cases where an artifact has been copied to (or alter
 The code for the cron tasks is located under the [strongbox-cron-tasks](https://github.com/strongbox/strongbox/tree/master/strongbox-cron-tasks) module.
 
 The base cron implementation classes are:
-* [JavaCronJob](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/JavaCronJob.java)
-* [GroovyCronJob](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/GroovyCronJob.java)
+* [`JavaCronJob`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/JavaCronJob.java)
+* [`GroovyCronJob`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/GroovyCronJob.java)
 
 ## Notes
 
 ### Support For Spring Dependency Injection in Quartz Jobs
 
-As Quartz doesn't know anything about Spring dependency injection, we needed to be able to autowire Spring beans in Quartz job classes. So, we was created a custom job factory class called [AutowiringSpringBeanJobFactory](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/AutowiringSpringBeanJobFactory.java) to automatically autowire Quartz objects using Spring. This class extends `SpringBeanJobFactory` and implements `ApplicationContextAware`.
+As Quartz doesn't know anything about Spring dependency injection, we needed to be able to autowire Spring beans in Quartz job classes. So, we was created a custom job factory class called [`AutowiringSpringBeanJobFactory`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/AutowiringSpringBeanJobFactory.java) to automatically autowire Quartz objects using Spring. This class extends `SpringBeanJobFactory` and implements `ApplicationContextAware`.
 
-Then it was defined bean `SpringBeanJobFactory` in class with scheduler configuration [CronTasksConfig](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/CronTasksConfig.java) and setted it `ApplicationContext`. It was attached to class `SchedulerFactoryBean`. 
+Then it was defined bean `SpringBeanJobFactory` in class with scheduler configuration [`CronTasksConfig`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/CronTasksConfig.java) and setted it `ApplicationContext`. It was attached to class `SchedulerFactoryBean`. 
 
 And we get scheduler factory with DI support for `@Autowired`. 
 
 ### How To Execute The Run Cron Tests
 
-The cron tests are not executed by default when the project is built. They are only executed only under a special Spring active profile which is defined in the [@CronTaskTest](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/test/java/org.carlspring.strongbox.cron/context/CronTaskTest.java) annotation:
+The cron tests are not executed by default when the project is built. They are only executed only under a special Spring active profile which is defined in the [`@CronTaskTest`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/test/java/org.carlspring.strongbox.cron/context/CronTaskTest.java) annotation:
 
     @IfProfileValue(name = "spring.profiles.active", values = { "quartz-integration-tests" })
 
@@ -93,11 +93,13 @@ The Spring profile can be enabled like this:
 
 ### How To Create A New Cron Job
 
-A new cron job is created with extending class [JavaCronJob](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/JavaCronJob.java) and overriding its function executeInternal(JobExecutionContext jobExecutionContext).
+A new cron job is created with extending class [`JavaCronJob`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/JavaCronJob.java) and overriding the `executeInternal(JobExecutionContext jobExecutionContext)` function.
 
-Every cron job is running in separate thread. And we need to know the end of the job for testing it. So, it is used class [JobManager](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/JobManager.java) in all cron jobs for saving name of executed job.    
+Every cron job runs in a separate thread. As we need to know the outcome of the job while testing, we use the [JobManager](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/JobManager.java) class in all the cron jobs for saving the name of executed job.    
 
 ### Defining Cron Variables/Properties When Implementing A New Cron Task
+
+Various settings for cron tasks can be defined by adding a [`CronTaskConfiguration`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java) to your implementation clas.
 
 All properties of cron task are stored in the field **Map<String, String> properties** class [CronTaskConfiguration](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java):
 
@@ -108,7 +110,7 @@ We need to get object of class [CronTaskConfiguration](https://github.com/strong
 
     CronTaskConfiguration config = (CronTaskConfiguration) jobExecutionContext.getMergedJobDataMap().get("config");
 
- So, we can get any property of cron task with using its name:
+This way we can get any property of a cron task by looking it up by it's name:
 
     config.getProperty("name");
 
