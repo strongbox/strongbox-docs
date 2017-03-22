@@ -90,17 +90,17 @@ The cron tests are executed only under special spring active profile that we can
 
 This annotation [@CronTaskTest](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/test/java/org.carlspring.strongbox.cron/context/CronTaskTest.java) is needed to use in all cron tests.
 
-So, all cron tests aren't  executed when it was builded project.
+So, all cron tests aren't  executed when the project is builded.
 
-We need to point **-Dspring.profiles.active=quartz-integration-test** for running cron tests:
+We need to add **-Dspring.profiles.active=quartz-integration-test** for running cron tests during the building of the project:
 
     mvn clean install -Dspring.profiles.active=quartz-integration-test 
 
-
-
-// TODO: Explain how to run the cron tests
+### Create a new cron job
 
 // TODO: Explain the process of creating a new cron job
+
+### Define the cron variables/properties when implementing a new cron task
 
 // TODO: Explain how to define the cron variables/properties when implementing a new cron task
 
