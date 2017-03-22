@@ -105,8 +105,9 @@ Every cron job is running in separate thread. And we need to know the end of the
 ### Define the cron variables/properties when implementing a new cron task
 
 All properties of cron task are stored in the field **Map<String, String> properties** class [CronTaskConfiguration](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java):
- * <<k>> is the name of the property
- * <<v>> is the value of the property
+
+ * k is the name of the property
+ * v is the value of the property
  
 We need to get object of class [CronTaskConfiguration](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java) from the job context in all job classes:
 
