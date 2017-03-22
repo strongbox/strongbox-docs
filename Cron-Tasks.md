@@ -98,7 +98,9 @@ We need to add **-Dspring.profiles.active=quartz-integration-test** for running 
 
 ### Create a new cron job
 
-// TODO: Explain the process of creating a new cron job
+A new cron job is created with extending class [JavaCronJob](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/JavaCronJob.java) and overriding its function executeInternal(JobExecutionContext jobExecutionContext).
+
+Every cron job is running in separate thread. And we need to know the end of the job for testing it. So, it is used class [JobManager](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/JobManager.java) in all cron jobs for saving name of executed job.    
 
 ### Define the cron variables/properties when implementing a new cron task
 
