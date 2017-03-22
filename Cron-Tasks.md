@@ -75,12 +75,12 @@ The base cron implementation classes are:
 
 As Quartz doesn't know anything about Spring dependency injection, we needed to be able to autowire Spring beans in Quartz job classes. So, we was created a custom job factory class called [AutowiringSpringBeanJobFactory](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/AutowiringSpringBeanJobFactory.java) to automatically autowire Quartz objects using Spring. This class extends `SpringBeanJobFactory` and implements `ApplicationContextAware`.
 
-Then it was defined bean SpringBeanJobFactory in class with scheduler configuration [CronTasksConfig](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/CronTasksConfig.java) and setted it ApplicationContext.
-It was attached to class SchedulerFactoryBean. 
+Then it was defined bean `SpringBeanJobFactory` in class with scheduler configuration [CronTasksConfig](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/CronTasksConfig.java) and setted it ApplicationContext.
+It was attached to class `SchedulerFactoryBean`. 
 
-And we get scheduler factory with DI support for @Autowired. 
+And we get scheduler factory with DI support for `@Autowired`. 
 
-### Run the cron tests
+### How To Execute The Run Cron Tests
 
 The cron tests are executed only under special spring active profile that we can see in created annotation [@CronTaskTest](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/test/java/org.carlspring.strongbox.cron/context/CronTaskTest.java):
 
@@ -90,17 +90,17 @@ This annotation [@CronTaskTest](https://github.com/strongbox/strongbox/blob/mast
 
 So, all cron tests aren't  executed when the project is builded.
 
-We need to add **-Dspring.profiles.active=quartz-integration-tests** for running cron tests during the building of the project:
+We need to add `-Dspring.profiles.active=quartz-integration-tests` for running cron tests during the building of the project:
 
     mvn clean install -Dspring.profiles.active=quartz-integration-tests 
 
-### Create a new cron job
+### How To Create A New Cron Job
 
 A new cron job is created with extending class [JavaCronJob](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/JavaCronJob.java) and overriding its function executeInternal(JobExecutionContext jobExecutionContext).
 
 Every cron job is running in separate thread. And we need to know the end of the job for testing it. So, it is used class [JobManager](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/JobManager.java) in all cron jobs for saving name of executed job.    
 
-### Define the cron variables/properties when implementing a new cron task
+### Defining Cron Variables/Properties When Implementing A New Cron Task
 
 All properties of cron task are stored in the field **Map<String, String> properties** class [CronTaskConfiguration](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/domain/CronTaskConfiguration.java):
 
