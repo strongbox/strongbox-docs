@@ -73,11 +73,11 @@ The base cron implementation classes are:
 
 ### Support For Spring Dependency Injection in Quartz Jobs
 
-As Quartz doesn't know anything about Spring dependency injection and we needed to be able to autowire Spring beans in Quartz job classes, we created a custom job factory called [`AutowiringSpringBeanJobFactory`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/AutowiringSpringBeanJobFactory.java) to automatically autowire Quartz objects using Spring. This class extends `SpringBeanJobFactory` and implements `ApplicationContextAware`.
+As Quartz doesn't know anything about Spring dependency injection and we need to be able to autowire Spring beans in Quartz job classes, we created a custom job factory called [`AutowiringSpringBeanJobFactory`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/AutowiringSpringBeanJobFactory.java) to autowire Quartz objects using Spring under the hood. This class extends `SpringBeanJobFactory` and implements `ApplicationContextAware`.
 
-In addition, we defined a `SpringBeanJobFactory` bean in class with scheduler configuration [`CronTasksConfig`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/CronTasksConfig.java) and setted it `ApplicationContext`. It was attached to class `SchedulerFactoryBean`. 
+In addition, we defined a `SpringBeanJobFactory` in the [`CronTasksConfig`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/config/CronTasksConfig.java) and set it's `ApplicationContext`, which is then passed on to the `SchedulerFactoryBean`.
 
-This is how we implemented a scheduler factory with dependency injection support for `@Autowired`. 
+This is how we implemented a scheduler factory with dependency injection support for `@Autowired`.
 
 ### How To Execute The Cron Tests
 
