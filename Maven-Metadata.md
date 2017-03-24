@@ -131,7 +131,7 @@ Sometimes the data in the repository can become corrupt and this is when the rep
 - [Maven Metadata: Introduction](http://maven.apache.org/ref/3.3.9/maven-repository-metadata/index.html)
 - [Maven Metadata: Reference](http://maven.apache.org/ref/3.3.9/maven-repository-metadata/repository-metadata.html)
 - [Maven Metadata: Javadocs](http://maven.apache.org/ref/3.3.9/maven-repository-metadata/apidocs/index.html)
-- [Maven 3.x Compatibility Notes] (https://cwiki.apache.org/confluence/display/MAVEN/Maven+3.x+Compatibility+Notes) (contains various useful comments on behavioral changes in Maven 3.x, compared to 2.x).
+- [Maven 3.x Compatibility Notes](https://cwiki.apache.org/confluence/display/MAVEN/Maven+3.x+Compatibility+Notes) (contains various useful comments on behavioral changes in Maven 3.x, compared to 2.x).
 
 # See Also
 - [How does Maven plugin prefix resolution work? Why is it resolving “findbugs” but not “jetty”?](http://stackoverflow.com/a/40206597/774183)
