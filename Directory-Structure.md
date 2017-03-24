@@ -27,7 +27,7 @@ The vault is the work area of the server. This includes things like the cache, l
 * strongbox-vault/
   * cache/
   * db/
-  * storages/
+  * [storages](https://github.com/strongbox/strongbox/wiki/Storages)/
     * ${storageId}/
       * ${repositoryId}/
         * [.index/](https://github.com/strongbox/strongbox/wiki/Maven-Indexer#where-are-the-maven-indexes-located)
