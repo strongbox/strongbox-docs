@@ -16,9 +16,16 @@ The Maven Indexer scans through `maven-metadata.xml` files and produces a compre
 
 # What Is The Maven Indexer Used For In The Strongbox Project?
 
-The Maven Indexer is used for integration with IDE-s. Strongbox has it's own internal implementation stored in OrientDB, based on which the Lucene indexes are built.
+The Maven Indexer is used for integration with IDE-s.
 
 The Maven indexes produced by most public repository managers (such as Maven Central), are usually rebuilt once a week, as it can take quite a while to scan large repositories with countless small artifacts. Hence, these indexes have proven to not be quite as up-to-date, as the real server's contents. For this reason, we are using OrientDB to keep more accurate information.
+
+There are two types of Maven Indexer indexes:
+* Local
+  * For hosted repositories, this contains the artifacts that have been deployed to this repository.
+  * For proxy repositories, this contains the artifacts which have been requested and cached from the remote repository.
+* Remote
+  * This is downloaded from the remote repository and contains a complete index of what is available on the remote.
 
 # Where Are The Maven Indexes Located?
 
