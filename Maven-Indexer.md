@@ -55,7 +55,7 @@ Packed indexes are generated when the index for a repository is rebuilt. They ar
 
 # Information For Developers
 
-The code for the Maven indexing is located under the [strongbox-storage-indexing](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-indexing) module.
+The code for the Maven indexing is located under the [strongbox-storage-maven-layout-provider](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-maven-layout-provider) module.
 
 # See Also
 * [Maven Indexer: Github](https://github.com/apache/maven-indexer/)
