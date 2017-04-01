@@ -53,10 +53,6 @@ In contrast to unpacked indexes (which are used for searching and browsing the r
 
 Packed indexes are either a complete compressed index, or a compressed subset of data which can be applied to an existing index incrementally.
 
-## How Are Packed Indexes Used?
-
-// TO DO
-
 ## When Are Packed Indexes Generated?
 
 Packed indexes are generated when the index for a repository is rebuilt. They are not generated when a re-indexing request for a path in the repository is executed.
