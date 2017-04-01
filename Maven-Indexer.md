@@ -29,6 +29,12 @@ There are two types of Maven Indexer indexes:
 
 # Where Are The Maven Indexes Located?
 
+* [Hosted](https://github.com/strongbox/strongbox/wiki/Repositories#hosted) repositories have:
+  * Local: `strongbox-vault/storages/${storageId}/${repositoryId}/local/.index`
+* [Proxy](https://github.com/strongbox/strongbox/wiki/Repositories#proxy) repositories have:
+  * Local: `strongbox-vault/storages/${storageId}/${repositoryId}/local/.index`
+  * Remote: `strongbox-vault/storages/${storageId}/${repositoryId}/remote/.index`
+
 Every repository has an index under the `strongbox-vault/storages/${storageId}/${repositoryId}/.index` directory where the index is located.
 
 # Do Maven Indexes Break And How To Repair Them?
@@ -41,9 +47,11 @@ However, there are cases like for example:
 
 # Packed Indexes
 
+In contrast to unpacked indexes (which are used for searching and browsing the remote), packed indexes are used for transferring indexes from the remote to the proxy/tool. 
+
 ## What Are Packed Indexes?
 
-// TO DO
+Packed indexes are either a complete compressed index, or a compressed subset of data which can be applied to an existing index incrementally.
 
 ## How Are Packed Indexes Used?
 
