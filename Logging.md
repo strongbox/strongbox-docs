@@ -83,17 +83,6 @@ The logging is controlled via the [`strongbox/strongbox-resources/strongbox-comm
         </executions>
     </plugin>
 
-
-# Enabling Low-level Logging For Jersey
-
-In order to enable the low-level debugging for Jersey requests, modify the following logging level of the org.glassfish.jersey package in the logback.xml as shown below:
-
-    <logger name="org.glassfish.jersey">
-        <level value="DEBUG"/>
-    </logger>
-
-Customized logging configuration (per project) should be avoided, but for debugging purposes, placing a copy of the above under `src/test/resources` would be acceptable.
-
 # Configuring the Logging via The REST API
 
 The logging can be configured via the REST API. We have created a separate project called [`logback-configuration`](https://github.com/carlspring/logback-configuration) for this purpose.
