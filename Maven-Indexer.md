@@ -12,7 +12,7 @@ The Maven Indexer is a library created by Sonatype Inc. and contributed to the A
 
 # How Does The Maven Indexer Work?
 
-The Maven Indexer uses `maven-metadata.xml` and `.pom` files to figure out information about the artifacts. It produces a Lucene Index which can be packed and downloaded by consumers. 
+The Maven Indexer uses `maven-metadata.xml` and `.pom` files to figure out information about the artifacts which it adds to a Lucene index. This index can then be packed and downloaded by consumers. 
 
 # What Kind Of Information Does The Maven Indexer Keep?
 
