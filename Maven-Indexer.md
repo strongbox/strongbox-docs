@@ -24,7 +24,7 @@ The Maven Indexer keeps a record of the following information:
 
 # What Artifacts Does The Maven Indexer Index?
 
-The indexer will 
+The indexer will add a record to the Lucene index for every artifact that has a `.pom` file. Artifacts that have several classifiers will have all their sub-artifact files added to the index, except a record for the POM. Artifacts, which have a `<packaging>pom</packaging>`, (usually parent POM-s and dependency POM-s), will be added to the index, as they have no other sub-artifacts.
 
 # What Is The Maven Indexer Used For In The Strongbox Project?
 
