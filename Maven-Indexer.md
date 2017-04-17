@@ -12,7 +12,7 @@ The Maven Indexer is a library created by Sonatype Inc. and contributed to the A
 
 # How Does The Maven Indexer Work?
 
-The Maven Indexer scans through `maven-metadata.xml` files and produces a compressed Lucene Index which can be downloaded by consumers.
+The Maven Indexer uses `maven-metadata.xml` and `.pom` files to figure out information about the artifacts. It produces a Lucene Index which can be packed and downloaded by consumers. 
 
 # What Kind Of Information Does The Maven Indexer Keep?
 
@@ -21,6 +21,10 @@ The Maven Indexer keeps a record of the following information:
 * GAV coordinates (`groupId`, `artifactId`, `version`, `packaging`, `classifier`)
 * SHA-1 checksums
 * Fully qualified class names contained in the artifact
+
+# What Artifacts Does The Maven Indexer Index?
+
+The indexer will 
 
 # What Is The Maven Indexer Used For In The Strongbox Project?
 
