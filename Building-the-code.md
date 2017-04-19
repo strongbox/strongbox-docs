@@ -61,23 +61,21 @@ Jenkins runs the tests in invoking a few Maven profiles, so that, for example, r
         -Preserve-ports,run-it-tests,!set-default-ports \
         -Dmaven.test.failure.ignore=false
 
-## Common problems building with tests
+## Common Build problems
 
 ### Busy 2424 Port
 
-> WARNI Port 0.0.0.0:2424 busy, trying the next available... [OServerNetworkListener]
+If you see something like this:
 
-> SEVER Unable to listen for connections using the configured ports '2424-2424' on host '0.0.0.0' [OServerNetworkListener]
+    WARNING Port 0.0.0.0:2424 busy, trying the next available... [OServerNetworkListener]
+    SEVERE  Unable to listen for connections using the configured ports '2424-2424' on host '0.0.0.0' [OServerNetworkListener]
+    ERROR Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test)
 
-> [...]
-
-> [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) [...]
-
-If above error looks familiar to you, please make sure that:
+Then please make sure that:
 * You don't have any other build already running
 * You don't have any other test in progress (e.g. halted by debugger process)
 
-as it looks like the database server (OrientDB Server) has begun listening for connections on port 2424 (most probably)
+The reason for this failure is that OrientDB can't start, if another OrientDB process is running an listening on the same port.
 
 # Jetty
 
