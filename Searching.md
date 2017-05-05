@@ -93,4 +93,5 @@ Custom search providers should implement [SearchProvider](https://github.com/str
     }
 
 # See Also
+* [[Maven Indexer]]
 * [[REST-API]]
