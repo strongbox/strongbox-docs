@@ -17,6 +17,7 @@
 * Metadata
   * [[Maven Metadata]]
 * [[REST API]]
+* [[Searching]]
 
 **Developer Guide**
 * [[Getting Started]]
