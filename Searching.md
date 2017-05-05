@@ -66,9 +66,10 @@ Custom search providers should implement [SearchProvider](https://github.com/str
     
     // Run a search against the database and get a list of
     // all the artifacts matching this exact GAV
+    String query = "groupId=org.carlspring.strongbox.searches;artifactId=test-project;";
     SearchRequest request = new SearchRequest(storageId,
                                               repositoryId,
-                                              "groupId=org.carlspring.strongbox.searches;artifactId=test-project;",
+                                              query,
                                               OrientDbSearchProvider.ALIAS);
 
     try
