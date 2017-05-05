@@ -30,7 +30,8 @@ Custom search providers should implement [SearchProvider](https://github.com/str
     
     ...
     
-    // Run a search against the index and get a list of all the artifacts matching this exact GAV
+    // Run a search against the index and get a list of
+    // all the artifacts matching this exact GAV
     SearchRequest request = new SearchRequest(storageId,
                                               repositoryId,
                                               "+g:" + groupId + " " +
@@ -63,7 +64,8 @@ Custom search providers should implement [SearchProvider](https://github.com/str
     
     ...
     
-    // Run a search against the index and get a list of all the artifacts matching this exact GAV
+    // Run a search against the database and get a list of
+    // all the artifacts matching this exact GAV
     SearchRequest request = new SearchRequest(storageId,
                                               repositoryId,
                                               "groupId=org.carlspring.strongbox.searches;artifactId=test-project;",
