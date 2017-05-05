@@ -60,7 +60,7 @@ This task checks which artifacts have been released and can be removed from the 
 
 This task can be useful, in cases where an artifact has been copied to (or altered) manually on the file system and there are no checksum, or the checksum has become invalid.
 
-# Information for developers
+# Information For Developers
 
 ## Location Of The Code
 The code for the cron tasks is located under the [strongbox-cron-tasks](https://github.com/strongbox/strongbox/tree/master/strongbox-cron-tasks) module.
