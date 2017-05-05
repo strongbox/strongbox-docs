@@ -92,3 +92,5 @@ Custom search providers should implement [SearchProvider](https://github.com/str
         logger.error(e.getMessage(), e);
     }
 
+# See Also
+* [[REST-API]]
