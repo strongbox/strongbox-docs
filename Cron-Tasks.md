@@ -69,6 +69,31 @@ The base cron implementation classes are:
 * [`JavaCronJob`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/JavaCronJob.java)
 * [`GroovyCronJob`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/main/java/org.carlspring.strongbox/cron/api/jobs/GroovyCronJob.java)
 
+## Implementing Cron Tasks
+
+### Implementing a Java Cron Task
+
+To create a Java based cron task you will need to extend the [JavaCronJob](https://github.com/strongbox/strongbox/blob/4c54d8884768d816f69ad53f6d4616de723de246/strongbox-cron-tasks/src/main/java/org/carlspring/strongbox/cron/api/jobs/JavaCronJob.java) class and override the `executeInternal()` method.
+
+    public class MyTask
+            extends JavaCronJob
+    {
+    
+        private final Logger logger = LoggerFactory.getLogger(MyTask.class);
+    
+        @Override
+        protected void executeInternal(JobExecutionContext jobExecutionContext)
+                throws JobExecutionException
+        {
+            logger.debug("My cron task is working");
+        }
+        
+    }
+
+### Implementing a Groovy Cron Task
+
+To create a Groovy based cron task, you will need to save a cron configuration without any job class, and then upload the Groovy script under that name.
+
 ## Notes
 
 ### Support For Spring Dependency Injection in Quartz Jobs
