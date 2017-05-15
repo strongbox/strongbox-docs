@@ -111,3 +111,18 @@ Basically no. The only reason to extend that class is when you would like to reu
 Please review this excellent article. It contains a lot of cool examples: [unit-testing-spring-mvc-controllers-with-rest-assured](https://blog.jayway.com/2014/01/14/unit-testing-spring-mvc-controllers-with-rest-assured/)
 
 If you still have any questions please review original [usage wiki page by rest-assured](https://github.com/rest-assured/rest-assured/wiki/usage).
+
+# Spring Test tips
+
+## Spring Test Context caching
+
+Spring provides a support for Test Context caching (see https://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html#testcontext-ctx-management-caching). Using single Test Context per maven module is preferable. Expand, adjust existing test context rather than create new one.
+
+## `@PostConstruct` and `@PreDestroy` pitfalls
+
+* `@PostConstruct` method on any application component configured in the `ApplicationContext` is getting called while Spring actually creates new Test Context
+* `@PostConstruct` within an actual test class will be executed before any `@Before` method of the underlying test
+* `@PreDestroy` method on any application component configured in the `ApplicationContext` is getting called when _all _tests are finished (because of the Spring Test Context caching feature), when JVM exits
+* `@PreDestroy` within an actual test class will _never_ be executed
+
+see more https://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html#integration-testing-annotations-standard for reference
