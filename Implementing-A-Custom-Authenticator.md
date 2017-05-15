@@ -26,13 +26,15 @@ In your project you will need to add the following dependency:
 
 # Why Is There A Separation Between `AuthenticationSupplier` and `AuthenticationProvider`?
 
-Because there are a large number of `AuthenticationProvider`-s (http://docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/authentication/AuthenticationProvider.html) for various needs, which are ready for use. The role of the [`AuthenticationSupplier`](https://github.com/strongbox/strongbox/blob/master/strongbox-authentication-api/src/main/java/org/carlspring/strongbox/authentication/api/AuthenticationSupplier.java) is quite different.
+There are already a large number of existing `AuthenticationProvider`(http://docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/authentication/AuthenticationProvider.html) implementations for various needs, which are ready for use. The role of the [`AuthenticationSupplier`](https://github.com/strongbox/strongbox/blob/master/strongbox-authentication-api/src/main/java/org/carlspring/strongbox/authentication/api/AuthenticationSupplier.java) is quite different.
 
 # My Implementation Is Ready. What now?
 
 1. Build your code:
 
-    mvn clean package
+```
+mvn clean package
+```
 
 2. Transfer your `.jar` file to the `authentication-lib` directory under the `strongbox` home directory (once the strongbox distribution is ready).
 
