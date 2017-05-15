@@ -8,6 +8,7 @@
   * [[Artifact Routing Rules]]
   * Configuration Files
     * [[The strongbox.xml File]]
+    * [[The strongbox authentication providers.xml file]]
   * [[Directory Structure]]
 * [[Cron Tasks]]
 * [[Installation]]
