@@ -122,7 +122,7 @@ Spring provides a support for Test Context caching (see https://docs.spring.io/s
 
 * `@PostConstruct` method on any application component configured in the `ApplicationContext` is getting called while Spring actually creates new Test Context
 * `@PostConstruct` within an actual test class will be executed before any `@Before` method of the underlying test
-* `@PreDestroy` method on any application component configured in the `ApplicationContext` is getting called when _all _tests are finished (because of the Spring Test Context caching feature), when JVM exits
+* `@PreDestroy` method on any application component configured in the `ApplicationContext` is getting called when _all_ tests are finished (because of the Spring Test Context caching feature), when JVM exits
 * `@PreDestroy` within an actual test class will _never_ be executed
 
 see more https://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html#integration-testing-annotations-standard for reference
