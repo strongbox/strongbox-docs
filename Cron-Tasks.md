@@ -108,13 +108,13 @@ This is how we implemented a scheduler factory with dependency injection support
 
 The cron tests are not executed by default when the project is built. They are only executed only under a special Spring active profile which is defined in the [`@CronTaskTest`](https://github.com/strongbox/strongbox/blob/master/strongbox-cron-tasks/src/test/java/org.carlspring.strongbox.cron/context/CronTaskTest.java) annotation:
 
-    @IfProfileValue(name = "spring.profiles.active", values = { "quartz-integration-tests" })
+    @IfProfileValue(name = "spring.profiles.active", values = { "integration-tests" })
 
 All cron tests need to be marked with this annotation.
 
 The Spring profile can be enabled like this:
 
-    mvn clean install -Dspring.profiles.active=quartz-integration-tests 
+    mvn clean install -Dspring.profiles.active=integration-tests 
 
 ### How To Create A New Cron Job
 
