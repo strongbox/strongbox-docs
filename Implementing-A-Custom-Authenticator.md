@@ -21,6 +21,10 @@ Sure, follow this link: https://github.com/strongbox/strongbox-authentication-ex
 
 Because there is a large number of `AuthenticationProviders` (http://docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/authentication/AuthenticationProvider.html) for your needs, ready to use. The role of the [AuthenticationSupplier.java](https://github.com/strongbox/strongbox/blob/master/strongbox-authentication-api/src/main/java/org/carlspring/strongbox/authentication/api/AuthenticationSupplier.java) is quite different.
 
+# My implementation is ready. What now ?
+
+`mvn clean package` and transfer your `.jar` file to the _authentication-lib_ directory under the strongbox home directory (once the strongbox distribution is ready).
+
 # Final note
 
 Please remember that [Authenticator.java](https://github.com/strongbox/strongbox/blob/master/strongbox-authentication-api/src/main/java/org/carlspring/strongbox/authentication/api/Authenticator.java) implementations have to be Spring `@Components`. They are scanned by the Spring mechanisms to load fresh Application Context in the start time, or in the runtime (on reload request).
