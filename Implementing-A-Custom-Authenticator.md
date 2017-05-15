@@ -26,7 +26,7 @@ In your project you will need to add the following dependency:
 
 # Why Is There A Separation Between `AuthenticationSupplier` and `AuthenticationProvider`?
 
-There are already a large number of existing `AuthenticationProvider`(http://docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/authentication/AuthenticationProvider.html) implementations for various needs, which are ready for use. The role of the [`AuthenticationSupplier`](https://github.com/strongbox/strongbox/blob/master/strongbox-authentication-api/src/main/java/org/carlspring/strongbox/authentication/api/AuthenticationSupplier.java) is quite different.
+There are already a large number of existing [`AuthenticationProvider`](http://docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/authentication/AuthenticationProvider.html) implementations for various needs, which are ready for use. The role of the [`AuthenticationSupplier`](https://github.com/strongbox/strongbox/blob/master/strongbox-authentication-api/src/main/java/org/carlspring/strongbox/authentication/api/AuthenticationSupplier.java) is quite different.
 
 # My Implementation Is Ready. What now?
 
