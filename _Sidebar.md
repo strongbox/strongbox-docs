@@ -27,6 +27,7 @@
 * [[Logging]]
 * [[Writing Tests]]
 * [[Getting Started With Persistence]]
+* [[How To Implement A Custom Authenticator]]
 * [[How To Implement Your Own Repository Format]]
 
 **Contributing/Licensing**
