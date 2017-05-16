@@ -11,14 +11,14 @@ The cases in which this file is required are:
 
 # File structure
 
-See an example at: https://github.com/strongbox/strongbox/blob/master/strongbox-user-management/src/main/resources/etc/conf/strongbox-authentication-providers.xml
+See an example [here](https://github.com/strongbox/strongbox/blob/master/strongbox-user-management/src/main/resources/etc/conf/strongbox-authentication-providers.xml)
 
-As you can see, it's a custom Spring context xml file where two things are important:
+This is a custom Spring context XML file where the following things are important:
 
 * `authenticators` list bean
-  * enumerates all fully qualified names of the authenticator classes that your strongbox distribution will support. authenticator classes should be 
+  * Enumerates all fully qualified names of the authenticator classes that your strongbox distribution will support. authenticator classes should be 
   * order matters 
-* `<context:component-scan base-package="x.y.z,a.b.c" />` lists all packages that will be scanned, looking for any @Component-annotated classes, and those classes will be registered as Spring bean definitions within the application context
+* `<context:component-scan base-package="x.y.z,a.b.c" />` lists all packages that will be scanned, looking for any `@Component`-annotated classes, and those classes will be registered as Spring bean definitions within the application context
 
 # Reload
 
