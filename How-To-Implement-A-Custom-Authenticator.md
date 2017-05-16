@@ -36,7 +36,7 @@ There are already a large number of existing [`AuthenticationProvider`](http://d
 mvn clean package
 ```
 
-2. Transfer your `jar` file to the `strongbox/webapp/WEB-INF/lib` directory under the `strongbox` home directory in your strongbox distribution.
+2. Copy the produced `jar` file to the `strongbox/webapp/WEB-INF/lib` directory under your Strongbox distribution.
 
 # Final notes
 
