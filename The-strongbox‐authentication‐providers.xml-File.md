@@ -22,4 +22,4 @@ As you can see, it's a custom Spring context xml file where two things are impor
 
 # Reload
 
-https://github.com/strongbox/strongbox/wiki/REST-API
+[REST API](https://github.com/strongbox/strongbox/wiki/REST-API)
