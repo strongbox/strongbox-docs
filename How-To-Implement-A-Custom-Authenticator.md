@@ -46,3 +46,4 @@ Please remember that [`Authenticator`](https://github.com/strongbox/strongbox/bl
 
 * [Strongbox Authentication Example](https://github.com/strongbox/strongbox-authentication-example)
 * [[The strongbox‐authentication‐providers.xml File]]
+* [Spring JavaDocs: AuthenticationProvider](http://docs.spring.io/spring-security/site/docs/current/apidocs/org/springframework/security/authentication/AuthenticationProvider.html)
