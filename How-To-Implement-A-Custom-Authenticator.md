@@ -44,4 +44,5 @@ Please remember that [`Authenticator`](https://github.com/strongbox/strongbox/bl
 
 # See Also
 
+* [Strongbox Authentication Example](https://github.com/strongbox/strongbox-authentication-example)
 * [[The strongbox‐authentication‐providers.xml File]]
