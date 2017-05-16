@@ -17,7 +17,7 @@ For an example, check [here](https://github.com/strongbox/strongbox/blob/master/
 
 This is a custom Spring context XML file where the following things are important:
 
-* `authenticators` list bean
+* The `authenticators` list bean
   * Enumerates all fully qualified names of the authenticator classes that your strongbox distribution will support
   * Authenticator classes should be `@Component`-annotated classes
   * Authenticator classes should be listed in an expected order
