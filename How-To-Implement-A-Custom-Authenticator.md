@@ -38,6 +38,10 @@ mvn clean package
 
 2. Copy the produced `jar` file to the `strongbox/webapp/WEB-INF/lib` directory under your Strongbox distribution.
 
-# Final notes
+# Final Notes
 
 Please remember that [`Authenticator`](https://github.com/strongbox/strongbox/blob/master/strongbox-authentication-api/src/main/java/org/carlspring/strongbox/authentication/api/Authenticator.java) implementations have to be Spring `@Components`. They are scanned by the Spring mechanisms to load fresh Application Context in the start time, or in the runtime (on reload request).
+
+# See Also
+
+* [[The strongbox‐authentication‐providers.xml File]]
