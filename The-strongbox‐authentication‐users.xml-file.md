@@ -1,8 +1,10 @@
 # Understanding access restriction
+
 Usually access is restricted for different resources and different users have different roles. Access restriction implemented internally through set of privileges and roles, that are set of unique privileges. Although some user can have generally weak access rights, we are able to allow him strong access rights for certain resources.
 
 # Build-in roles and privileges
-We have build-in roles and privileges that are already preconfigured in source code. In addition you can define your own roles and privileges either through XML configuration file or REST API.
+
+We have build-in roles and privileges that are already pre-configured in source code. In addition you can define your own roles and privileges either through XML configuration file or REST API.
 
 The project build-in privileges defined in ```org.carlspring.strongbox.users.domain.Privileges```. They are, for example, ```ADMIN```, ```ARTIFACTS_DEPLOY```, ```SEARCH_ARTIFACTS``` etc.
 
