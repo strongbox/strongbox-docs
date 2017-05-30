@@ -16,7 +16,7 @@ You can't use unsupported roles or privileges in configuration file. In that cas
 
 # Configuring Security Rules For Users
 
-The user access rights can be configured either through the `etc.conf/strongbox-security-users.xml` configuration file or the REST API.
+The user access rights can be configured either through the `etc/conf/strongbox-security-users.xml` configuration file or the REST API.
 
 ## Using XML configuration file
 
