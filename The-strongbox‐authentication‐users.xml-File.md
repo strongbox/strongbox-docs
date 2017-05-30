@@ -117,4 +117,6 @@ The built-in roles are defined in `org.carlspring.strongbox.users.domain.Roles`.
 
 ## How It Works
 
-We manage runtime user authentication credentials using a custom `AffirmativeBased` extension for every request. We use a `CustomAccessDecisionVoter` decision voter that does not participate in voting, but works first and - if and only if - certain user has custom access model it calculates whenever user has special access rights rules for current URL. If that's true it add's new privileges as user credentials for current authentication and refreshes Spring authentication context. Please review `org.carlspring.strongbox.security.vote.CustomAccessDecisionVoter` for more details.
+The runtime user authentication credentials are managed using a custom `AffirmativeBased` extension for every request. A `CustomAccessDecisionVoter` decision voter is used that does not participate in the voting, unless the user has a custom access model defined. In such cases it calculates decides whether the user has the required rights to access the current URL. If the user has the required access level, the voter adds the new privileges as user credentials for current authentication and refreshes Spring authentication context.
+
+Please review `org.carlspring.strongbox.security.vote.CustomAccessDecisionVoter` for more details.
