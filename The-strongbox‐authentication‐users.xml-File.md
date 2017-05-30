@@ -6,21 +6,17 @@ It is also possible to manage the access to certain resources.
 
 # Built-in Roles And Privileges
 
-We have build-in roles and privileges that are already pre-configured in source code. In addition you can define your own roles and privileges either through XML configuration file or REST API.
+There are a number of built-in roles and privileges that are already pre-configured in the source code. In addition you can define your own roles and privileges either through the XML configuration file or REST API.
 
-The project build-in privileges defined in `org.carlspring.strongbox.users.domain.Privileges`. They are, for example, `ADMIN`, `ARTIFACTS_DEPLOY`, `SEARCH_ARTIFACTS` etc.
-
-Build-in roles defined in `org.carlspring.strongbox.users.domain.Roles`. They are, for example, `ADMIN`, `REPOSITORY_MANAGER`, `LOGS_MANAGER` etc.
-
-You can't use unsupported roles or privileges in configuration file. In that case you will get exception at runtime during application startup. All custom (user-defined) roles and privileges have to be properly defined in `strongbox-security-authorization.xml` configuration file.
+You can't use unsupported roles or privileges in the configuration file. In such cases you will get a runtime exception during application startup. All custom (user-defined) roles and privileges have to be properly defined in the `strongbox-security-authorization.xml` configuration file.
 
 # Configuring Security Rules For Users
 
-The user access rights can be configured either through the `etc/conf/strongbox-security-users.xml` configuration file or the REST API.
+The user access rights can be configured either through the `etc/conf/strongbox-security-users.xml` configuration, file or via the REST API.
 
-## Using XML configuration file
+## Using The XML Configuration File
 
-XML configuration file consists of set of `user` configurations and has the following structure:
+The XML configuration file consists of a set of `user` configurations and has the following structure:
 
     <users>
         <user>
@@ -45,19 +41,20 @@ If you would like to create a new user, you can issue an HTTP POST request as il
 
 ## Configuring The User Access Model
 
-If a user doesn't have any custom permissions defined via the `<access-model/>`, the default security settings will be used (based on the current privileges set). Otherwise, the storage and repository will be parsed from current URL as well as current path (if present). If user have custom privileges for current path under current storage and repository this privileges will be temporary assigned (added to existing privileges set) during current access granting process. For another URL user will have initial set of privileges.
+If a user doesn't have any custom permissions defined via the `<access-model/>`, the default security settings will be used (based on the current set of privileges). Otherwise, the storage and repository will be parsed from current URL as well as current path, (if present). If a user has custom privileges for the requested path under the specified storage and repository, these privileges will be temporarily assigned (added to existing set of privileges) during access granting process. For any other URL, user will have the initial set of privileges.
 
 A user can have a main role and in addition several separate privileges that will grant them access to different resources that would otherwise have restricted access via the default assigned privileges. For example, there could be:
+
 * A `deployer` user which has `Artifacts: Resolve` and `Artifacts: Deploy` privileges for the repository
 * Another user `developer01`  that only has `Artifacts: Resolve`  for just this repository.
 
-User can have different access level for different paths under the same repository. Path can be defined using wildcard `*` , for example `com/carlspring/foo/**`  which will means that access restricted for all paths for this repository that start with `com/carlspring/foo`.
+Users can also fine-grain the access levels for different paths under the same repository. Paths can be defined using wildcards, for example `com/carlspring/foo/**`  which will mean that access is granted for all paths for this repository that start with `com/carlspring/foo`.
 
-User can have different permissions for each configured path or repository. If permission  is not defined, `rw`  (read-write) permission will be assigned by default.`READ` permission will be translated as `ARTIFACTS_VIEW` and `ARTIFACTS_RESOLVE`  privileges, and `WRITE` as `ARTIFACTS_DEPLOY` , `ARTIFACTS_DELETE` and `ARTIFACTS_COPY`.
+Furthermore, users can have different permissions for each configured path or repository. If a permission is not defined, a `rw`  (read-write) permission will be assigned by default. `READ` permission will be translated as `ARTIFACTS_VIEW` and `ARTIFACTS_RESOLVE`  privileges, and `WRITE` as `ARTIFACTS_DEPLOY` , `ARTIFACTS_DELETE` and `ARTIFACTS_COPY`.
 
 ### Example of Custom User Access Model
 
-The following is an example of custom user access model:
+The following is an example of a custom user access model:
 
 ```xml
 <user>
@@ -73,14 +70,14 @@ The following is an example of custom user access model:
         <storages>
             <storage id="storage0">
                 <repositories>
-                    <repository id="act-releases-1">
+                    <repository id="mycorp-releases">
                         <privileges>
                             <privilege>
                                 <name>ARTIFACTS_RESOLVE</name>
                             </privilege>
                         </privileges>
                         <path-permissions>
-                            <path>pro/redsoft/bar/.*</path>
+                            <path>com/mycorp/.*</path>
                             <path permission="r">com/carlspring/foo/.*</path>
                             <path permission="rw">org/carlspring/foo/.*</path>
                         </path-permissions>
@@ -92,17 +89,31 @@ The following is an example of custom user access model:
 </user>
 ```
 
-In the example above, the user has the default `UI_MANAGER` role and this role privileges set used for all resources that user is trying working with. 
+In the example above, the user has the default `UI_MANAGER` role and this role privileges set is used for all the web resources. 
 
-In addition, if user `developer01` will try to work with resources under storage `storage0` and repository `act-releases-1` he will gain RW or R privileges for certain paths to the default set of privileges that are included in `UI_MANAGER` role. Despite that, the user will have additional `ARTIFACTS_RESOLVE` privilege for all resources in that repository (according to the `privileges` configuration settings).
+In addition, if user `developer01` tries to access a resources under storage `storage0` and repository `mycorp-releases`, they will also gain read-write (`rw`) or read (`r`) privileges for the paths specified in the example above in addition to the default set of privileges that are included in `UI_MANAGER` role. Despite this, the user will have an additional `ARTIFACTS_RESOLVE` privilege for all the resources in that repository (according to the `privileges` configuration settings).
 
-For example, for all artifacts under `com/carlspring/foo/.*` path they will have `UI_MANAGER` privileges plus `ARTIFACTS_VIEW` and `ARTIFACTS_RESOLVE`.
+For example, for all artifacts under `com/carlspring/foo/.*` path they will have `UI_MANAGER` privileges, as well as the `ARTIFACTS_VIEW` and `ARTIFACTS_RESOLVE` privileges.
 
 # Information For Developers
 
 ## Internal privileges and roles subsystem
 
 Built-in privileges are defined in `org.carlspring.strongbox.users.domain.Privileges`. Roles are defined in `org.carlspring.strongbox.users.domain.Roles`.
+
+The built-in privileges defined in `org.carlspring.strongbox.users.domain.Privileges`. Such are, for example:
+
+* `ADMIN`
+* `ARTIFACTS_DEPLOY`
+* `SEARCH_ARTIFACTS`
+* etc.
+
+The built-in roles are defined in `org.carlspring.strongbox.users.domain.Roles`. Such are, for example:
+
+* `ADMIN`
+* `REPOSITORY_MANAGER`
+* `LOGS_MANAGER`
+* etc.
 
 ## How It Works
 
