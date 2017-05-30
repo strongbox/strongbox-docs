@@ -23,10 +23,12 @@ XML configuration file consists of set of `user` configurations and has the foll
     <users>
         <user>
             <username>testuser</username>
-            <credentials>....</credentials>
-            <roles>
+            <credentials>
                 <password>password</password>
                 <encryption-algorithm>plain</encryption-algorithm>
+            </credentials>
+            <roles>
+                <role>ARTIFACTS_MANAGER</role>
             </roles>
             <access-model/>
         </user>
@@ -92,7 +94,7 @@ In the example above, the user has the default `UI_MANAGER` role and this role p
 
 In addition, if user `developer01` will try to work with resources under storage `storage0` and repository `act-releases-1` he will gain RW or R privileges for certain paths to the default set of privileges that are included in `UI_MANAGER` role. Despite that, the user will have additional `ARTIFACTS_RESOLVE` privilege for all resources in that repository (according to the `privileges` configuration settings).
 
-For example, for all artifacts under `com/carlspring/foo/.*` path he will have `UI_MANAGER` privileges plus `ARTIFACTS_VIEW` and `ARTIFACTS_RESOLVE`.
+For example, for all artifacts under `com/carlspring/foo/.*` path they will have `UI_MANAGER` privileges plus `ARTIFACTS_VIEW` and `ARTIFACTS_RESOLVE`.
 
 # Information For Developers
 
