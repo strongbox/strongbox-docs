@@ -1,6 +1,8 @@
 # Understanding Access Restrictions
 
-The access to system's web resources can be restricted for users using roles. Access restrictions are implemented internally through a set of privileges and roles, that are a set of unique privileges. Although some user can have generally weak access rights, we are able to allow him strong access rights for certain resources.
+The access to the system's web resources can be restricted for users using roles. Access restrictions are implemented internally through a set of privileges and roles, that are a set of unique privileges.
+
+It is also possible to manage the access to certain resources.
 
 # Built-in Roles And Privileges
 
@@ -39,13 +41,13 @@ The `<access-model>` element is optional.
 
 ## Using The REST API
 
-If you would like to create a new user, you can issue an HTTP POST request as illustrated in the [[REST API]] and include the desired security configuration via the `<access-model/>`. You can also update the settings for existing users. 
+If you would like to create a new user, you can issue an HTTP POST request as illustrated in the [[REST API]] and include the desired security configuration via the `<access-model/>`. You can also update the settings for existing users via the [[REST API]]. 
 
-## Configuring User Access Model
+## Configuring The User Access Model
 
-If user doesn't have any custom permissions defined via the `<access-model/>`, the default security settings will be used (based on the current privileges set). Otherwise, the storage and repository will be parsed from current URL as well as current path (if present). If user have custom privileges for current path under current storage and repository this privileges will be temporary assigned (added to existing privileges set) during current access granting process. For another URL user will have initial set of privileges.
+If a user doesn't have any custom permissions defined via the `<access-model/>`, the default security settings will be used (based on the current privileges set). Otherwise, the storage and repository will be parsed from current URL as well as current path (if present). If user have custom privileges for current path under current storage and repository this privileges will be temporary assigned (added to existing privileges set) during current access granting process. For another URL user will have initial set of privileges.
 
-User can have main role and in addition several separate privileges that will grant access for some resources that were inaccessible through the main assigned privileges. For example, there could be:
+A user can have a main role and in addition several separate privileges that will grant them access to different resources that would otherwise have restricted access via the default assigned privileges. For example, there could be:
 * A `deployer` user which has `Artifacts: Resolve` and `Artifacts: Deploy` privileges for the repository
 * Another user `developer01`  that only has `Artifacts: Resolve`  for just this repository.
 
