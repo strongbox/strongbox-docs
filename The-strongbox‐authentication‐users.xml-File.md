@@ -1,6 +1,6 @@
 # Understanding Access Restrictions
 
-The access to the system's web resources can be restricted for users using roles. Access restrictions are implemented internally through a set of privileges and roles, that are a set of unique privileges.
+The access to the system's web resources can be restricted for users using roles and privileges. Access restrictions are implemented internally through a set of privileges and roles, that are a set of unique privileges.
 
 It is also possible to manage the access to certain resources.
 
