@@ -2,7 +2,7 @@
 
 This page contains explanations and code samples for developers who need to store their entities into the database. 
 
-The Strongbox project uses [OrientDB](http://orientdb.com/orientdb/) as its internal persistent storage through the [Spring Data](http://projects.spring.io/spring-data/) interface which, in term, is implemented as the [spring-data-orientdb](https://github.com/orientechnologies/spring-data-orientdb) open source project.
+The Strongbox project uses [OrientDB](http://orientdb.com/orientdb/) as its internal persistent storage through the corresponding `JPA` implementation and `spring-orm` middle tier. Also we use `JTA` for transaction management, which is another Spring module called `spring-tx`.
 
 ## Adding Dependencies
 
