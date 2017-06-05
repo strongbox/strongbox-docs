@@ -91,46 +91,7 @@ The complete source code example that follows all requirements should look somet
 
 ## Creating a DAO Layer
 
-You will need to create at least a repository and service classes to take advantage of [spring-data-orientdb](https://github.com/orientechnologies/spring-data-orientdb)'s code generation.
-
-For the repository class, (don't forget that the interface is also a class in Java), you will need to follow this rules:
-* Extend Spring Configuration with the package name that your repository classes are defined for the current module to make repositories observable using the `@EnableOrientRepositories` annotation:
-
-`@EnableOrientRepositories(basePackages = "org.carlspring.strongbox.repository")`
-
-* Annotate the repository interface with the `@Transactional` annotation
-* Let your interface to the `OrientRepository<MyEntity>` class
-* _Optional_ - define any other methods according to the Spring Data possibilities to generate the respective service code (take a look at the example below).
-
-The complete code example for the repository class should look something like this:
-
-    package org.carlspring.strongbox.users.repository;
-    
-    import org.carlspring.strongbox.data.repository.OrientRepository;
-    import org.carlspring.strongbox.users.domain.MyEntity;
-    import org.carlspring.strongbox.users.domain.User;
-    
-    import org.springframework.transaction.annotation.Transactional;
-    
-    /**
-     * Spring Data CRUD repository for {@link org.carlspring.strongbox.users.domain.MyEntity}.
-     *
-     * @author Alex Oreshkevich
-     */
-    @Transactional
-    public interface MyEntityRepository
-            extends OrientRepository<MyEntity>
-    {
-        MyEntity findByProperty(String property);
-    }
-
-Besides the built-in CRUD methods, we also define a `findByProperty()` method which is equivalent to the following SQL code:
-
-    SELECT * FROM MyEntity WHERE property = 'some_property';
-
-Feel free to create additional methods if you need them. For the complete reference on how to work with repositories, please check the [Spring Data Commons : Using repositories](http://docs.spring.io/spring-data/data-commons/docs/current/reference/html/#repositories) reference.
-
-Similar requirements are defined for all service interfaces. Please review the sample code below:
+First of all you will need to extend the `CrudService` with the second type parameter that corresponds to your ID's data type. Usually it's just strings. To read more about ID's in OrientDB, check [here](http://orientdb.com/docs/2.0/orientdb.wiki/Tutorial-Record-ID.html).
 
     package org.carlspring.strongbox.users.service;
     
@@ -153,30 +114,24 @@ Similar requirements are defined for all service interfaces. Please review the s
     
     }
 
-You will need to extend the `CrudService` with the second type parameter that corresponds to your ID's data type. Usually it's just strings. To read more about ID's in OrientDB, check [here](http://orientdb.com/docs/2.0/orientdb.wiki/Tutorial-Record-ID.html).
-
-After that you will need to define an implementation of your service class. The repository class implementation would be generated internally.
+After that you will need to define an implementation of your service class. 
 
 Follow these rules for the service implementation:
+* Inherit your CURD service from `CommonCrudService<MyEntity>` class:
 * Name it like your service interface with an `Impl` suffix, for example `MyEntityServiceImpl`.
 * Annotate your class with the Spring `@Service` and `@Transactional` annotations.
-* Add `synchronized` modifier on all of your service class methods to avoid generation of `OConcurrentModificationException` when multiple threads would like to update the same record
 * Do **not** define your service class as public and use interface instead of class for injection (with `@Autowired`); this follows the best practice principles from Joshua Bloch 'Effective Java' book called Programming to Interface
 * _Optional_ - feel free to use `@Cacheable` whenever you need to use second level cache that's already configured in the project (do not forget to modify `ehcache.xml` file accordingly) 
+* _Optional_ - define any methods you need to work with your `MyEntity` class, based on common CRUD methods form `javax.persistence.EntityManager`, or custom queries (which can be done with 
+ entityManager.getDelegate().command(oQuery).execute(params)`).
 
 ## Register entity schema in EntityManager
 Before using entities you will need to register them. Consider the following example:
 
-    @Autowired
-    private OObjectDatabaseTx databaseTx;
+    @Inject
+    private OEntityManager oEntityManager;
 
     @PostConstruct
     public void init() {
-        databaseTx.activateOnCurrentThread();
-        databaseTx.getEntityManager().registerEntityClass(MyEntity.class);
+        oEntityManager.registerEntityClass(MyEntity.class);
     }
-
-Because database instance that was injected could be reused across the application and different threads according to internal OrientDB concurrency control we _MUST_ activate it on current thread before using it.
-
-## Multithreading
-Read more about multithreading control on [Java-Multi-Threading](http://orientdb.com/docs/2.1/Java-Multi-Threading.html) and [Concurrency](http://orientdb.com/docs/2.1/Concurrency.html) OrientDB manual pages.
