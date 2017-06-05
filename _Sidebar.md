@@ -9,7 +9,7 @@
   * Configuration Files
     * [[The strongbox.xml File]]
     * [[The strongbox‐authentication‐providers.xml File]]
-    * [[The strongbox‐authentication‐users.xml File]]
+    * [[The strongbox‐security‐users.xml File]]
   * [[Directory Structure]]
 * [[Cron Tasks]]
 * [[Installation]]
