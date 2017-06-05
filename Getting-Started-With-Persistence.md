@@ -91,7 +91,8 @@ The complete source code example that follows all requirements should look somet
 
 ## Creating a DAO Layer
 
-First of all you will need to extend the `CrudService` with the second type parameter that corresponds to your ID's data type. Usually it's just strings. To read more about ID's in OrientDB, check [here](http://orientdb.com/docs/2.0/orientdb.wiki/Tutorial-Record-ID.html).
+First of all you will need to extend the `CrudService` with the second type parameter that corresponds to your ID's data type. Usually it's just strings. 
+> To read more about ID's in OrientDB, check [here](http://orientdb.com/docs/2.0/orientdb.wiki/Tutorial-Record-ID.html).
 
     package org.carlspring.strongbox.users.service;
     
@@ -124,7 +125,23 @@ Follow these rules for the service implementation:
 * _Optional_ - feel free to use `@Cacheable` whenever you need to use second level cache that's already configured in the project (do not forget to modify `ehcache.xml` file accordingly) 
 * _Optional_ - define any methods you need to work with your `MyEntity` class; these methods mostly should be based on common API form `javax.persistence.EntityManager`, or custom queries (see example below).
 
+    @Transactional
+    public interface MyEntityServiceImpl
+            extends CommonCrudService<MyEntity> implements MyEntityService
+    {
+    
+        public MyEntity findByProperty(String property){
+            String sQuery = "select * from MyEntity where propertyName=:propertyValue";
+            OSQLSynchQuery<Long> oQuery = new OSQLSynchQuery<Long>(sQuery);
+            oQuery.setLimit(1);
+            HashMap<String, String> params = new HashMap<String, String>();
+            params.put("propertyValue", property);
 
+            List<MyEntity> resultList = getDelegate().command(oQuery).execute(params);
+            return !resultList.isEmpty() ? resultList.iterator().next() : null;
+        }
+    
+    }
 
 ## Register entity schema in EntityManager
 Before using entities you will need to register them. Consider the following example:
