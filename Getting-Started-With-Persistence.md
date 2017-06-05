@@ -125,6 +125,7 @@ Follow these rules for the service implementation:
 * _Optional_ - feel free to use `@Cacheable` whenever you need to use second level cache that's already configured in the project (do not forget to modify `ehcache.xml` file accordingly) 
 * _Optional_ - define any methods you need to work with your `MyEntity` class; these methods mostly should be based on common API form `javax.persistence.EntityManager`, or custom queries (see example below).
 
+```
     @Transactional
     public interface MyEntityServiceImpl
             extends CommonCrudService<MyEntity> implements MyEntityService
@@ -142,6 +143,7 @@ Follow these rules for the service implementation:
         }
     
     }
+```
 
 ## Register entity schema in EntityManager
 Before using entities you will need to register them. Consider the following example:
