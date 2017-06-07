@@ -124,7 +124,7 @@ Follow these rules for the service implementation:
 * Do **not** define your service class as public and use interface instead of class for injection (with `@Autowired`); this follows the best practice principles from Joshua Bloch 'Effective Java' book called Programming to Interface;
 * _Optional_ - feel free to use `@Cacheable` whenever you need to use second level cache that's already configured in the project (do not forget to modify `ehcache.xml` file accordingly);
 * _Optional_ - define any methods you need to work with your `MyEntity` class; these methods mostly should be based on common API form `javax.persistence.EntityManager`, or custom queries (see example below);
-* _Note_ - Avoid query parameters construction through string concatenation (`"select * from MyEntity where proprety='" + propertyValue + "'"`), this can be a reason for [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection);
+* _Note_ - Avoid query parameters construction through string concatenation like follows `String sQuery = "select * from MyEntity where proprety='" + propertyValue + "'"`, this can be a reason for [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection);
 
 ```
     @Transactional
@@ -134,7 +134,7 @@ Follow these rules for the service implementation:
     
         public MyEntity findByProperty(String property)
         {
-            String sQuery = "select * from MyEntity where propertyName=:propertyValue";
+            String sQuery = "select * from MyEntity where property = :propertyValue";
             OSQLSynchQuery<Long> oQuery = new OSQLSynchQuery<Long>(sQuery);
             oQuery.setLimit(1);
             HashMap<String, String> params = new HashMap<String, String>();
