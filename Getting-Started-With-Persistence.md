@@ -118,12 +118,13 @@ First of all you will need to extend the `CrudService` with the second type para
 After that you will need to define an implementation of your service class. 
 
 Follow these rules for the service implementation:
-* Inherit your CURD service from `CommonCrudService<MyEntity>` class:
-* Name it like your service interface with an `Impl` suffix, for example `MyEntityServiceImpl`.
-* Annotate your class with the Spring `@Service` and `@Transactional` annotations.
-* Do **not** define your service class as public and use interface instead of class for injection (with `@Autowired`); this follows the best practice principles from Joshua Bloch 'Effective Java' book called Programming to Interface
-* _Optional_ - feel free to use `@Cacheable` whenever you need to use second level cache that's already configured in the project (do not forget to modify `ehcache.xml` file accordingly) 
-* _Optional_ - define any methods you need to work with your `MyEntity` class; these methods mostly should be based on common API form `javax.persistence.EntityManager`, or custom queries (see example below).
+* Inherit your CURD service from `CommonCrudService<MyEntity>` class;
+* Name it like your service interface with an `Impl` suffix, for example `MyEntityServiceImpl`;
+* Annotate your class with the Spring `@Service` and `@Transactional` annotations;
+* Do **not** define your service class as public and use interface instead of class for injection (with `@Autowired`); this follows the best practice principles from Joshua Bloch 'Effective Java' book called Programming to Interface;
+* _Optional_ - feel free to use `@Cacheable` whenever you need to use second level cache that's already configured in the project (do not forget to modify `ehcache.xml` file accordingly);
+* _Optional_ - define any methods you need to work with your `MyEntity` class; these methods mostly should be based on common API form `javax.persistence.EntityManager`, or custom queries (see example below);
+* _Note_ - Avoid query parameters construction through string concatenation (`"select * from MyEntity where proprety='" + propertyValue + "'"`), this can be a reason for [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection);
 
 ```
     @Transactional
