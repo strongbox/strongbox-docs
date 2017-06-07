@@ -153,6 +153,7 @@ Before using entities you will need to register them. Consider the following exa
     private OEntityManager oEntityManager;
 
     @PostConstruct
-    public void init() {
+    public void init() 
+    {
         oEntityManager.registerEntityClass(MyEntity.class);
     }
