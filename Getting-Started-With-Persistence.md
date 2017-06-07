@@ -127,17 +127,18 @@ Follow these rules for the service implementation:
 
 ```
     @Transactional
-    public interface MyEntityServiceImpl
+    public class MyEntityServiceImpl
             extends CommonCrudService<MyEntity> implements MyEntityService
     {
     
-        public MyEntity findByProperty(String property){
+        public MyEntity findByProperty(String property)
+        {
             String sQuery = "select * from MyEntity where propertyName=:propertyValue";
             OSQLSynchQuery<Long> oQuery = new OSQLSynchQuery<Long>(sQuery);
             oQuery.setLimit(1);
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("propertyValue", property);
-
+    
             List<MyEntity> resultList = getDelegate().command(oQuery).execute(params);
             return !resultList.isEmpty() ? resultList.iterator().next() : null;
         }
