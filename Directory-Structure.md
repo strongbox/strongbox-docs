@@ -8,7 +8,7 @@ The server's configuration files reside under the `strongbox` directory.
       * [strongbox.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox.xml-File)
       * security-authentication.xml
       * security-authorization.xml
-      * security-users.xml
+      * [strongbox-security-users.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox%E2%80%90security%E2%80%90users.xml-File)
     * jetty/
       * jetty.xml
       * jetty-http.xml
