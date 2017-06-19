@@ -23,3 +23,9 @@ As a bare minimum, each implementation needs to provide the following two mandat
 * `version`
 
 The `id` would be the name/id of the artifact, whereas, the `version` would describe the version.
+
+## Built-in Implementations
+
+Strongbox comes with the following built-in implementations:
+* [MavenArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/artifact/coordinates/MavenArtifactCoordinates.java)
+* [NugetHierarchicalArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider/src/main/java/org/carlspring/strongbox/artifact/coordinates/NugetHierarchicalArtifactCoordinates.java)
