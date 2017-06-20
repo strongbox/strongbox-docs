@@ -7,9 +7,9 @@
   * [[Application Properties]]
   * [[Artifact Routing Rules]]
   * Configuration Files
-    * [[The strongbox.xml File]]
-    * [[The strongbox‐authentication‐providers.xml File]]
-    * [[The strongbox‐security‐users.xml File]]
+    * [strongbox.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox.xml-File)
+    * [strongbox‐authentication‐providers.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox%E2%80%90authentication%E2%80%90providers.xml-File)
+    * [strongbox‐security‐users.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox%E2%80%90security%E2%80%90users.xml-File)
   * [[Directory Structure]]
 * [[Cron Tasks]]
 * [[Installation]]
