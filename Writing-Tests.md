@@ -130,7 +130,7 @@ If you still have any questions please review original [usage wiki page by rest-
 
 ## Spring Test Context caching
 
-Spring provides a support for Test Context caching (see https://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html#testcontext-ctx-management-caching). Using single Test Context per maven module is preferable. Expand, adjust existing test context rather than create new one.
+Spring provides a support for Test Context caching (see [here](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html#testcontext-ctx-management-caching)). Using single Test Context per maven module is preferable. Expand, adjust existing test context rather than create new one.
 
 ## `@PostConstruct` and `@PreDestroy` pitfalls
 
