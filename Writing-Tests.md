@@ -139,4 +139,9 @@ Spring provides a support for Test Context caching (see https://docs.spring.io/s
 * `@PreDestroy` method on any application component configured in the `ApplicationContext` is getting called when _all_ tests are finished (because of the Spring Test Context caching feature), when JVM exits
 * `@PreDestroy` within an actual test class will _never_ be executed
 
-see more https://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html#integration-testing-annotations-standard for reference
+# How Do The Tests Run In Jenkins?
+
+For details on how the build and tests are executed in Jenkins, you can check the project's [`Jenkinsfile`](https://github.com/strongbox/strongbox/blob/master/Jenkinsfile) file. Also, all Strongbox sub-projects that are running in Jenkins will have such a file, so it could be used as a reference of how things are built and tested.
+
+# See Also
+* [Spring: Integration Testing Reference](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html#integration-testing-annotations-standard)
