@@ -81,6 +81,8 @@ Please, note that the above class is not currently something you can extend outs
 
 Some of the tests don't need to be running all the time during development. We've marked these as integration tests in order to make the build times much more reasonable.
 
+These tests are executed using the `maven-failsafe-plugin`. The default configurations for the `maven-surefire-plugin` and `maven-failsafe-plugin` are located in the `strongbox/strongbox-parent/pom.xml`.
+
 All these tests are executed in our Jenkins instance for all branches and pull requests.
 
 ## Naming Integration Tests
