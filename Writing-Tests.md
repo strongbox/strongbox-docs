@@ -77,14 +77,11 @@ For test cases where you need to generate artifacts and add them to the index, p
 
 Please, note that the above class is not currently something you can extend outside the scope of the `strongbox-storage-indexing` module.
 
-# Testing REST calls
+# Integration Tests
 
-## How to write your own integration test
+Some of the tests don't need to be running all the time during development. We've marked these as integration tests in order to make the build times much more reasonable.
 
-Here is sequence of actions for anyone who would like to write it's own REST API test.
-* extend `RestAssuredBaseTest` class
-* put `@IntegrationTest` and `@RunWith(SpringJUnit4ClassRunner.class)` on top of your class
-* review existing examples (subclasses of `RestAssuredBaseTest`)
+All these tests are executed in our Jenkins instance for all branches and pull requests.
 
 ## Naming Integration Tests
 
@@ -94,15 +91,22 @@ The integration tests in the project should end with a `*TestIT` name suffix.
 
 The integration tests can be invoked, by triggering the Maven profile that executes them by passing in `-Dintegration.tests` property.
 
+# Testing REST calls
+
+## How to write your own integration test
+
+Here is sequence of actions for anyone who would like to write it's own REST API test.
+* extend `RestAssuredBaseTest` class
+* put `@IntegrationTest` and `@RunWith(SpringJUnit4ClassRunner.class)` on top of your class
+* review existing examples (subclasses of `RestAssuredBaseTest`)
 ## How to use rest-assured
 
 Here is the simplest example that will send HTTP GET request on /greeting endpoint:
 
-    given().
-    when().
-    get("/greeting").
-    then().
-    statusCode(200);
+    given().when()
+           .get("/greeting")
+           .then()
+           .statusCode(200);
 
 `Notice`: you should have `import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.*;` in your test.
 
