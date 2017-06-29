@@ -86,6 +86,14 @@ Here is sequence of actions for anyone who would like to write it's own REST API
 * put `@IntegrationTest` and `@RunWith(SpringJUnit4ClassRunner.class)` on top of your class
 * review existing examples (subclasses of `RestAssuredBaseTest`)
 
+## Naming Integration Tests
+
+The integration tests in the project should end with a `*TestIT` name suffix.
+
+## Executing Integration Tests
+
+The integration tests can be invoked, by triggering the Maven profile that executes them by passing in `-Dintegration.tests` property.
+
 ## How to use rest-assured
 
 Here is the simplest example that will send HTTP GET request on /greeting endpoint:
@@ -106,7 +114,7 @@ Instead of given() please use givenLocal() of `RestAssuredBaseTest`.
 
 Basically no. The only reason to extend that class is when you would like to reuse something between several unit tests (to avoid code duplication).
 
-## Referencies
+## References
 
 Please review this excellent article. It contains a lot of cool examples: [unit-testing-spring-mvc-controllers-with-rest-assured](https://blog.jayway.com/2014/01/14/unit-testing-spring-mvc-controllers-with-rest-assured/)
 
