@@ -8,7 +8,7 @@ It is also possible to manage the access to certain resources.
 
 There are a number of built-in roles and privileges that are already pre-configured in the source code. In addition you can define your own roles and privileges either through the XML configuration file or REST API.
 
-You can't use unsupported roles or privileges in the configuration file. In such cases you will get a runtime exception during application startup. All custom (user-defined) roles and privileges have to be properly defined in the `strongbox-security-authorization.xml` configuration file.
+You can't use unsupported roles or privileges in the configuration file. In such cases you will get a runtime exception during application startup. All custom (user-defined) roles and privileges have to be properly defined in the `strongbox-authorization.xml` configuration file.
 
 # Configuring Security Rules For Users
 
