@@ -57,7 +57,7 @@ public class ArtifactEventHandlingExample
     {
 
         @Override
-        public void handle(Event event)
+        public void handle(ArtifactEvent event)
         {
             System.out.println("Caught artifact event type " + event.getType() + ".");
         }
