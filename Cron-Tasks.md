@@ -73,7 +73,7 @@ The base cron implementation classes are:
 
 ### Implementing a Java Cron Task
 
-To create a Java based cron task you will need to extend the [JavaCronJob](https://github.com/strongbox/strongbox/blob/4c54d8884768d816f69ad53f6d4616de723de246/strongbox-cron-tasks/src/main/java/org/carlspring/strongbox/cron/api/jobs/JavaCronJob.java) class and override the `executeInternal()` method.
+To create a Java based cron task you will need to extend the [JavaCronJob](https://github.com/strongbox/strongbox/blob/4c54d8884768d816f69ad53f6d4616de723de246/strongbox-cron-tasks/src/main/java/org/carlspring/strongbox/cron/api/jobs/JavaCronJob.java) class and override the `executeTask()` method.
 
     public class MyTask
             extends JavaCronJob
@@ -82,7 +82,7 @@ To create a Java based cron task you will need to extend the [JavaCronJob](https
         private final Logger logger = LoggerFactory.getLogger(MyTask.class);
     
         @Override
-        protected void executeInternal(JobExecutionContext jobExecutionContext)
+        protected void executeTask(JobExecutionContext jobExecutionContext)
                 throws JobExecutionException
         {
             logger.debug("My cron task is working");
