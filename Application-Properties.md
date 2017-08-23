@@ -3,6 +3,9 @@ The following is a list of configuration properties, which can be used to custom
 | Property   |   Type   | Default Value | Description | 
 |:-----------|:--------:|:-------------:|-------------|
 | repository.config.xml | String | `etc/conf/strongbox.xml` | The path to the `strongbox.xml` file. |
+| strongbox.download.indexes | String | true | Whether, or not to download the Maven indexes for remote repositories. |
+| strongbox.download.indexes.${storageId}.${repositoryId} | String | true | Whether, or not to download the Maven indexes for a remote repository in a storage. If this is explicitly defined and `strongbox.download.indexes` and/or `strongbox.download.indexes.${storageId}.*` is defined, then the value specified by this option will override the others. |
+| strongbox.download.indexes.${storageId}.* | String | true | Whether, or not to download the Maven indexes for all remote repositories in a storage. |
 | strongbox.home | String |  |  |
 | strongbox.vault | String |  |  |
 | strongbox.storage.booter.basedir | String |  |  |
