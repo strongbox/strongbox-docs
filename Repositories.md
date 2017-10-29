@@ -42,11 +42,11 @@ Virtual repositories provide a bridge between different layout formats.
 
 ## Maven 2.x/3.x
 
-Maven 2.x/3.x repositories are fully supported.
+Maven 2.x/3.x repositories are fully supported. We support hosted, proxy and group repositories.
 
 ## Nuget
 
-Nuget repository layout is currently under active development.
+The Nuget (v2) repository layout is currently under active development. We support hosted and proxy repositories.
 
 # Policies
 
