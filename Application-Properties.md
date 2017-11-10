@@ -7,6 +7,7 @@ The following is a list of configuration properties, which can be used to custom
 | strongbox.download.indexes.${storageId}.${repositoryId} | boolean | true | Whether, or not to download the Maven indexes for a remote repository in a storage. If this is explicitly defined and `strongbox.download.indexes` and/or `strongbox.download.indexes.${storageId}.*` is defined, then the value specified by this option will override the others. |
 | strongbox.download.indexes.${storageId}.* | boolean | true | Whether, or not to download the Maven indexes for all remote repositories in a storage. |
 | strongbox.home | String |  |  |
+| strongbox.port | Integer | 48080 | The port on which Strongbox will be running. | 
 | strongbox.vault | String |  |  |
 | strongbox.storage.booter.basedir | String |  |  |
 | strongbox.storage.booter.storages.basedir | String |  |  |
