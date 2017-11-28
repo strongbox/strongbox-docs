@@ -9,9 +9,10 @@
   * Configuration Files
     * [strongbox.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox.xml-File)
     * [strongbox‐authentication‐providers.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox%E2%80%90authentication%E2%80%90providers.xml-File)
-    * [strongbox‐security‐users.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox%E2%80%90security%E2%80%90users.xml-File)
     * strongbox-authorization.xml
         * [[How to set up the anonymous user's permissions]]
+    * [strongbox-cron-tasks.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox-cron-tasks.xml-File)
+    * [strongbox‐security‐users.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox%E2%80%90security%E2%80%90users.xml-File)
   * [[Directory Structure]]
 * [[Cron Tasks]]
 * [[Installation]]
