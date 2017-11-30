@@ -11,7 +11,7 @@
     * [strongbox‐authentication‐providers.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox%E2%80%90authentication%E2%80%90providers.xml-File)
     * strongbox-authorization.xml
         * [[How to set up the anonymous user's permissions]]
-    * [[The strongbox‐cron‐tasks.xml File]]
+    * [strongbox‐cron‐tasks.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox%E2%80%90cron%E2%80%90tasks.xml-File)
     * [strongbox‐security‐users.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox%E2%80%90security%E2%80%90users.xml-File)
   * [[Directory Structure]]
 * [[Cron Tasks]]
