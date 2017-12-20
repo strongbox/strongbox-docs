@@ -9,10 +9,9 @@ Try building the [Strongbox](https://github.com/strongbox/strongbox) code:
 
     mvn clean install
 
-If this doesn't work out of the box, then you might have to build and install the following projects first (using `mvn clean install`) in the order they are listed below:
+If (and only if) this doesn't work out of the box, then you might have to build and install the following projects first (using `mvn clean install`) in the order they are listed below:
 - [unboundid-maven-plugin](https://github.com/carlspring/unboundid-maven-plugin)
 - [little-proxy-maven-plugin](https://github.com/carlspring/little-proxy-maven-plugin)
-- [orientdb-maven-plugin](https://github.com/carlspring/orientdb-maven-plugin)
 - [maven-commons](https://github.com/carlspring/maven-commons/)
 - [commons-io](https://github.com/carlspring/commons-io/)
 - [commons-http](https://github.com/carlspring/commons-http/)
