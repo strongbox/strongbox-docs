@@ -2,7 +2,8 @@
 You will need to have:
 * Maven >= 3.3.9
 * Java 1.8
-* Please, place this [[settings.xml|resources/maven/settings.xml]] file under your `~/.m2` directory.
+* Please, place this [[settings.xml|resources/maven/settings.xml]] file under your `~/.m2` directory
+* Git installed and on your `PATH` variable
 
 # Building
 Try building the [Strongbox](https://github.com/strongbox/strongbox) code:
