@@ -17,11 +17,15 @@ Our implementation of the Maven 2 layout provider does not support Maven 1.x ver
 ## Artifact Coordinates
 
 This is the list of artifact coordinates supported by the provider:
-* `groupId`
-* `artifactId`
-* `version`
-* `extension`
-* `classifier`
+
+| Coordinate   | Description | Type |
+|:-------------|:------------|:-----|
+| `groupId`    | The group (package name) of the package | Mandatory |
+| `artifactId` | The name of the package | Mandatory |
+| `version`    | The version of the package | Mandatory |
+| `extension`  | The extension of the package | Optional; defaults to `jar` |
+| `classifier` | The classifier of the package | Optional |
+
 
 ## Custom Features
 
