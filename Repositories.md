@@ -30,7 +30,7 @@ Group repositories can contain other nested group repositories.
 
 Group repositories allow you to:
 * Define the ordering of the repositories they serve
-* Define routing rules
+* Define [routing rules](https://github.com/strongbox/strongbox/wiki/Artifact-Routing-Rules)
 
 ## Virtual
 
@@ -65,4 +65,5 @@ Repositories of this kind will only allow artifacts with fixed/released versions
 Repositories of this kind will allow artifacts of both snapshot and release versions. This is usually used for group repositories, as they might contain both snapshot and release repositories.
 
 # See Also
-- [Maven: Introduction to Repositories](http://maven.apache.org/guides/introduction/introduction-to-repositories.html)
+* [[Artifact-Routing-Rules]]
+* [Maven: Introduction to Repositories](http://maven.apache.org/guides/introduction/introduction-to-repositories.html)
