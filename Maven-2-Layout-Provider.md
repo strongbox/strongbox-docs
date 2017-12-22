@@ -58,3 +58,4 @@ The following are some of the most important classes you will need to be familia
 * [[Maven Indexer]]
 * [[Maven Metadata]]
 * [[How To Implement Your Own Repository Format]]
+* ["Hello, Strongbox!" Example Using Maven](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget-mono)
