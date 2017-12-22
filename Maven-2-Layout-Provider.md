@@ -1,5 +1,9 @@
 Our support for Maven is handled via the Maven 2 Layout provider.
 
+We support Maven versions 2.x and higher.
+
+We do not support Maven versions 1.x.
+
 # Notes
 
 ## What "Maven 2" Actually Refers To
