@@ -1,10 +1,20 @@
 Our support for Maven is handled via the Maven 2 Layout provider.
 
+# Notes
+
+## What "Maven 2" Actually Refers To
+
 This layout provider supports Maven versions 2.x and higher. Collectively, these versions are referred to as 'Maven 2.0", so that there could be a distinction between the early days Maven -- 1.x, which reached an [end of life in June 2007](https://maven.apache.org/maven-1.x-eol.html) and was re-written from scratch and replaced by Maven 2.x.
 
 One of the main difference between Maven 1.x and 2.x is that Maven dropped the Ant-style (Jelly) declaration of tasks to be executed in favour of proper Maven plugins written in Java.
 
 Our implementation of the Maven 2 layout provider does not support Maven 1.x versions, since they have long reached an end-of-life.
+
+## Maven 2 Search Providers
+
+Please, be aware that the Maven 2 layout provider (unlike most of the other layout providers) supports two search providers:
+* [OrientDB (default)](https://github.com/strongbox/strongbox/wiki/Searching#orientdbsearchprovider)
+* [Maven Indexer](https://github.com/strongbox/strongbox/wiki/Searching#mavenindexersearchprovider)
 
 # Information For Developers
 
