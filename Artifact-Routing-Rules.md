@@ -52,3 +52,12 @@ The following example disable lookups for `springframework` in the `releases` re
             </denied>
         </routing-rules>    
     </configuration>
+
+# Artifact Routing Rules precedence
+
+Artifact Routing Rules precedence works as follows:
+
+* if the artifact path matches the denied rule -> then check the accepted rules (accepted rule may exclude denied rule)
+* if the artifact path doesn't match the denied rule -> always accept
+
+So, if you want to exclude some artifact (or artifacts matching some pattern), then make sure any accepted rule does not match the same pattern.
