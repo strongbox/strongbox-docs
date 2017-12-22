@@ -14,6 +14,10 @@ One of the main difference between Maven 1.x and 2.x is that Maven dropped the A
 
 Our implementation of the Maven 2 layout provider does not support Maven 1.x versions, since they have long reached an end-of-life.
 
+## Custom Features
+
+This layout provider also indexes the artifacts using the Lucene-based [[Maven Indexer]] as explained below.
+
 ## Maven 2 Search Providers
 
 Please, be aware that the Maven 2 layout provider (unlike most of the other layout providers) supports two search providers:
