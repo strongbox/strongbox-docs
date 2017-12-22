@@ -14,6 +14,15 @@ One of the main difference between Maven 1.x and 2.x is that Maven dropped the A
 
 Our implementation of the Maven 2 layout provider does not support Maven 1.x versions, since they have long reached an end-of-life.
 
+## Artifact Coordinates
+
+This is the list of artifact coordinates supported by the provider:
+* `groupId`
+* `artifactId`
+* `version`
+* `extension`
+* `classifier`
+
 ## Custom Features
 
 This layout provider also indexes the artifacts using the Lucene-based [[Maven Indexer]] as explained below.
