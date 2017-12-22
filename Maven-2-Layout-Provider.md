@@ -2,7 +2,7 @@ Our support for Maven is handled via the Maven 2 Layout provider.
 
 We support Maven versions 2.x and higher.
 
-We do not support Maven versions 1.x.
+We do not support Maven versions 1.x, nor have virtual repositories that can do this conversion.
 
 # Notes
 
