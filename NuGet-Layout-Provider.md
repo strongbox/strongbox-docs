@@ -4,6 +4,16 @@ We currently only support NuGet protocol version 2.0.
 
 # Notes
 
+## Artifact Coordinates
+
+This is the list of artifact coordinates supported by the provider:
+
+| Coordinate | Description | 
+|:-----------|:------------|
+| `id` | The name of the package |
+| `version` | The version of the package |
+| `extension` | The extension of the package |
+
 ## Custom Features
 
 This layout provider has feeds.
