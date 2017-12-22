@@ -17,6 +17,9 @@
 * [[Cron Tasks]]
 * [[Installation]]
 * [[Integrating build tools with Strongbox]]
+* [[Layout Providers]]
+  * [[Maven 2 Layout Provider]]
+  * [[NuGet Layout Provider]]
 * Indexing
   * [[Maven Indexer]]
 * Metadata
