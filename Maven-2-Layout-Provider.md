@@ -1,6 +1,6 @@
 Our support for Maven is handled via the Maven 2 Layout provider.
 
-This layout provider supports Maven versions 2.x and higher. Collectively, these versions are referred to as 'Maven 2.0", so that there could be a distinction between the early days Maven -- 1.x, which reached an [end of life in June 2007](https://maven.apache.org/maven-1.x-eol.html) and was replaced by Maven 2.x.
+This layout provider supports Maven versions 2.x and higher. Collectively, these versions are referred to as 'Maven 2.0", so that there could be a distinction between the early days Maven -- 1.x, which reached an [end of life in June 2007](https://maven.apache.org/maven-1.x-eol.html) and was re-written from scratch and replaced by Maven 2.x.
 
 One of the main difference between Maven 1.z and 2.x is that Maven dropped the Ant-style (Jelly) declaration of tasks to be executed in favour of proper Maven plugins written in Java.
 
