@@ -8,11 +8,11 @@ We currently only support NuGet protocol version 2.0.
 
 This is the list of artifact coordinates supported by the provider:
 
-| Coordinate | Description | 
-|:-----------|:------------|
-| `id` | The name of the package |
-| `version` | The version of the package |
-| `extension` | The extension of the package |
+| Coordinate | Description | Type |
+|:-----------|:------------|:-----|
+| `id` | The name of the package | Mandatory |
+| `version` | The version of the package | Mandatory |
+| `extension` | The extension of the package | Mandatory |
 
 ## Custom Features
 
