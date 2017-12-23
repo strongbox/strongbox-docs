@@ -14,6 +14,10 @@ This is the list of artifact coordinates supported by the provider:
 | `version` | The version of the package | Mandatory |
 | `extension` | The extension of the package | Mandatory |
 
+## User Agent
+
+The accepted `User-Agent` headers supported must look like `User-Agent=NuGet/*`.
+
 ## Custom Features
 
 This layout provider has feeds.
