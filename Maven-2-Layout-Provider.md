@@ -26,6 +26,9 @@ This is the list of artifact coordinates supported by the provider:
 | `extension`  | The extension of the package | Optional; defaults to `jar` |
 | `classifier` | The classifier of the package | Optional |
 
+## User Agent
+
+The accepted `User-Agent` headers supported must look like `User-Agent=Maven/*`.
 
 ## Custom Features
 
