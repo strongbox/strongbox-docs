@@ -17,6 +17,7 @@ If (and only if) this doesn't work out of the box, then you might have to build 
 - [commons-io](https://github.com/carlspring/commons-io/)
 - [commons-http](https://github.com/carlspring/commons-http/)
 - [logback-configuration](https://github.com/carlspring/logback-configuration)
+- [JNuGet](https://bitbucket.org/strongbox/jnuget) (this is our own stable clone)
 
 ## Building and capturing the stdout and stderr to a log file
 
