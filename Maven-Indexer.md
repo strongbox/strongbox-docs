@@ -12,13 +12,11 @@ The Maven Indexer is a library created by Sonatype Inc. and contributed to the A
 
 # How Does The Maven Indexer Work?
 
-This task is done in terms of validity of this task
-
 The Maven Indexer uses:
 
-* artifact's `.pom` file
-* artifact file itself 
-* artifact's file system path 
+* The artifact's `.pom` file
+* The artifact file itself 
+* The artifact's file system path 
 
 to figure out information about the artifacts which it adds to a Lucene index. This index can then be packed and downloaded by consumers. 
 
@@ -26,19 +24,20 @@ to figure out information about the artifacts which it adds to a Lucene index. T
 
 The Maven Indexer keeps a record of the following information:
 
-* basic artifact file attributes: last modified, file extension, file size
-* source and/or javadoc existence flags
+* Basic artifact file attributes: last modified, file extension, file size
+* Source and/or javadoc existence flags
 * GAV coordinates (`groupId`, `artifactId`, `version`, `packaging`, `classifier`)
 * SHA-1 checksums (+ whether the related signature file exists)
 
 # What Artifacts Does The Maven Indexer Index?
 
-The indexer will add a record to the Lucene index for every Maven artifact that it recognizes (filename and artifact path has to match maven artifact repository storage rules), regardless of whether or not it has a `.pom` file. Artifacts that have several classifiers will have all their sub-artifact files added to the index, except a record for the POM. 
+The indexer will add a record to the Lucene index for every Maven artifact that it recognizes (the file name and artifact path have to match the Maven artifact repository storage rules), regardless of whether or not it has a `.pom` file. Artifacts that have several classifiers will have all their sub-artifact files added to the index, except a record for the POM. 
 
 Maven indexer also may or may not store a `.pom` file as an artifact. However, firstly it tries to find matching _real_ artifact file in the file system, switching over to indexing that, instead of the `.pom` file.
 
 ## What's not indexable
 
+The following file types are not indexable:
 * `maven-metadata.xml` files
 * `.properties` files
 * checksum and signature files `.asc`, `.md5`, `.sha1`
@@ -58,13 +57,13 @@ There are two types of Maven Indexer indexes:
 
 # Where Are The Maven Indexes Located?
 
+Every repository has an index under the `strongbox-vault/storages/${storageId}/${repositoryId}/.index` directory where the index is located.
+
 * [Hosted](https://github.com/strongbox/strongbox/wiki/Repositories#hosted) repositories have:
   * Local: `strongbox-vault/storages/${storageId}/${repositoryId}/local/.index`
 * [Proxy](https://github.com/strongbox/strongbox/wiki/Repositories#proxy) repositories have:
   * Local: `strongbox-vault/storages/${storageId}/${repositoryId}/local/.index`
   * Remote: `strongbox-vault/storages/${storageId}/${repositoryId}/remote/.index`
-
-Every repository has an index under the `strongbox-vault/storages/${storageId}/${repositoryId}/.index` directory where the index is located.
 
 # Do Maven Indexes Break And How To Repair Them?
 
