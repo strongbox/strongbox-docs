@@ -12,19 +12,36 @@ The Maven Indexer is a library created by Sonatype Inc. and contributed to the A
 
 # How Does The Maven Indexer Work?
 
-The Maven Indexer uses `maven-metadata.xml` and `.pom` files to figure out information about the artifacts which it adds to a Lucene index. This index can then be packed and downloaded by consumers. 
+This task is done in terms of validity of this task
+
+The Maven Indexer uses:
+
+* artifact's `.pom` file
+* artifact file itself 
+* artifact's file system path 
+
+to figure out information about the artifacts which it adds to a Lucene index. This index can then be packed and downloaded by consumers. 
 
 # What Kind Of Information Does The Maven Indexer Keep?
 
 The Maven Indexer keeps a record of the following information:
 
+* basic artifact file attributes: last modified, file extension, file size
+* source and/or javadoc existence flags
 * GAV coordinates (`groupId`, `artifactId`, `version`, `packaging`, `classifier`)
-* SHA-1 checksums
-* Fully qualified class names contained in the artifact
+* SHA-1 checksums (+ whether the related signature file exists)
 
 # What Artifacts Does The Maven Indexer Index?
 
-The indexer will add a record to the Lucene index for every Maven artifact that it recognizes, regardless of whether or not has a `.pom` file. Artifacts that have several classifiers will have all their sub-artifact files added to the index, except a record for the POM. Artifacts, which have a `<packaging>pom</packaging>`, (usually parent POM-s and dependency POM-s), will be added to the index, as they have no other sub-artifacts.
+The indexer will add a record to the Lucene index for every Maven artifact that it recognizes (filename and artifact path has to match maven artifact repository storage rules), regardless of whether or not it has a `.pom` file. Artifacts that have several classifiers will have all their sub-artifact files added to the index, except a record for the POM. 
+
+Maven indexer also may or may not store a `.pom` file as an artifact. However, firstly it tries to find matching _real_ artifact file in the file system, switching over to indexing that, instead of the `.pom` file.
+
+## What's not indexable
+
+* `maven-metadata.xml` files
+* `.properties` files
+* checksum and signature files `.asc`, `.md5`, `.sha1`
 
 # What Is The Maven Indexer Used For In The Strongbox Project?
 
