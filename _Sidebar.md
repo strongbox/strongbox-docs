@@ -34,6 +34,7 @@
 * [[Using Docker To Build And Test]]
 * [[Logging]]
 * [[Writing Tests]]
+* [[Writing Controllers]]
 * [[Getting Started With Persistence]]
 * [[How To Implement A Custom Authenticator]]
 * [[How To Implement Your Own Repository Format]]
