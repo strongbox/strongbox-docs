@@ -1,4 +1,4 @@
-Writing controllers guide
+Preface
 ===
 
 This guideline aims to outline some of the basic expectations that must be met before you can commit your code. The scope
