@@ -104,24 +104,33 @@ with `text/plain`. In case you receive `Accept` header other than `Accept: appli
 [2.](#spring-form-validation-rules-2) You still **MUST** follow the [General Rule #4](#genral-rule-4) excluding any parts related to `text/plain`.
 
 - In addition, requests which have **failed** because of invalid form data 
-(i.e. min lenth is N but user gave N-1 / field requires int but got string) **MUST** also include an additional array with the error messages for each field.
+(i.e. min lenth is N but user gave N-1 / field requires int but got string) **MUST** also include an additional array 
+with the error messages for each field. For an example of how to do this, please visit [PR-507](https://github.com/strongbox/strongbox/pull/507)
+and have a look at the [ValidationExampleController.java](https://github.com/strongbox/strongbox/pull/507/files#diff-6eb303eefb08293554763ba386061a34), 
+[ExampleForm.java](https://github.com/strongbox/strongbox/pull/507/files#diff-af0bb63fe4729dfbd02811fb1a420dbc) and the 
+[ValidationExampleControllerTest.java](https://github.com/strongbox/strongbox/pull/507/files#diff-2b07e0f2aa71c7474882ed0319c7dfcf).
+In case you need to implement a custom validator, please follow the [Spring Framework Reference](https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation-beanvalidation-spring-constraints). 
 
   **Example JSON response**
   ```
   Status: 400 Bad Request
   Body:
   {
-      "message": "Could not create user!",
-      "errors": [
+    "message": "Could not create user!",
+    "errors": [
+      {
         "password": [
-            "This field is less than 6 characters long!",
-            "This field requires at least 2 capital letters"
-        ],
-        "username": [
-            "Username is already registered."
+          "This field is less than 6 characters long!",
+          "This field requires at least 2 capital letters"
         ]
-      ]
-  } 
+      },
+      {
+        "username": [
+          "Username is already registered."
+        ]
+      }
+    ]
+  }
   ```
 
 <a name="form-validation-3"></a> 
