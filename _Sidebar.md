@@ -37,7 +37,7 @@
 * [[Getting Started With Persistence]]
 * [[How To Implement A Custom Authenticator]]
 * [[How To Implement Your Own Repository Format]]
-* [[Implementing Controllers]]
+* [[How To Implement Spring Controllers]]
 * [[Using the event API]]
 
 **Contributing/Licensing**
