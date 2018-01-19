@@ -1,4 +1,4 @@
-WARNING: This feature is currently experimental and it's implementation may change without warning.
+**WARNING:** This feature is currently experimental, under active development and it's implementation may change without warning. If you would like to try it out and find issues, please report the on the issue tracker. At the moment, only hosted repositories have been tested; proxy and group raw repositories are still not implemented.
 
 The Raw layout provider allows storing artifacts that have no particular strict format.
 
