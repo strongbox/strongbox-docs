@@ -22,14 +22,14 @@ or a proper sub-directory in that path.
 [2.](#genral-rule-2) You **MUST** have test cases which cover as much as possible your controller.
 
 <a name="genral-rule-3"></a> 
-[3.](#genral-rule-3) You **MUST** respond with either `MediaType.TEXT_PLAIN_VALUE` or `MediaType.APPLICATION_JSON_VALUE` in your methods 
+[3.](#genral-rule-3) You **MUST** be able to respond with both `MediaType.TEXT_PLAIN_VALUE` and `MediaType.APPLICATION_JSON_VALUE` in your methods 
 based on the `Accept` header the client provides. Only exception to this rule is [Spring Form Validation Rules #1](#spring-form-validation-rules-1)
 in which case you only follow [CASE 2](#genral-rule-3-case-2) and return `406 Not Acceptable` for any other `Accept` header.
 
 <a name="genral-rule-3-case-1"></a> 
-   - [CASE 1](#genral-rule-3-case-1): When client `Accept: text/plain` - you **MUST** respond with the appropriate `text/plain` body.  
+   - [CASE 1](#genral-rule-3-case-1): When client header is `Accept: text/plain` - you **MUST** respond with the appropriate `text/plain` body.  
 <a name="genral-rule-3-case-2"></a> 
-   - [CASE 2](#genral-rule-3-case-2): When client `Accept: application/json` - you **MUST** respond with the appropriate **JSON** body.
+   - [CASE 2](#genral-rule-3-case-2): When client header is `Accept: application/json` - you **MUST** respond with the appropriate **JSON** body.
 
 <a name="genral-rule-4"></a>
 [4.](#genral-rule-4) You **MUST** respond with an appropriate status code and `success` or `fail` message when an action has been completed 
