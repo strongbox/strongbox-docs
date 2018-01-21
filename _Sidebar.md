@@ -19,6 +19,7 @@
 * [[Integrating build tools with Strongbox]]
 * [[Layout Providers]]
   * [[Maven 2 Layout Provider]]
+  * [[NPM Layout Provider]]
   * [[NuGet Layout Provider]]
   * [[Raw Layout Provider]]
 * Indexing
