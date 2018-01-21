@@ -34,7 +34,7 @@ The following are some of the most important classes you will need to be familia
 | [NpmLayoutProvider](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-npm-layout-provider/src/main/java/org/carlspring/strongbox/providers/layout/NpmLayoutProvider.java) | This is the actual implementation of the NPM layout provider. |
 | [NpmRepositoryFeatures](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-npm-layout-provider/src/main/java/org/carlspring/strongbox/repository/NpmRepositoryFeatures.java) | This defines the custom layout provider features for the NPM layout provider. |
 | [NpmRepositoryManagementStrategy](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-npm-layout-provider/src/main/java/org/carlspring/strongbox/repository/NpmRepositoryManagementStrategy.java) | This class is used to handle the initialization of NPM repositories. |
-| [NpmArtifactController](https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/npm/NpmArtifactController.java) | This is the NPM-specific implementation of the `BaseArtifactController`. |
+| [NpmPackageController](https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/npm/NpmPackageController.java) | This is the NPM-specific implementation of the `BaseArtifactController`. |
 
 # See Also
 * [[How To Implement Your Own Repository Format]]
