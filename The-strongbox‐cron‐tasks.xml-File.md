@@ -34,7 +34,7 @@ Every cron task configuration is separated by an individual `<cron-task-configur
 | Description  | Implementation | Mandatory properties | Optional properties |
 | ------------- | ------------- | ------------- | ------------- |
 | [Rebuild Maven Metadata](https://github.com/strongbox/strongbox/wiki/Cron-Tasks#rebuild-maven-metadata) | `org.carlspring.strongbox.cron.jobs.RebuildMavenMetadataCronJob` ||`<storageId>`<br>`<repositoryId>`<br>`<basePath>`|
-| [Rebuild Maven Indexes](https://github.com/strongbox/strongbox/wiki/Cron-Tasks#rebuild-maven-indexes) | `org.carlspring.strongbox.cron.jobs.RebuildMavenIndexesCronJob` ||`<storageId>`<br>`<repositoryId>`<br>`<basePath>`|
+| [Rebuild Maven Indexes](https://github.com/strongbox/strongbox/wiki/Cron-Tasks#rebuild-maven-indexes) | `org.carlspring.strongbox.cron.jobs.RebuildMavenIndexesCronJob` |`<storageId>`<br>`<repositoryId>`|`<basePath>`|
 | [Download Remote Indexes](https://github.com/strongbox/strongbox/wiki/Cron-Tasks#download-remote-indexes-maven-repositories-only) | `org.carlspring.strongbox.cron.jobs.DownloadRemoteMavenIndexCronJob` |`<storageId>`<br>`<repositoryId>`||
 | [Remove Timestamped Snapshot Artifacts](https://github.com/strongbox/strongbox/wiki/Cron-Tasks#remove-timestamped-maven-snapshot-artifacts) | `org.carlspring.strongbox.cron.jobs.RemoveTimestampedMavenSnapshotCronJob` ||`<storageId>`<br>`<repositoryId>`<br>`<basePath>`<br>`<numberToKeep>`<br>`<keepPeriod>`|
 
