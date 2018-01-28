@@ -32,6 +32,7 @@
 **Developer Guide**
 * [[Getting Started]]
 * [[Building the code]]
+* [[Building Strongbox Against Strongbox]]
 * [[Coding Convention]]
 * [[Using Docker To Build And Test]]
 * [[Logging]]
