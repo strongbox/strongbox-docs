@@ -110,4 +110,5 @@ Then in order to sync your fork with the original remote, execute the following:
     git merge strongbox/master
 
 # See Also
+* [[Building Strongbox Against Strongbox]]
 * [Git Tips](https://github.com/git-tips/tips)
