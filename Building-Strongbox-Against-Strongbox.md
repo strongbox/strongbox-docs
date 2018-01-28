@@ -106,7 +106,7 @@ Uploaded: http://localhost:48080/storages/storage0/snapshots/org/carlspring/stro
 [INFO] ------------------------------------------------------------------------
 ```
 
-# Building Strongbox Against Strongbox
+# Building Strongbox Against A Full-blown Strongbox (`strongbox-distribution`)
 1. Build `strongbox` like this:
 ```
 mvn clean install
