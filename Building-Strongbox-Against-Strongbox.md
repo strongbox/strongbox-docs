@@ -62,7 +62,7 @@ You will need to use the following Maven settings file (that we've called `setti
 </settings>
 ```
 
-This `settings.xml` file will ensure that all required artifacts, plugins and extensions are resolved via Strongbox. In addition, it will override Maven Central as a fallback repository, so everything required will indeed be resolved through `http://localhost:48080/storages/public/public-group/` which is a group repository that includes all the hosted repositories in Strongbox, as well as all defined proxy repositories.
+This settings file will ensure that all required artifacts, plugins and extensions are resolved via the running instance of Strongbox. In addition, it will override Maven Central as a fallback repository, so everything required will indeed be resolved through `http://localhost:48080/storages/public/public-group/` which is a group repository that includes all the hosted repositories in Strongbox, as well as all defined proxy repositories.
 
 # Building Strongbox Against The `strongbox-web-core`
 
