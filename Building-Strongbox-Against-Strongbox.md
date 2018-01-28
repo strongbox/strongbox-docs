@@ -73,10 +73,10 @@ mvn clean package -Pjetty-block
 ```
 3. In a separately checked out `strongbox` project execute:
 ```
-carlspring@carlspring:/java/opensource/carlspring/strongbox-proxy-testing> mvn --settings ~/.m2/settings-strongbox-localhost.xml -Dmaven.repo.local=.m2/repository clean deploy -DaltDeploymentRepository=snapshots::default::http://localhost:48080/storages/storage0/snapshots/ -DskipTests -fn
+carlspring@carlspring:/java/strongbox> mvn --settings ~/.m2/settings-strongbox-localhost.xml -Dmaven.repo.local=.m2/repository clean deploy -DaltDeploymentRepository=snapshots::default::http://localhost:48080/storages/storage0/snapshots/ -DskipTests -fn
 ...
 [INFO] --- maven-install-plugin:2.4:install (default-install) @ strongbox-masterbuild ---
-[INFO] Installing /java/opensource/carlspring/strongbox-proxy-testing/pom.xml to /java/opensource/carlspring/strongbox-proxy-testing/.m2/repository/org/carlspring/strongbox/strongbox-masterbuild/1.0-SNAPSHOT/strongbox-masterbuild-1.0-SNAPSHOT.pom
+[INFO] Installing /java/strongbox/pom.xml to /java/strongbox/.m2/repository/org/carlspring/strongbox/strongbox-masterbuild/1.0-SNAPSHOT/strongbox-masterbuild-1.0-SNAPSHOT.pom
 [INFO] 
 [INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ strongbox-masterbuild ---
 [INFO] Using alternate deployment repository snapshots::default::http://localhost:48080/storages/storage0/snapshots/
@@ -117,14 +117,14 @@ mvn clean install
 ```
 3. Build `strongbox-assembly` and start the `strongbox-distribution` like this:
 ```
-carlspring@carlspring:/java/opensource/carlspring/strongbox-assembly> ./build-and-start 
+carlspring@carlspring:/java/strongbox-assembly> ./build-and-start 
 ```
 4. Build the `strongbox` project against itself like this:
 ```
-carlspring@carlspring:/java/opensource/carlspring/strongbox-proxy-testing> mvn --settings ~/.m2/settings-strongbox-localhost.xml -Dmaven.repo.local=.m2/repository clean deploy -DaltDeploymentRepository=snapshots::default::http://localhost:48080/storages/storage0/snapshots/ -DskipTests -fn
+carlspring@carlspring:/java/strongbox> mvn --settings ~/.m2/settings-strongbox-localhost.xml -Dmaven.repo.local=.m2/repository clean deploy -DaltDeploymentRepository=snapshots::default::http://localhost:48080/storages/storage0/snapshots/ -DskipTests -fn
 ...
 [INFO] --- maven-install-plugin:2.4:install (default-install) @ strongbox-masterbuild ---
-[INFO] Installing /java/opensource/carlspring/strongbox-proxy-testing/pom.xml to /java/opensource/carlspring/strongbox-proxy-testing/.m2/repository/org/carlspring/strongbox/strongbox-masterbuild/1.0-SNAPSHOT/strongbox-masterbuild-1.0-SNAPSHOT.pom
+[INFO] Installing /java/strongbox/pom.xml to /java/strongbox/.m2/repository/org/carlspring/strongbox/strongbox-masterbuild/1.0-SNAPSHOT/strongbox-masterbuild-1.0-SNAPSHOT.pom
 [INFO] 
 [INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ strongbox-masterbuild ---
 [INFO] Using alternate deployment repository snapshots::default::http://localhost:48080/storages/storage0/snapshots/
