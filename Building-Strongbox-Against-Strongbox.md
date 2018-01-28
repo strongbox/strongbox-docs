@@ -1,7 +1,7 @@
 # General
 We like our dog food and we try it all the time! :)
 
-There will be many cases where you need to test things against either a full-blown Strongbox, or the `strongbox-web-core`. The following article shows you how to do so.
+There will be many cases where you need to test things against either a full-blown Strongbox (via `strongbox-distribution` produced by the `strongbox-assembly`), or the `strongbox-web-core`. The following article shows you how to do so.
 
 # Pre-requisites
 
