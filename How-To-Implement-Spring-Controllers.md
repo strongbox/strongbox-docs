@@ -14,54 +14,59 @@ The key words "**MUST**", "**MUST NOT**", "**REQUIRED**", "**SHALL**", "**SHALL 
 General rules
 =====
 
-<a name="genral-rule-1"></a>
-[1.](#genral-rule-1) You **MUST** have your controller stored in `./strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers` 
+<a name="general-rule-1"></a>
+[1.](#general-rule-1) You **MUST** have your controller stored in `./strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers` 
 or a proper sub-directory in that path.
 
-<a name="genral-rule-2"></a> 
-[2.](#genral-rule-2) You **MUST** have test cases which cover as much as possible your controller.
+<a name="general-rule-2"></a> 
+[2.](#general-rule-2) You **MUST** have test cases which cover as much as possible your controller.
 
-<a name="genral-rule-3"></a> 
-[3.](#genral-rule-3) You **MUST** be able to respond with both `MediaType.TEXT_PLAIN_VALUE` and `MediaType.APPLICATION_JSON_VALUE` in your methods 
-based on the `Accept` header the client provides. Only exception to this rule is [Spring Form Validation Rules #1](#spring-form-validation-rules-1)
-in which case you only follow [CASE 2](#genral-rule-3-case-2) and return `406 Not Acceptable` for any other `Accept` header.
+<a name="general-rule-3"></a> 
+[3.](#general-rule-3) Your endpoints **MUST** always be able to produce `MediaType.APPLICATION_JSON_VALUE`.
 
-<a name="genral-rule-3-case-1"></a> 
-   - [CASE 1](#genral-rule-3-case-1): When client header is `Accept: text/plain` - you **MUST** respond with the appropriate `text/plain` body.  
-<a name="genral-rule-3-case-2"></a> 
-   - [CASE 2](#genral-rule-3-case-2): When client header is `Accept: application/json` - you **MUST** respond with the appropriate **JSON** body.
+<a name="general-rule-4"></a> 
+[4.](#general-rule-4) If your controller/method is going to be processing data submitted by a client, you **MUST** use 
+Spring Form Validation and follow the [Spring Form Validation Rules](#form-validation) which also shows an example.
 
-<a name="genral-rule-4"></a>
-[4.](#genral-rule-4) You **MUST** respond with an appropriate status code and `success` or `fail` message when an action has been completed 
-(i.e. user created/updated/deleted). 
-   
-   - Status code for **successful** operations **MUST** be `200 OK` 
+<a name="general-rule-5"></a>
+[5.](#general-rule-5) You **MUST** respond with an appropriate status code and `successful` or `failed` message 
+when an action has been completed (i.e. user created/updated/deleted). `BaseController` has already implemented methods for these cases.
+
+   - Status code for **successful** operations **MUST** be `200 OK`
    - Status code for **failed** operations **SHOULD** be `400 Bad Request` or any other status code which better describes the issue.
-   - When possible, the failure message **SHOULD** contain some information on why the operation has failed - i.e username already exists. 
-     If possible, avoid using `e.getMessage()` because it's not immediately apparent what's wrong and the user might not 
+   - When possible, the failure message **SHOULD** contain some information about why the operation has failed - i.e username already exists. 
+   - You **SHOULD** avoid using `e.getMessage()` because it's not immediately apparent what's wrong and the user might not 
      even know what the exception message means. 
+
+<a name="general-rule-5.1"></a>
+[5.1](#general-rule-5.1) When returning a `successful` or `failed` message, you **MUST** also take into account 
+the request's `Accept` header and respond with `MediaType.APPLICATION_JSON_VALUE` for `Accept: application/json` 
+and `MediaType.TEXT_PLAIN_VALUE` for `Accept: text/plain`. 
+
+   - Your `text/plain` response **MUST** only contain an informative message in the response body as shown in the examples below. 
+   - Your `application/json` response **MUST** contain an informative message and **MAY** contain additional information (i.e. [form errors](#general-rule-5-example-json)) 
    
-     <a name="genral-rule-4-example-plain-text"></a> 
-     [Example for text/plain response](#genral-rule-4-example-plain-text)  
-     - Client `Accept: text/plain` and preformed operation was ***successful***
+   <a name="general-rule-5-example-plain-text"></a> 
+   - [Example for text/plain response](#general-rule-5-example-plain-text)  
+     - Client `Accept: text/plain` and performed operation was ***successful***
        ```
        Status: 200 OK
        Body: User was successfully created!
        ```   
-     - Client `Accept: text/plain` and preformed operation has ***failed***
+     - Client `Accept: text/plain` and performed operation has ***failed*** (i.e. form validation failed or something else happened)
        ```
        Status: 400 Bad Request
-       Body: Could not update strongbox port.
+       Body: User cannot be saved because the submitted form contains errors!
        ```
-     - Client `Accept: text/plain` and preformed operation has ***failed***
+     - Client `Accept: text/plain` and performed operation has ***failed*** (i.e. form validation failed or something else happened)
        ```
        Status: 409 Conflict
        Body: User with the same username has already been registered.  
        ```   
 
-     <a name="genral-rule-4-example-json"></a> 
-     [Examples for JSON response](#genral-rule-4-example-json)  
-     - Client `Accept: application/json` and preformed operation was ***successful***
+   <a name="general-rule-5-example-json"></a> 
+   - [Examples for JSON response](#general-rule-5-example-json)  
+     - Client `Accept: application/json` and performed operation was ***successful***
        ```
        Status: 200 OK
        Body: 
@@ -69,15 +74,28 @@ in which case you only follow [CASE 2](#genral-rule-3-case-2) and return `406 No
           "message": "User was successfully created!"
        }     
        ```   
-     - Client `Accept: application/json` and preformed operation has ***failed***
+     - Client `Accept: application/json` and performed operation has ***failed*** because submitted form data was invalid.
        ```
        Status: 400 Bad Request
        Body:
        {
-          "message": "Could not update strongbox port."
-       } 
+         "message": "User cannot be saved because the submitted form contains errors!",
+         "errors": [
+           {
+             "password": [
+               "This field is less than 6 characters long!",
+               "This field requires at least 2 capital letters"
+             ]
+           },
+           {
+             "username": [
+               "Username is already registered."
+             ]
+           }
+         ]
+       }
        ```
-     - Client `Accept: application/json` and preformed operation has ***failed***
+     - Client `Accept: application/json` and performed operation has ***failed*** for whatever other reason.
        ```
        Status: 409 Conflict
        Body:
@@ -86,53 +104,50 @@ in which case you only follow [CASE 2](#genral-rule-3-case-2) and return `406 No
        } 
        ```
 
-<a name="genral-rule-5"></a> 
-[5.](#genral-rule-5) You **SHOULD NOT** return status code `500` in a controller, except for cases when it's really unclear what 
+<a name="general-rule-6"></a>
+[6.](#general-rule-6) `EntityBody` objects **SHOULD** be stored:
+
+  -  in `./strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/support` or a proper sub-directory in that path.
+  -  in the path/sub-path of the controller - i.e. `.../controllers/users/support`
+    
+
+<a name="general-rule-7"></a> 
+[7.](#general-rule-7) You **SHOULD NOT** return status code `500` in a controller, except for cases when it's really unclear what 
 might have gone wrong and that's truly the only reasonable response.
 
+
+<a name="form-validation"></a>
 
 Spring Form Validation Rules 
 =====
 
 These rules are only applied for Controllers which have Spring Form Validation (form validation for short).
 
-<a name="form-validation-1"></a>
-[1.](#spring-form-validation-rules-1) You **MUST** only consume and produce **JSON** and **MUST NOT** accept nor respond 
-with `text/plain`. In case you receive `Accept` header other than `Accept: application/json` respond with `406 Not Acceptable`. 
-
-<a name="form-validation-2"></a> 
-[2.](#spring-form-validation-rules-2) You still **MUST** follow the [General Rule #4](#genral-rule-4) excluding any parts related to `text/plain`.
-
-- In addition, requests which have **failed** because of invalid form data 
-(i.e. min lenth is N but user gave N-1 / field requires int but got string) **MUST** also include an additional array 
-with the error messages for each field. For an example of how to do this, please visit [PR-507](https://github.com/strongbox/strongbox/pull/507)
-and have a look at the [ValidationExampleController.java](https://github.com/strongbox/strongbox/pull/507/files#diff-6eb303eefb08293554763ba386061a34), 
-[ExampleForm.java](https://github.com/strongbox/strongbox/pull/507/files#diff-af0bb63fe4729dfbd02811fb1a420dbc) and the 
-[ValidationExampleControllerTest.java](https://github.com/strongbox/strongbox/pull/507/files#diff-2b07e0f2aa71c7474882ed0319c7dfcf).
-In case you need to implement a custom validator, please follow the [Spring Framework Reference](https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation-beanvalidation-spring-constraints). 
-
-  **Example JSON response**
-  ```
-  Status: 400 Bad Request
-  Body:
-  {
-    "message": "Could not create user!",
-    "errors": [
-      {
-        "password": [
-          "This field is less than 6 characters long!",
-          "This field requires at least 2 capital letters"
-        ]
-      },
-      {
-        "username": [
-          "Username is already registered."
-        ]
-      }
-    ]
-  }
-  ```
-
-<a name="form-validation-3"></a> 
-[3.](#spring-form-validation-rules-3) You **MUST** store `Form` classes in `./strongbox-web-core/src/main/java/org/carlspring/strongbox/forms/` or a proper 
+<a name="form-validation-1"></a> 
+[1.](#form-validation-1) You **MUST** store `Form` classes in `./strongbox-web-core/src/main/java/org/carlspring/strongbox/forms/` or a proper 
 sub-directory in that path.
+
+<a name="form-validation-2"></a>
+[2.](#form-validation-2) Unless said otherwise, your validation endpoint **MUST** only consume **JSON**. 
+
+<a name="form-validation-3"></a>
+[3.](#form-validation-3) You **MUST** add validation rules to your form fields to avoid saving invalid data.   
+
+<a name="form-validation-4"></a> 
+[4.](#form-validation-4) You **MUST** follow the [General Rule #5](#general-rule-5) and [General Rule #5.1](#general-rule-5.1) and return a `successful` or `failed` 
+message when the form has been processed. 
+
+- If the form is invalid, when returning the **failure** message you **MUST** also include `errors` array which contains
+the error messages per field (i.e. min length is N but user gave N-1 / field requires int but got string). Check the [Examples for JSON response](#general-rule-5-example-json) 
+section.
+
+<a name="form-validation-5"></a>
+[5.](#form-validation-5) In case you are implementing a custom validator - you **SHOULD** follow the [Spring Framework Reference](https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation-beanvalidation-spring-constraints). 
+
+
+Example code
+=====
+
+ * [ExampleController.java](https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/ExampleController.java)
+ * [ExampleControllerTest.java](https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/test/java/org/carlspring/strongbox/controllers/ExampleControllerTest.java)
+ * [ExampleForm.java](https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/forms/ExampleForm.java)
