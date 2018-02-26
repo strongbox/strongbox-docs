@@ -1,6 +1,7 @@
 **User Guide**
 * Concepts
   * [[Artifact Coordinates]]
+  * [[Artifact Coordinate Validators]]
   * [[Repositories]]
   * [[Storages]]
 * Configuration
