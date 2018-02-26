@@ -103,7 +103,7 @@ This validator checks if the repository accepts snapshot versions and whether th
   </tr>
 </table>
 
-### Maven Group Id Lowercase Validator
+### Maven `groupId` Lowercase Validator
 
 This validator checks, if the `groupId` of the Maven artifact is lowercase.
 
@@ -122,7 +122,7 @@ This validator checks, if the `groupId` of the Maven artifact is lowercase.
   </tr>
 </table>
 
-### Maven Artifact Id Lowercase Validator
+### Maven `artifactId` Lowercase Validator
 
 This validator checks, if the `groupId` of the Maven artifact is lowercase.
 
