@@ -162,5 +162,13 @@ This coordinate validator enforces semantic versioning.
 
 # Configuration
 
+
+
 # Default Artifact Version Coordinate Validators
 
+## Maven
+
+The default validators for Maven repositories are:
+* Re-deployment validator
+* Maven release version validator
+* Maven snapshot version validator
