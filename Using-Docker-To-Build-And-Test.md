@@ -124,7 +124,7 @@ If you are interested in using the commands from our `.bashrc`:
     ```
 2. Add the `.bashrc-strongbox` file to your `~/.bashrc` 
     ```
-    sed -i -e '$a\' -e '[[ -f $HOME/.bashrc-strongbox ]] && . $HOME/.bashrc-strongbox' -e "/bashrc-strongbox/d" .bashrc
+    sed -i -e "\$a [ -f \$HOME\/\.bashrc-strongbox ] && \. \$HOME\/\.bashrc-strongbox" -e "/bashrc-strongbox.*/d" ~/.bashrc
     ```
 3. Either open up a new terminal or execute `source ~/.bashrc`
 
