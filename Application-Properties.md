@@ -11,6 +11,8 @@ The following is a list of configuration properties, which can be used to custom
 | strongbox.vault | String |  |  |
 | strongbox.storage.booter.basedir | String |  |  |
 | strongbox.storage.booter.storages.basedir | String |  |  |
+| strongbox.orientdb.profile | String | orientdb_EMBEDDED | OrientDB mode (orientdb_EMBEDDED/orientdb_MEMORY/orientdb_REMOTE) |
+| strongbox.orientdb.studio.enabled | Boolean | false | Enable OrientDB Web Studio |
 | strongbox.orientdb.host | String | 127.0.0.1 | The host for OrientDB. |
 | strongbox.orientdb.port | Integer | 2424 | The port for OrientDB. |
 | strongbox.orientdb.database | String | strongbox | The name of the OrientDB database. |
