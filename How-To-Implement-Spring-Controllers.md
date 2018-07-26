@@ -116,7 +116,7 @@ and `MediaType.TEXT_PLAIN_VALUE` for `Accept: text/plain`.
 might have gone wrong and that's truly the only reasonable response.
 
 <a name="general-rule-8"></a>
-[8.](#general-rule-8) When you return `JSON` and it contains collections - you **SHOULD** return the collection as an `array of objects` and not an `object` with properties. This will have negative effects because:
+[8.](#general-rule-8) When you return `JSON` and it contains collections - you **SHOULD** return them as an `array of objects` and not an `object` with properties. Doing otherwise will have negative effects because:
  - In JavaScript `{}` is considered to be an `object` and `[]` is an array. What happens if you return a collection in `{}` is you end up having an `object` with properties instead of an `array of objects`. This could happen if you use `Map<String, Collection<String>>` or other similar java types in the class you are converting to `JSON`.
  - TypeScript has static type-checking and this "bad" json requires some ugly coding for the compiler to get the code working.
  - The UI has form validation and can display collections, but for this to work it **requires** an array. Receiving "bad" json will require converting it from an `object with properties` to an `array of objects` so it can work in the frontend. Afterwards it has to be converted back to the old format to be acceptable by the backend for when the form is being submitted to the server. 
