@@ -45,3 +45,4 @@ The following are some of the most important classes you will need to be familia
 
 # See Also
 * [[How To Implement Your Own Repository Format]]
+* [[NPM Metadata]]
