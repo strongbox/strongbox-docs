@@ -47,3 +47,7 @@ Body
     ]
 }
 ```
+
+# Information For Developers
+
+The code for the NPM Metadata implementation can be found in the [strongbox-npm-metadata](https://github.com/strongbox/strongbox-npm-metadata) module.
