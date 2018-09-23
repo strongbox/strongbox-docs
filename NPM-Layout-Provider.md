@@ -20,6 +20,13 @@ This is the list of artifact coordinates supported by the provider:
 
 The accepted `User-Agent` headers supported must look like `User-Agent=npm/*`.
 
+# Supported Commands
+
+Following CLI commands supported:
+- `$npm publish`
+- `$npm install`
+- `$npm view` 
+
 # Information For Developers
 
 The code for the NPM layout provider is located under the [strongbox-storage-npm-layout-provider](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-npm-layout-provider) module.
