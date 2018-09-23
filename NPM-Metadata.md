@@ -23,3 +23,5 @@ GET http://localhost:48080/storage/repository/@strongbox/hello-strongbox-npm/1.0
 ``` 
 
 ## Changes
+
+It something like continuous Registry changes feed and also called [Replicate API](https://github.com/npm/registry/blob/master/docs/REPLICATE-API.md). Strongbox use this feed to get proxy repositories synced with remote registry.
