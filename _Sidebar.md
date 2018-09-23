@@ -27,6 +27,7 @@
   * [[Maven Indexer]]
 * Metadata
   * [[Maven Metadata]]
+  * [[NPM Metadata]]
 * [[REST API]]
 * [[Searching]]
 
