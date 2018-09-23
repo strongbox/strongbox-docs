@@ -1,8 +1,8 @@
 # package.json
-Every **npm** package packed as `tgz` archive which contains [`package.json`](https://docs.npmjs.com/files/package.json) inside. It defines all necessary information about the package like: who developed this package, which packages it depends on, license, etc.
+Every **npm** package is packed as a `tgz` archive which contains [`package.json`](https://docs.npmjs.com/files/package.json) inside. It defines all the necessary information about the package like: who developed this package, which packages it depends on, license, etc.
 
 # Registry API
-There are different metadata levels which can be fetched using [REST API](https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md).
+There are different metadata levels which can be fetched using the [NPM REST API](https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md).
 
 ## Package
 
@@ -24,14 +24,14 @@ GET http://localhost:48080/storage/repository/@strongbox/hello-strongbox-npm/1.0
 
 ## Changes
 
-It something like continuous Registry changes feed and also called [Replicate API](https://github.com/npm/registry/blob/master/docs/REPLICATE-API.md). Strongbox use this feed to get proxy repositories synced with remote registry.
+This is a feed which is like a continuous registry of changes and it's also called the [Replicate API](https://github.com/npm/registry/blob/master/docs/REPLICATE-API.md). Strongbox uses this feed to get proxy repositories synced with the remote registry.
 
 Example:
 ```
 GET https://replicate.npmjs.com/_changes
 ```
 
-Every change have sequenced ID, so it's possible to get changes made starting from some point:
+Every change has a sequenced ID, so it's possible to get changes made starting from some point:
 ```
 https://replicate.npmjs.com/_changes?update_seq=1000000&include_docs=true
 ```
