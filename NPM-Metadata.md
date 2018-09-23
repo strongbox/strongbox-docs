@@ -31,9 +31,7 @@ Example:
 GET https://replicate.npmjs.com/_changes
 ```
 
-Every change have sequenced ID, so it's possible to get changes made starting from some point 
-
-Example:
+Every change have sequenced ID, so it's possible to get changes made starting from some point:
 ```
 https://replicate.npmjs.com/_changes?update_seq=1000000&include_docs=true
 ```
