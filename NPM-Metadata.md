@@ -25,3 +25,27 @@ GET http://localhost:48080/storage/repository/@strongbox/hello-strongbox-npm/1.0
 ## Changes
 
 It something like continuous Registry changes feed and also called [Replicate API](https://github.com/npm/registry/blob/master/docs/REPLICATE-API.md). Strongbox use this feed to get proxy repositories synced with remote registry.
+
+Example:
+```
+GET https://replicate.npmjs.com/_changes
+```
+
+Every change have sequenced ID, so it's possible to get changes made starting from some point 
+
+Example:
+```
+https://replicate.npmjs.com/_changes?update_seq=1000000&include_docs=true
+```
+
+It can also be filtered like below:
+```
+POST https://replicate.npmjs.com/_changes?filter=_doc_ids&include_docs=true
+
+Body
+{
+    "doc_ids": [
+        "@strongbox/hello-strongbox-npm"
+    ]
+}
+```
