@@ -33,7 +33,7 @@ GET https://replicate.npmjs.com/_changes
 
 Every change has a sequenced ID, so it's possible to get changes made starting from some point:
 ```
-https://replicate.npmjs.com/_changes?update_seq=1000000&include_docs=true
+https://replicate.npmjs.com/_changes?since=1000000&include_docs=true
 ```
 
 It can also be filtered like below:
