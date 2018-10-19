@@ -59,7 +59,7 @@ The purpose of storage providers is to expose methods for the underlying storage
 
 ## The `StorageProviderRegistry`
 
-All implementations of the `StorageProviderRegistry` need to be registered with the `StorageProviderRegistry`. This registry provides a way to list and resolve the available implementations. The `StorageProviderRegistry` is used by the following classes:
+All implementations of the `StorageProvider` need to be registered with the `StorageProviderRegistry`. This registry provides a way to list and resolve the available implementations. The `StorageProviderRegistry` is used by the following classes:
 * `ArtifactResolutionServiceImpl` - for resolving artifacts
 * `ArtifactManagementServiceImpl` - for managing artifacts
 
