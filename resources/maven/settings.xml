@@ -5,7 +5,7 @@
         <mirror>
             <id>carlspring</id>
             <name>Carlspring Proxy</name>
-            <url>http://dev.carlspring.org/nexus/content/groups/carlspring</url>
+            <url>http://repo.carlspring.org/content/groups/carlspring</url>
             <mirrorOf>*</mirrorOf>
         </mirror>
     </mirrors>
@@ -22,7 +22,7 @@
                 <repository>
                     <id>carlspring</id>
                     <name>carlspring</name>
-                    <url>http://dev.carlspring.org/nexus/content/groups/carlspring</url>
+                    <url>http://repo.carlspring.org/content/groups/carlspring</url>
                     <layout>default</layout>
                 </repository>
             </repositories>
@@ -30,7 +30,7 @@
                 <pluginRepository>
                     <id>carlspring</id>
                     <name>carlspring</name>
-                    <url>http://dev.carlspring.org/nexus/content/groups/carlspring</url>
+                    <url>http://repo.carlspring.org/content/groups/carlspring</url>
                     <layout>default</layout>
                 </pluginRepository>
             </pluginRepositories>
