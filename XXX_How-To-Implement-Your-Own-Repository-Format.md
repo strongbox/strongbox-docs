@@ -18,3 +18,7 @@ This is how it looks like:
 ## Artifact Coordinates
 
 Every Layout should identify artifacts somehow, and we have `ArtifactCoordinates` responsible for this in Strongbox. 
+The is also some requirements: 
+- Every **ArtifactCoordinates** implementation should have **Id** and **Version**
+- **Id**:**Version** pair should be unique per repository
+- There should be a transitive function to get **ArtifactCoordinates** from **Path** and vice versa
