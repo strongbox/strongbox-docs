@@ -85,7 +85,6 @@ All implementations of the `StorageProvider` need to be registered with the `Sto
 Each layout provider implementation needs to have it's own implementation of the [[artifact coordinates]].
 
 These are the minimal requirements that each layout provider needs to meet: 
-- Every **ArtifactCoordinates** implementation should have **Id** and **Version**
-- **Id**:**Version** pair should be unique per repository
-- There should be a transitive function to get **ArtifactCoordinates** from **Path** and vice versa
-
+- Every `ArtifactCoordinates` implementation should have `Id` and `Version`
+- Every `Id` and `Version` pair should be unique per repository
+- There should be a transitive function to get `ArtifactCoordinates` from `Path` and vice-versa
