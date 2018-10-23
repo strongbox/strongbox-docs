@@ -5,6 +5,23 @@ The following is a simplified illustration of how things are implemented:
 
 [ ![Strongbox Repository, Layout and Storage Provider Implementation](https://github.com/strongbox/strongbox/wiki/resources%2Fimages%2FStrongbox%20Repository%2C%20Layout%20and%20Storage%20Provider%20Implementation.png) ](https://github.com/strongbox/strongbox/wiki/resources%2Fimages%2FStrongbox%20Repository%2C%20Layout%20and%20Storage%20Provider%20Implementation.png)
 
+
+# Concept overview
+
+The illustration below is a top level overview of how artifact management is implemented in Strongbox within different [[Storages]], [[Repositories]] and [[Layout providers]]:
+
+[![Strongbox Repository, Layout and Storage Provider Implementation](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Concept.png)](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Concept.png)
+
+The main thing here is that Strongbox has three layers and each layer decorates the underlying layer with logic that it's responsible for.
+
+# Implementation
+
+We can say that artifacts are just regular files, so our implementation is mainly based on the common JDK File I/O (Featuring NIO.2) entities. 
+
+This is how it looks like:
+
+[![Strongbox Repository, Layout and Storage Provider Entities](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Classes.png)](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Classes.png)
+
 # Repository Providers
 
 Repository providers provide implementations for the different types of repositories. These are:
@@ -26,7 +43,7 @@ Repository providers provide implementations for the different types of reposito
 
 All implementations of the `RepositoryProvider` need to be registered with the `RepositoryProviderRegistry`. This registry provides a way to list and resolve the available implementations.
 
-# Repository Layouts
+# Repository Layout Providers
 
 ## Implementing a `RepositoryLayoutProvider`
 
@@ -66,3 +83,9 @@ All implementations of the `StorageProvider` need to be registered with the `Sto
 # Artifact Coordinates
 
 Each layout provider implementation needs to have it's own implementation of the [[artifact coordinates]].
+
+These are the minimal requirements that each layout provider needs to meet: 
+- Every **ArtifactCoordinates** implementation should have **Id** and **Version**
+- **Id**:**Version** pair should be unique per repository
+- There should be a transitive function to get **ArtifactCoordinates** from **Path** and vice versa
+
