@@ -42,9 +42,17 @@ Virtual repositories provide a bridge between different layout formats.
 
 Maven 2.x/3.x repositories are fully supported. We support hosted, proxy and group repositories. You can check [here](https://github.com/strongbox/strongbox/wiki/Integrating-build-tools-with-Strongbox) and [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-maven) for an example quick start project.
 
+## NPM
+
+The NPM repository layout is currently under active development. It currently sufficiently function in hosted, proxied and group repositories. Please, feel free to report issues on our issue tracker. Patches are always welcome!
+
 ## Nuget
 
-The Nuget (v2) repository layout is currently under active development. We support hosted and proxy repositories. You can check [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget) for an example quick start project.
+We support Nuget (protocol v2) for hosted, proxy and group repositories. You can check [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget) for an example quick start project.
+
+## Raw
+
+For the cases where repositories with an undefined structure are required, the Raw repositories could be used. We support hosted, proxy and group repositories.
 
 # Policies
 
