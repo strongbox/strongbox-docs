@@ -52,3 +52,7 @@ Most of the build and artifact management tools using HTTP to interact with thei
 
 ### Notes
 * there should be REST Assured based Unit Test to check that artifact download/upload handled with `HTTP 200` response code
+
+
+## Layout specific I/O extension
+
