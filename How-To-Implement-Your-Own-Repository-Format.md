@@ -1,6 +1,6 @@
 # Concept
 
-The illustration below is a top level overview of how artifact management is implemented in Strongbox within different [[Storages]], [[Repositories]] and [[Layout providers]]:
+The illustration below is a top level overview of how artifact management is implemented in Strongbox within different [[Storages]], [[Repositories]] and [[Layouts]]:
 
 [![Strongbox Repository, Layout and Storage Provider Implementation](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Concept.png)](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Concept.png)
 
@@ -25,13 +25,23 @@ This is how it looks like:
 
 [![Strongbox Repository, Layout and Storage Provider Entities](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Classes.png)](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Classes.png)
 
-# Repository Providers
+## Artifact Coordinates
 
-Repository providers provide implementations for the different types of repositories. These are:
-* [Hosted](Repositories#hosted)
-* [Proxy](Repositories#proxy)
-* [Group](Repositories#group)
-* [Virtual](Repositories#virtual)
+Each Layout should identify artifacts somehow, and we have [[Artifact Coordinates]] responsible for this in Strongbox. 
+
+These are the minimal requirements for [ArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-commons/src/main/java/org/carlspring/strongbox/artifact/coordinates/ArtifactCoordinates.java) implementation: 
+- Every `ArtifactCoordinates` implementation should have `Id` and `Version`
+- Every `Id` and `Version` pair should be unique per repository
+- There should be a transitive function to get `ArtifactCoordinates` from `Path` and vice-versa
+
+### Notes
+* every Layout implementation should be placed in separate module
+* there should be Unit Test for `ArtifactCoordinates` implementation
+* there should be Layout specific **Artifact Generator** implemented which will be used for test purpose
+
+## Artifact Controller
+
+
 
 ## Implementing a `RepositoryProvider`
 
@@ -83,11 +93,4 @@ All implementations of the `StorageProvider` need to be registered with the `Sto
 * `ArtifactResolutionServiceImpl` - for resolving artifacts
 * `ArtifactManagementServiceImpl` - for managing artifacts
 
-# Artifact Coordinates
 
-Each layout provider implementation needs to have it's own implementation of the [[artifact coordinates]].
-
-These are the minimal requirements that each layout provider needs to meet: 
-- Every `ArtifactCoordinates` implementation should have `Id` and `Version`
-- Every `Id` and `Version` pair should be unique per repository
-- There should be a transitive function to get `ArtifactCoordinates` from `Path` and vice-versa
