@@ -56,4 +56,11 @@ Most of the build and artifact management tools using HTTP to interact with thei
 
 
 ## Layout specific I/O extension
-
+To make Layout usable for real there should be some Layout specific I/O, such as Streams (`InputStream`, `OutputStream`) and **File System** related entities (`FileSystemProvider`, `FileSystem`, `LayoutProvider`).
+Below is the set of base classes which need to be extended:
+- `LayoutFileSystem`
+- `LayoutFileSystemProvider`
+- `AbstractLayoutProvider`
+Almost all components in Strongbox managed by Spring IoC container, as for Layout there should be following factories to put everything into context:
+- `LayoutFileSystemProviderFactory`
+- `LayoutFileSystemFactory`
