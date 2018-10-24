@@ -1,12 +1,4 @@
-
-# Overview
-
-The following is a simplified illustration of how things are implemented:
-
-[ ![Strongbox Repository, Layout and Storage Provider Implementation](https://github.com/strongbox/strongbox/wiki/resources%2Fimages%2FStrongbox%20Repository%2C%20Layout%20and%20Storage%20Provider%20Implementation.png) ](https://github.com/strongbox/strongbox/wiki/resources%2Fimages%2FStrongbox%20Repository%2C%20Layout%20and%20Storage%20Provider%20Implementation.png)
-
-
-# Concept overview
+# Concept
 
 The illustration below is a top level overview of how artifact management is implemented in Strongbox within different [[Storages]], [[Repositories]] and [[Layout providers]]:
 
@@ -14,9 +6,20 @@ The illustration below is a top level overview of how artifact management is imp
 
 The main thing here is that Strongbox has three layers and each layer decorates the underlying layer with logic that it's responsible for.
 
+Following layer implementations possible:
+
+| Repository                      | Layout | Storage      |
+| --------------------------------|:------:| ------------:|
+| [Hosted](Repositories#hosted)   | Maven  | File System  |
+| [Proxy](Repositories#proxy)     | Nuget  | AWS          |
+| [Group](Repositories#group)     | Npm    | Google Cloud |
+| [Virtual](Repositories#virtual) | Raw    | Azure        |
+
+With **Decorator Pattern** concept you can have any layer implementation combinations you want: `Hosted`+`Maven`+`File System`, `Group`+`Npm`+`AWS` etc.
+
 # Implementation
 
-We can say that artifacts are just regular files, so our implementation is mainly based on the common JDK File I/O (Featuring NIO.2) entities. 
+We can say that artifacts are just regular files, so our implementation is mainly based on the common [JDK File I/O (Featuring NIO.2)](https://docs.oracle.com/javase/tutorial/essential/io/fileio.html) entities. 
 
 This is how it looks like:
 
