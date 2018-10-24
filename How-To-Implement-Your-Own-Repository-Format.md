@@ -15,15 +15,21 @@ Following layer implementations possible:
 | [Group](Repositories#group)     | Npm    | Google Cloud |
 | [Virtual](Repositories#virtual) | Raw    | Azure        |
 
-With **Decorator Pattern** concept you can have any layer implementation combinations you want: `Hosted`+`Maven`+`File System`, `Group`+`Npm`+`AWS` etc.
+All the layers are loosely coupled so implementations do not depends on each other. With **Decorator Pattern** concept you can have any layer implementation combinations you want: `Hosted`+`Maven`+`File System`, `Group`+`Npm`+`AWS` etc. 
 
-# Implementation
+# Layout Implementation
 
 We can say that artifacts are just regular files, so our implementation is mainly based on the common [JDK File I/O (Featuring NIO.2)](https://docs.oracle.com/javase/tutorial/essential/io/fileio.html) entities. 
 
 This is how it looks like:
 
 [![Strongbox Repository, Layout and Storage Provider Entities](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Classes.png)](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Classes.png)
+
+Within this guide you will need to implement following entities:
+- `ConcreteLayoutFileSystemProvider`
+- `ConcreteLayoutFileSystem`
+- `LayoutProvider`
+- `ArtifactCoordinates`
 
 ## Artifact Coordinates
 
@@ -41,56 +47,8 @@ These are the minimal requirements for [ArtifactCoordinates](https://github.com/
 
 ## Artifact Controller
 
-
-
-## Implementing a `RepositoryProvider`
-
-* Create a class that extends `AbstractRepositoryProvider` and implement the required methods of the `RepositoryProvider`.
-* Register the class with the `RepositoryProviderRegistry` by implementing the `register()` method.
+Once there is Strongbox module with `ArtifactCoorsinates` we can start implementing protocol specific API.
+Most of the build and artifact management tools using HTTP to interact with their endpoints and in Strongbox we have [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) responsible for this. There is [BaseArtifactController](https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/BaseArtifactController.java) which should be extended with protocol specific API methods (download, upload etc.).
 
 ### Notes
-
-* `RepositoryProvider` implementations have `getInputStream` and `getOutputStream` methods which normally delegate to the associated layout provider. However, in certain cases such as the `GroupRepoisotryProvider` and `ProxyRepositoryProvider` classes, these methods are overridden completely.
-
-## The `RepositoryProviderRegistry`
-
-All implementations of the `RepositoryProvider` need to be registered with the `RepositoryProviderRegistry`. This registry provides a way to list and resolve the available implementations.
-
-# Repository Layout Providers
-
-## Implementing a `RepositoryLayoutProvider`
-
-* Create a class that extends `AbstractRepositoryLayoutProvider` and implement the required methods of the `RepositoryLayoutProvider`.
-* Register the class with the `RepositoryLayoutProviderRegistry` by implementing the `register()` method.
-
-## The `LayoutRegistryProvider`
-
-All implementations of the `LayoutRegistryProvider` need to be registered with the `LayoutProviderRegistry`. This registry provides a way to list and resolve the available implementations.
-
-# Storage Providers
-
-## Implementing a `StorageProvider`
-
-The purpose of storage providers is to expose methods for the underlying storage system. Such storage systems could, for example, be:
-* The file system
-* A blob store (database, Hadoop, etc.)
-* [Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html)
-* [Google Cloud Storage](https://cloud.google.com/storage/)
-
-## Implementation
-
-* Create a class that extends `AbstractStorageProvider` and implement the required methods of the `StorageProvider`.
-* Register the class with the `StorageProviderRegistry` by implementing the `register()` method.
-
-### Notes
-
-* Do not create instances of `File`-s in repository/artifact-related code outside the `StorageProvider` implementation. Use the appropriate `getFileImplementation` method for this instead. 
-* Do not create instances of `FileInputStream`-s in repository/artifact-related code outside the `StorageProvider` implementation. Use the appropriate `getInputStreamImplementation` method for this instead. 
-
-## The `StorageProviderRegistry`
-
-All implementations of the `StorageProvider` need to be registered with the `StorageProviderRegistry`. This registry provides a way to list and resolve the available implementations. The `StorageProviderRegistry` is used by the following classes:
-* `ArtifactResolutionServiceImpl` - for resolving artifacts
-* `ArtifactManagementServiceImpl` - for managing artifacts
-
-
+* there should be REST Assured based Unit Test to check that artifact download/upload handled with `HTTP 200` response code
