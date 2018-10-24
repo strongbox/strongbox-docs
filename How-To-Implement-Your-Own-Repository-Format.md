@@ -1,4 +1,5 @@
 # Concept
+The goal of probably every Concept is to provide a flexible rails for all possible cases within subject area you have. We tried to build such "rails" in Strongbox to make development process nice and painless. :)
 
 The illustration below is a top level overview of how artifact management is implemented in Strongbox within different [[Storages]], [[Repositories]] and [[Layouts]]:
 
