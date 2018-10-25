@@ -8,13 +8,42 @@ The illustration below is a top level overview of how artifact management is imp
 The main thing here is that Strongbox has three layers and each layer decorates the underlying layer with logic that it's responsible for.
 
 Following layer implementations possible:
-
-| Repository                      | Layout | Storage      |
-| --------------------------------|:------:| ------------:|
-| [Hosted](Repositories#hosted)   | Maven  | File System  |
-| [Proxy](Repositories#proxy)     | Nuget  | AWS          |
-| [Group](Repositories#group)     | Npm    | Google Cloud |
-| [Virtual](Repositories#virtual) | Raw    | Azure        |
+<table>
+<thread>
+<tr>
+<th>Repository</th>
+<th>Layout</th>
+<th>Storage</th>
+</tr>
+</thread>
+<tbody>
+<tr>
+<td>
+<ul>
+  <li>Hosted</li>
+  <li>Proxy</li>
+  <li>Group</li>
+</ul>
+</td>
+<td>
+<ul>
+  <li>Maven</li>
+  <li>Nuget</li>
+  <li>npm</li>
+  <li>Raw</li>
+</ul>
+</td>
+<td>
+<ul>
+  <li>File System</li>
+  <li>AWS</li>
+  <li>Google Cloud</li>
+  <li>Raw</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 
 All the layers are loosely coupled so implementations do not depends on each other. With **Decorator Pattern** concept you can have any layer implementation combinations you want: `Hosted`+`Maven`+`File System`, `Group`+`Npm`+`AWS` etc. 
 
