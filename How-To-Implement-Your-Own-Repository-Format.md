@@ -69,4 +69,4 @@ Almost all components in Strongbox managed by Spring IoC container, the same goe
 
 ## Put it all together
 
-*TODO*
+[![Strongbox Repository, Layout and Storage Provider Implementation](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Flow.png)]
