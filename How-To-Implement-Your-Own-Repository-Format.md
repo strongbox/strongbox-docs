@@ -69,6 +69,7 @@ Almost all components in Strongbox managed by Spring IoC container, the same goe
 
 ## Put it all together
 Strongbox have plugable Layouts, so once you have all extension points impelemted it should work "Out-Of-The-Box".
+
 Below you can see how general flow goes by the artifact download example:
 
 [![Strongbox Repository, Layout and Storage Provider Entities](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Flow.png)](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Flow.png)
