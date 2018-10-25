@@ -7,7 +7,7 @@ The illustration below is a top level overview of how artifact management is imp
 
 The main thing here is that Strongbox has three layers and each layer decorates the underlying layer with logic that it's responsible for.
 
-Following layer implementations possible:
+For example, the following layer implementations are possible:
 
 **Repository**
 * Hosted
@@ -22,10 +22,10 @@ Following layer implementations possible:
 
 **Storage**
 * File system
-* AWS S3
-* Google Cloud
+* AWS S3 (not yet implemented)
+* Google Cloud (not yet implemented)
 
-All the layers are loosely coupled, so implementations do not depend on each other. With the **Decorator Pattern** concept you can have any layer implementation combinations you need: `Hosted`+`Maven`+ `File System`, `Group`+ `Npm`+ `AWS` etc. 
+All the layers are loosely coupled, so implementations don't depend on each other. With the **Decorator Pattern** concept you can have any layer implementation combinations you need: `Hosted`+`Maven`+ `File System`, `Group`+ `Npm`+ `AWS` etc. 
 
 # Layout Implementation
 
@@ -43,42 +43,43 @@ You will need to implement following entities:
 
 ## Artifact Coordinates
 
-Each Layout should identify artifacts somehow, and we have [[Artifact Coordinates]] for this purpose. 
+Each layout implementation should be able to identify artifacts and the [[Artifact Coordinates]] serves this purpose.
 
-These are the minimal requirements for [ArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-commons/src/main/java/org/carlspring/strongbox/artifact/coordinates/ArtifactCoordinates.java) implementation: 
-- Every `ArtifactCoordinates` implementation should have `Id` and `Version`
-- Every `Id` and `Version` pair should be unique per repository
-- There should be a transitive function to get `ArtifactCoordinates` from `Path` and vice-versa
+These are the minimal requirements for [ArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-commons/src/main/java/org/carlspring/strongbox/artifact/coordinates/ArtifactCoordinates.java) implementations: 
+- Each `ArtifactCoordinates` implementation should have an `id` and `version`.
+- Each `id` and `version` pair must be unique per repository.
+- There should be a transitive function to get `ArtifactCoordinates` from `Path` and vice-versa.
 
 ### Notes
-* Every layout implementation should be placed in separate module under the `strongbox-storage/strongbox-storage-layout-providers` module.
+* Each layout implementation should be placed in separate module under the `strongbox-storage/strongbox-storage-layout-providers` module.
 * There should be thorough unit tests that check the implementation
 * There should be a layout-specific **Artifact Generator** implemented which will be used for test purpose
 
 ## Artifact Controller
 
 Once you have created your module and created an implementation of the `ArtifactCoorsinates`, you can start implementing the protocol specific API.
-Most of the build and artifact management tools are using HTTP to interact with their endpoints and in Strongbox we have [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) responsible for this. The [BaseArtifactController](https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/BaseArtifactController.java) should be extended with protocol-specific API methods (download, upload etc.).
+Most of the build and artifact management tools are using HTTP to interact with their end-points and in Strongbox we use [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for this. The [BaseArtifactController](https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/BaseArtifactController.java) should be extended with protocol-specific API methods (download, upload etc.).
 
 ### Notes
-* There should be REST Assured based unit tests to check that artifact download/upload handled with `HTTP 200` response code
+* There should be REST Assured based unit tests to check that artifact downloads/uploads handled with `HTTP 200` response code
 
 
 ## Layout specific I/O extension
-To make Layout usable for real there should be some Layout specific I/O, such as Streams (`InputStream`, `OutputStream`) and **File System** related entities (`FileSystemProvider`, `FileSystem`, `LayoutProvider`).
+To make the layout implementation truly usable, there should be some layout specific I/O, such as Streams (`InputStream`, `OutputStream`) and **File System** related entities (`FileSystemProvider`, `FileSystem`, `LayoutProvider`).
 
 Below is the set of base classes which need to be extended:
 - `LayoutFileSystem`
 - `LayoutFileSystemProvider`
 - `AbstractLayoutProvider`
 
-Almost all components in Strongbox managed by Spring IoC container, the same goes for the for Layout related components and there should be following factories to put everything into context:
+Almost all components in Strongbox are managed by Spring's IoC container, the same goes for the for layout-related components and there should be the following factories to put everything into context:
 - `LayoutFileSystemProviderFactory`
 - `LayoutFileSystemFactory`
 
-## Put it all together
-Strongbox have plugable Layouts, so once you have all extension points impelemted it should work "Out-Of-The-Box".
+## Putting It All Together
 
-Below you can see how general flow goes by the artifact download example:
+Strongbox has plugable layout providers, so once you have impelemted all the extension points, it should work out of the box.
+
+Below you can see how the general flow goes, based on the artifact download example:
 
 [![Strongbox Repository, Layout and Storage Provider Entities](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Flow.png)](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Flow.png)
