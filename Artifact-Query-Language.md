@@ -105,4 +105,38 @@ The list below shows the specific `keys` for each layout.
 
 # How to use
 
-You can use AQL with UI search bar, which also provide autocomplete, or directly with REST API Endpoint.
+You can use AQL with UI search bar, which also provide autocomplete, or directly with REST API Endpoint (`curl` example below).
+```
+curl http://localhost:48080/api/aql?query=storage:storage-common-proxies+repository:carlspring+groupId:com.google*
+{
+  "artifact" : [ {
+    "artifactCoordinates" : {
+      "groupId" : "com.google.android",
+      "artifactId" : "android",
+      "version" : "4.1.1.4",
+      "classifier" : null,
+      "extension" : "jar"
+    },
+    "storageId" : "storage-common-proxies",
+    "repositoryId" : "carlspring",
+    "url" : "http://localhost:48080/storages/storage-common-proxies/carlspring/com/google/android/android/4.1.1.4/android-4.1.1.4.jar",
+    "snippets" : [ {
+      "name" : "Maven 2",
+      "code" : "<dependency>\n    <groupId>com.google.android</groupId>\n    <artifactId>android</artifactId>\n    <version>4.1.1.4</version>\n    <type>jar</type>\n    <scope>compile</scope>\n</dependency>\n"
+    }, {
+      "name" : "Gradle",
+      "code" : "compile \"com.google.android:android:4.1.1.4\"\n"
+    }, {
+      "name" : "Ivy",
+      "code" : "<dependency org=\"com.google.android\" name=\"android\" rev=\"4.1.1.4\" />\n"
+    }, {
+      "name" : "Leiningen",
+      "code" : "[com.google.android/android \"4.1.1.4\"]\n"
+    }, {
+      "name" : "SBT",
+      "code" : "libraryDependencies += \"com.google.android\" % \"android\" % \"4.1.1.4\"\n"
+    } ],
+    "path" : "com/google/android/android/4.1.1.4/android-4.1.1.4.jar"
+  } ]
+}
+```
