@@ -6,7 +6,7 @@ Artifact Query Language (AQL) allows to search artifacts easy and consistent acr
 
 Search queries are constructed using _**Tokens**_ where each token is a pair of `<key>:<value>` separated with `:`.
 
-#### AQL Keys
+#### Keys
 
 The full list of possible `keys` will vary depending on the enabled layout providers, but the following common list needs to work the same across all layouts:
 
@@ -31,6 +31,8 @@ The list below shows the specific `keys` for each layout.
 | groupId        |
 | artifactId     |
 | version        |
+| classifier     |
+| extension      |
 
 | Nuget          | 
 | :------------: |
@@ -43,7 +45,7 @@ The list below shows the specific `keys` for each layout.
 | name           |
 | version        |
 
-#### AQL Values
+#### Values
 
 * _**Values**_ can be strings:
     * quoted with single quotes `'` when the value is more than one word (Valid Examples: `storage: storage0`, `layout: 'Maven 2'`)
