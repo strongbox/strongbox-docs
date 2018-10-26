@@ -1,13 +1,12 @@
 # Concept
-The goal of probably every Concept is to provide a flexible rails for all possible cases within subject area you have. We tried to build such "rails" in Strongbox to make development process nice and painless. :)
 
-The illustration below is a top level overview of how artifact management is implemented in Strongbox within different [[Storages]], [[Repositories]] and [[Layout Providers]]:
+We've tried to devise our architecture in a generic way that's easy to extend and work with.
+
+The illustration below is a top level overview of how artifact management is implemented in Strongbox within  [[Storages]], [[Repositories]] and [[Layout Providers]]:
 
 [![Strongbox Repository, Layout and Storage Provider Implementation](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Concept.png)](https://github.com/strongbox/strongbox/wiki/resources/images/layout/Strongbox%20Repository%20Layout%20-%20Concept.png)
 
-The main thing here is that Strongbox has three layers and each layer decorates the underlying layer with logic that it's responsible for.
-
-For example, the following layer implementations are possible:
+There are three layers and each of them decorates the underlying layer with the logic it's responsible for. For example, the following layer implementations are possible:
 
 **Repository**
 * Hosted
@@ -25,7 +24,7 @@ For example, the following layer implementations are possible:
 * AWS S3 (not yet implemented)
 * Google Cloud (not yet implemented)
 
-All the layers are loosely coupled, so implementations don't depend on each other. With the **Decorator Pattern** concept you can have any layer implementation combinations you need: `Hosted`+`Maven`+ `File System`, `Group`+ `Npm`+ `AWS` etc. 
+All of the layers are loosely coupled, so implementations don't depend on each other. With the **Decorator Pattern** concept you can have any layer implementation combinations you need: `Hosted`+`Maven`+ `File System`, `Group`+ `Npm`+ `AWS` etc. 
 
 # Layout Implementation
 
