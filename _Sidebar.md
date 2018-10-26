@@ -30,7 +30,7 @@
   * [[NPM Metadata]]
 * [[REST API]]
 * [[Searching]]
-
+* [[Artifact Query Language]]
 **Developer Guide**
 * [[Getting Started]]
 * [[Building the code]]
