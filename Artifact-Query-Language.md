@@ -1,10 +1,10 @@
 # Introduction
 
-Artifact Query Language (AQL) allows to search artifacts easy and consistent across all layouts. 
+We have created the Artifact Query Language (AQL) in order to be able to search for artifacts across the different layouts in an easy and consistent manner.
 
 ## AQL Synax
 
-Search queries are constructed using _**Tokens**_ where each token is a pair of `<key>:<value>` separated with `:`.
+Search queries are constructed using _**tokens**_, where each token is a pair of `<key>:<value>` separated with `:`.
 
 #### Keys
 
@@ -12,46 +12,45 @@ The full list of possible `keys` will vary depending on the enabled layout provi
 
 | Key        | Description     | 
 | ---------- |---------------- |
-| storage    | Search for artifacts in a specific **storage id**|
-| repository | Search for artifacts in a specific **repository id**|
-| layout     | Search for artifacts in a specific **repository layout**|
-| version    | Search an artifact by **version**|
-| tag        | Search for artifacts with available **tag name**|
-| from       | Search for uploaded artifacts starting **date** (unicode format, results include the date)|
-| to         | Search for uploaded artifacts before **date** (unicode format, results include the date)|
-| age        | Constant: `day`, `month`, `year`, etc.|
-| asc        | Order results ascending|
-| desc       | Order results descending|
+| storage    | Search for artifacts in a specific **storage id** |
+| repository | Search for artifacts in a specific **repository id** |
+| layout     | Search for artifacts in a specific **repository layout** |
+| version    | Search an artifact by **version** |
+| tag        | Search for artifacts with available **tag name** |
+| from       | Search for uploaded artifacts starting **date** (unicode format, results include the date) |
+| to         | Search for uploaded artifacts before **date** (unicode format, results include the date) |
+| age        | Constant: `day`, `month`, `year`, etc. |
+| asc        | Order results ascending |
+| desc       | Order results descending |
 
+Each layout provider exposes keys for each of it's the fields of it's implementation of the [`ArtifactCoordinates`](https://github.com/strongbox/strongbox/wiki/Artifact-Coordinates).
 
-The list below shows the specific `keys` for each layout.
+For example:
 
-||| 
-| ---------- |---------------- |
-| _**Maven**_      ||
-|| groupId        |
-|| artifactId     |
-|| version        |
-|| classifier     |
-|| extension      |
-| _**Nuget**_           ||
-|| Id             |
-|| Version        |
-| _**Npm**_             ||
-|| scope          |
-|| name           |
-|| version        |
+* For Maven, the artifact coordinates would be :
+  * `groupId`
+  * `artifactId`
+  * `version`
+  * `classifier`
+  * `extension`
+* For NuGet 
+  * `Id`
+  * `Version`
+* For NPM
+  * `scope`
+  * `name`
+  * `version`
 
 #### Values
 
 * _**Values**_ can be strings:
-    * quoted with single quotes `'` when the value is more than one word (Valid Examples: `storage: storage0`, `layout: 'Maven 2'`)
-    * separated with comma `,` for multiple values; you can consider this the same as `IN` operator in SQL  (Valid Examples: `repository: releases, snapshots`, `layout: 'Maven 2', NuGet`)
-    * wildcards are supported `*` (Valid Examples: `group: org.carlspring.*`)
+  * Quoted with single quotes `'` when the value is more than one word (for example: `storage: storage0`, `layout: 'Maven 2'`)
+  * Separated with comma `,` for multiple values; you can consider this the same as `IN` operator in SQL  (for example: `repository: releases, snapshots`, `layout: 'Maven 2', NuGet`)
+  * Wildcards are supported `*` (for example: `group: org.carlspring.*`)
 
-* _**Values**_ can be dates in unicode format: `2018-03-21 13:00:00`, `2018-03-21` (Valid Examples: `updated: 2018-03-21`, `updated: '2018-03-21 13:00'`)
+* _**Values**_ can be dates in Unicode format: `2018-03-21 13:00:00`, `2018-03-21` (for example: `updated: 2018-03-21`, `updated: '2018-03-21 13:00'`)
 
-* _**Values**_ can be keywords/constants: `day`, `month`, `year`, etc. (Valid Examples: `age: >= 30d`)
+* _**Values**_ can be keywords/constants: `day`, `month`, `year`, etc. (for example: `age: >= 30d`)
 
 ## Query expression
 
