@@ -107,7 +107,7 @@ The list below shows the specific `keys` for each layout.
 
 You can use AQL with UI search bar, which also provide autocomplete, or directly with REST API Endpoint (`curl` example below).
 ```
-curl http://localhost:48080/api/aql?query=storage:storage-common-proxies+repository:carlspring+groupId:com.google*
+$ curl http://localhost:48080/api/aql?query=storage:storage-common-proxies+repository:carlspring+groupId:com.google*
 {
   "artifact" : [ {
     "artifactCoordinates" : {
