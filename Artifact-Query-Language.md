@@ -26,24 +26,21 @@ The full list of possible `keys` will vary depending on the enabled layout provi
 
 The list below shows the specific `keys` for each layout.
 
-| Maven          | 
-| :------------: |
-| groupId        |
-| artifactId     |
-| version        |
-| classifier     |
-| extension      |
-
-| Nuget          | 
-| :------------: |
-| Id             |
-| Version        |
-
-| Npm            | 
-| :------------: |
-| scope          |
-| name           |
-| version        |
+||| 
+| ---------- |---------------- |
+| _**Maven**_      ||
+|| groupId        |
+|| artifactId     |
+|| version        |
+|| classifier     |
+|| extension      |
+| _**Nuget**_           ||
+|| Id             |
+|| Version        |
+| _**Npm**_             ||
+|| scope          |
+|| name           |
+|| version        |
 
 #### Values
 
@@ -105,3 +102,7 @@ The list below shows the specific `keys` for each layout.
         ```
         +(storage:storage0)+(repository:releases)-(groupId: 'org.carlspring')
         ``` 
+
+# How to use
+
+You can use AQL with UI search bar, which also provide autocomplete, or directly with REST API Endpoint.
