@@ -15,6 +15,7 @@
     * [strongbox‐cron‐tasks.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox%E2%80%90cron%E2%80%90tasks.xml-File)
     * [strongbox‐security‐users.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox%E2%80%90security%E2%80%90users.xml-File)
   * [[Directory Structure]]
+* [[Artifact Query Language]]
 * [[Cron Tasks]]
 * [[Installation]]
 * [[Integrating build tools with Strongbox]]
