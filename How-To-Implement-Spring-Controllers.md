@@ -1,5 +1,4 @@
-Preface
-===
+# Preface
 
 This guideline aims to outline some of the basic expectations that must be met before you can commit your code. The scope
 of this guide are controllers which will be used by the front-end. Controllers which are specific to handling traffic 
@@ -9,8 +8,7 @@ In case you have doubts, conflicts or any questions/ideas, please don't hesitate
 The key words "**MUST**", "**MUST NOT**", "**REQUIRED**", "**SHALL**", "**SHALL NOT**", "**SHOULD**", "**SHOULD NOT**", 
 "**RECOMMENDED**", "**MAY**", and "**OPTIONAL**" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
-General rules
-=====
+# General rules
 
 <a name="general-rule-1"></a>
 [1.](#general-rule-1) You **MUST** have your controller stored in `./strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers` 
@@ -157,8 +155,7 @@ In case you have doubts about this - feel free to ask us in [gitter](https://git
 
 <a name="form-validation"></a>
 
-Spring Form Validation Rules 
-=====
+# Spring Form Validation Rules 
 
 These rules are only applied for Controllers which have Spring Form Validation (form validation for short).
 
@@ -183,10 +180,484 @@ section.
 <a name="form-validation-5"></a>
 [5.](#form-validation-5) In case you are implementing a custom validator - you **SHOULD** follow the [Spring Framework Reference](https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation-beanvalidation-spring-constraints). 
 
+# Example code
 
-Example code
-=====
+## Example Controller
 
- * [ExampleController.java](https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/ExampleController.java)
- * [ExampleControllerTest.java](https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/test/java/org/carlspring/strongbox/controllers/ExampleControllerTest.java)
- * [ExampleForm.java](https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/forms/ExampleForm.java)
+```
+package org.carlspring.strongbox.controllers;
+
+import org.carlspring.strongbox.controllers.support.ExampleEntityBody;
+import org.carlspring.strongbox.forms.ExampleForm;
+import org.carlspring.strongbox.validation.RequestBodyValidationException;
+
+import java.util.Arrays;
+import java.util.List;
+
+import io.swagger.annotations.*;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * This oversimplified example controller is written following the How-To-Implement-Spring-Controllers guide.
+ * It's purpose is entirely educational and is meant to help newcomers.
+ * <p>
+ * https://github.com/strongbox/strongbox/wiki/How-To-Implement-Spring-Controllers
+ *
+ * @author Przemyslaw Fusik
+ * @author Steve Todorov
+ */
+@RestController
+@RequestMapping("/example-controller")
+@Api(value = "/example-controller")
+public class ExampleController
+        extends BaseController
+{
+
+    public static final String NOT_FOUND_MESSAGE = "Could not find record in database.";
+
+
+    @ApiOperation(value = "List available examples")
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "Everything went ok") })
+    @GetMapping(value = "/all",
+                consumes = MediaType.APPLICATION_JSON_VALUE,
+                produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity getExamples()
+    {
+        List<String> list = Arrays.asList("a", "foo", "bar", "list", "of", "strings");
+        return getJSONListResponseEntityBody("examples", list);
+    }
+
+    @ApiOperation(value = "Show specific example")
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "Everything went ok") })
+    @GetMapping(value = "/get/{example}",
+                consumes = MediaType.APPLICATION_JSON_VALUE,
+                produces = { MediaType.TEXT_PLAIN_VALUE,
+                             MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity getExample(@ApiParam(value = "Get a specific example", required = true)
+                                     @PathVariable String example,
+                                     @RequestHeader(HttpHeaders.ACCEPT) String accept)
+    {
+        if (example.equals("not-found"))
+        {
+            return getNotFoundResponseEntity(NOT_FOUND_MESSAGE, accept);
+        }
+
+        ExampleEntityBody body = new ExampleEntityBody(example);
+        return ResponseEntity.ok(body);
+    }
+
+    @ApiOperation(value = "Update example's credentials.")
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "Everything went ok"),
+                            @ApiResponse(code = 400, message = "Validation errors occurred") })
+    @PostMapping(value = "/update/{example}",
+                 consumes = MediaType.APPLICATION_JSON_VALUE,
+                 produces = { MediaType.TEXT_PLAIN_VALUE,
+                              MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity updateExample(
+            @ApiParam(value = "Update a specific example using form validation", required = true)
+            @PathVariable String example,
+            @RequestHeader(HttpHeaders.ACCEPT) String accept,
+            @RequestBody(required = false) @Validated ExampleForm exampleForm,
+            BindingResult bindingResult)
+    {
+        if (example.equals("not-found"))
+        {
+            return getNotFoundResponseEntity(NOT_FOUND_MESSAGE, accept);
+        }
+
+        // In case of form validation failures - throw a RequestBodyValidationException.
+        // This will be automatically handled afterwards.
+        if (exampleForm == null)
+        {
+            throw new RequestBodyValidationException("Empty request body", bindingResult);
+        }
+        if (bindingResult.hasErrors())
+        {
+            throw new RequestBodyValidationException("Validation error", bindingResult);
+        }
+
+        return getSuccessfulResponseEntity("Credentials have been successfully updated.", accept);
+    }
+
+    @ApiOperation(value = "Delete an example")
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "Everything went ok"),
+                            @ApiResponse(code = 404, message = "Example could not be found.") })
+    @DeleteMapping(value = "/delete/{example}",
+                   consumes = MediaType.APPLICATION_JSON_VALUE,
+                   produces = { MediaType.TEXT_PLAIN_VALUE,
+                                MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity deleteExample(@ApiParam(value = "Delete a specific example", required = true)
+                                        @PathVariable String example,
+                                        @RequestHeader(HttpHeaders.ACCEPT) String accept)
+    {
+        if (example.equals("not-found"))
+        {
+            return getNotFoundResponseEntity(NOT_FOUND_MESSAGE, accept);
+        }
+
+        return getSuccessfulResponseEntity("example has been successfully deleted.", accept);
+    }
+
+    @ApiOperation(value = "Handling exceptions")
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "Everything went ok"),
+                            @ApiResponse(code = 500, message = "Something really bad and unpredictable happened.") })
+    @GetMapping(value = "/handle-exception",
+                consumes = MediaType.APPLICATION_JSON_VALUE,
+                produces = { MediaType.TEXT_PLAIN_VALUE,
+                             MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity handleExceptions(@RequestHeader(HttpHeaders.ACCEPT) String accept)
+    {
+        try
+        {
+            throw new Exception("Something bad happened.");
+        }
+        catch (Exception e)
+        {
+            String message = "This example message will be logged in the logs and sent to the client.";
+            return getExceptionResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR, message, e, accept);
+        }
+    }
+    
+    @ApiOperation(value = "Handling unhadled exceptions")
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "Everything went ok"),
+                            @ApiResponse(code = 500, message = "Something really bad and unpredictable happened.") })
+    @GetMapping(value = "/unhandled-exception", consumes = MediaType.APPLICATION_JSON_VALUE, produces = { MediaType.TEXT_PLAIN_VALUE,
+                                                                                                          MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity unhandledExceptions(@RequestHeader(HttpHeaders.ACCEPT) String accept) throws Exception
+    {
+        throw new Exception("Something bad happened.");
+    }
+
+}
+
+```
+
+## Example Form
+
+```
+package org.carlspring.strongbox.forms;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+/**
+ * @author Przemyslaw Fusik
+ */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class ExampleForm
+{
+
+    @NotNull
+    @Size(max = 64)
+    private String username;
+
+    @Size(min = 6, message = "This field is less than 6 characters long!")
+    @Pattern(regexp = ".*[A-Z].*[A-Z].*", message = "This field requires at least 2 capital letters")
+    private String password;
+
+    public String getUsername()
+    {
+        return username;
+    }
+
+    public void setUsername(final String username)
+    {
+        this.username = username;
+    }
+
+    public String getPassword()
+    {
+        return password;
+    }
+
+    public void setPassword(final String password)
+    {
+        this.password = password;
+    }
+}
+```
+
+## Example Controller Test Case
+
+```
+package org.carlspring.strongbox.controllers;
+
+import org.carlspring.strongbox.config.IntegrationTest;
+import org.carlspring.strongbox.forms.ExampleForm;
+import org.carlspring.strongbox.rest.common.RestAssuredBaseTest;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.Matchers.*;
+
+/**
+ * @author Przemyslaw Fusik
+ * @author Steve Todorov
+ */
+@IntegrationTest
+@RunWith(SpringJUnit4ClassRunner.class)
+public class ExampleControllerTest
+        extends RestAssuredBaseTest
+{
+
+    @Test
+    public void testGetExamplesResponse()
+            throws Exception
+    {
+        given().accept(MediaType.APPLICATION_JSON_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .when()
+               .get("/example-controller/all")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.OK.value())
+               .body("examples", hasSize(greaterThan(0)));
+    }
+
+    @Test
+    public void testGetExampleResponse()
+            throws Exception
+    {
+        given().accept(MediaType.APPLICATION_JSON_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .when()
+               .get("/example-controller/get/foo-bar")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.OK.value())
+               .body("name", not(nullValue()));
+    }
+
+    @Test
+    public void testGetNonExistingJsonExampleResponse()
+            throws Exception
+    {
+        given().accept(MediaType.APPLICATION_JSON_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .when()
+               .get("/example-controller/get/not-found")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.NOT_FOUND.value())
+               .body("message", not(nullValue()));
+    }
+
+    @Test
+    public void testGetNonExistingPlainExampleResponse()
+            throws Exception
+    {
+        given().accept(MediaType.TEXT_PLAIN_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .when()
+               .get("/example-controller/get/not-found")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.NOT_FOUND.value())
+               .body(containsString(ExampleController.NOT_FOUND_MESSAGE));
+    }
+
+    @Test
+    public void testDeleteExampleResponse()
+            throws Exception
+    {
+        given().accept(MediaType.APPLICATION_JSON_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .when()
+               .delete("/example-controller/delete/foo-bar")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.OK.value())
+               .body("message", not(nullValue()));
+    }
+
+    @Test
+    public void testDeleteNonExistingExampleResponse()
+            throws Exception
+    {
+        given().accept(MediaType.APPLICATION_JSON_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .when()
+               .delete("/example-controller/delete/not-found")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.NOT_FOUND.value())
+               .body("message", not(nullValue()));
+    }
+
+    @Test
+    public void testBadFormRequestWithJsonResponse()
+            throws Exception
+    {
+        ExampleForm exampleForm = new ExampleForm();
+        exampleForm.setPassword("god");
+
+        given().accept(MediaType.APPLICATION_JSON_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .body(exampleForm)
+               .when()
+               .post("/example-controller/update/foo-bar")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.BAD_REQUEST.value())
+               .body("message", not(nullValue()))
+               .body("errors", hasSize(greaterThan(0)));
+    }
+
+    @Test
+    public void testBadFormRequestWithPlainTextResponse()
+            throws Exception
+    {
+        ExampleForm exampleForm = new ExampleForm();
+        exampleForm.setPassword("god");
+
+        given().accept(MediaType.TEXT_PLAIN_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .body(exampleForm)
+               .when()
+               .post("/example-controller/update/foo-bar")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.BAD_REQUEST.value())
+               .body(containsString("Validation error"));
+    }
+
+    @Test
+    public void testEmptyFormRequestBodyWithJsonResponse()
+            throws Exception
+    {
+        given().accept(MediaType.APPLICATION_JSON_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .when()
+               .post("/example-controller/update/foo-bar")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.BAD_REQUEST.value())
+               .body("message", not(nullValue()));
+    }
+
+    @Test
+    public void testEmptyFormRequestBodyWithPlainTextResponse()
+            throws Exception
+    {
+        given().accept(MediaType.TEXT_PLAIN_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .when()
+               .post("/example-controller/update/foo-bar")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.BAD_REQUEST.value())
+               .body(containsString("Empty request body"));
+    }
+
+    @Test
+    public void testValidFormRequestWithJsonResponse()
+            throws Exception
+    {
+        ExampleForm exampleForm = new ExampleForm();
+        exampleForm.setPassword("abcDEF1234");
+        exampleForm.setUsername("my-username");
+
+        given().accept(MediaType.APPLICATION_JSON_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .body(exampleForm)
+               .when()
+               .post("/example-controller/update/foo-bar")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.OK.value())
+               .body("message", not(nullValue()));
+    }
+
+    @Test
+    public void testValidFormRequestWithPlainTextResponse()
+            throws Exception
+    {
+        ExampleForm exampleForm = new ExampleForm();
+        exampleForm.setPassword("abcDEF1234");
+        exampleForm.setUsername("my-username");
+
+        given().accept(MediaType.TEXT_PLAIN_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .body(exampleForm)
+               .when()
+               .post("/example-controller/update/foo-bar")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.OK.value())
+               .body(containsString("Credentials have been successfully updated"));
+    }
+
+    @Test
+    public void testExceptionHandlingWithJsonResponse()
+            throws Exception
+    {
+        given().accept(MediaType.APPLICATION_JSON_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .when()
+               .get("/example-controller/handle-exception")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
+               .body("message", containsString("This example message will be logged in the logs and sent to the client."));
+    }
+
+    @Test
+    public void testExceptionHandlingWithPlainTextResponse()
+            throws Exception
+    {
+        given().accept(MediaType.TEXT_PLAIN_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .when()
+               .get("/example-controller/handle-exception")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
+               .body(containsString("This example message will be logged in the logs and sent to the client."));
+    }
+
+    @Test
+    public void testUnhandledExceptionHandlingWithJsonResponse()
+            throws Exception
+    {
+        given().accept(MediaType.APPLICATION_JSON_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .when()
+               .get("/example-controller/unhandled-exception")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
+               .body("error", containsString("Something bad happened."));
+    }
+
+    @Test
+    public void testUnhandledExceptionHandlingWithPlainTextResponse()
+            throws Exception
+    {
+        given().accept(MediaType.TEXT_PLAIN_VALUE)
+               .contentType(MediaType.APPLICATION_JSON_VALUE)
+               .when()
+               .get("/example-controller/unhandled-exception")
+               .peek() // Use peek() to print the output
+               .then()
+               .statusCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
+               .body(containsString("Something bad happened."));
+    }
+    
+}
+```
