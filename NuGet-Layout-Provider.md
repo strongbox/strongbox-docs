@@ -26,6 +26,14 @@ This layout provider has feeds.
 
 The NuGet layout provider supports uses the [OrientDB (default)](https://github.com/strongbox/strongbox/wiki/Searching#orientdbsearchprovider).
 
+# Supported Commands
+
+Following [CLI commands](https://docs.microsoft.com/ru-ru/nuget/tools/nuget-exe-cli-reference#commands-and-applicability) supported:
+- `>nuget publish`
+- `>nuget delete`
+- `>nuget install`
+- `>nuget list`
+
 # Information For Developers
 
 The code for the NuGet layout provider is located under the [strongbox-storage-nuget-layout-provider](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider) module.
