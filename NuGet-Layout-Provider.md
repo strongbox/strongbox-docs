@@ -29,10 +29,10 @@ The NuGet layout provider supports uses the [OrientDB (default)](https://github.
 # Supported Commands
 
 Following [CLI commands](https://docs.microsoft.com/ru-ru/nuget/tools/nuget-exe-cli-reference#commands-and-applicability) supported:
-- `>nuget publish`
-- `>nuget delete`
-- `>nuget install`
-- `>nuget list`
+- `nuget publish`
+- `nuget delete`
+- `nuget install`
+- `nuget list`
 
 # Information For Developers
 
