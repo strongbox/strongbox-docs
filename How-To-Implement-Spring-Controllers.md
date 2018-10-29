@@ -6,8 +6,6 @@ of this guide are controllers which will be used by the front-end. Controllers w
 such as downloading/uploading/processing artifacts are out of this scope and need to be discussed before proceeding. 
 In case you have doubts, conflicts or any questions/ideas, please don't hesitate to message us on gitter!
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/strongbox/strongbox?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
-
 The key words "**MUST**", "**MUST NOT**", "**REQUIRED**", "**SHALL**", "**SHALL NOT**", "**SHOULD**", "**SHOULD NOT**", 
 "**RECOMMENDED**", "**MAY**", and "**OPTIONAL**" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
