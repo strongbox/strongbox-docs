@@ -1,6 +1,3 @@
-# WARNING
-This feature is currently highly experimental, under active development and it's implementation may change without warning. If you would like to try it out and find issues, please report them on the issue tracker. At the moment, only hosted repositories have been tested; proxy and group NPM repositories are still not implemented.
-
 # General
 The NPM layout provider allows storing artifacts using the NPM format.
 
@@ -26,6 +23,7 @@ Following [CLI commands](https://docs.npmjs.com/cli/npm) supported:
 - `npm publish`
 - `npm install`
 - `npm view` 
+- `npm search` 
 
 # Information For Developers
 
