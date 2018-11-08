@@ -6,7 +6,7 @@
 * Pull requests will not be merged, if there are failing tests.
 * Don't use REST API for testing your service class methods. Test them directly.
 * Put `@Rollback(false)` if you want to persist something during the test execution. It will tell Spring to not to call `rollback()` on this class method transactions.
-* Use [rest-assured](https://github.com/rest-assured/rest-assured/wiki/GettingStarted#spring-mock-mvc) for testing REST API. Don't try to re-involve the bicycle and inherit all rest-assured initialization stuff from `RestAssuredBaseTest`. Mark your test as `@IntegrationTest` and take a look at the existing examples (subclasses of `RestAssuredBaseTest`). If you would like to have some init method with `@Before` annotation make sure that you will have `super.init()` as a first line in such kind of method.  
+* Use [rest-assured](https://github.com/rest-assured/rest-assured/wiki/GettingStarted#spring-mock-mvc) for testing REST API. Don't try to re-involve the bicycle and inherit all rest-assured initialization stuff from `RestAssuredBaseTest`. Mark your test as `@IntegrationTest` and take a look at the existing examples (subclasses of `RestAssuredBaseTest`). If you would like to have some init method with `@BeforeEach` annotation make sure that you will have `super.init()` as a first line in such kind of method.  
 * All tests **MUST be idempotent**, it means that we should be able to execute them multiple times from console or IDE and execution should not depends on how many times we ran this test.
 
 # Artifact-related Tests
@@ -36,7 +36,7 @@ The following is an example of artifact deployment taken from the [ArtifactDeplo
     private static ArtifactClient client;
     
     
-    @Before
+    @BeforeEach
     public void setUp()
             throws Exception
     {
@@ -99,7 +99,7 @@ The integration tests can be invoked, by triggering the Maven profile that execu
 
 Here is sequence of actions for anyone who would like to write it's own REST API test.
 * extend `RestAssuredBaseTest` class
-* put `@IntegrationTest` and `@RunWith(SpringJUnit4ClassRunner.class)` on top of your class
+* put `@IntegrationTest` and `@ExtendWith(SpringExtension.class)` on top of your class
 * review existing examples (subclasses of `RestAssuredBaseTest`)
 ## How to use rest-assured
 
@@ -135,7 +135,7 @@ Spring provides a support for Test Context caching (see [here](https://docs.spri
 ## `@PostConstruct` and `@PreDestroy` pitfalls
 
 * `@PostConstruct` method on any application component configured in the `ApplicationContext` is getting called while Spring actually creates new Test Context
-* `@PostConstruct` within an actual test class will be executed before any `@Before` method of the underlying test
+* `@PostConstruct` within an actual test class will be executed before any `@BeforeEach` method of the underlying test
 * `@PreDestroy` method on any application component configured in the `ApplicationContext` is getting called when _all_ tests are finished (because of the Spring Test Context caching feature), when JVM exits
 * `@PreDestroy` within an actual test class will _never_ be executed
 
