@@ -40,12 +40,6 @@ Please, be aware that the Maven 2 layout provider (unlike most of the other layo
 * [OrientDB (default)](https://github.com/strongbox/strongbox/wiki/Searching#orientdbsearchprovider)
 * [Maven Indexer](https://github.com/strongbox/strongbox/wiki/Searching#mavenindexersearchprovider)
 
-# Information For Developers
-
-The code for the Maven 2 layout provider is located under the [strongbox-storage-maven-layout-provider](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider) module.
-
-## Classes of Interest
-
 The following are some of the most important classes you will need to be familiar with in order to work on this layout provider:
 
 | Coordinate   | Description |
