@@ -9,9 +9,11 @@
   * Put `@Rollback(false)` if you want to persist something during the test execution. It will tell Spring to not to call `rollback()` on this class method transactions.
   * All tests **MUST be idempotent**, which means that we should be able to execute them multiple times from the console or an IDE and the outcome should not depend on how many times the test has been executed.
   * Use [rest-assured](https://github.com/rest-assured/rest-assured/wiki/GettingStarted#spring-mock-mvc) for testing REST API. Don't try to re-invent the wheel and inherit all rest-assured initialization stuff from `RestAssuredBaseTest`. Mark your test as `@IntegrationTest` and take a look at the existing examples (sub-classes of `RestAssuredBaseTest`). If you would like to have some init method with `@BeforeEach` annotation make sure that you also invoke `super.init()` as a first line in such methods.
-  * Tests that need to execute operations against a repository, should create the repository on the fly in order to guarantee test resource isolation. Such cases should also implement the following methods in order to make sure that there are no stale resources from previous invocations:
-    * `public static Set<MutableRepository> getRepositoriesToClean()`
-    * `public void removeRepositories()`
+  * Tests that need to execute operations against a repository, should create the repository on the fly in order to guarantee test resource isolation.
+    * Such cases should also implement the following methods in order to make sure that there are no stale resources from previous invocations:
+      * `public static Set<MutableRepository> getRepositoriesToClean()`
+      * `public void removeRepositories()`
+    * The naming convention for such repositories is as follows: given a class name of `MavenMetadataForReleasesTest`, the respective repository should be called `mmfrt-releases`.
 * **Test resources**
   * Test cases should be self-sufficient and not rely on data produced by other tests, or the outcome of other tests in any other way.
   * Every test case should generate all the resources it requires in each of its respective test methods.
