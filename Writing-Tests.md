@@ -35,7 +35,7 @@ If you're generating this from your test's `setUp` method, please, make sure tha
 * The artifact generation part is only invoked once
 * For each artifact you add a comment explaining which test method is using this resource
 
-## Adding Artifacts To The Index
+## Adding Artifacts To The Maven Index
 
 For test cases where you need to generate artifacts and add them to the index, please have a look at the [TestCaseWithArtifactGenerationWithIndexing](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-indexing/src/test/java/org/carlspring/strongbox/testing/TestCaseWithArtifactGenerationWithIndexing.java) class.
 
