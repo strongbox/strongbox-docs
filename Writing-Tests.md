@@ -16,7 +16,7 @@
   * The naming convention for such repositories is as follows: given a class name of `MavenMetadataForReleasesTest`, the respective repository should be called `mmfrt-releases`.
 
 ## Test resources
-* Test cases should be self-sufficient and not rely on data produced by other tests, or the outcome of other tests in any other way.
+* Test cases should be self-sufficient and not rely on data, or resources produced by other tests, or the outcome of other tests in any other way.
 * Every test case should generate all the resources it requires in each of its respective test methods.
 * Do not name test resources with common dummy names such as `foo.txt`, `bar.zip`, `blah.jar` and etc, as this might cause resource collisions and issues, in case someone else decided to use such a name (if you spot any such resources, please raise an issue/pull, as this is bad practice).
 
