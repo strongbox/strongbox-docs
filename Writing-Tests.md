@@ -4,6 +4,7 @@
   * All code must be accompanied with sufficiently thorough test cases which validate the functionality.
   * If tests are failing, they are a top priority.
   * Pull requests will not be merged, if there are failing tests.
+  * Pull requests will not be merged, if they mark tests as `@Disabled`, without prior explanation of the cause and approval from the reviewer/team.
   * Don't use REST API for testing your service class methods. Test them directly.
   * Put `@Rollback(false)` if you want to persist something during the test execution. It will tell Spring to not to call `rollback()` on this class method transactions.
   * All tests **MUST be idempotent**, it means that we should be able to execute them multiple times from console or IDE and execution should not depends on how many times we ran this test.
