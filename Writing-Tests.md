@@ -5,10 +5,10 @@
   * If tests are failing, they are a top priority.
   * Pull requests will not be merged, if there are failing tests.
   * Pull requests will not be merged, if they mark tests as `@Disabled`, without prior explanation of the cause and approval from the reviewer/team.
-  * Don't use REST API for testing your service class methods. Test them directly.
   * Put `@Rollback(false)` if you want to persist something during the test execution. It will tell Spring to not to call `rollback()` on this class method transactions.
   * All tests **MUST be idempotent**, which means that we should be able to execute them multiple times from the console or an IDE and the outcome should not depend on how many times the test has been executed.
   * Use [rest-assured](https://github.com/rest-assured/rest-assured/wiki/GettingStarted#spring-mock-mvc) for testing REST API. Don't try to re-invent the wheel and inherit all rest-assured initialization stuff from `RestAssuredBaseTest`. Mark your test as `@IntegrationTest` and take a look at the existing examples (sub-classes of `RestAssuredBaseTest`). If you would like to have some init method with `@BeforeEach` annotation make sure that you also invoke `super.init()` as a first line in such methods.
+  * Don't use the REST API calls for testing your service class methods, test them directly using RestAssured.
   * Tests that need to execute operations against a repository, should create the repository on the fly in order to guarantee test resource isolation.
     * Such cases should also implement the following methods in order to make sure that there are no stale resources from previous invocations:
       * `public static Set<MutableRepository> getRepositoriesToClean()`
