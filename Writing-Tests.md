@@ -21,7 +21,7 @@
 
 # Artifact-related Tests
 
-For artifact-related test you could create instance of TestCaseWithArtifactGeneration in your unit test or reuse one from `RestAssuredBaseTest`. Just delegate your call to super class field.
+For artifact-related test you could create instance of `TestCaseWithArtifactGeneration` in your unit test or reuse one from `RestAssuredBaseTest`. Just delegate your call to super class field.
 
 ## Generating Artifacts
 
@@ -64,27 +64,28 @@ The integration tests can be invoked, by triggering the Maven profile that execu
 ## How to write your own integration test
 
 Here is sequence of actions for anyone who would like to write it's own REST API test.
-* extend `RestAssuredBaseTest` class
-* put `@IntegrationTest` and `@ExtendWith(SpringExtension.class)` on top of your class
-* review existing examples (subclasses of `RestAssuredBaseTest`)
+* Extend `RestAssuredBaseTest` class
+* Put `@IntegrationTest` and `@ExtendWith(SpringExtension.class)` on top of your class
+* Review existing examples (subclasses of `RestAssuredBaseTest`)
+
 ## How to use rest-assured
 
-Here is the simplest example that will send HTTP GET request on /greeting endpoint:
+Here is the simplest example that will send HTTP GET request to the `/greeting` endpoint:
 
     given().when()
            .get("/greeting")
            .then()
            .statusCode(200);
 
-`Notice`: you should have `import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.*;` in your test.
+**Note:** You should have `import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.*;` in your test.
 
 ## Where it differs from stock version of rest-assured
 
-Instead of given() please use givenLocal() of `RestAssuredBaseTest`.
+Instead of `given()` please use `givenLocal()` of `RestAssuredBaseTest`.
 
 ## Do I need to extend `RestAssuredArtifactClient` or write my own methods in unit tests?
 
-Basically no. The only reason to extend that class is when you would like to reuse something between several unit tests (to avoid code duplication).
+Basically, **_no_**. The only reason to extend that class is when you would like to reuse something between several unit tests (to avoid code duplication).
 
 ## References
 
