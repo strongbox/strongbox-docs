@@ -35,50 +35,6 @@ If you're generating this from your test's `setUp` method, please, make sure tha
 * The artifact generation part is only invoked once
 * For each artifact you add a comment explaining which test method is using this resource
 
-## Deploying Artifacts
-
-The [ArtifactDeployer](https://github.com/strongbox/strongbox/blob/master/strongbox-testing/strongbox-testing-core/src/main/java/org/carlspring/strongbox/artifact/generator/ArtifactDeployer.java) class provides a way to deploy Maven artifacts to a repository.
-
-The following is an example of artifact deployment taken from the [ArtifactDeployerTest](https://github.com/strongbox/strongbox/blob/master/strongbox-testing/strongbox-testing-core/src/test/java/org/carlspring/strongbox/artifact/generator/ArtifactDeployerTest.java):
-
-    private static ArtifactClient client;
-    
-    
-    @BeforeEach
-    public void setUp()
-            throws Exception
-    {
-        if (!BASEDIR.exists())
-        {
-            //noinspection ResultOfMethodCallIgnored
-            BASEDIR.mkdirs();
-
-            client = new ArtifactClient();
-            client.setUsername("maven");
-            client.setPassword("password");
-            client.setPort(assignedPorts.getPort("port.jetty.listen"));
-            client.setContextBaseUrl("http://localhost:" + client.getPort());
-        }
-    }
-
-    @Test
-    public void testArtifactDeployment()
-            throws ArtifactOperationException,
-                   IOException,
-                   NoSuchAlgorithmException,
-                   XmlPullParserException
-    {
-        Artifact artifact = ArtifactUtils.getArtifactFromGAVTC("org.carlspring.strongbox:test:1.2.3");
-
-        String[] classifiers = new String[] { "javadocs", "jdk14", "tests"};
-
-        ArtifactDeployer artifactDeployer = new ArtifactDeployer(BASEDIR);
-        artifactDeployer.setClient(client);
-        artifactDeployer.generateAndDeployArtifact(artifact, classifiers, "storage0", "releases", "jar");
-    }
-
-_Notice_: if you are going to test REST API you need to create instance of `ArtifactDeployer` using superclass `buildArtifactDeployer()` method. It will inject appropriate instance of `RestClient` to it.
-
 ## Adding Artifacts To The Index
 
 For test cases where you need to generate artifacts and add them to the index, please have a look at the [TestCaseWithArtifactGenerationWithIndexing](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-indexing/src/test/java/org/carlspring/strongbox/testing/TestCaseWithArtifactGenerationWithIndexing.java) class.
