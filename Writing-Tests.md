@@ -1,13 +1,17 @@
 # General
 
-* All code must be accompanied with sufficiently thorough test cases which validate the functionality.
-* Test cases should be self-sufficient and not rely on data produced by other tests, or the outcome of other tests in any other way. A test case may, however, generate all it's resources via the `setUp` method; however, such generation should be done just once for all the tests.
-* If tests are failing, they are a top priority.
-* Pull requests will not be merged, if there are failing tests.
-* Don't use REST API for testing your service class methods. Test them directly.
-* Put `@Rollback(false)` if you want to persist something during the test execution. It will tell Spring to not to call `rollback()` on this class method transactions.
-* Use [rest-assured](https://github.com/rest-assured/rest-assured/wiki/GettingStarted#spring-mock-mvc) for testing REST API. Don't try to re-involve the bicycle and inherit all rest-assured initialization stuff from `RestAssuredBaseTest`. Mark your test as `@IntegrationTest` and take a look at the existing examples (subclasses of `RestAssuredBaseTest`). If you would like to have some init method with `@BeforeEach` annotation make sure that you will have `super.init()` as a first line in such kind of method.  
-* All tests **MUST be idempotent**, it means that we should be able to execute them multiple times from console or IDE and execution should not depends on how many times we ran this test.
+* **Basic rules**
+  * All code must be accompanied with sufficiently thorough test cases which validate the functionality.
+  * If tests are failing, they are a top priority.
+  * Pull requests will not be merged, if there are failing tests.
+  * Don't use REST API for testing your service class methods. Test them directly.
+  * Put `@Rollback(false)` if you want to persist something during the test execution. It will tell Spring to not to call `rollback()` on this class method transactions.
+  * All tests **MUST be idempotent**, it means that we should be able to execute them multiple times from console or IDE and execution should not depends on how many times we ran this test.
+  * Use [rest-assured](https://github.com/rest-assured/rest-assured/wiki/GettingStarted#spring-mock-mvc) for testing REST API. Don't try to re-invent the bicycle and inherit all rest-assured initialization stuff from `RestAssuredBaseTest`. Mark your test as `@IntegrationTest` and take a look at the existing examples (sub-classes of `RestAssuredBaseTest`). If you would like to have some init method with `@BeforeEach` annotation make sure that you also invoke `super.init()` as a first line in such methods.  
+* **Test resources**
+  * Test cases should be self-sufficient and not rely on data produced by other tests, or the outcome of other tests in any other way.
+  * Every test case should generate all the resources it requires in each of its respective test methods.
+  * Do not name test resources with common dummy names such as `foo.txt`, `bar.zip`, `blah.jar` and etc, as this might cause resource collisions and issues, in case someone else decided to use such a name (if you spot any such resources, please raise an issue/pull, as this is bad practice).
 
 # Artifact-related Tests
 
