@@ -5,6 +5,7 @@
 * If tests are failing, they are a top priority.
 * Pull requests will not be merged, if there are failing tests.
 * Pull requests will not be merged, if they mark tests as `@Disabled`, without prior explanation of the cause and approval from the reviewer/team.
+* If you need to create a repository for your test and it needs to use the [[Maven 2 Layout Provider]], please make sure you're only enabling indexing, if really necessary, as this can be quite expensive in terms of resources.
 * Put `@Rollback(false)` if you want to persist something during the test execution. It will tell Spring to not to call `rollback()` on this class method transactions.
 * All tests **MUST be idempotent**, which means that we should be able to execute them multiple times from the console or an IDE and the outcome should not depend on how many times the test has been executed.
 * Use [rest-assured](https://github.com/rest-assured/rest-assured/wiki/GettingStarted#spring-mock-mvc) for testing REST API. Don't try to re-invent the wheel and inherit all rest-assured initialization stuff from `RestAssuredBaseTest`. Mark your test as `@IntegrationTest` and take a look at the existing examples (sub-classes of `RestAssuredBaseTest`). If you would like to have some initialization method with `@BeforeEach` annotation, please make sure that you also invoke `super.init()` as a first line in such methods.
