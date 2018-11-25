@@ -1,5 +1,5 @@
 # General
-JUnit 5, which is the next generation of JUnit, promises to be a programmer-friendly testing framework for Java 8. More info on the [official user guide](https://junit.org/junit5/docs/current/user-guide/).
+JUnit is one of the most popular unit-testing frameworks in the Java ecosystem. JUnit 5, which is the next generation of JUnit, promises to be a programmer-friendly testing framework for Java 8. More info on the [official user guide](https://junit.org/junit5/docs/current/user-guide/).
 
 # Architecture
 There are 3 separated modules:
@@ -117,3 +117,26 @@ Besides the `@ValueSource`, JUnit 5 provides many kinds of sources can be used w
 * `@MethodSource`: allows us to refer to one or multiple methods of the test class. Each method must return a Stream, an Iterable, an Iterator, or an array of arguments.
 * `@ArgumentsSource`: can be used to specify a custom, reusable ArgumentsProvider.
 * `@EnumSource`: provides a convenient way to use Enum constants.
+
+# Repeated Tests
+A new feature in JUnit 5 which allows us to repeat a test in a specified number of times is Repeated Tests. Let’s see an example which declares a test that will be repeated in 100 times:
+
+``` 
+@RepeatedTest(100)
+void repeatedTest() {
+    // ...
+}
+``` 
+
+# Dynamic Tests
+JUnit 5 introduces the concept of Dynamic Tests which are tests that can be generated at runtime by a factory method. Let’s see an example which we generate 2 tests at runtime:
+
+``` 
+@TestFactory
+Collection<DynamicTest> dynamicTestsFromCollection() {
+    return Arrays.asList(
+        dynamicTest("1st dynamic test", () -> assertTrue(true)),
+        dynamicTest("2nd dynamic test", () -> assertEquals(4, 2 * 2))
+    );
+}
+``` 
