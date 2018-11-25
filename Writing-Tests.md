@@ -1,5 +1,9 @@
 # General
 
+## Testing Framework
+The framework used for testing (both unit and integration tests) is JUnit 5:
+* [JUnit User Guide](https://github.com/strongbox/strongbox/wiki/JUnit-User-Guide)
+
 ## Basic rules
 * All code must be accompanied with sufficiently thorough test cases which validate the functionality.
 * If tests are failing, they are a top priority.
