@@ -44,18 +44,18 @@ We have to know a few basic rules:
 * If we want to specify a custom error message that is shown when our assertion fails, we have to pass this message as the **last** method parameter of the invoked assertion method.
 * If we want to compare two values (or objects), we have to pass these values (or objects) to the invoked assertion method in this order: the expected value (or object) and the actual value (or object).
 
-| Condition | Assertion example
+| Condition | Assertion
 | ------------- | ------------- |
-| Fails a test with the given failure message | `Stream.of().map(entry -> fail("should not be called"));`|
-| If we want to verify that a boolean value is true | `assertTrue("A".equals("A"), "The boolean is false")` |
-| If we want to ensure that two objects refer to the same object | `assertSame(1, 1);` | |
-| If we want to verify that an object is null | `assertNull(null)` |
-| If we want to ensure that two objects don't refer to the same object | `assertNotSame(new Object(), new Object())` |
-| If we want to verify that the expected value (or object) is not equal to the actual value (or object) | `assertNotEquals("A", "B")` |
-| If we want to verify that an object is not null | `assertNotNull("Example")` |
-| If we want to verify that a boolean value is false | `assertFalse(false, "The boolean is not false");`|
-| If we want to verify that the expected value (or object) is equal to the actual value (or object) | `assertEquals("A", "A")` |
-| If we want to verify that two arrays are equal | `assertArrayEquals(new int[]{2, 5}, new int[]{2, 5})` |
+| Fails a test with the given failure message | `fail`|
+| If we want to verify that a boolean value is true | `assertTrue` |
+| If we want to ensure that two objects refer to the same object | `assertSame` | |
+| If we want to verify that an object is null | `assertNull` |
+| If we want to ensure that two objects don't refer to the same object | `assertNotSame` |
+| If we want to verify that the expected value (or object) is not equal to the actual value (or object) | `assertNotEquals` |
+| If we want to verify that an object is not null | `assertNotNull` |
+| If we want to verify that a boolean value is false | `assertFalse`|
+| If we want to verify that the expected value (or object) is equal to the actual value (or object) | `assertEquals` |
+| If we want to verify that two arrays are equal | `assertArrayEquals` |
 | If we have to write an assertion for a state that requires multiple assertions | `assertAll`|
 | If we want to write assertions for the exceptions thrown by the system | `assertThrows` |
 
