@@ -59,3 +59,61 @@ We have to know a few basic rules:
 | If we have to write an assertion for a state that requires multiple assertions | `assertAll`|
 | If we want to write assertions for the exceptions thrown by the system | `assertThrows` |
 
+## Difference  in the position of optional assertion message parameter
+The optional assertion message is the last parameter applied for all assertion methods support it.
+
+`assertEquals(1, 1, "The optional assertion message.");`
+
+## Lambda expressions
+Assert methods in JUnit 5 can be used with Java 8 Lambdas.
+For examples:
+
+`assertTrue(1 == 1, () -> "Assertion messages can be provided by Java 8 Lambdas ");`
+
+```
+Throwable exception = expectThrows(IllegalArgumentException.class, () -> {
+            throw new IllegalArgumentException("Invalid age.");
+        });
+```
+
+# Tagging and Filtering
+Use `@Tag` annotation for tagging and filtering:
+
+``` 
+@Tag("fast")
+@Tag("model")
+class TaggingDemo {
+ 
+    @Test
+    @Tag("taxes")
+    void testingTaxCalculation() {
+    }
+ 
+``` 
+
+# Parameterized Tests
+JUnit 5 supports Parameterized Tests by default. This feature allows us to run a test multiple times with different arguments.
+
+For example, let’s see the following test:
+``` 
+@ParameterizedTest
+@ValueSource(strings = { "Hello", "World" })
+void testWithStringParameter(String argument) {
+    assertNotNull(argument);
+}
+``` 
+
+The `@ParameterizedTest` and `@ValueSource` annotations make the test can run with each value provided by the `@ValueSource` annotation. For instance, the console launcher will print output similar to the following:
+
+``` 
+testWithStringParameter(String) ✔
+├─ [1] Hello ✔
+└─ [2] World ✔
+``` 
+
+Besides the `@ValueSource`, JUnit 5 provides many kinds of sources can be used with Parameterized Tests such as:
+
+* `@CsvFileSource`: lets us use CSV files from the classpath. Each line from a CSV file results in one invocation of the parameterized test.
+* `@MethodSource`: allows us to refer to one or multiple methods of the test class. Each method must return a Stream, an Iterable, an Iterator, or an array of arguments.
+* `@ArgumentsSource`: can be used to specify a custom, reusable ArgumentsProvider.
+* `@EnumSource`: provides a convenient way to use Enum constants.
