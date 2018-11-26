@@ -21,6 +21,68 @@ Supports running JUnit 3 and JUnit 4 based tests on the JUnit 5 platform.
 # Supported Java Versions
 JUnit 5 requires Java 8 (or higher) at runtime. However, you can still test code that has been compiled with previous versions of the JDK.
 
+# Strongbox base classes
+This project uses multiple base classes depending on the funcionality to test.
+
+## Integration tests
+`@IntegrationTest` is a helper meta annotation for all rest-assured based tests. Specifies tests that require web server and remote HTTP protocol.
+
+```
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@SpringBootTest(classes = { StrongboxSpringBootApplication.class,
+                            MockedRemoteRepositoriesHeartbeatConfig.class,
+                            IntegrationTest.TestConfig.class,
+                            RestAssuredConfig.class})
+@WebAppConfiguration("classpath:")
+@WithUserDetails(value = "admin")
+@ActiveProfiles(profiles = "test")
+@TestExecutionListeners(listeners = { RestAssuredTestExecutionListener.class,
+                                      CacheManagerTestExecutionListener.class }, mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS)
+public @interface IntegrationTest
+{
+}
+```
+
+An example using this annotation would be:
+
+```
+@IntegrationTest
+@ExtendWith(SpringExtension.class)
+public class PingControllerTest
+        extends MavenRestAssuredBaseTest
+{
+
+    @Override
+    @BeforeEach
+    public void init()
+            throws Exception
+    {
+        super.init();
+        setContextBaseUrl(getContextBaseUrl() + "/api/ping");
+    }
+
+    @Test
+    public void testShouldReturnPongText()
+    {
+
+        given().header(HttpHeaders.ACCEPT, MediaType.TEXT_PLAIN_VALUE)
+               .when()
+               .get(getContextBaseUrl())
+               .peek()
+               .then()
+               .statusCode(HttpStatus.OK.value())
+               .body(equalTo("pong"));
+    }
+}
+```
+
+## Layout providers tests
+We also can test and validate REST services depending on the layout provider. A few base classes with useful methods can be extended, for example:
+* `MavenRestAssuredBaseTest` for Maven-based tests.
+* `NpmRestAssuredBaseTest` for npm-based tests.
+* `NugetRestAssuredBaseTest` for NuGet-based tests.
+
 # Annotations
 | Feature description  | Annotation |
 | ------------- | ------------- |
@@ -62,17 +124,15 @@ We have to know a few basic rules:
 ## Difference  in the position of optional assertion message parameter
 The optional assertion message is the last parameter applied for all assertion methods support it.
 
-`assertEquals(1, 1, "The optional assertion message.");`
+`assertEquals(48080, configuration.getPort(), "Incorrect port number!");`
 
 ## Lambda expressions
 Assert methods in JUnit 5 can be used with Java 8 Lambdas.
-For examples:
-
-`assertTrue(1 == 1, () -> "Assertion messages can be provided by Java 8 Lambdas ");`
+For example:
 
 ```
-Throwable exception = expectThrows(IllegalArgumentException.class, () -> {
-            throw new IllegalArgumentException("Invalid age.");
+assertThrows(VersionValidationException.class, () -> {
+            validator.validate(repository, coordinates);
         });
 ```
 
@@ -80,35 +140,72 @@ Throwable exception = expectThrows(IllegalArgumentException.class, () -> {
 Use `@Tag` annotation for tagging and filtering:
 
 ``` 
-@Tag("fast")
-@Tag("model")
-class TaggingDemo {
- 
+public class BrowseControllerTest
+        extends MavenRestAssuredBaseTest
+{
     @Test
-    @Tag("taxes")
-    void testingTaxCalculation() {
+    @Tag("development")
+    @Tag("production")
+    void testGetStorages(TestInfo testInfo) { //run in all environments
     }
+}
+ 
+public class TrashControllerTest
+        extends MavenRestAssuredBaseTest
+{
+    @Test
+    @Tag("development")
+    void testForceDeleteArtifactAllowed(TestInfo testInfo) {
+    }
+}
  
 ``` 
 
+## Create test plans
+You can use `@IncludeTags` annotations in your testplan to filter tests or include tests.
+``` 
+@IntegrationTest
+@ExtendWith(SpringExtension.class)
+@SelectPackages("org.carlspring.strongbox.controllers")
+@IncludeTags("production")
+public class ProductionControllerTest
+        extends MavenRestAssuredBaseTest
+{
+}
+``` 
+
 # Parameterized Tests
-JUnit 5 supports Parameterized Tests by default. This feature allows us to run a test multiple times with different arguments.
+JUnit 5 supports parameterized tests by default. This feature allows us to run a test multiple times with different arguments.
 
 For example, let’s see the following test:
 ``` 
 @ParameterizedTest
-@ValueSource(strings = { "Hello", "World" })
-void testWithStringParameter(String argument) {
-    assertNotNull(argument);
+@ValueSource(strings = { "plain",
+                         "SSL",
+                         "tls" })
+void testSmtpConfigurationFormValid(String connection)
+{
+    // given
+    SmtpConfigurationForm smtpConfigurationForm = new SmtpConfigurationForm();
+    smtpConfigurationForm.setHost("localhost");
+    smtpConfigurationForm.setPort(25);
+    smtpConfigurationForm.setConnection(connection);
+
+    // when
+    Set<ConstraintViolation<SmtpConfigurationForm>> violations = validator.validate(smtpConfigurationForm);
+
+    // then
+    assertTrue(violations.isEmpty(), "Violations are not empty!");
 }
 ``` 
 
 The `@ParameterizedTest` and `@ValueSource` annotations make the test can run with each value provided by the `@ValueSource` annotation. For instance, the console launcher will print output similar to the following:
 
 ``` 
-testWithStringParameter(String) ✔
-├─ [1] Hello ✔
-└─ [2] World ✔
+testSmtpConfigurationFormValid(String) ✔
+├─ [1] plain ✔
+└─ [2] SSL ✔
+└─ [3] tls ✔
 ``` 
 
 Besides the `@ValueSource`, JUnit 5 provides many kinds of sources can be used with Parameterized Tests such as:
