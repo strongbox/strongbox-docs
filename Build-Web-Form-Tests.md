@@ -1,8 +1,8 @@
 # General
 ## Basic rules
+* The main goal of testing web form model classes is to check all possible validation combinations in the associated form.
 * The classes from `strongbox-web-forms` module are tested inside the `strongbox-web-core` module, following the same package naming as its original module.
 * A web form model class is testable **only** if it has any validation annotation (both library and custom annotations).
-* The main goal of testing web form model classes is to check all possible validation combinations in the associated form.
 * The list of validation annotations to be used can be found at [Java EE Javadoc](https://javaee.github.io/javaee-spec/javadocs/javax/validation/constraints/package-summary.html).
 
 # Web form model class
