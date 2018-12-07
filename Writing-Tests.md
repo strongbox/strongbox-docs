@@ -62,9 +62,9 @@ The integration tests in the project should end with a `*TestIT` name suffix.
 
 The integration tests can be invoked, by triggering the Maven profile that executes them by passing in `-Dintegration.tests` property.
 
-# Web Forms Tests
+# Web Form Tests
 
-The web forms model classes inside the [strongbox-web-forms](https://github.com/strongbox/strongbox/tree/master/strongbox-web-forms) module are validated inside its corresponding form. It is needed to test them in order to ensure that every validation is correct. Please check the guide on [Build Web Form Tests](https://github.com/strongbox/strongbox/wiki/Build-Web-Form-Tests).
+The web forms model classes inside the [strongbox-web-forms](https://github.com/strongbox/strongbox/tree/master/strongbox-web-forms) module are validated inside its corresponding form. It is needed to test them in order to ensure that every validation is correct. Please check the guide on [[Writing Web Form Tests]].
 
 # Testing REST calls
 
