@@ -95,7 +95,7 @@ This will require you to connect with the remote debugger twice - once to the JV
 Sometimes you may have to run Jetty and manually invoke some manual tests. To do this run:
 
     cd strongbox-web-core
-    mvn clean package -Djetty.block
+    mvn clean spring-boot:run
 
 # Keeping Forks in Sync
 
