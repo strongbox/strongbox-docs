@@ -13,6 +13,8 @@ The following is a list of configuration properties, which can be used to custom
 | strongbox.storage.booter.storages.basedir | String |  |  |
 | strongbox.orientdb.profile | String | orientdb_EMBEDDED | OrientDB mode (orientdb_EMBEDDED/orientdb_MEMORY/orientdb_REMOTE) |
 | strongbox.orientdb.studio.enabled | Boolean | false | Enable OrientDB Web Studio |
+| strongbox.orientdb.studio.ip.address | String | 127.0.0.1 | IP address, which OrientDB Web Studio will listen |
+| strongbox.orientdb.studio.port | Integer | 2480 | Port, which OrientDB Web Studio will listen |
 | strongbox.orientdb.host | String | 127.0.0.1 | The host for OrientDB. |
 | strongbox.orientdb.port | Integer | 2424 | The port for OrientDB. |
 | strongbox.orientdb.database | String | strongbox | The name of the OrientDB database. |
