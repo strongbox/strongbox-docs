@@ -57,6 +57,8 @@ nav:
     - Getting started: user-guide/getting-started.md
     - Application properties: user-guide/application-properties.md
     - Upgrading: user-guide/upgrading.md
+    - User Interface:
+      - Browsing: user-guide/ui/browsing.md
   - Join chat:
     - Join chat: chat-redirect.md
 
