@@ -34,9 +34,8 @@ Execute one of these (depending on your local setup):
 # Guidelines for contributors
 
 * When adding new pages it is preferable to have the filename with lowercase characters.
-* The first line of the page should be the name of the page (i.e. `# How to write controllers`). 
-* Avoid using `h1` (i.e `# my header`) at places other than the title of the page. 
-  This creates confuses the `Table of Contents` section.
+* Avoid using `h1` (i.e `# my header`) at places other than the page title. Also, note that having multiple `h1` 
+  confuses the `Table of contents` section so please avoid that as well.
 * If you are adding a `resource` like `PDF`, `image`, `XML` file, it should be placed under `./docs/assets/resources/`.
 * When adding a link to a `resource`, please use `/assets/resources/path/to/the/asset`.
 
