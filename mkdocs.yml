@@ -60,6 +60,7 @@ nav:
     - User Interface:
       - Browsing: user-guide/ui/browsing.md
       - Global settings: user-guide/ui/global-settings.md
+      - User management: user-guide/ui/user-management.md
       - System Information: user-guide/ui/system-information.md
   - Join chat:
     - Join chat: chat-redirect.md
