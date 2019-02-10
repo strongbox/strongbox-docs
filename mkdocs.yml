@@ -63,6 +63,7 @@ nav:
       - User management: user-guide/ui/user-management.md
       - System Information: user-guide/ui/system-information.md
   - Knowledge Base:
+      - Repositories: knowledge-base/repositories.md
       - Storages: knowledge-base/storages.md
   - Join chat:
     - Join chat: chat-redirect.md
