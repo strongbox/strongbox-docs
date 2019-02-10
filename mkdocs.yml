@@ -61,6 +61,7 @@ nav:
       - Browsing: user-guide/ui/browsing.md
       - Global settings: user-guide/ui/global-settings.md
       - User management: user-guide/ui/user-management.md
+      - Storage management: user-guide/ui/storage-management.md
       - System Information: user-guide/ui/system-information.md
   - Knowledge Base:
       - Repositories: knowledge-base/repositories.md
