@@ -53,6 +53,8 @@ nav:
   - Release notes: release-notes.md
   - Contributing: contributing.md
   - License: license.md
+  - User guide:
+      - Getting started: user-guide/getting-started.md
   - Join chat:
     - Join chat: chat-redirect.md
 

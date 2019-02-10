@@ -1,69 +1,71 @@
+## Pre-requisites
 
-# Pre-requisites:
-* Java 1.8
+* OpenJDK 1.8
 * Set the `JAVA_HOME` variable to point to your Java installation.
 * Set the `PATH` variable to include `$JAVA_HOME/bin`.
 
-# Linux
+## Installation
 
-* Install:
+<a href="https://github.com/strongbox/strongbox/releases" target="_blank">Download strongbox</a>
 
-    ```
-    sudo su -
-    mkdir /usr/local/strongbox
-    groupadd strongbox
-    useradd -d /usr/local/strongbox -g strongbox strongbox
-    
-    chown -R strongbox:strongbox /usr/local/strongbox/
-    chmod 770 /usr/local/strongbox/
-    
-    su - strongbox
-    tar -zxf /path/to/strongbox-distribution*.tar.gz \
-        -C /usr/local/strongbox --strip-components=1
-    ln -s /usr/local/strongbox/bin/wrapper-linux-x86-64 \
-        /usr/local/strongbox/bin/wrapper
-    ```
+```Linux linenums="1" tab=
+# Open a terminal
 
-* Setup
-  * Setup script variables (in `$STRONGBOX_HOME/bin/strongbox`):
-    * Set the `STRONGBOX_HOME` variable to point to your installation of strongbox (this would normally be `/usr/local/strongbox`).
-    * Set the `RUN_AS_USER` variable to `strongbox`. Please, note that if you do not make this change, you may be taking a serious security risk.
-  * Create a service
-    * CentOS, Redhat, Suse
-    ```
-    $ sudo su -
-    $ cd /etc/init.d/
-    $ ln -s /usr/local/strongbox/bin/strongbox /etc/init.d/
-    $ chkconfig --add strongbox
-    $ service strongbox start
-    $ tail -F /usr/local/strongbox/logs/wrapper.log
-    ```
+sudo su
+mkdir /opt/{strongbox,strongbox-vault}
+groupadd strongbox
+useradd -d /opt/strongbox -g strongbox -r strongbox
+chown -R strongbox:strongbox /opt/{strongbox,strongbox-vault}
+chmod -R 770 /opt/{strongbox,strongbox-vault}
+su strongbox
+tar -zxf /path/to/strongbox-distribution*.tar.gz \
+    -C /opt/strongbox \ 
+    --strip-components=2
 
-    * Debian, Ubuntu
-    ```
-    $ sudo su -
-    $ cd /etc/init.d/
-    $ ln -s /usr/local/strongbox/bin/strongbox /etc/init.d/
-    $ update-rc.d strongbox defaults
-    Adding system startup for /etc/init.d/strongbox ...
-      /etc/rc0.d/K20strongbox -> ../init.d/strongbox
-      /etc/rc1.d/K20strongbox -> ../init.d/strongbox
-      /etc/rc6.d/K20strongbox -> ../init.d/strongbox
-      /etc/rc2.d/S20strongbox -> ../init.d/strongbox
-      /etc/rc3.d/S20strongbox -> ../init.d/strongbox
-      /etc/rc4.d/S20strongbox -> ../init.d/strongbox
-      /etc/rc5.d/S20strongbox -> ../init.d/strongbox
-    $ service strongbox start
-    Starting Strongbox: Distribution...
-    $ tail -F /usr/local/strongbox/logs/wrapper.log
-    ```
+# If you just want to start Strongbox without installing the systemd service:
 
-# Windows
-* Unzip the distribution.
-* Install the service:
+/opt/strongbox/bin/strongbox console
 
-    ```
-    c:\java\strongbox>bin\strongbox.bat install
-    wrapper  | Strongbox: Distribution installed.
-    c:\java\strongbox>bin\strongbox.bat start
-    ```
+# If you want to install Strongbox as a service then download the 
+# systemd service file. Make sure to change the `Environment` variables 
+# in the service file where necessary. Depending on your distribution, 
+# you could also move the environment variables into `EnvironmentFile` 
+# and load that instead.
+
+sudo curl -o /etc/systemd/system/strongbox.service \
+     https://strongbox.github.io/assets/resources/systemd/strongbox.service 
+sudo systemctl deamon-reload
+sudo service strongbox start
+
+# this step is optional: only if you want to start Strongbox at boot!
+sudo systemctl enable strongbox
+```
+
+```Windows linenums="1" tab=
+
+# Unzip the distribution.
+
+# To start Strongbox, run cmd or PowerShell and execute:
+c:\java\strongbox> bin\strongbox.bat console
+      wrapper   | Strongbox: Distribution started...
+
+# To install Strongbox as a service, run cmd or PowerShell and execute:
+c:\java\strongbox> bin\strongbox.bat install
+      wrapper  | Strongbox: Distribution installed.
+c:\java\strongbox> bin\strongbox.bat start
+
+```
+
+```Docker linenums="1" tab=
+
+Currently unavailable due to our heavy development.
+We are planning to start releasing to hub.docker.com very soon.
+
+Meanwhile, you could clone strongbox/strongbox 
+use `docker-compose up` instead.
+```
+
+
+!!! info "Help wanted!"
+
+    We would like to add instructions for MacOS. If you're interested in giving us a hand, please have a look at <a href="https://github.com/strongbox/strongbox/issues/1008">strongbox/strongbox#1008</a>
