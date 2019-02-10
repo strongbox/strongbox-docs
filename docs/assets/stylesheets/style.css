@@ -1,0 +1,171 @@
+[data-md-color-primary=blue-grey] .md-header {
+    background: linear-gradient(172deg, #354655 0%, #1f2933 100%);
+}
+
+[data-md-color-primary=blue-grey] .md-tabs {
+    background-color: hsla(208, 24%, 18%, 1);
+}
+
+
+body > .md-container {
+    background: hsla(208, 23%, 23%, 1);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+    color: white;
+}
+
+[data-md-color-primary=blue-grey] .md-typeset a {
+    color: rgba(52, 180, 251, 1);
+}
+
+[data-md-color-accent=indigo] .md-typeset a:active,
+[data-md-color-accent=indigo] .md-typeset a:hover {
+    color: hsla(199, 18%, 85%, 1);
+    text-decoration: underline;
+}
+
+
+.md-typeset .task-list-control [type=checkbox]:checked + .task-list-indicator:before {
+    color: hsl(200, 86%, 57%);
+}
+
+.md-typeset .task-list-control .task-list-indicator:before {
+    color: hsla(200, 86%, 57%, 0.35);
+}
+
+.md-typeset code {
+    box-shadow: 0.29412em 0 0 hsl(207, 24%, 18%), -0.29412em 0 0 hsl(207, 24%, 18%);
+}
+
+.md-typeset code, .md-typeset pre {
+    /*background-color: hsl(199, 19%, 39%);*/
+    background-color: hsl(207, 24%, 18%);
+    color: #f7f7f7;
+}
+
+.md-typeset .codehilite code,
+.md-typeset .codehilite pre,
+.md-typeset .highlight code,
+.md-typeset .highlight pre,
+.md-typeset .superfences-tabs,
+.md-typeset .superfences-content .codehilite {
+    background-color: hsl(207, 24%, 18%);
+}
+
+.md-typeset .superfences-content .codehilite pre {
+    border-top: 1px solid #1f2933;
+}
+
+.md-typeset .codehilitetable .linenodiv, .md-typeset .highlighttable .linenodiv {
+    padding: 1.06rem 0.5rem 0rem 0.5rem;
+}
+.md-typeset .codehilitetable .linenos, .md-typeset .highlighttable .linenos {
+    background-color: rgb(35, 47, 57);
+    color: rgba(255, 255, 255, 0.26);
+}
+
+
+.md-typeset .admonition.danger>.admonition-title,
+.md-typeset .admonition.danger>summary,
+.md-typeset .admonition.error>.admonition-title,
+.md-typeset .admonition.error>summary,
+.md-typeset details.danger>.admonition-title,
+.md-typeset details.danger>summary,
+.md-typeset details.error>.admonition-title,
+.md-typeset details.error>summary {
+    background-color: hsla(343, 100%, 31%, 1);
+}
+
+.md-typeset .admonition.danger, .md-typeset .admonition.error, .md-typeset details.danger, .md-typeset details.error {
+    border-left-color: hsla(343, 100%, 31%, 1);
+}
+
+.md-nav__link[data-md-state=blur] {
+    color: #546e7a;
+}
+
+[data-md-color-accent=indigo] .md-nav__link:focus, [data-md-color-accent=indigo] .md-nav__link:hover {
+    color: hsl(200, 86%, 57%);
+}
+
+[data-md-color-primary=blue-grey] .md-nav__link--active, [data-md-color-primary=blue-grey] .md-nav__link:active {
+    color: hsla(199, 12%, 52%, 1);
+}
+
+footer .md-footer {
+    -webkit-box-shadow: 2px 5px 32px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 2px 5px 32px rgba(0, 0, 0, 0.8);
+    box-shadow: 2px 5px 32px rgba(0, 0, 0, 0.8);
+}
+
+footer .md-footer-nav, footer .md-footer-meta {
+    background-color: hsla(208, 24%, 18%, 1);
+}
+
+.md-header .md-logo {
+    display: none;
+}
+
+div.admonition.tip + h1 {
+    margin-top: 3.225rem;
+}
+
+
+.env details {
+    overflow: hidden;
+    padding: unset;
+}
+
+.md-typeset .env details > summary {
+    margin: 0px;
+}
+
+
+html .md-typeset .env .admonition>:last-child,
+html .md-typeset .env details>:last-child {
+    margin-bottom: 0px;
+}
+
+.env .md-typeset__scrollwrap {
+    margin: 0px;
+}
+
+.env details p {
+    margin-left: 1.2rem;
+}
+
+.env .md-typeset__table {
+    display: unset;
+    margin-bottom: unset;
+    padding: 0px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    /* Compensate for excess margin on outer gallery flex items */
+    margin: -1rem -1rem;
+}
+
+.gallery-item {
+    /* Minimum width of 24rem and grow to fit available space */
+    flex: 1 0 30rem;
+    /* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+    margin: 1rem;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.gallery-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
