@@ -62,6 +62,8 @@ nav:
       - Global settings: user-guide/ui/global-settings.md
       - User management: user-guide/ui/user-management.md
       - System Information: user-guide/ui/system-information.md
+  - Knowledge Base:
+      - Storages: knowledge-base/storages.md
   - Join chat:
     - Join chat: chat-redirect.md
 
