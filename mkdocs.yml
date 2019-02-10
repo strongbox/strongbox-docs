@@ -54,7 +54,8 @@ nav:
   - Contributing: contributing.md
   - License: license.md
   - User guide:
-      - Getting started: user-guide/getting-started.md
+    - Getting started: user-guide/getting-started.md
+    - Application properties: user-guide/application-properties.md
   - Join chat:
     - Join chat: chat-redirect.md
 
