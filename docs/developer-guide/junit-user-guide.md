@@ -34,7 +34,7 @@ This project uses multiple base classes depending on the funcionality to test.
 `@IntegrationTest` is a helper meta annotation for all rest-assured based tests. Specifies tests that require web server 
 and remote HTTP protocol.
 
-```
+```java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @SpringBootTest(classes = { StrongboxSpringBootApplication.class,
@@ -54,7 +54,7 @@ public @interface IntegrationTest
 
 An example using this annotation would be:
 
-```
+```java
 @IntegrationTest
 @ExtendWith(SpringExtension.class)
 public class PingControllerTest
@@ -144,7 +144,7 @@ The optional assertion message is the last parameter applied for all assertion m
 Assert methods in JUnit 5 can be used with Java 8 Lambdas.
 For example:
 
-```
+```java
 assertThrows(VersionValidationException.class, () -> {
     validator.validate(repository, coordinates);
 });
@@ -154,7 +154,7 @@ assertThrows(VersionValidationException.class, () -> {
 
 Use `@Tag` annotation for tagging and filtering:
 
-``` 
+```java 
 public class BrowseControllerTest
         extends MavenRestAssuredBaseTest
 {
@@ -179,7 +179,7 @@ public class TrashControllerTest
 ### Create test plans
 
 You can use `@IncludeTags` annotations in your test plan to filter tests or include tests.
-``` 
+```java 
 @IntegrationTest
 @ExtendWith(SpringExtension.class)
 @SelectPackages("org.carlspring.strongbox.controllers")
@@ -194,7 +194,7 @@ public class ProductionControllerTest
 JUnit 5 supports parameterized tests by default. This feature allows us to run a test multiple times with different arguments.
 
 For example, let’s see the following test:
-``` 
+```java
 @ParameterizedTest
 @ValueSource(strings = { "plain",
                          "SSL",
@@ -235,7 +235,7 @@ Besides the `@ValueSource`, JUnit 5 provides many kinds of sources can be used w
 ## Repeated Tests
 A new feature in JUnit 5 which allows us to repeat a test in a specified number of times is Repeated Tests. Let’s see an example which declares a test that will be repeated in 100 times:
 
-``` 
+```java
 @RepeatedTest(100)
 void repeatedTest() {
     // ...
@@ -246,7 +246,7 @@ void repeatedTest() {
 JUnit 5 introduces the concept of Dynamic Tests which are tests that can be generated at runtime by a factory method. 
 Let’s see an example which we generate 2 tests at runtime:
 
-``` 
+```java
 @TestFactory
 Collection<DynamicTest> dynamicTestsFromCollection() {
     return Arrays.asList(
