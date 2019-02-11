@@ -78,6 +78,7 @@ nav:
   - Developer guide:
     - Getting started: developer-guide/getting-started.md
     - Building the code: developer-guide/building-the-code.md
+    - Building the code (Docker): developer-guide/building-the-code-with-docker.md
     - Project structure: developer-guide/project-structure.md
     - Coding convention: developer-guide/coding-convention.md
   - Knowledge Base:

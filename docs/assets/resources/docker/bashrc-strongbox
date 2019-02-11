@@ -89,10 +89,6 @@ dockerLocal() {
                         /bin/bash -c "set -x; cd /home/jenkins/workspace; $CMD"
 }
 
-dockerMvn33Checkout() {
-    dockerCheckout strongboxci/alpine:jdk8-mvn-3.3 "$@"
-}
-
 dockerMvn35Checkout() {
     dockerCheckout strongboxci/alpine:jdk8-mvn-3.5 "$@"
 }
@@ -107,10 +103,6 @@ dockerGradle45Checkout() {
 
 dockerSBT11Checkout() {
     dockerCheckout strongboxci/alpine:jdk8-sbt-1.1 "$@"
-}
-
-dockerMvn33() {
-    dockerLocal strongboxci/alpine:jdk8-mvn-3.3 "$@"
 }
 
 dockerMvn35() {
