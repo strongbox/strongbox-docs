@@ -11,6 +11,9 @@ pipeline {
             customWorkspace workspace().getUniqueWorkspacePath()
         }
     }
+    environment {
+        PUBLISH_URL="https://strongbox.github.io"
+    }
     options {
         timeout(time: 30, unit: 'MINUTES')
     }
@@ -24,7 +27,9 @@ pipeline {
         stage('Building')
         {
             steps {
-                sh "mkdocs build"
+                withCredentials([string(credentialsId: '3ea1e18a-b1d1-44e0-a1ff-7b62870913f8', variable: 'GOOGLE_ANALYTICS_KEY')]) {
+                    sh "mkdocs build"
+                }
             }
         }
         stage('Deploying') {
