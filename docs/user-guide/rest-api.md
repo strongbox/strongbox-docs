@@ -1,3 +1,6 @@
-The REST API's documentation is available [here](http://strongbox-snapshot.carlspring.org/docs/rest/api.html) and is being produced by the [strongbox-webapp](https://github.com/strongbox/strongbox-webapp) module.
 
-There is also a Java client available via the [RestClient](https://github.com/strongbox/strongbox/blob/master/strongbox-rest-client/src/main/java/org/carlspring/strongbox/client/RestClient.java) class.
+To view the REST API's documentation, please start your Strongbox instance and go to `http://localhost:48080/docs/rest/api.html`
+
+There is also a Java client available via the [RestClient] class.
+
+[RestClient]: https://github.com/strongbox/strongbox/blob/master/strongbox-rest-client/src/main/java/org/carlspring/strongbox/client/RestClient.java
