@@ -79,6 +79,7 @@ nav:
     - Getting started: developer-guide/getting-started.md
     - Building the code: developer-guide/building-the-code.md
     - Project structure: developer-guide/project-structure.md
+    - Coding convention: developer-guide/coding-convention.md
   - Knowledge Base:
       - Repositories: knowledge-base/repositories.md
       - Storages: knowledge-base/storages.md
