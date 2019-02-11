@@ -86,6 +86,7 @@ nav:
     - Coding convention: developer-guide/coding-convention.md
     - Writing Tests:
       - JUnit: developer-guide/junit-user-guide.md
+      - Form Tests: developer-guide/writing-web-form-tests.md
   - Knowledge Base:
       - Repositories: knowledge-base/repositories.md
       - Storages: knowledge-base/storages.md
