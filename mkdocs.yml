@@ -83,8 +83,10 @@ nav:
       - Building the code (Docker): developer-guide/building-the-code-with-docker.md
       - Building Strongbox against Strongbox: developer-guide/building-strongbox-against-strongbox.md
     - Project structure: developer-guide/project-structure.md
-    - Coding convention: developer-guide/coding-convention.md
-    - Writing Tests:
+    - Writing code:
+      - Coding convention: developer-guide/coding-convention.md
+      - Logging: developer-guide/logging.md
+    - Writing tests:
       - JUnit: developer-guide/junit-user-guide.md
       - Form Tests: developer-guide/writing-web-form-tests.md
   - Knowledge Base:
