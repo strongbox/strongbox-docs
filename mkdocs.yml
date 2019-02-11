@@ -3,7 +3,8 @@ repo_name: 'strongbox/strongbox'
 repo_url: 'https://github.com/strongbox/strongbox'
 edit_uri: 'https://github.com/strongbox/strongbox-docs/edit/master/docs'
 theme:
-  name: material
+  name: 'material'
+  custom_dir: 'theme'
   logo: ''
   palette:
     primary: 'blue grey'
@@ -18,6 +19,16 @@ extra_css:
 extra_javascript:
   - 'assets/javascripts/medium-zoom.min.js'
   - 'assets/javascripts/main.js'
+
+plugins:
+  - search
+  - markdownextradata
+  - git-revision-date
+
+extra:
+  url: &url !!python/object/apply:os.getenv ["PUBLISH_URL", "http://localhost:8000"]
+  assets: &assets !!python/object/apply:os.path.join [*url, "assets"]
+  resources: !!python/object/apply:os.path.join [*assets, "resources"]
 
 # Extensions
 markdown_extensions:
