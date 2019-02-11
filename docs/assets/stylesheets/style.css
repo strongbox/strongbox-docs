@@ -169,8 +169,3 @@ html .md-typeset .env details>:last-child {
     height: 100%;
     object-fit: cover;
 }
-
-/* fix edit icon position (caused by last update date) */
-article.md-content__inner .md-content__icon {
-    margin-top: 2.8rem;
-}
