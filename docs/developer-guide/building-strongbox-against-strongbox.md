@@ -1,9 +1,10 @@
-# General
-We like our dog food and we try it all the time! :)
 
-There will be many cases where you need to test things against either a full-blown Strongbox (via `strongbox-distribution` produced by the `strongbox-assembly`), or the `strongbox-web-core`. The following article shows you how to do so.
+We like our dog food and we try it all the time! :smiley:
 
-# Pre-requisites
+There will be many cases where you need to test things against either a full-blown Strongbox (via `strongbox-distribution`), 
+or the `strongbox-web-core`. The following article shows you how to do so.
+
+## Pre-requisites
 
 You will need to use the following Maven settings file (that we've called `settings-strongbox-localhost` and placed under `~/.m2/settings-strongbox-localhost`):
 
@@ -62,18 +63,21 @@ You will need to use the following Maven settings file (that we've called `setti
 </settings>
 ```
 
-This settings file will ensure that all required artifacts, plugins and extensions are resolved via the running instance of Strongbox. In addition, it will override Maven Central as a fallback repository, so everything required will indeed be resolved through `http://localhost:48080/storages/public/public-group/` which is a group repository that includes all the hosted repositories in Strongbox, as well as all defined proxy repositories.
+This settings file will ensure that all required artifacts, plugins and extensions are resolved via the running instance 
+of Strongbox. In addition, it will override Maven Central as a fallback repository, so everything required will indeed 
+be resolved through `http://localhost:48080/storages/public/public-group/` which is a group repository that includes 
+all the hosted repositories in Strongbox, as well as all defined proxy repositories.
 
-# Building Strongbox Against The `strongbox-web-core`
+## Building Strongbox Against The `strongbox-web-core`
 
 1. Checkout and build the `strongbox` project (either with `mvn clean install`, or `mvn clean install -DskipTests`, based on your needs)
 2. In the `strongbox-web-core` module, execute the following in order to start Strongbox inside a Jetty instance waiting for connections:
-```
-mvn clean package -Pjetty-block
-```
+   ```
+   mvn clean install spring-boot:run
+   ```
 3. In a separately checked out `strongbox` project execute:
 ```
-carlspring@carlspring:/java/strongbox> mvn --settings ~/.m2/settings-strongbox-localhost.xml -Dmaven.repo.local=.m2/repository clean deploy -DaltDeploymentRepository=snapshots::default::http://localhost:48080/storages/storage0/snapshots/ -DskipTests -fn
+carlspring@carlspring:/java/strongbox> mvn -s ~/.m2/settings-strongbox-localhost.xml -Dmaven.repo.local=.m2/repository clean deploy -DaltDeploymentRepository=snapshots::default::http://localhost:48080/storages/storage0/snapshots/ -DskipTests -fn
 ...
 [INFO] --- maven-install-plugin:2.4:install (default-install) @ strongbox-masterbuild ---
 [INFO] Installing /java/strongbox/pom.xml to /java/strongbox/.m2/repository/org/carlspring/strongbox/strongbox-masterbuild/1.0-SNAPSHOT/strongbox-masterbuild-1.0-SNAPSHOT.pom
@@ -106,22 +110,32 @@ Uploaded: http://localhost:48080/storages/storage0/snapshots/org/carlspring/stro
 [INFO] ------------------------------------------------------------------------
 ```
 
-# Building Strongbox Against A Full-blown Strongbox (`strongbox-distribution`)
+## Building Strongbox Against A Full-blown Strongbox (`strongbox-distribution`)
 1. Build `strongbox` like this:
+   ```
+   mvn clean install -DskipTests
+   ```
+2. Go inside `./strongbox-distribution`:
+   ```
+   cd strongbox-distribution/target
+   ```
+3. Extract the distribution archive:
+   ```
+   tar -zxf *gz
+   ```
+4. Start Strongbox:
+   ```
+   cd strongbox-distribution-*/strongbox-*/
+   ./bin/strongbox console
+   ```
+5. Build the `strongbox` project against the running Strongbox instance:
 ```
-mvn clean install
-```
-2. Build `strongbox-webapp` like this:
-```
-mvn clean install
-```
-3. Build `strongbox-assembly` and start the `strongbox-distribution` like this:
-```
-carlspring@carlspring:/java/strongbox-assembly> ./build-and-start 
-```
-4. Build the `strongbox` project against itself like this:
-```
-carlspring@carlspring:/java/strongbox> mvn --settings ~/.m2/settings-strongbox-localhost.xml -Dmaven.repo.local=.m2/repository clean deploy -DaltDeploymentRepository=snapshots::default::http://localhost:48080/storages/storage0/snapshots/ -DskipTests -fn
+$ mvn clean deploy \
+      -s ~/.m2/settings-strongbox-localhost.xml \
+      -Dmaven.repo.local=.m2/repository \
+      -DaltDeploymentRepository=snapshots::default::http://localhost:48080/storages/storage0/snapshots/ \
+      -DskipTests \
+      -fn
 ...
 [INFO] --- maven-install-plugin:2.4:install (default-install) @ strongbox-masterbuild ---
 [INFO] Installing /java/strongbox/pom.xml to /java/strongbox/.m2/repository/org/carlspring/strongbox/strongbox-masterbuild/1.0-SNAPSHOT/strongbox-masterbuild-1.0-SNAPSHOT.pom

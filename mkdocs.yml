@@ -77,8 +77,10 @@ nav:
       - System Information: user-guide/ui/system-information.md
   - Developer guide:
     - Getting started: developer-guide/getting-started.md
-    - Building the code: developer-guide/building-the-code.md
-    - Building the code (Docker): developer-guide/building-the-code-with-docker.md
+    - Building:
+      - Building the code: developer-guide/building-the-code.md
+      - Building the code (Docker): developer-guide/building-the-code-with-docker.md
+      - Building Strongbox against Strongbox: developer-guide/building-strongbox-against-strongbox.md
     - Project structure: developer-guide/project-structure.md
     - Coding convention: developer-guide/coding-convention.md
   - Knowledge Base:
