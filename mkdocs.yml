@@ -26,7 +26,7 @@ plugins:
   - git-revision-date
 
 extra:
-  url: &url !!python/object/apply:os.getenv ["PUBLISH_URL", "http://localhost:8000"]
+  url: &url !!python/object/apply:os.getenv ["DEPLOY_URL", "http://localhost:8000"]
   assets: &assets !!python/object/apply:os.path.join [*url, "assets"]
   resources: !!python/object/apply:os.path.join [*assets, "resources"]
 

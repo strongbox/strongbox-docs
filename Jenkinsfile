@@ -12,7 +12,7 @@ pipeline {
         }
     }
     environment {
-        PUBLISH_URL="https://strongbox.github.io"
+        DEPLOY_URL="https://strongbox.github.io"
     }
     options {
         timeout(time: 30, unit: 'MINUTES')
