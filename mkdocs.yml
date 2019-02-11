@@ -84,6 +84,8 @@ nav:
       - Building Strongbox against Strongbox: developer-guide/building-strongbox-against-strongbox.md
     - Project structure: developer-guide/project-structure.md
     - Coding convention: developer-guide/coding-convention.md
+    - Writing Tests:
+      - JUnit: developer-guide/junit-user-guide.md
   - Knowledge Base:
       - Repositories: knowledge-base/repositories.md
       - Storages: knowledge-base/storages.md
