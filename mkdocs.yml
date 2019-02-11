@@ -85,6 +85,7 @@ nav:
     - Project structure: developer-guide/project-structure.md
     - Writing code:
       - Coding convention: developer-guide/coding-convention.md
+      - Getting started with persistence: developer-guide/getting-started-with-persistence.md
       - Logging: developer-guide/logging.md
     - Writing tests:
       - JUnit: developer-guide/junit-user-guide.md
