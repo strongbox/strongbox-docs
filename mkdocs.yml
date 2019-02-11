@@ -86,6 +86,7 @@ nav:
     - Writing code:
       - Coding convention: developer-guide/coding-convention.md
       - Getting started with persistence: developer-guide/getting-started-with-persistence.md
+      - Writing controllers: developer-guide/how-to-implement-spring-controllers.md
       - Logging: developer-guide/logging.md
     - Writing tests:
       - JUnit: developer-guide/junit-user-guide.md
