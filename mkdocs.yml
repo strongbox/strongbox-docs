@@ -108,7 +108,7 @@ nav:
       - Artifact Coordinate Validators:
         - Generic: knowledge-base/artifact-coordinate-validators/artifact-coordinate-validators.md
         - Maven: knowledge-base/artifact-coordinate-validators/artifact-coordinate-validators-maven.md
-      - Layout Providers: knowledge-base/layout-providers/layout-providers.md
+      - Layout Providers: knowledge-base/layout-providers.md
       - Repositories: knowledge-base/repositories.md
       - Storages: knowledge-base/storages.md
   - Join chat:

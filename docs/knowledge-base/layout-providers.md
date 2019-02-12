@@ -1,13 +1,20 @@
-The different layout formats (like Maven, NuGet, NPM and so on) are implemented as what we call "layout providers".
+# Layout Providers
+
+## Introduction
+
+The different layout formats (like Maven, NuGet, NPM and so on) are implemented as what we call `layout providers`.
 
 Layout providers are responsible for handling things like:
+
 - Deployment of artifacts
 - Resolving of artifacts
 - Management of artifacts
 - Implementation of commands and features, specific only to the respective layout provider
 
-# Information For Developers
+## See also
 
-The code for the layout providers is located under the [strongbox-storage-layout-providers](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/).
+* [Writing a layout provider]
+* [Built-in providers]
 
-For more details on how to implement your own layout provider, please check the guide on [[How To Implement Your Own Repository Format]].
+[Writing a layout provider]: ../developer-guide/layout-providers/how-to-implement-your-own-repository-format.md
+[Built-in providers]: ../developer-guide/layout-providers/maven-2-layout-provider.md
