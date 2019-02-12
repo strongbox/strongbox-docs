@@ -94,3 +94,5 @@ Below you can see how the general flow goes, based on the artifact download exam
 * [NPM Layout Provider](https://github.com/strongbox/strongbox/wiki/NPM-Layout-Provider)
 * [NuGet Layout Provider](https://github.com/strongbox/strongbox/wiki/NuGet-Layout-Provider)
 * [Raw Layout Provider](https://github.com/strongbox/strongbox/wiki/Raw-Layout-Provider)
+
+TODO: fix links;
