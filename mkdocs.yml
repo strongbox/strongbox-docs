@@ -92,6 +92,7 @@ nav:
       - JUnit: developer-guide/junit-user-guide.md
       - Form Tests: developer-guide/writing-web-form-tests.md
   - Knowledge Base:
+      - Artifact Coordinates: knowledge-base/artifact-coordinates.md
       - Artifact Coordinate Validators:
         - Generic: knowledge-base/artifact-coordinate-validators/artifact-coordinate-validators.md
         - Maven: knowledge-base/artifact-coordinate-validators/artifact-coordinate-validators-maven.md
