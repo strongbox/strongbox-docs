@@ -95,6 +95,9 @@ nav:
               - NPM Layout Provider: developer-guide/layout-providers/npm-layout-provider.md
               - NuGet Layout Provider: developer-guide/layout-providers/nuget-layout-provider.md
               - Raw Layout Provider: developer-guide/layout-providers/raw-layout-provider.md
+      - Metadata:
+          - Maven Metadata: developer-guide/metadata/maven-metadata.md
+          - NPM Metadata: developer-guide/metadata/npm-metadata.md
       - Logging: developer-guide/logging.md
     - Writing tests:
       - Getting started: developer-guide/writing-tests.md
