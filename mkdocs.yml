@@ -89,8 +89,9 @@ nav:
       - Writing controllers: developer-guide/how-to-implement-spring-controllers.md
       - Logging: developer-guide/logging.md
     - Writing tests:
+      - Getting started: developer-guide/writing-tests.md
       - JUnit: developer-guide/junit-user-guide.md
-      - Form Tests: developer-guide/writing-web-form-tests.md
+      - Web Form Tests: developer-guide/writing-web-form-tests.md
   - Knowledge Base:
       - Artifact Coordinates: knowledge-base/artifact-coordinates.md
       - Artifact Coordinate Validators:
