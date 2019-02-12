@@ -66,20 +66,21 @@ body > .md-container {
 .md-typeset .codehilitetable .linenodiv, .md-typeset .highlighttable .linenodiv {
     padding: 1.06rem 0.5rem 0rem 0.5rem;
 }
+
 .md-typeset .codehilitetable .linenos, .md-typeset .highlighttable .linenos {
     background-color: rgb(35, 47, 57);
     color: rgba(255, 255, 255, 0.26);
 }
 
 
-.md-typeset .admonition.danger>.admonition-title,
-.md-typeset .admonition.danger>summary,
-.md-typeset .admonition.error>.admonition-title,
-.md-typeset .admonition.error>summary,
-.md-typeset details.danger>.admonition-title,
-.md-typeset details.danger>summary,
-.md-typeset details.error>.admonition-title,
-.md-typeset details.error>summary {
+.md-typeset .admonition.danger > .admonition-title,
+.md-typeset .admonition.danger > summary,
+.md-typeset .admonition.error > .admonition-title,
+.md-typeset .admonition.error > summary,
+.md-typeset details.danger > .admonition-title,
+.md-typeset details.danger > summary,
+.md-typeset details.error > .admonition-title,
+.md-typeset details.error > summary {
     background-color: hsla(343, 100%, 31%, 1);
 }
 
@@ -128,8 +129,8 @@ div.admonition.tip + h1 {
 }
 
 
-html .md-typeset .env .admonition>:last-child,
-html .md-typeset .env details>:last-child {
+html .md-typeset .env .admonition > :last-child,
+html .md-typeset .env details > :last-child {
     margin-bottom: 0px;
 }
 
@@ -145,6 +146,24 @@ html .md-typeset .env details>:last-child {
     display: unset;
     margin-bottom: unset;
     padding: 0px;
+}
+
+.no-table-header th:empty {
+    display: none;
+}
+
+.no-table-header .md-typeset__table table {
+    -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.3);
+}
+
+.no-table-header .md-typeset__table td {
+    border-top: .14rem solid rgba(0, 0, 0, .08);
+}
+
+.no-table-header .md-typeset__scrollwrap {
+    overflow-x: unset;
 }
 
 .gallery {
