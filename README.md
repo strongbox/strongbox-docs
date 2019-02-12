@@ -39,6 +39,7 @@ Execute one of these (depending on your local setup):
 * If you are adding a `resource` like `PDF`, `image`, `XML` file, it should be placed under `./docs/assets/resources/`.
 * Use `{{resource}}/path/to/asset` when linking to the resource. You can also use `{{url}}` and ``{{assets}}`` depending
   on which link you need.
+* The first line of the page should be `# Page Title` - this helps in the indexing and search afterwards.
 
 # Structure
 

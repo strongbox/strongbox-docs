@@ -88,6 +88,14 @@ body > .md-container {
     border-left-color: hsla(343, 100%, 31%, 1);
 }
 
+.md-typeset table:not([class]) th {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.md-typeset .md-typeset__table {
+    width: 100%;
+}
+
 .md-nav__link[data-md-state=blur] {
     color: #546e7a;
 }

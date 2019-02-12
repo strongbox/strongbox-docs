@@ -2,6 +2,7 @@ site_name: Strongbox
 repo_name: 'strongbox/strongbox'
 repo_url: 'https://github.com/strongbox/strongbox'
 edit_uri: 'https://github.com/strongbox/strongbox-docs/edit/master/docs'
+use_directory_urls: false
 theme:
   name: 'material'
   custom_dir: 'theme'
@@ -87,6 +88,13 @@ nav:
       - Coding convention: developer-guide/coding-convention.md
       - Getting started with persistence: developer-guide/getting-started-with-persistence.md
       - Writing controllers: developer-guide/how-to-implement-spring-controllers.md
+      - Layout providers:
+          - Writing a layout provider: developer-guide/layout-providers/how-to-implement-your-own-repository-format.md
+          - Build-in providers:
+              - Maven Layout Provider: developer-guide/layout-providers/maven-2-layout-provider.md
+              - NPM Layout Provider: developer-guide/layout-providers/npm-layout-provider.md
+              - NuGet Layout Provider: developer-guide/layout-providers/nuget-layout-provider.md
+              - Raw Layout Provider: developer-guide/layout-providers/raw-layout-provider.md
       - Logging: developer-guide/logging.md
     - Writing tests:
       - Getting started: developer-guide/writing-tests.md
@@ -97,6 +105,7 @@ nav:
       - Artifact Coordinate Validators:
         - Generic: knowledge-base/artifact-coordinate-validators/artifact-coordinate-validators.md
         - Maven: knowledge-base/artifact-coordinate-validators/artifact-coordinate-validators-maven.md
+      - Layout Providers: knowledge-base/layout-providers/layout-providers.md
       - Repositories: knowledge-base/repositories.md
       - Storages: knowledge-base/storages.md
   - Join chat:

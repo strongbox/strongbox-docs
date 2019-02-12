@@ -1,8 +1,11 @@
+# NuGet Layout Provider
+
+## Introduction
+
 Our support for NuGet is handled via the Nuget Layout provider.
-
-We currently only support NuGet protocol version 2.0.
-
-# Notes
+We currently only support NuGet protocol version 2.0.  
+  
+The code for the NuGet layout provider is located under the [strongbox-storage-nuget-layout-provider] module.
 
 ## Artifact Coordinates
 
@@ -29,14 +32,11 @@ The NuGet layout provider supports uses the [OrientDB (default)](https://github.
 # Supported Commands
 
 Following [CLI commands](https://docs.microsoft.com/ru-ru/nuget/tools/nuget-exe-cli-reference#commands-and-applicability) supported:
+
 - `nuget publish`
 - `nuget delete`
 - `nuget install`
 - `nuget list`
-
-# Information For Developers
-
-The code for the NuGet layout provider is located under the [strongbox-storage-nuget-layout-provider](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider) module.
 
 ## Classes of Interest
 
@@ -50,7 +50,18 @@ The following are some of the most important classes you will need to be familia
 | [NugetRepositoryManagementStrategy](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider/src/main/java/org/carlspring/strongbox/repository/NugetRepositoryManagementStrategy.java) | This class is used to handle the initialization of NuGet repositories. |
 | [NugetArtifactController](https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/nuget/NugetArtifactController.java) | This is the NuGet-specific implementation of the `BaseArtifactController`. |
 
-# See Also
-* [[How To Implement Your Own Repository Format]]
+## See Also
+* [Writing a layout provider]
 * ["Hello, Strongbox!" Example Using NuGet and Mono](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget-mono)
 * ["Hello, Strongbox!" Example Using NuGet and Visual Studio](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget-visual-studio)
+
+
+[Writing a layout provider]: ./how-to-implement-your-own-repository-format.md
+[strongbox-storage-nuget-layout-provider]: https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider
+[NugetArtifactCoordinates]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider/src/main/java/org/carlspring/strongbox/artifact/coordinates/NugetArtifactCoordinates.java
+[NugetLayoutProvider]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider/src/main/java/org/carlspring/strongbox/providers/layout/NugetLayoutProvider.java
+[NugetRepositoryFeatures]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider/src/main/java/org/carlspring/strongbox/repository/NugetRepositoryFeatures.java
+[NugetRepositoryManagementStrategy]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider/src/main/java/org/carlspring/strongbox/repository/NugetRepositoryManagementStrategy.java
+[NugetArtifactController]: https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/nuget/NugetArtifactController.java
+
+TODO: fix links
