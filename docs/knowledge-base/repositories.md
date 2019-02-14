@@ -5,13 +5,19 @@ This reduces build times, as storing binaries in a central place removes the nee
 Version control, on the other hand is not an appropriate place to store binaries, as it causes source repositories 
 to grow quite quickly and thus makes them gradually slower.
 
+<div id="hosted"></div>
+
 ## Types
 
-??? info "Hosted" 
+<div id="proxy"></div>
+
+??? info "[Hosted](#hosted)" 
 
     Hosted repositories are a place where you can deploy your artifacts.
 
-??? info "Proxy"
+<div id="group"></div>
+
+??? info "[Proxy](#proxy)"
 
     Proxy repositories serve artifacts which are resolved from remote repositories and cached for local resolution.
     
@@ -25,7 +31,7 @@ to grow quite quickly and thus makes them gradually slower.
     
     It is not possible to deploy artifacts to these repositories.
 
-??? info "Group"
+??? info "[Group](#group)"
 
     A repository group is a special kind of repository which aggregates a list of repositories and serves 
     it's contents under the same URL. 
@@ -95,5 +101,5 @@ Repository policies define the type of artifact versions which will be handled b
 
 
 ## See Also
-* Artifact-Routing-Rules (TODO: Add link to Artifact Routing Rules page.)
+* [Artifact Routing Rules]: ../user-guide/artifact-routing-rules.md
 * [Maven: Introduction to Repositories](http://maven.apache.org/guides/introduction/introduction-to-repositories.html)
