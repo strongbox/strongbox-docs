@@ -88,6 +88,7 @@ nav:
       - Coding convention: developer-guide/coding-convention.md
       - Getting started with persistence: developer-guide/getting-started-with-persistence.md
       - Writing controllers: developer-guide/how-to-implement-spring-controllers.md
+      - Events API: developer-guide/using-the-event-api.md
       - Layout providers:
           - Writing a layout provider: developer-guide/layout-providers/how-to-implement-your-own-repository-format.md
           - Build-in providers:

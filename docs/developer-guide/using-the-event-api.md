@@ -1,42 +1,40 @@
+## Introduction
 
-# General
+The code for the events API is located under the [strongbox-event-api] module.
 
-The code for the events API is located under the [`strongbox-event-api`](https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/) module.
+## Events
 
-# Events
+All events must extend the [org.carlspring.strongbox.event.Event] base class.
 
-All events must extend the [`org.carlspring.strongbox.event.Event`](https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/src/main/java/org/carlspring/strongbox/event/Event.java) base class.
+## Event Listeners
 
-# Event Listeners
+All event listeners must implement the [org.carlspring.strongbox.event.EventListener] base class.
 
-All event listeners must implement the [`org.carlspring.strongbox.event.EventListener`](https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/src/main/java/org/carlspring/strongbox/event/EventListener.java) base class.
+The [org.carlspring.strongbox.event.EventListener] has this following simple method which every listener need to 
+implement and where the respective event handling will be performed:
 
-The [`org.carlspring.strongbox.event.EventListener`](https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/src/main/java/org/carlspring/strongbox/event/EventListener.java) has this following simple method which every listener need to implement and where the respective event handling will be performed:
-
-```
+```java
 public interface EventListener
 {
-
     void handle(Event event);
-
 }
 ```
 
-# Event Listener Registries
+## Event Listener Registries
 
-Event listener instances must be registered with the respective implementation's listener registry, which will be used to dispatch events to them.
+Event listener instances must be registered with the respective implementation's listener registry, which will be used 
+to dispatch events to them.  
+  
+All event listeners must extend the [org.carlspring.strongbox.event.AbstractEventListenerRegistry] base class.  
+  
+Consider the following example, of how to register you listener:  
 
-All event listeners must extend the [`org.carlspring.strongbox.event.AbstractEventListenerRegistry`](https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/src/main/java/org/carlspring/strongbox/event/AbstractEventListenerRegistry.java) base class.
-
-Consider the following example, of how to register you listener:
-
-```
+```java
 public class ArtifactEventHandlingExample
 {
 
     @Inject
     ArtifactEventListenerRegistry artifactEventListenerRegistry;
-    ...
     
     public void doStuff()
     {
@@ -68,3 +66,8 @@ public class ArtifactEventHandlingExample
 
 ```
 
+
+[strongbox-event-api]: https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/
+[org.carlspring.strongbox.event.Event]: https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/src/main/java/org/carlspring/strongbox/event/Event.java
+[org.carlspring.strongbox.event.EventListener]: https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/src/main/java/org/carlspring/strongbox/event/EventListener.java
+[org.carlspring.strongbox.event.AbstractEventListenerRegistry]: https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/src/main/java/org/carlspring/strongbox/event/AbstractEventListenerRegistry.java
