@@ -4,8 +4,11 @@ Thank you for considering to contribute to our project! We deeply appreciate any
 bug fix or performance improvement. Check the <a href="https://github.com/strongbox/strongbox/issues">opened issues</a> -
 there is always something you can help with.
 
-Once you have found an issue you would like to work on, please follow the [Developer Guide](guide/developer/getting-started.md)
-to setup your machine for development and read our [Coding Conventions](guide/developer/coding-convention.md)
+Once you have found an issue you would like to work on:
+ 
+1. Read our [Coding Conventions](guide/developer/coding-convention.md)
+2. Read our [Code of Conduct](https://github.com/strongbox/strongbox/blob/master/CODE-OF-CONDUCT.md)
+3. Follow the [Developer Guide](guide/developer/getting-started.md)
 
 We have a helpful community of developers on our channel, please feel free to drop by, if you have questions, issues, or would like to contribute!  
   
@@ -45,6 +48,8 @@ Issue 1004: Title of the issue
 
 Once you're done with your work - feel free to open a Pull Request. Our CI will build the entire code and report any
 failing tests. In case of issues (i.e. build failures), please ping us in the chat.  
+  
+Please continue reading our [CONTRIBUTING.md](https://github.com/strongbox/strongbox/blob/master/CONTRIBUTING.md). 
 
 !!! warning
     For legal reasons we will request you to sign our <a href="/assets/resources/pdfs/ICLA.pdf" target="_blank">ICLA</a> before we can merge your 
