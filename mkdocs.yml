@@ -102,6 +102,7 @@ nav:
           - Maven Metadata: developer-guide/metadata/maven-metadata.md
           - NPM Metadata: developer-guide/metadata/npm-metadata.md
       - Logging: developer-guide/logging.md
+      - Search Providers: developer-guide/search-providers.md
     - Writing tests:
       - Getting started: developer-guide/writing-tests.md
       - JUnit: developer-guide/junit-user-guide.md
