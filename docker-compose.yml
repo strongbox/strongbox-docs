@@ -1,7 +1,7 @@
 version: '3'
 services:
   mkdocs:
-    image: strongboxci/alpine:mkdocs
+    image: strongboxci/alpine:mkdocs-4.0
     volumes:
       - ./:/docs
     ports:
