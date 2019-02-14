@@ -38,10 +38,10 @@ but are working to add support for more!
 
 
 ??? abstract "Layout providers" 
-    * [x] [Maven 2.x/3.x](https://github.com/strongbox/strongbox/wiki/Maven-2-Layout-Provider)
-    * [x] [NPM](https://github.com/strongbox/strongbox/wiki/NPM-Layout-Provider)
-    * [x] [NuGet v2](https://github.com/strongbox/strongbox/wiki/NuGet-Layout-Provider)
-    * [x] [Raw](https://github.com/strongbox/strongbox/wiki/Raw-Layout-Provider)
+    * [x] [Maven 2.x/3.x](./developer-guide/layout-providers/maven-2-layout-provider.md)
+    * [x] [NPM](./developer-guide/layout-providers/npm-layout-provider.md)
+    * [x] [NuGet v2](./developer-guide/layout-providers/nuget-layout-provider.md)
+    * [x] [Raw](./developer-guide/layout-providers/raw-layout-provider.md)
     * [ ] Composer ([contributors, check here](https://github.com/strongbox/strongbox/issues/872))
     * [ ] Docker ([contributors check here](https://github.com/strongbox/strongbox/issues/817))
     * [ ] DEB ([contributors, check here](https://github.com/strongbox/strongbox/issues/861))
@@ -52,8 +52,9 @@ but are working to add support for more!
 
 ??? success "Search providers" 
     Search providers offer a way to execute searches against different search engines. By default, searches are executed 
-    against OrientDB, unless a search provider has been specified. [Click here for more details](guide/developer/search-providers.md)
+    against OrientDB, unless a search provider has been specified. [Click here for more details](./developer-guide/search-providers.md)
 
+    * [x] [Artifact Query Language (AQL) to make searching easy and consistent between layouts](./user-guide/artifact-query-language.html) 
     * [x] OrientDB (default implementation for all repositories and layout formats)
     * [x] Maven Indexer
 
@@ -70,8 +71,6 @@ but are working to add support for more!
 
     All of Strongbox's features are available via REST API endpoints. 
     You can customize user's access to only allow specific endpoints to be accessible.
-    
-    https://github.com/strongbox/strongbox/wiki/REST-API  
 
     * [x] Search for artifacts
     * [x] Manage the server's core configuration

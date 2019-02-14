@@ -27,7 +27,7 @@ This layout provider has feeds.
 
 ## NuGet 2 Search Provider
 
-The NuGet layout provider supports uses the [OrientDB (default)](https://github.com/strongbox/strongbox/wiki/Searching#orientdbsearchprovider).
+The NuGet layout provider supports uses the [OrientDB (default)](../search-providers#orientdbsearchprovider).
 
 # Supported Commands
 
@@ -63,5 +63,3 @@ The following are some of the most important classes you will need to be familia
 [NugetRepositoryFeatures]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider/src/main/java/org/carlspring/strongbox/repository/NugetRepositoryFeatures.java
 [NugetRepositoryManagementStrategy]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider/src/main/java/org/carlspring/strongbox/repository/NugetRepositoryManagementStrategy.java
 [NugetArtifactController]: https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/nuget/NugetArtifactController.java
-
-TODO: fix links

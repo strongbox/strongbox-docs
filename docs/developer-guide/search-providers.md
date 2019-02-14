@@ -98,7 +98,7 @@ catch (SearchException e)
 }
 ```
 
-# See Also
+## See Also
 * [Maven Indexer]
 * [REST-API]
 

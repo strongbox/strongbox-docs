@@ -37,7 +37,7 @@ section to see which property to override to change the default location.
     * [storages](/knowledge-base/storages/)/
         * `${storageId}/`
             * `${repositoryId}/`
-                * [.index/](https://github.com/strongbox/strongbox/wiki/Maven-Indexer#where-are-the-maven-indexes-located) (TODO: fix link)
+                * [.index/](../developer-guide/maven-indexer.md#where-are-the-maven-indexes-located)
                 * `local/`
                 * `remote/`
             * `.trash/`

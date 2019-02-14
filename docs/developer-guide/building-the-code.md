@@ -106,5 +106,5 @@ Then in order to sync your fork with the original remote, execute the following:
 
 ## See Also
 
-* Building Strongbox Against Strongbox (TODO: add link)
+* [Building Strongbox Against Strongbox](./building-strongbox-against-strongbox.md)
 * [Git Tips](https://github.com/git-tips/tips)

@@ -38,14 +38,14 @@ The accepted `User-Agent` headers supported must look like `User-Agent=Maven/*`.
 
 ## Custom Features
 
-This layout provider also indexes the artifacts using the Lucene-based [[Maven Indexer]] as explained below.
+This layout provider also indexes the artifacts using the Lucene-based [Maven Indexer] as explained below.
 
 ## Maven 2 Search Providers
 
 Please, be aware that the Maven 2 layout provider (unlike most of the other layout providers) supports two search providers:
 
-* [OrientDB (default)](https://github.com/strongbox/strongbox/wiki/Searching#orientdbsearchprovider)
-* [Maven Indexer](https://github.com/strongbox/strongbox/wiki/Searching#mavenindexersearchprovider)
+* [OrientDB (default)](../search-providers.md#orientdbsearchprovider)
+* [Maven Indexer](../search-providers.md#mavenindexersearchprovider) (search provider)
 
 ## Classes of Interest
 
@@ -55,15 +55,15 @@ The following are some of the most important classes you will need to be familia
 |:-------------|:------------|
 | [MavenArtifactCoordinates] | This is an implementation of `ArtifactCoordinates` for Maven. |
 | [Maven2LayoutProvider]| This is the actual implementation of the Maven 2 layout provider. |
-| [MavenRepositoryFeatures]| This defines the custom layout provider features for Maven 2 (like the [[Maven Indexer]]). |
+| [MavenRepositoryFeatures]| This defines the custom layout provider features for Maven 2 (like the [Maven Indexer]). |
 | [MavenRepositoryManagementStrategy] | This class is used to handle the initialization of Maven 2 repositories. |
-| [ArtifactIndexesServiceImpl] | This service class is used to manage [[Maven Indexer]]-related tasks. |
-| [MavenIndexerSearchProvider] | This is an implementation of the [[Maven Indexer]] [search provider](https://github.com/strongbox/strongbox/wiki/Searching#search-providers). |
+| [ArtifactIndexesServiceImpl] | This service class is used to manage [Maven Indexer]-related tasks. |
+| [MavenIndexerSearchProvider] | This is an implementation of the [Maven Indexer] [search provider]. |
 | [ArtifactMetadataServiceImpl] | This service is used to manage [Maven Metadata]. |
 | [MavenArtifactController] | This is the Maven 2-specific implementation of the `BaseArtifactController`. |
 
 ## See Also
-* [[Maven Indexer]]
+* [Maven Indexer]
 * [Maven Metadata]
 * [Writing a layout provider]
 * ["Hello, Strongbox!" Example Using Maven](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-maven) 
@@ -81,5 +81,5 @@ The following are some of the most important classes you will need to be familia
 [ArtifactMetadataServiceImpl]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/services/impl/ArtifactMetadataServiceImpl.java
 [MavenArtifactController]: https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/maven/MavenArtifactController.java
 [Maven Metadata]: ../metadata/maven-metadata.md
-
-TODO: fix links
+[Maven Indexer]: ../maven-indexer.md
+[search provider]: ../search-providers.md

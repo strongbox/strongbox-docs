@@ -1,7 +1,5 @@
 # Project structure
 
-TODO: This page needs further updating.
-
 ## Modules
 
 ### Core Modules
@@ -83,19 +81,17 @@ and are literally mimicking Maven behaviour. The outcome of the tests is validat
 
 ## Packaging Modules
 
-For a much more lightweight build the modules which carry out the actual packaging into assemblies and distributions, these have been extracted into separate projects under the organization.
+For a much more lightweight build the modules which carry out the actual packaging into assemblies and distributions, 
+these have been extracted into separate projects under the organization.
 
-### The Web Application
+## Strongbox Distribution
 
-The web application is located in the [strongbox-webapp](https://github.com/strongbox/strongbox-webapp) project.
+The [strongbox-distribution](https://github.com/strongbox/strongbox/tree/master/strongbox-distribution) module produces 
+the final binary distributions which are then made public under the [releases](https://github.com/strongbox/strongbox/releases) section.
 
-### The Distributions
-
-The [strongbox-assembly](https://github.com/strongbox/strongbox-assembly) project produces the final binary distributions which are then made public under the [releases](https://github.com/strongbox/strongbox-assembly/releases) section.
-
-# See Also
-* Writing Tests (TODO: add links)
-* REST API (TODO: add links)
+## See Also
+* [Writing Tests](./writing-tests.md)
+* [REST API](../user-guide/rest-api.md)
 
 [Strongbox]: https://github.com/strongbox/strongbox
 [Strongbox organization]: https://github.com/strongbox

@@ -116,16 +116,13 @@ Spring provides a support for Test Context caching (see [here](https://docs.spri
 
 ## How Do The Tests Run In Jenkins?
 
-For details on how the build and tests are executed in Jenkins, you can check the project's [`Jenkinsfile`](https://github.com/strongbox/strongbox/blob/master/Jenkinsfile) file. Also, all Strongbox sub-projects that are running in Jenkins will have such a file, so it could be used as a reference of how things are built and tested.
+For details on how the build and tests are executed in Jenkins, you can check the project's [Jenkinsfile](https://github.com/strongbox/strongbox/blob/master/Jenkinsfile) file. Also, all Strongbox sub-projects that are running in Jenkins will have such a file, so it could be used as a reference of how things are built and tested.
 
 ## See Also
 
 * [Spring: Integration Testing Reference](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html#integration-testing-annotations-standard)
 
-
-TODO: fix link; [Maven 2 Layout Provider]
-
 [strongbox-web-forms]: https://github.com/strongbox/strongbox/tree/master/strongbox-web-forms
 [JUnit 5]: ./junit-user-guide.md
 [Writing Web Form Tests]: ./writing-web-form-tests.md
-[Maven 2 Layout Provider]: 
+[Maven 2 Layout Provider]: ./layout-providers/maven-2-layout-provider.md 
