@@ -1,49 +1,40 @@
-# Introduction
+# Artifact Query Language (AQL)
 
-We have created the Artifact Query Language (AQL) in order to be able to search for artifacts across the different layouts in an easy and consistent manner.
+## Introduction 
 
-## AQL Synax
+The Artifact Query Language (or `AQL` for short) is a carefully crafted language which is used to construct 
+search queries and find the artifacts you want in an easy and consistent manner.
 
-Search queries are constructed using _**tokens**_, where each token is a pair of `<key>:<value>` separated with `:`.
+## AQL Syntax
 
-#### Keys
+Search queries are constructed using _**tokens**_, where each token is a pair of `<key>:<value>`.
 
-The full list of possible `keys` will vary depending on the enabled layout providers, but the following common list needs to work the same across all layouts:
+### Keys
+
+The full list of possible `keys` will vary depending on the enabled layout providers, but the following common list 
+needs to work the same across all layouts:
 
 | Key        | Description     | 
 | ---------- |---------------- |
-| storage    | Search for artifacts in a specific **storage id** |
-| repository | Search for artifacts in a specific **repository id** |
-| layout     | Search for artifacts in a specific **repository layout** |
-| version    | Search an artifact by **version** |
-| tag        | Search for artifacts with available **tag name** |
-| from       | Search for uploaded artifacts starting **date** (unicode format, results include the date) |
-| to         | Search for uploaded artifacts before **date** (unicode format, results include the date) |
-| age        | Constant: `day`, `month`, `year`, etc. |
-| asc        | Order results ascending |
-| desc       | Order results descending |
+| `storage`    | Search for artifacts in a specific `storage id` |
+| `repository` | Search for artifacts in a specific `repository id` |
+| `layout`     | Search for artifacts in a specific `repository layout` |
+| `version`    | Search an artifact by `version` |
+| `tag`        | Search for artifacts with available `tag name` |
+| `from`       | Search for uploaded artifacts starting `date` (unicode format, results include the date) |
+| `to`         | Search for uploaded artifacts before `date` (unicode format, results include the date) |
+| `age`        | Constant: `day`, `month`, `year`, etc. |
+| `asc`        | Order results ascending |
+| `desc`       | Order results descending |
 
-Each layout provider exposes keys for each of it's the fields of it's implementation of the [`ArtifactCoordinates`](https://github.com/strongbox/strongbox/wiki/Artifact-Coordinates).
+!!! note
+    Each [layout provider] will expose additional keys for the fields of it's implementation of the [ArtifactCoordinates].  
+    Head to our [built-in layout providers] section to see the coordinates for [Maven], [NPM] and [NuGet].  
 
-For example:
-
-* For Maven, the artifact coordinates would be :
-  * `groupId`
-  * `artifactId`
-  * `version`
-  * `classifier`
-  * `extension`
-* For NuGet 
-  * `Id`
-  * `Version`
-* For NPM
-  * `scope`
-  * `name`
-  * `version`
-
-#### Values
+### Values
 
 * _**Values**_ can be strings:
+
   * Quoted with single quotes `'` when the value is more than one word (for example: `storage: storage0`, `layout: 'Maven 2'`)
   * Separated with comma `,` for multiple values; you can consider this the same as `IN` operator in SQL  (for example: `repository: releases, snapshots`, `layout: 'Maven 2', NuGet`)
   * Wildcards are supported `*` (for example: `group: org.carlspring.*`)
@@ -58,7 +49,6 @@ For example:
     ```
     storage:storage0 repository:releases
     ```
-&nbsp;    
 
 * Expression parts can be surrounded by round brackets for more advanced queries. The following examples are equal: 
     ```
@@ -102,11 +92,20 @@ For example:
         +(storage:storage0)+(repository:releases)-(groupId: 'org.carlspring')
         ``` 
 
-# How to use
+## How to use
 
-You can use AQL with UI search bar, which also provide autocomplete, or directly with REST API Endpoint (`curl` example below).
+The easiest way to AQL is by using the search bar in the user interface. Once you start writing, you will see suggestions
+based on what you've typed. You could also directly search via the REST API Endpoint.  
+
+Example `curl` request:
+
+```bash
+curl http://localhost:48080/api/aql?query=storage:storage-common-proxies+repository:carlspring+groupId:com.google*
 ```
-$ curl http://localhost:48080/api/aql?query=storage:storage-common-proxies+repository:carlspring+groupId:com.google*
+
+Example response:
+
+```json
 {
   "artifact" : [ {
     "artifactCoordinates" : {
@@ -139,3 +138,10 @@ $ curl http://localhost:48080/api/aql?query=storage:storage-common-proxies+repos
   } ]
 }
 ```
+
+[ArtifactCoordinates]: ../knowledge-base/artifact-coordinates.md
+[layout provider]: ../knowledge-base/layout-providers.md
+[built-in layout providers]: ../developer-guide/layout-providers/maven-2-layout-provider.md
+[Maven]: ../developer-guide/layout-providers/maven-2-layout-provider.md
+[NPM]: ../developer-guide/layout-providers/npm-layout-provider.md
+[NuGet]: ../developer-guide/layout-providers/nuget-layout-provider.md
