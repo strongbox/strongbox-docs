@@ -104,6 +104,7 @@ nav:
       - Logging: developer-guide/logging.md
       - Search Providers: developer-guide/search-providers.md
       - Maven Indexer: developer-guide/maven-indexer.md
+      - Writing custom authenticator: developer-guide/how-to-implement-a-custom-authenticator.md
     - Writing tests:
       - Getting started: developer-guide/writing-tests.md
       - JUnit: developer-guide/junit-user-guide.md
