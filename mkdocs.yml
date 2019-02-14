@@ -77,6 +77,7 @@ nav:
       - Storage management: user-guide/ui/storage-management.md
       - System Information: user-guide/ui/system-information.md
     - AQL (search): user-guide/artifact-query-language.md
+    - Artifact Routing Rules: user-guide/artifact-routing-rules.md
     - REST API: user-guide/rest-api.md
   - Developer guide:
     - Getting started: developer-guide/getting-started.md
