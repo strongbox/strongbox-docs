@@ -1,0 +1,126 @@
+site_name: Strongbox
+repo_name: 'strongbox/strongbox'
+repo_url: 'https://github.com/strongbox/strongbox'
+edit_uri: 'https://github.com/strongbox/strongbox-docs/edit/master/docs'
+use_directory_urls: false
+theme:
+  name: 'material'
+  custom_dir: 'theme'
+  logo: ''
+  palette:
+    primary: 'blue grey'
+    accent: 'indigo'
+  language: en
+  feature:
+    tabs: true
+
+extra_css:
+  - 'assets/stylesheets/style.css'
+
+extra_javascript:
+  - 'assets/javascripts/medium-zoom.min.js'
+  - 'assets/javascripts/main.js'
+
+plugins:
+  - search
+  - markdownextradata
+  - git-revision-date
+
+extra:
+  url: &url !!python/object/apply:os.getenv ["DEPLOY_URL", "http://localhost:8000"]
+  assets: &assets !!python/object/apply:os.path.join [*url, "assets"]
+  resources: !!python/object/apply:os.path.join [*assets, "resources"]
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - meta
+  - toc:
+      permalink: true
+  - codehilite:
+      guess_lang: false
+  - footnotes
+  - tables
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.extra
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Introduction: index.md
+  - Release notes: release-notes.md
+  - Contributing: contributing.md
+  - License: license.md
+  - User guide:
+    - Getting started: user-guide/getting-started.md
+    - Application properties: user-guide/application-properties.md
+    - Directory structure: user-guide/directory-structure.md
+    - Upgrading: user-guide/upgrading.md
+    - User Interface:
+      - Browsing: user-guide/ui/browsing.md
+      - Global settings: user-guide/ui/global-settings.md
+      - User management: user-guide/ui/user-management.md
+      - Storage management: user-guide/ui/storage-management.md
+      - System Information: user-guide/ui/system-information.md
+    - AQL (search): user-guide/artifact-query-language.md
+    - Artifact Routing Rules: user-guide/artifact-routing-rules.md
+    - REST API: user-guide/rest-api.md
+  - Developer guide:
+    - Getting started: developer-guide/getting-started.md
+    - Building:
+      - Building the code: developer-guide/building-the-code.md
+      - Building the code (Docker): developer-guide/building-the-code-with-docker.md
+      - Building Strongbox against Strongbox: developer-guide/building-strongbox-against-strongbox.md
+    - Project structure: developer-guide/project-structure.md
+    - Writing code:
+      - Coding convention: developer-guide/coding-convention.md
+      - Getting started with persistence: developer-guide/getting-started-with-persistence.md
+      - Writing controllers: developer-guide/how-to-implement-spring-controllers.md
+      - Events API: developer-guide/using-the-event-api.md
+      - Layout providers:
+          - Writing a layout provider: developer-guide/layout-providers/how-to-implement-your-own-repository-format.md
+          - Build-in providers:
+              - Maven Layout Provider: developer-guide/layout-providers/maven-2-layout-provider.md
+              - NPM Layout Provider: developer-guide/layout-providers/npm-layout-provider.md
+              - NuGet Layout Provider: developer-guide/layout-providers/nuget-layout-provider.md
+              - Raw Layout Provider: developer-guide/layout-providers/raw-layout-provider.md
+      - Metadata:
+          - Maven Metadata: developer-guide/metadata/maven-metadata.md
+          - NPM Metadata: developer-guide/metadata/npm-metadata.md
+      - Logging: developer-guide/logging.md
+      - Search Providers: developer-guide/search-providers.md
+      - Maven Indexer: developer-guide/maven-indexer.md
+      - Writing custom authenticator: developer-guide/how-to-implement-a-custom-authenticator.md
+    - Writing tests:
+      - Getting started: developer-guide/writing-tests.md
+      - JUnit: developer-guide/junit-user-guide.md
+      - Web Form Tests: developer-guide/writing-web-form-tests.md
+  - Knowledge Base:
+      - Artifact Coordinates: knowledge-base/artifact-coordinates.md
+      - Artifact Coordinate Validators:
+        - Generic: knowledge-base/artifact-coordinate-validators/artifact-coordinate-validators.md
+        - Maven: knowledge-base/artifact-coordinate-validators/artifact-coordinate-validators-maven.md
+      - Layout Providers: knowledge-base/layout-providers.md
+      - Repositories: knowledge-base/repositories.md
+      - Storages: knowledge-base/storages.md
+  - Join chat:
+    - Join chat: chat-redirect.md
+
+# Google Analytics
+google_analytics:
+  - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
+  - auto

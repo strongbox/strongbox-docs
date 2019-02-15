@@ -1,0 +1,122 @@
+dockerCheckout() {
+    # Can edit
+    CHECKOUT_PATH=/tmp
+    M2_CACHE_PATH=~/.m2/repository-docker
+
+    # Don't edit if you don't know what you're doing
+    IMAGE=${1:-"strongboxci/alpine:jdk8-mvn-3.5"}
+    PROJECT=${2-strongbox}
+    BRANCH=${3-master}
+    URL="https://github.com/strongbox/$PROJECT"
+
+    if [[ $2 == "--help" || $2 == "help" ]]; then
+        echo ""
+        echo "${FUNCNAME[1]} PROJECT BRANCH MVN_CMD"
+        echo "${FUNCNAME[1]} strongbox master/PR-123 mvn clean install"
+        echo ""
+        return
+    fi
+
+    if [[ $BRANCH =~ ^.+[[:space:]].+$ ]]; then
+        echo ""
+        echo "The branch argument contains spaces. Use ${FUNCNAME} --help for help."
+        echo ""
+        return
+    fi
+
+    CLONE_CMD="git clone $URL ~/workspace && cd ~/workspace "
+
+    if [[ $BRANCH =~ ^PR\-([0-9]+)$ ]]; then
+        PR=${BRANCH:3}
+        CLONE_CMD+="&& git fetch origin pull/$PR/head:pr/$PR && git checkout pr/$PR "
+    fi
+
+    CMD="${@:4}"
+    if [[ -z $CMD ]]; then
+        CMD="mvn clean install"
+    fi
+
+    WORKSPACE=$(mktemp -d $CHECKOUT_PATH/dockerBuild-$PROJECT-$BRANCH.XXXXX)
+    echo "Temporary workspace created at: $WORKSPACE"
+
+    if [[ ! -d $M2_CACHE_PATH ]]; then
+        echo "Creating m2 cache path..."
+        (set -x; mkdir -p $M2_CACHE_PATH)
+    fi
+    echo "M2 cache path is: $M2_CACHE_PATH"
+
+    docker run -it --rm -v $M2_CACHE_PATH:/home/jenkins/.m2/repository \
+                        -v $WORKSPACE:/home/jenkins/workspace:rw $IMAGE \
+                        /bin/bash -c "set -x; $CLONE_CMD && $CMD"
+    echo ""
+    echo "Temporary workspace is at: $WORKSPACE. Please remove it when you are done!"
+    echo ""
+}
+
+
+dockerLocal() {
+
+    # Can edit
+    CHECKOUT_PATH=/tmp
+    M2_CACHE_PATH=~/.m2/repository-docker
+
+    # Don't edit if you don't know what you're doing.
+    if [[ $2 == "--help" || $2 == "help" ]]; then
+        echo ""
+        echo "cd /path/to/project && ${FUNCNAME[1]} MVN_CMD"
+        echo "cd /strongbox/ && ${FUNCNAME[1]} mvn clean install"
+        echo ""
+        return
+    fi
+
+    IMAGE=${1:-"strongboxci/alpine:jdk8-mvn-3.5"}
+
+    CMD="${@:2}"
+    if [[ -z $CMD ]]; then
+        CMD="mvn clean install"
+    fi
+
+    echo "Attaching current working directory $(pwd) as /home/jenkins/workspace"
+
+    if [[ ! -d $M2_CACHE_PATH ]]; then
+        echo "Creating m2 cache path..."
+        (set -x; mkdir -p $M2_CACHE_PATH)
+    fi
+    echo "M2 cache path is: $M2_CACHE_PATH"
+
+    docker run -it --rm -v $M2_CACHE_PATH:/home/jenkins/.m2/repository \
+                        -v $(pwd):/home/jenkins/workspace:rw $IMAGE \
+                        /bin/bash -c "set -x; cd /home/jenkins/workspace; $CMD"
+}
+
+dockerMvn35Checkout() {
+    dockerCheckout strongboxci/alpine:jdk8-mvn-3.5 "$@"
+}
+
+dockerNuget34MonoCheckout() {
+    dockerCheckout strongboxci/alpine:nuget-3.4-mono "$@"
+}
+
+dockerGradle45Checkout() {
+    dockerCheckout strongboxci/alpine:jdk8-gradle-4.5 "$@"
+}
+
+dockerSBT11Checkout() {
+    dockerCheckout strongboxci/alpine:jdk8-sbt-1.1 "$@"
+}
+
+dockerMvn35() {
+    dockerLocal strongboxci/alpine:jdk8-mvn-3.5 "$@"
+}
+
+dockerNuget34Mono() {
+    dockerLocal strongboxci/alpine:nuget-3.4-mono "$@"
+}
+
+dockerGradle45() {
+    dockerLocal strongboxci/alpine:jdk8-gradle-4.5 "$@"
+}
+
+dockerSBT11() {
+    dockerLocal strongboxci/alpine:jdk8-sbt-1.1 "$@"
+}
