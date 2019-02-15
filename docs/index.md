@@ -1,8 +1,7 @@
 ## Strongbox
 
-Strongbox is an OpenSource artifact repository manager written in Java. It provides easy and reliable platform to host 
-your packages no matter what your repository layout is. We currently support Maven, NPM and NuGet repository layouts, 
-but are working to add support for more!
+Strongbox is an OpenSource artifact repository manager written in Java. We aim to provide an easy and reliable platform, 
+for hosting your (binary) artifacts, regardless or your repository layout.
 
 ## Features 
 
