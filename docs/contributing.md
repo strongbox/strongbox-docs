@@ -26,7 +26,7 @@ preferably with a screenshot and steps to reproduce.
 
 !!! tip
     Strongbox is still under heavy development. Some things might break and/or change and some are simply not implemented yet.
-    Please ask us in the main channel before submitting a but report to confirm. 
+    Please ask us in the main channel before submitting a bug report to confirm. 
 
 
 # Submitting pull requests
