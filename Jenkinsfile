@@ -37,11 +37,13 @@ pipeline {
                 expression { BRANCH_NAME == 'master' && (currentBuild.result == null || currentBuild.result == 'SUCCESS') }
             }
             steps {
-                sh "git checkout --orphan gh-pages"
-                sh "git rm -rf !(site) ."
-                sh "git add --force site/ && git commit -m 'Updating documentation site.'"
-                sh "git remote add strongbox.github.io git@github.com:strongbox/strongbox.github.io.git"
-                sh "git push strongbox.github.io `git subtree split --prefix site gh-pages`:master --force"
+                configFileProvider([configFile(fileId: 'e0235d92-c2fc-4f81-ae4b-28943ed7350d', targetLocation: '/tmp/gh-pages.sh')]) {
+                    withCredentials([sshUserPrivateKey(credentialsId: '011f2a7d-2c94-48f5-92b9-c07fd817b4be', keyFileVariable: 'SSH_KEY', usernameVariable: 'SSH_USER')]) {
+                        withEnv(["GIT_SSH_COMMAND=ssh -o StrictHostKeyChecking=no -o User=${SSH_USER} -i ${SSH_KEY}"]) {
+                            sh "/bin/bash /tmp/gh-pages.sh"
+                        }
+                    }
+                }
             }
         }
     }
