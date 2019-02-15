@@ -6,9 +6,9 @@ there is always something you can help with.
 
 Once you have found an issue you would like to work on:
  
-1. Read our [Coding Conventions](guide/developer/coding-convention.md)
+1. Read our [Coding Conventions](./developer-guide/coding-convention.md)
 2. Read our [Code of Conduct](https://github.com/strongbox/strongbox/blob/master/CODE-OF-CONDUCT.md)
-3. Follow the [Developer Guide](guide/developer/getting-started.md)
+3. Read our [Developer Guide](./developer-guide/getting-started.md)
 
 We have a helpful community of developers on our channel, please feel free to drop by, if you have questions, issues, or would like to contribute!  
   
