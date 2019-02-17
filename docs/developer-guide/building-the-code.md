@@ -73,24 +73,14 @@ Then please make sure that:
 
 The reason for this failure is that OrientDB can't start, if another OrientDB process is running an listening on the same port.
 
-## Jetty
+## Spring Boot
 
-### Running Jetty and the tests in remote debug mode
-
-To execute the tests in remote debug mode, run:
-
-    MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9001 -Xnoagent" \
-    mvn clean install \
-        -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9001 -Xnoagent"
-
-This will require you to connect with the remote debugger twice - once to the JVM running the `jetty-maven-plugin` and once for the Maven Surefire tests.
-
-### Running Jetty in blocked mode
+### Running Spring Boot
 
 Sometimes you may have to run Jetty and manually invoke some manual tests. To do this run:
 
-    cd strongbox-web-core
-    mvn clean spring-boot:run
+    cd strongbox-web-core/
+    mvn spring-boot:run
 
 ## Keeping Forks in Sync
 
