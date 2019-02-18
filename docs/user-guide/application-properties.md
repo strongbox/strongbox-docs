@@ -86,6 +86,11 @@ The following is a list of configuration properties, which can be used to custom
     |:------:|:-------------:|
     | boolean | true         | 
 
+
+??? info "export STRONGBOX_JVM_XMX=512m"
+
+    Specify the maximum size of the memory allocation pool.
+
 ---
 
 ### OrientDB
