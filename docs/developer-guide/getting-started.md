@@ -11,7 +11,14 @@
 Please, place this [settings.xml]({{resources}}/maven/settings.xml) file under your `~/.m2` directory.
 We have dependencies which are only available through our repository and if you skip this it will cause build failure.
 
-```
+```Linux tab= linenums="1"
+mkdir ~/.m2
 curl -o ~/.m2/settings.xml \ 
-     {{resources}}/maven/settings.xml
+        {{resources}}/maven/settings.xml
+```
+
+```Windows tab= linenums="1"
+mkdir %HOMEPATH%\.m2
+curl -o %HOMEPATH%\.m2\settings.xml ^
+        {{resources}}/maven/settings.xml
 ```
