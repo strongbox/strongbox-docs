@@ -186,8 +186,7 @@ We've all been there. If you are having trouble with your `rebase`, you can ask 
 ## License
 
 This page has borrowed some of the images and parts of the [Atlassian Merging Vs Rebasing] article which
-are licensed under [CC BY 2.5 AU]. Head to the [Atlassian Merging Vs Rebasing] article to get a deeper `merging` vs
-`rebasing` comparision and knowledge.
+are licensed under [CC BY 2.5 AU]. Head to the [Atlassian Merging Vs Rebasing] article for a more thorough comparison of `merging` vs `rebasing`.
 
 [Atlassian Merging Vs Rebasing]: https://www.atlassian.com/git/tutorials/merging-vs-rebasing
 [CC BY 2.5 AU]: https://creativecommons.org/licenses/by/2.5/au/
