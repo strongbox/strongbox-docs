@@ -81,11 +81,11 @@ body > .md-container {
 .md-typeset details.danger > summary,
 .md-typeset details.error > .admonition-title,
 .md-typeset details.error > summary {
-    background-color: hsla(343, 100%, 31%, 1);
+    background-color: hsla(343, 100%, 31%, 0.3)
 }
 
 .md-typeset .admonition.danger, .md-typeset .admonition.error, .md-typeset details.danger, .md-typeset details.error {
-    border-left-color: hsla(343, 100%, 31%, 1);
+    background-color: hsla(343, 100%, 31%, 0.3)
 }
 
 .md-typeset table:not([class]) th {
