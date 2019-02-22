@@ -22,3 +22,10 @@ mkdir %HOMEPATH%\.m2
 curl -o %HOMEPATH%\.m2\settings.xml ^
         {{resources}}/maven/settings.xml
 ```
+
+!!! tip
+    You can use a different location to save our `settings.xml`. For example, you could save it as   
+    `~/.m2/settings-strongbox.xml` and then specify this path when executing maven commands: 
+    ```
+    mvn -s ~/.m2/settings-strongbox.xml clean install
+    ``` 
