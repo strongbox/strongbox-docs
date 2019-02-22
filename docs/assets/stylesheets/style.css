@@ -64,7 +64,7 @@ body > .md-container {
 }
 
 .md-typeset .codehilitetable .linenodiv, .md-typeset .highlighttable .linenodiv {
-    padding: 1.06rem 0.5rem 0rem 0.5rem;
+    padding: 0.6rem 0.5rem 0rem 0.5rem;
 }
 
 .md-typeset .codehilitetable .linenos, .md-typeset .highlighttable .linenos {
