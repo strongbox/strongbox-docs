@@ -1,82 +1,100 @@
 # Project structure
-
 ## Modules
-
 ### Core Modules
 
-All the core modules are located under the Strongbox project. Each of these modules has a README.md file explaining briefly what kind of code contains. New modules should also follow the same format.
+All the core modules are located under the [Strongbox] project. Each of these modules has a `README.md` file explaining briefly what kind of code contains. New modules should also follow the same format.
 This is a brief breakdown of the modules:
-•	strongbox-aql 
-•	strongbox-client/    
+*[strongbox-aql]/
+*[strongbox-client]/    
 This is where the artifact client resides.
-•	strongbox-commons/ 
+*[strongbox-commons]/ 
 This is where the most common code which is across other modules resides.
-•	strongbox-configuration 
-•	strongbox-cron  
-o	strongbox-cron-api
-o	strongbox-cron-tasks
-•	strongbox-data-service
-•	strongbox-distribution
-•	strongbox-event-api/
+*[strongbox-configuration]/ 
+*[strongbox-cron]/  
+*[strongbox-cron-api]/
+*[strongbox-cron-tasks]/
+*[strongbox-data-service]/
+*[strongbox-distribution]/
+*[strongbox-event-api]/
 Contains an event API.
-•	strongbox-resources/
+*[strongbox-resources]/
 This is the place where common resources which can be used by multiple projects reside. The idea is not have to duplicate things such as logback.xml, web.xml, keystores and so on across the other modules. These resources are copied using the maven-dependency-plugin.
-o	strongbox-common-resources/
+*[strongbox-common-resources]/
 Contains logback.xml and keystores.
-o	strongbox-storage-api-resources
+*[strongbox-storage-api-resources]/
 Contains the strongbox.xml configuration file.
-•	strongbox-rest-client/
+*[strongbox-rest-client]/
 Contains the REST API client.
-•	strongbox-security
-o	strongbox-authentication-api
-o	strongbox-authentication-providers
-o	strongbox-default-authentication-provider
-o	strongbox-ldap-authentication-provider
-•	strongbox-authentication-registry
-•	strongbox-authentication-support
-•	 strongbox-security-api/
+*[strongbox-security]
+*[strongbox-authentication-api]/
+*[strongbox-authentication-providers]/
+*[strongbox-default-authentication-provider]/
+*[strongbox-ldap-authentication-provider]/
+*[strongbox-authentication-registry]/
+*[strongbox-authentication-support]/
+*[strongbox-security-api]/
 Contains various security and encryption related classes.
-•	strongbox-user-management
-•	strongbox-storage/
+*[strongbox-user-management]/
+*[strongbox-storage]/
 Contains the code for the storage related modules.
-o	strongbox-storage-api/
+*[strongbox-storage-api]/
 Contains the most common code for storages (Storage, Repository, *LocationResolver, etc)
-o	strongbox-storage-core
-o	strongbox-storage-layout-providers
-	strongbox-storage-maven-layout
-	strongbox-maven-metadata-api
-	strongbox-storage-maven-layout-provider
-o	strongbox-storage-npm-layout-provider
-o	strongbox-storage-nuget-layout-provider
-o	strongbox-storage-p2-layout-provider
-o	strongbox-storage-raw-layout-provider
-•	strongbox-testing/
+*[strongbox-storage-core]/
+*[strongbox-storage-layout-providers]/
+*[strongbox-storage-maven-layout]/
+*[strongbox-maven-metadata-api]/
+*[strongbox-storage-maven-layout-provider]/
+*[strongbox-storage-npm-layout-provider]/
+*[strongbox-storage-nuget-layout-provider]/
+*[strongbox-storage-p2-layout-provider]/
+*[strongbox-storage-raw-layout-provider]/
+*[strongbox-testing]/
 Contains various very useful base classes for testing.
-o	strongbox-testing-core/
+*[strongbox-testing-core]/
 Contains code for generation of valid Maven artifacts.
-o	strongbox-testing-storage
-o	strongbox-testing-web/
+*[strongbox-testing-storage]/
+*[strongbox-testing-web]/
 Contains a dummy implementation of a Jersey application. Sometimes useful for lightweight tests.
-•	strongbox-web-core/
+*[strongbox-web-core]/
 This is the web module which contains all the controllers.
-•	strongbox-web-forms
-Additional Modules
-All the Strongbox modules are organized under the Strongbox organization.
-Creating New Modules/Projects
-•	Each new modules needs to extend the strongbox-parent, from where it should be extending the dependencies and the configuration for Maven plugins. Modules should not contain any artifact or plugin versions.
-•	All modules need to have a README.md file describing in brief what the module is and give brief pointers on what classes and tests are of primary interest.
-•	Each project in the Strongbox organization needs to have a copy of the LICENSE file.
-________________________________________
-Integration Tests
-Web Integration Tests
-The web integration tests are located in the strongbox-web-integration-tests project. They are using the maven-invoker-plugin to execute various tests against a Strongbox instance which is started for this purpose. These tests start Maven processes via the maven-invoker-plugin and are literally mimicking Maven behaviour. The outcome of the tests is validated using Groovy scripts.
-Packaging Modules
-For a much more lightweight build the modules which carry out the actual packaging into assemblies and distributions, these have been extracted into separate projects under the organization.
-Strongbox Distribution
-The strongbox-distribution module produces the final binary distributions which are then made public under the releasessection.
-See Also
-•	Writing Tests
-•	REST API
+*[strongbox-web-forms]/
+
+### Additional Modules
+
+All the [Strongbox] modules are organized under the [Strongbox organization].
+
+### Creating New Modules/Projects
+
+* Each new modules needs to extend the `strongbox-parent`, from where it should be extending the dependencies and the 
+  configuration for Maven plugins. Modules should not contain any artifact or plugin versions.
+
+* All modules need to have a `README.md` file describing in brief what the module is and give brief pointers 
+  on what classes and tests are of primary interest.
+
+* Each project in the [Strongbox organization] needs to have a copy of the [LICENSE] file.
+
+---
+
+## Integration Tests
+
+### Web Integration Tests
+
+The web integration tests are located in the [strongbox-web-integration-tests] project. 
+They are using the [maven-invoker-plugin] to execute various tests 
+against a Strongbox instance which is started for this purpose. These tests start Maven processes via the [maven-invoker-plugin]
+and are literally mimicking Maven behaviour. The outcome of the tests is validated using Groovy scripts.
+
+## Packaging Modules
+
+For a much more lightweight build the modules which carry out the actual packaging into assemblies and distributions, 
+these have been extracted into separate projects under the organization.
+
+## Strongbox Distribution
+
+The [strongbox-distribution](https://github.com/strongbox/strongbox/tree/master/strongbox-distribution) module produces 
+the final binary distributions which are then made public under the [releases](https://github.com/strongbox/strongbox/releases) section.
+
+
 
 ## See Also
 * [Writing Tests](./writing-tests.md)
