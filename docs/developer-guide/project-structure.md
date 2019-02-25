@@ -3,12 +3,13 @@
 ### Core Modules
 
 All the core modules are located under the [Strongbox] project. Each of these modules has a `README.md` file explaining briefly what kind of code contains. New modules should also follow the same format.
+
 This is a brief breakdown of the modules:
 
-*[strongbox-aql]/
+* [strongbox-aql]/
 
-*[strongbox-client]/    
-This is where the artifact client resides.
+* [strongbox-client]/    
+    This is where the artifact client resides.
 
 *[strongbox-commons]/ 
 This is where the most common code which is across other modules resides.
