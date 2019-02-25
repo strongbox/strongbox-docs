@@ -4,59 +4,99 @@
 
 All the core modules are located under the [Strongbox] project. Each of these modules has a `README.md` file explaining briefly what kind of code contains. New modules should also follow the same format.
 This is a brief breakdown of the modules:
+
 *[strongbox-aql]/
+
 *[strongbox-client]/    
 This is where the artifact client resides.
+
 *[strongbox-commons]/ 
 This is where the most common code which is across other modules resides.
+
 *[strongbox-configuration]/ 
+
 *[strongbox-cron]/  
+
 *[strongbox-cron-api]/
+
 *[strongbox-cron-tasks]/
+
 *[strongbox-data-service]/
+
 *[strongbox-distribution]/
+
 *[strongbox-event-api]/
 Contains an event API.
+
 *[strongbox-resources]/
 This is the place where common resources which can be used by multiple projects reside. The idea is not have to duplicate things such as logback.xml, web.xml, keystores and so on across the other modules. These resources are copied using the maven-dependency-plugin.
+
 *[strongbox-common-resources]/
 Contains logback.xml and keystores.
+
 *[strongbox-storage-api-resources]/
 Contains the strongbox.xml configuration file.
+
 *[strongbox-rest-client]/
 Contains the REST API client.
+
 *[strongbox-security]
+
 *[strongbox-authentication-api]/
+
 *[strongbox-authentication-providers]/
+
 *[strongbox-default-authentication-provider]/
+
 *[strongbox-ldap-authentication-provider]/
+
 *[strongbox-authentication-registry]/
+
 *[strongbox-authentication-support]/
+
 *[strongbox-security-api]/
 Contains various security and encryption related classes.
+
 *[strongbox-user-management]/
+
 *[strongbox-storage]/
 Contains the code for the storage related modules.
+
 *[strongbox-storage-api]/
 Contains the most common code for storages (Storage, Repository, *LocationResolver, etc)
+
 *[strongbox-storage-core]/
+
 *[strongbox-storage-layout-providers]/
+
 *[strongbox-storage-maven-layout]/
+
 *[strongbox-maven-metadata-api]/
+
 *[strongbox-storage-maven-layout-provider]/
+
 *[strongbox-storage-npm-layout-provider]/
+
 *[strongbox-storage-nuget-layout-provider]/
+
 *[strongbox-storage-p2-layout-provider]/
+
 *[strongbox-storage-raw-layout-provider]/
+
 *[strongbox-testing]/
 Contains various very useful base classes for testing.
+
 *[strongbox-testing-core]/
 Contains code for generation of valid Maven artifacts.
+
 *[strongbox-testing-storage]/
+
 *[strongbox-testing-web]/
 Contains a dummy implementation of a Jersey application. Sometimes useful for lightweight tests.
+
 *[strongbox-web-core]/
 This is the web module which contains all the controllers.
+
 *[strongbox-web-forms]/
 
 ### Additional Modules
