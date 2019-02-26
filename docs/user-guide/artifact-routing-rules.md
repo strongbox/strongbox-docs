@@ -12,14 +12,14 @@ pattern. This makes it possible to narrow down the list of repositories[^1] whic
 
 ### Accepted
 
-Allowed routing rules are used to allow resolving the artifact/path from the [accepted ordered repositories](#fn:2)[^2].  
+Allowed routing rules are used to allow resolving the artifact/path from the [accepted repositories](#fn:2)[^2].  
    
 By default all [ordered repositories](#fn:1)[^1] will `accept` any url pattern. Therefore, this rule is only useful when 
 it is used with a `deny` rule. 
 
 ### Denied
 
-Denied routing rules are used to `block` resolving the artifact/path from the [denied ordered repositories](#fn:3)[^3].  
+Denied routing rules are used to `block` resolving the artifact/path from the [denied repositories](#fn:3)[^3].  
 
 ## Artifact Routing Rules precedence
 
@@ -91,7 +91,7 @@ Example:
 ```
 
 [^1]: **Ordered Repositories List** - an ordered list of repositories which you configure when you add the group repository.
-[^2]: **Accepted Ordered Repositories** - an ordered list of **Accepted** repositories. If these repositories are in your Group Repository,
+[^2]: **Accepted Repositories** - are an ordered list of **Accepted** repositories. If these repositories are in your Group Repository,
       then they will be used to `resolve` the artifact.
-[^3]: **Denied Ordered Repositories** - an ordered list of **Denied** repositories. If these repositories are in your Group Repository,
+[^3]: **Denied Repositories** - are an ordered list of **Denied** repositories. If these repositories are in your Group Repository,
       then they will **NOT** be used to `resolve` the artifact.
