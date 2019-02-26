@@ -72,6 +72,19 @@ body > .md-container {
     color: rgba(255, 255, 255, 0.26);
 }
 
+.md-typeset .footnote,
+.md-typeset .footnote li:target{
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.md-typeset .footnote-ref:before {
+    border-left: 0px;
+    margin: 0px -2px 0px 0px;
+}
+
+.md-typeset .footnote-ref:hover {
+    text-decoration: none !important;
+}
 
 .md-typeset .admonition.danger > .admonition-title,
 .md-typeset .admonition.danger > summary,

@@ -2,12 +2,36 @@
 
 ## What are artifact routing rules?
 
-Requests to resolve an artifact from a group repository loop over all of the repositories in the group until an artifact 
-has been resolved.  
+Requests made to a group repository will loop over the [ordered repositories](#fn:1)[^1] list to `resolve` the `artifact`.
+The first repository which has the `artifact` will serve it to the client.  
 
-Artifact routing rules allow you to control the searching in group repositories. With routing rules you can define 
-patterns which are accepted, or denied by a repository in the group. This makes it possible to narrow down the list of 
-repositories in which to search for artifacts matching a certain pattern.
+Artifact Routing Rules allows you to fine-tune which of the [ordered repositories](#fn:1)[^1] can `accept` or `deny` the URL 
+pattern. This makes it possible to narrow down the list of repositories[^1] which will be used to `resolve` the artifact.  
+  
+## Types of routing rules
+
+### Accepted
+
+By default all [ordered repositories](#fn:1)[^1] will `accept` any url pattern. Therefore, this rule is only useful when it is
+used with a `deny` rule, because it will `allow` the [accepted ordered repositories](#fn:2)[^2] defined in the rule to
+be used to `resolve` the requested artifact/path.   
+
+### Denied
+
+Denied routing rules are used to `block` resolving the artifact/path from the [denied ordered repositories](#fn:3)[^3].  
+
+## Artifact Routing Rules precedence
+
+An `accepted` rule takes precedence over `denied`.  
+  
+Consider the following example:
+
+1. You have configured a pattern to `deny` the pattern `.*/org/.*` for all [ordered repositories](#fn:1)[^1] in `myGroupRepository`
+2. You have configured a pattern to `accept` the pattern `.*/org/carlspring/strongbox/.*` via `myRepository` in `myGroupRepository`
+
+In this case, if `myGroupRepository` has `myRepository` in the [ordered repositories](#fn:1)[^1], then the request `.*/org/carlspring/strongbox/.*` will be allowed.  
+  
+So, if you want to exclude some artifact (or artifacts matching some pattern), then make sure any accepted rule does not match the same pattern.
 
 ## Examples
 
@@ -65,11 +89,8 @@ Example:
 </configuration>
 ```
 
-## Artifact Routing Rules precedence
-
-Artifact Routing Rules precedence works as follows:
-
-* if the artifact path matches the denied rule -> then check the accepted rules (accepted rule may exclude denied rule)
-* if the artifact path doesn't match the denied rule -> always accept
-
-So, if you want to exclude some artifact (or artifacts matching some pattern), then make sure any accepted rule does not match the same pattern.
+[^1]: **Ordered Repositories List** - an ordered list of repositories which you configure when you add the group repository.
+[^2]: **Accepted Ordered Repositories** - an ordered list of **Accepted** repositories. If these repositories are in your Group Repository,
+      then they will be used to `resolve` the artifact.
+[^3]: **Denied Ordered Repositories** - an ordered list of **Denied** repositories. If these repositories are in your Group Repository,
+      then they will **NOT** be used to `resolve` the artifact.
