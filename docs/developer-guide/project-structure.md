@@ -7,98 +7,111 @@ All the core modules are located under the [Strongbox] project. Each of these mo
 This is a brief breakdown of the modules:
 
 * [strongbox-aql](https://github.com/strongbox/strongbox/tree/master/strongbox-aql)
-
+    This is where the [Artifact Query Language (AQL)](https://strongbox.github.io/user-guide/artifact-query-language.html) is located.
+    
 * [strongbox-client]    
     This is where the artifact client resides.
 
 * [strongbox-commons] 
-    This is where the most common code which is across other modules resides.
+    This is where the most common code that is shared across modules resides.
 
-* [strongbox-configuration](https://github.com/strongbox/strongbox/tree/master/strongbox-configuration)
+* [strongbox-configuration]
+    Contains configuration parsing related code.
 
-* [strongbox-cron](https://github.com/strongbox/strongbox/tree/master/strongbox-cron)
+* [strongbox-cron]
 
-    * [strongbox-cron-api](https://github.com/strongbox/strongbox/tree/master/strongbox-cron/strongbox-cron-api)
+    * [strongbox-cron-api]
+        Contains the Cron API code, that is required by custom cron and controller implementations.
 
-    * [strongbox-cron-tasks](https://github.com/strongbox/strongbox/tree/master/strongbox-cron/strongbox-cron-tasks)
+    * [strongbox-cron-tasks]
+        Contains the common built-in cron tasks.
 
-* [strongbox-data-service](https://github.com/strongbox/strongbox/tree/master/strongbox-data-service)
+* [strongbox-data-service]
+    Contains the base implementation of data service classes. Check the [Getting Started With Persistence](https://strongbox.github.io/developer-guide/getting-started-with-persistence.html) article for more details.
 
-* [strongbox-distribution](https://github.com/strongbox/strongbox/tree/master/strongbox-distribution)
+* [strongbox-distribution]
+    This module produces the final distribution binaries for different platforms.
 
-* [strongbox-event-api](https://github.com/strongbox/strongbox/tree/master/strongbox-event-api)
-    Contains an event API.
+* [strongbox-event-api]
+    Contains our [Event API](https://strongbox.github.io/developer-guide/using-the-event-api.html). 
 
-* [strongbox-resources](https://github.com/strongbox/strongbox/tree/master/strongbox-resources)
-    This is the place where common resources which can be used by multiple projects reside. The idea is not have to duplicate things         such as logback.xml, web.xml, keystores and so on across the other modules. These resources are copied using the maven-dependency-       plugin.
+* [strongbox-resources]
 
-    * [strongbox-common-resources](https://github.com/strongbox/strongbox/tree/master/strongbox-resources/strongbox-common-resources)
-        Contains logback.xml and keystores.
+    * [strongbox-common-resources]
+        This is the place where common resources which can be used by multiple projects reside. The idea is not have to duplicate things such as `logback*xml`, keystores and so on across the other modules. These resources are copied using the `maven-dependency-plugin`.
 
-    * [strongbox-storage-api-resources](https://github.com/strongbox/strongbox/tree/master/strongbox-resources/strongbox-storage-api-resources)
-        Contains the strongbox.xml configuration file.
+    * [strongbox-storage-api-resources]
+        Contains the `strongbox.xml` configuration file.
 
-* [strongbox-rest-client](https://github.com/strongbox/strongbox/tree/master/strongbox-rest-client)
+* [strongbox-rest-client]
     Contains the REST API client.
 
-* [strongbox-security](https://github.com/strongbox/strongbox/tree/master/strongbox-security)
+* [strongbox-security]
 
-    * [strongbox-authentication-api](https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-api)
+    * [strongbox-authentication-api]
 
-    * [strongbox-authentication-providers](https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-providers)
+    * [strongbox-authentication-providers]
 
-        * [strongbox-default-authentication-provider](https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-providers/strongbox-default-authentication-provider)
+        * [strongbox-default-authentication-provider]
 
-        * [strongbox-ldap-authentication-provider](https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-providers/strongbox-ldap-authentication-provider)
+        * [strongbox-ldap-authentication-provider]
 
-    * [strongbox-authentication-registry](https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-registry)
+    * [strongbox-authentication-registry]
 
-    * [strongbox-authentication-support](https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-support)
+    * [strongbox-authentication-support]
 
-    * [strongbox-security-api](https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-security-api)
+    * [strongbox-security-api]
         Contains various security and encryption related classes.
 
-    * [strongbox-user-management](https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-user-management)
+    * [strongbox-user-management]
 
-* [strongbox-storage](https://github.com/strongbox/strongbox/tree/master/strongbox-storage)
+* [strongbox-storage]
     Contains the code for the storage related modules.
 
-    * [strongbox-storage-api](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-api)
-        Contains the most common code for storages (Storage, Repository, *LocationResolver, etc)
+    * [strongbox-storage-api]
+        Contains the the storage API.
 
-    * [strongbox-storage-core](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-core)
+    * [strongbox-storage-core]
+        Contains the core classes for the storage API.
+        
+    * [strongbox-storage-layout-providers]
 
-    * [strongbox-storage-layout-providers](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers)
+        * [strongbox-storage-maven-layout]
 
-        * [strongbox-storage-maven-layout](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout)
+            * [strongbox-maven-metadata-api]
+                This is the implementation of the support for the `maven-metadata.xml` format.
 
-            * [strongbox-maven-metadata-api](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-maven-metadata-api)
+            * [strongbox-storage-maven-layout-provider]
+                This is the implementation of the [Maven 2 layout provider][Maven Layout Provider](https://strongbox.github.io/developer-guide/layout-providers/nuget-layout-provider.html). It depends on the [strongbox-maven-metadata-api](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-maven-metadata-api).
 
-            * [strongbox-storage-maven-layout-provider](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider)
+    * [strongbox-storage-npm-layout-provider]
+        This is the implementation of the [NPM layout provider](https://strongbox.github.io/developer-guide/layout-providers/npm-layout-provider.html). It depends on the [strongbox-npm-metadata](https://github.com/strongbox/strongbox-npm-metadata) project.
 
-    * [strongbox-storage-npm-layout-provider](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-npm-layout-provider)
+    * [strongbox-storage-nuget-layout-provider]
+        This is the implementation of the [Nuget layout provider](https://strongbox.github.io/developer-guide/layout-providers/npm-layout-provider.html).
+        
+    * [strongbox-storage-p2-layout-provider]
+        This is an incomplete early draft implementation of the P2 OSGi layout provider. This module needs a lot more work, before the P2 layout provider could be usable.
 
-    * [strongbox-storage-nuget-layout-provider](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider)
-
-    * [strongbox-storage-p2-layout-provider](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-p2-layout-provider)
-
-    * [strongbox-storage-raw-layout-provider](https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-raw-layout-provider)
-
-* [strongbox-testing](https://github.com/strongbox/strongbox/tree/master/strongbox-testing)
+    * [strongbox-storage-raw-layout-provider]
+        This is the implementation of the [Raw layout provider](https://strongbox.github.io/developer-guide/layout-providers/raw-layout-provider.html).
+        
+* [strongbox-testing]
     Contains various very useful base classes for testing.
 
-    * [strongbox-testing-core](https://github.com/strongbox/strongbox/tree/master/strongbox-testing/strongbox-testing-core)
-        Contains code for generation of valid Maven artifacts.
+    * [strongbox-testing-core]
+        Contains common testing-related code.
 
-    * [strongbox-testing-storage](https://github.com/strongbox/strongbox/tree/master/strongbox-testing/strongbox-testing-storage)
+    * [strongbox-testing-storage]
 
-    * [strongbox-testing-web](https://github.com/strongbox/strongbox/tree/master/strongbox-testing/strongbox-testing-web)
-        Contains a dummy implementation of a Jersey application. Sometimes useful for lightweight tests.
+    * [strongbox-testing-web]
+        Contains the common `restassured` configuration for controller tests.
 
-* [strongbox-web-core](https://github.com/strongbox/strongbox/tree/master/strongbox-web-core)
+* [strongbox-web-core]
     This is the web module which contains all the controllers.
 
-* [strongbox-web-forms](https://github.com/strongbox/strongbox/tree/master/strongbox-web-forms)
+* [strongbox-web-forms]
+    This is the module that contains all the web forms. You might find the [Writing Web Form Tests](https://strongbox.github.io/developer-guide/writing-web-form-tests.html) useful.
 
 ### Additional Modules
 
