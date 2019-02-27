@@ -11,3 +11,13 @@ The main benefits of using storages are:
 - A logical separation of repositories based on their type
 - A layer of strictness in terms of repository and artifact separation
 - A clearer view on the state of the repositories and dependencies
+
+## Storage Id
+
+Each storage is identified by its Id. Storage Id should be unique per strongbox instance. Storage Id may contain:
+
+- all letters from [English_alphabet](https://en.wikipedia.org/wiki/English_alphabet) (upper- and lower-case)
+- all [numerical digits](https://en.wikipedia.org/wiki/Numerical_digit)
+- 3 special characters: `-` (dash), `_` (underscore) and `.` (dot)
+
+

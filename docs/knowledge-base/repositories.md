@@ -98,7 +98,14 @@ Repository policies define the type of artifact versions which will be handled b
 
     Repositories of this kind will allow artifacts of both snapshot and release versions. 
     This is usually used for group repositories, as they might contain both snapshot and release repositories.
+    
+## Repository Id
 
+Each repository is identified by its Id and storage it belongs to. Repository Id should be unique per storage. Repository Id may contain:
+
+- all letters from [English_alphabet](https://en.wikipedia.org/wiki/English_alphabet) (upper- and lower-case)
+- all [numerical digits](https://en.wikipedia.org/wiki/Numerical_digit)
+- 3 special characters: `-` (dash), `_` (underscore) and `.` (dot)    
 
 ## See Also
 * [Artifact Routing Rules]: ../user-guide/artifact-routing-rules.md
