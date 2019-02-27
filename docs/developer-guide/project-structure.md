@@ -8,10 +8,10 @@ This is a brief breakdown of the modules:
 
 * [strongbox-aql](https://github.com/strongbox/strongbox/tree/master/strongbox-aql)
 
-* [strongbox-client]/    
+* [strongbox-client]    
     This is where the artifact client resides.
 
-* [strongbox-commons]/ 
+* [strongbox-commons] 
     This is where the most common code which is across other modules resides.
 
 * [strongbox-configuration](https://github.com/strongbox/strongbox/tree/master/strongbox-configuration)
@@ -142,6 +142,7 @@ the final binary distributions which are then made public under the [releases](h
 * [REST API](../user-guide/rest-api.md)
 
 [Strongbox]: https://github.com/strongbox/strongbox
+[strongbox-aql]: https://github.com/strongbox/strongbox/tree/master/strongbox-aql
 [Strongbox organization]: https://github.com/strongbox
 [strongbox-client]: https://github.com/strongbox/strongbox/tree/master/strongbox-client
 [strongbox-commons]: https://github.com/strongbox/strongbox/tree/master/strongbox-commons
