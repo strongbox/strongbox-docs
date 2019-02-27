@@ -15,7 +15,7 @@ repositories in which to search for artifacts matching a certain pattern.
 
 The following example specifies that:
 
-* The `third-party` repository accepts lookups for `corp.foo` artifacts.
+* The `third-party` repository accepts lookups for `com.corp.foo` artifacts.
 * The `releases` repository accepts lookups for `org.carlspring.strongbox.*`, or `org.carlspring.strongbox.*` artifacts.
 
 Example: 
