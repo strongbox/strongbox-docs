@@ -156,6 +156,13 @@ the final binary distributions which are then made public under the [releases](h
 
 [Strongbox]: https://github.com/strongbox/strongbox
 [strongbox-aql]: https://github.com/strongbox/strongbox/tree/master/strongbox-aql
+[strongbox-authentication-api]: https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-api
+[strongbox-authentication-providers]: https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-providers
+[strongbox-default-authentication-provider]: https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-providers/strongbox-default-authentication-provider
+[strongbox-ldap-authentication-provider]: https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-providers/strongbox-ldap-authentication-provider
+[strongbox-authentication-registry]: https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-registry
+[strongbox-authentication-support]: https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-support
+[strongbox-user-management]: https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-user-management
 [Strongbox organization]: https://github.com/strongbox
 [strongbox-client]: https://github.com/strongbox/strongbox/tree/master/strongbox-client
 [strongbox-commons]: https://github.com/strongbox/strongbox/tree/master/strongbox-commons
@@ -165,11 +172,11 @@ the final binary distributions which are then made public under the [releases](h
 [strongbox-parent]: https://github.com/strongbox/strongbox-parent/tree/master
 [strongbox-resources]: https://github.com/strongbox/strongbox/tree/master/strongbox-resources
 [strongbox-rest-client]: https://github.com/strongbox/strongbox/tree/master/strongbox-rest-client
+[strongbox-security]: https://github.com/strongbox/strongbox/tree/master/strongbox-security
 [strongbox-security-api]: https://github.com/strongbox/strongbox/tree/master/strongbox-security-api
 [strongbox-storage]: https://github.com/strongbox/strongbox/tree/master/strongbox-storage
 [strongbox-storage-api]: https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-api
 [strongbox-storage-api-resources]: https://github.com/strongbox/strongbox/tree/master/strongbox-resources/strongbox-storage-resources/strongbox-storage-api-resources
-[strongbox-storage-indexing]: https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-indexing
 [strongbox-storage-metadata]: https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-metadata
 [strongbox-storage-resources]: https://github.com/strongbox/strongbox/tree/master/strongbox-resources/strongbox-storage-resources
 [strongbox-testing]: https://github.com/strongbox/strongbox/tree/master/strongbox-testing
