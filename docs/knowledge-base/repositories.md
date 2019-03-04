@@ -101,10 +101,10 @@ Repository policies define the type of artifact versions which will be handled b
     
 ## Repository Id
 
-Each repository is identified by its Id and storage it belongs to. Repository Id should be unique per storage. Repository Id may contain:
+Each repository is identified by its Id and the storage that it belongs to. The repository's Id should be unique per storage and it may contain:
 
-- all letters from [English_alphabet](https://en.wikipedia.org/wiki/English_alphabet) (upper- and lower-case)
-- all [numerical digits](https://en.wikipedia.org/wiki/Numerical_digit)
+- All letters from the [English_alphabet](https://en.wikipedia.org/wiki/English_alphabet) (upper and lowercase)
+- All [numerical digits](https://en.wikipedia.org/wiki/Numerical_digit)
 - 3 special characters: `-` (dash), `_` (underscore) and `.` (dot)    
 
 ## See Also
