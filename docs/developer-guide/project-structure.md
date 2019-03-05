@@ -47,6 +47,7 @@ This is a brief breakdown of the modules:
     Contains the REST API client.
 
 * [strongbox-security](https://github.com/strongbox/strongbox/tree/master/strongbox-security)  
+    Contain all necessary modules of the Strongbox.Follow the [link](https://github.com/strongbox/strongbox/tree/master/strongbox-security) to see all the security moducle files. 
 
     * [strongbox-authentication-api](https://github.com/strongbox/strongbox/tree/master/strongbox-security/strongbox-authentication-api)  
 
