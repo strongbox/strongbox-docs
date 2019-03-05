@@ -44,7 +44,7 @@ to grow quite quickly and thus makes them gradually slower.
     Group repositories allow you to:
     
     * Define the ordering of the repositories they serve
-    * Define [routing rules](https://github.com/strongbox/strongbox/wiki/Artifact-Routing-Rules) (TODO: fix link)
+    * Define [artifact routing rules][artifact-routing-rules]
 
 ??? info "Virtual"
 
@@ -60,7 +60,7 @@ Layouts is what different types of repositories are called (i.e. Maven layout re
 ??? success "Maven 2.x / 3.x"
 
     Maven 2.x/3.x repositories are fully supported. We support hosted, proxy and group repositories. 
-    You can check [here](https://github.com/strongbox/strongbox/wiki/Integrating-build-tools-with-Strongbox) and [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-maven) for an example quick start project.
+    You can check [here][integrating-build-tools] and [here][hello-maven] for an example quick start project.
     
     (TODO: fix link)
 
@@ -74,7 +74,7 @@ Layouts is what different types of repositories are called (i.e. Maven layout re
 ??? success "Nuget"
 
     We support Nuget (protocol v2) for hosted, proxy and group repositories.  
-    You can check [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget) for an example quick start project.
+    You can check [here][hello-nuget] for an example quick start project.
 
 ??? success "Raw"
 
@@ -98,8 +98,21 @@ Repository policies define the type of artifact versions which will be handled b
 
     Repositories of this kind will allow artifacts of both snapshot and release versions. 
     This is usually used for group repositories, as they might contain both snapshot and release repositories.
+    
+## The `repositoryId`
 
+Each repository is identified by its Id and the storage that it belongs to. The repository's Id should be unique per storage and it may contain:
+
+- All letters from the [English_alphabet](https://en.wikipedia.org/wiki/English_alphabet) (upper and lowercase)
+- All [numerical digits](https://en.wikipedia.org/wiki/Numerical_digit)
+- 3 special characters: `-` (dash), `_` (underscore) and `.` (dot)    
 
 ## See Also
-* [Artifact Routing Rules]: ../user-guide/artifact-routing-rules.md
+* [Artifact Routing Rules][artifact-routing-rules]
 * [Maven: Introduction to Repositories](http://maven.apache.org/guides/introduction/introduction-to-repositories.html)
+
+
+[artifact-routing-rules]: ../user-guide/artifact-routing-rules.md
+[integrating-build-tools]: https://github.com/strongbox/strongbox-docs/blob/master/wiki/integrating-build-tools-with-strongbox.md
+[hello-maven]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-maven
+[hello-nuget]: (https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget
