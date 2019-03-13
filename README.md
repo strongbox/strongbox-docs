@@ -21,7 +21,7 @@ If you prefer going the `docker-compose` way:
 
 If you prefer plain `docker`:
 
-`docker run -it --rm -v ./:/docs -p 8000:8000 squidfunk/mkdocs-material mkdocs serve`
+`docker run -it --rm -v ./:/docs -p 8000:8000 strongboxci/alpine:mkdocs-4.0 mkdocs serve`
 
 # Building 
 
@@ -29,7 +29,7 @@ Execute one of these (depending on your local setup):
 
 1. `mkdocs build`
 2. `docker-compose up mkdocs mkdocs build`
-3. `docker run -it --rm -v ./:/docs -p 8000:8000 squidfunk/mkdocs-material mkdocs build`
+3. `docker run -it --rm -v ./:/docs -p 8000:8000 strongboxci/alpine:mkdocs-4.0 mkdocs build`
 
 # Guidelines for contributors
 
@@ -41,10 +41,14 @@ Execute one of these (depending on your local setup):
   on which link you need.
 * The first line of the page should be `# Page Title` - this helps in the indexing and search afterwards.
 
+# Pull Requests
+
+Shortly after you open a pull request, a hook will trigger live preview deployiment to netlify.com. You will be able to check your PR live at the link `deploy/netlify` provides in github's PR checks section.
+
 # Structure
 
 We have divided the documentation into 3 sections:
 
-1. User guide - pages with instructions for how to use Strongbox as a normal "user".
-2. Developer guide - pages with instructions for developers who are interested in contributing.
-3. Knowledge base - pages which explain some of our concepts as well as other important information.
+1. `User guide` - pages with instructions for how to use Strongbox as a normal "user".
+2. `Developer guide` - pages with instructions for developers who are interested in contributing.
+3. `Knowledge base` - pages which explain some of our concepts as well as other important information.
