@@ -10,11 +10,6 @@ When you download and extract `strongbox-distribution.tar.gz` you will find the 
         * security-authentication.xml (TODO: fix link; update after SB-1285)
         * security-authorization.xml (TODO: fix link; update after SB-1285)
         * [strongbox-security-users.xml](https://github.com/strongbox/strongbox/wiki/The-strongbox%E2%80%90security%E2%80%90users.xml-File) (TODO: fix link; SB-1285)
-    * `jetty/`
-        * `jetty.xml`
-        * `jetty-http.xml`
-        * `jetty-https.xml`
-        * `jetty-ssl.xml`
     * `ssl/`
         * `keystores.jks`
         * `localhost-client.cer`
