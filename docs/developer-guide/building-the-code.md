@@ -12,7 +12,6 @@ mvn clean install
 
 If (and only if) this does not work out of the box, then you might have to build and install the following projects 
 using `mvn clean install` in the order they are listed below:
-
 1. [unboundid-maven-plugin](https://github.com/carlspring/unboundid-maven-plugin)
 2. [little-proxy-maven-plugin](https://github.com/carlspring/little-proxy-maven-plugin)
 3. [maven-commons](https://github.com/carlspring/maven-commons/)
