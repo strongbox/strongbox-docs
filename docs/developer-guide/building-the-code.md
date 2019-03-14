@@ -78,7 +78,7 @@ The reason for this failure is that OrientDB can't start, if another OrientDB pr
 If you hit an error like:
 
 ```
-    error: unable to create file strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-maven-    metadata-api/src/main/java/org/carlspring/strongbox/storage/metadata/comparators/MetadataVersionComparator.java: Filename too long
+error: unable to create file strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-maven-metadata-api/src/main/java/org/carlspring/strongbox/storage/metadata/comparators/MetadataVersionComparator.java: Filename too long
 ```
 
 You will need to execute the following command:
