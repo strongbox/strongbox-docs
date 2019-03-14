@@ -37,6 +37,7 @@ To execute a particular tests, run:
 
 To execute a test method of a test, run:
 
+
     mvn clean install -Dtest=MyTest#testMyMethod
 
 ### Executing the tests in remote debug mode
@@ -72,6 +73,17 @@ Then please make sure that:
 * You don't have any other test in progress (e.g. halted by debugger process)
 
 The reason for this failure is that OrientDB can't start, if another OrientDB process is running an listening on the same port.
+
+### Filename too long
+
+If you see something like this:
+
+    error: unable to create file strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-maven-    metadata-api/src/main/java/org/carlspring/strongbox/storage/metadata/comparators/MetadataVersionComparator.java: Filename too long
+
+Then Open the Github Powershell or cmd.exe (you need to have git as an environment variable) and execute the following command :
+```git config --system core.longpaths true```
+
+The change should be executed immediately and you can procceed with the build.
 
 ## Spring Boot
 
