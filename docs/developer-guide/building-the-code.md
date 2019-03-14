@@ -73,16 +73,21 @@ Then please make sure that:
 
 The reason for this failure is that OrientDB can't start, if another OrientDB process is running an listening on the same port.
 
-### Filename too long
+### Filename too long (Windows 7 and 10)
 
-If you see something like this:
+If you hit an error like:
 
+```
     error: unable to create file strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-maven-    metadata-api/src/main/java/org/carlspring/strongbox/storage/metadata/comparators/MetadataVersionComparator.java: Filename too long
+```
 
-Then Open the Github Powershell or cmd.exe (you need to have git as an environment variable) and execute the following command :
-```git config --system core.longpaths true```
+You will need to execute the following command:
 
-The change should be executed immediately and you can procceed with the build.
+```
+git config --system core.longpaths true
+```
+
+At this point, you should be able to `git clone` the project properly under Windows and procceed with the build.
 
 ## Spring Boot
 
