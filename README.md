@@ -40,6 +40,18 @@ Execute one of these (depending on your local setup):
 * Use `{{resource}}/path/to/asset` when linking to the resource. You can also use `{{url}}` and ``{{assets}}`` depending
   on which link you need.
 * The first line of the page should be `# Page Title` - this helps in the indexing and search afterwards.
+* Please avoid using `inline links` and use `reference links` instead as it makes maintenance easier.  
+  Avoid this example:  
+  ```
+  [I'm an inline-style link pointing to Strongbox](https://github.com/strongbox/strongbox) and here is some text in addition so that I can then add again the same link [I'm an inline-style link pointing to Strongbox](https://github.com/strongbox/strongbox)
+  ```
+  Prefered example:
+  ```
+  [I'm a reference link to Strongbox] and here is some text in addition so that I can then add again the same link [I'm a reference link to Strongbox], we can have this link repeating forever in the document and easily change it by just changing it from where reference is. ([I'm a reference link to Strongbox] just for fun.)  
+  // insert somewhere at the bottom of the page 
+  [I'm a reference link to Strongbox]: https://github.com/strongbox/strongbox
+  ```
+
 
 # Pull Requests
 
