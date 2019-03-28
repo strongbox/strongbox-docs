@@ -33,7 +33,7 @@ tar -zxf /path/to/strongbox-distribution*.tar.gz \
 # and load that instead.
 
 sudo curl -o /etc/systemd/system/strongbox.service \
-     https://strongbox.github.io/assets/resources/systemd/strongbox.service 
+     {{resources}}/systemd/strongbox.service 
 sudo systemctl deamon-reload
 sudo service strongbox start
 
@@ -78,7 +78,7 @@ tar -zxf /path/to/strongbox-distribution*.tar.gz \
 # in the plist file where necessary.
 # (This file must be owned by root.)
 sudo curl -o /Library/LaunchDaemons/strongbox.plist \
-     https://strongbox.github.io/assets/resources/launchctl/strongbox.plist
+     {{resources}}/launchctl/strongbox.plist
 
 # This will validate that launchd can load the file and start the service.
 sudo launchctl load /opt/strongbox/etc/strongbox.plist
