@@ -77,9 +77,10 @@ tar -zxf /path/to/strongbox-distribution*.tar.gz \
 # plist file. If you've customized the installation, edit the details
 # in the plist file where necessary.
 # (This file must be owned by root.)
-sudo curl -o /opt/strongbox/etc/strongbox.plist \
+sudo curl -o /Library/LaunchDaemons/strongbox.plist \
      https://strongbox.github.io/assets/resources/launchctl/strongbox.plist
 
+# This will validate that launchd can load the file and start the service.
 sudo launchctl load /opt/strongbox/etc/strongbox.plist
 
 # Strongbox will now start on boot.
