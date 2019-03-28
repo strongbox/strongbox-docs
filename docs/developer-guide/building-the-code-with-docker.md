@@ -35,6 +35,42 @@ Most of the tests we run in our CI are using [strongboxci/alpine]. Please note t
 with `maven` pre-installed and configured with our `settings.xml` file. You don't need to do anything other than
 just start the container and build your code.
 
+## Possible permission issues (Linux)
+
+It is important to mention that our docker images are running under the user `jenkins` which has `user_id=1000` and 
+`group_id=1000`. This is usually the very first user on many distributions and in general should "work".  
+  
+Please check your `user/group id` by executing `id`. If you see something like the output below - you shouldn't have problems:
+
+```
+uid=1000(your-username) gid=1000(your-username) groups=1000(your-username)
+```
+  
+If you see another `uid/gid` you will likely hit a permission issue. Unfortunately [docker/compose#3328][issue-3328], 
+[docker/compose#4700][issue-4700] and [docker/cli#1318][issue-1318] are preventing `docker-compose` from being able to 
+automatically fix the group id. There are two workarounds which you can apply for things to work as expected:
+
+1. Instead of using `docker-compose`, you can use plain `docker` and pass ```--group-add `id -g` ``` to the arguments. 
+   This will add your local group id in the docker container and you will be able to work as usual, however it will 
+   require typing the `docker run` command every time. Example command:  
+   ```
+   docker run -it --rm --group-add `id -g` -v /path/to/strongbox-project:/workspace strongboxci/alpine:jdk8-mvn-3.5
+   ```
+
+2. You can create a user with `uid=1000` and `gid=1000` and then fix the permissions of the folders:
+    * Create the user/group
+     ```
+      groupadd -g 1000 jenkins
+      useradd -u 1000 -g 1000 -s /bin/bash -m jenkins
+     ```
+    * Fix the permissions
+     ```
+     chown -R `id -u`.1001 /path/to/strongbox-project ~/.m2/repository
+     chmod -R 775 /path/to/strongbox-project ~/.m2/repository
+     ```  
+    * You can now proceed with running `docker-compose up` as usual and it should work.
+  
+
 ## Run strongbox
 
 You just want to start a Strongbox instance from sources? We've got you covered:
@@ -146,3 +182,7 @@ Have fun building things in docker :smile:
 [strongboxci/debian]: https://hub.docker.com/r/strongboxci/debian/tags
 [strongboxci/opensuse]: https://hub.docker.com/r/strongboxci/opensuse/tags
 [strongboxci/ubuntu]: https://hub.docker.com/r/strongboxci/ubuntu/tags
+
+[issue-1318]: https://github.com/docker/cli/issues/1318
+[issue-3328]: https://github.com/docker/compose/issues/3328
+[issue-4700]: https://github.com/docker/compose/issues/4700#issuecomment-416714975
