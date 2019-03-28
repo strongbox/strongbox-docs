@@ -12,7 +12,6 @@ mvn clean install
 
 If (and only if) this does not work out of the box, then you might have to build and install the following projects 
 using `mvn clean install` in the order they are listed below:
-
 1. [unboundid-maven-plugin](https://github.com/carlspring/unboundid-maven-plugin)
 2. [little-proxy-maven-plugin](https://github.com/carlspring/little-proxy-maven-plugin)
 3. [maven-commons](https://github.com/carlspring/maven-commons/)
@@ -36,6 +35,7 @@ To execute a particular tests, run:
     mvn clean install -Dtest=MyTest
 
 To execute a test method of a test, run:
+
 
     mvn clean install -Dtest=MyTest#testMyMethod
 
@@ -72,6 +72,22 @@ Then please make sure that:
 * You don't have any other test in progress (e.g. halted by debugger process)
 
 The reason for this failure is that OrientDB can't start, if another OrientDB process is running an listening on the same port.
+
+### Filename too long (Windows 7 and 10)
+
+If you hit an error like:
+
+```
+error: unable to create file strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-maven-metadata-api/src/main/java/org/carlspring/strongbox/storage/metadata/comparators/MetadataVersionComparator.java: Filename too long
+```
+
+You will need to execute the following command:
+
+```
+git config --system core.longpaths true
+```
+
+At this point, you should be able to `git clone` the project properly under Windows and procceed with the build.
 
 ## Spring Boot
 
