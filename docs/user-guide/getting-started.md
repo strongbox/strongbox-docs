@@ -56,6 +56,36 @@ c:\java\strongbox> bin\strongbox.bat start
 
 ```
 
+```MacOS linenums="1" tab=
+# Open a terminal
+
+sudo su
+sysadminctl -addUser strongbox
+mkdir -p /opt/{strongbox,strongbox-vault}
+chown -R strongbox:staff /opt/{strongbox,strongbox-vault}
+chmod -R 770 /opt/{strongbox,strongbox-vault}
+su strongbox
+tar -zxf /path/to/strongbox-distribution*.tar.gz \
+    -C /opt/strongbox \ 
+    --strip-components=2
+
+# If you just want to start Strongbox without installing the launchctl service:
+
+/opt/strongbox/bin/strongbox console
+
+# If you want to install Strongbox as a LaunchDaemon then download the 
+# plist file. If you've customized the installation, edit the details
+# in the plist file where necessary.
+# (This file must be owned by root.)
+sudo curl -o /opt/strongbox/etc/strongbox.plist \
+     https://strongbox.github.io/assets/resources/launchctl/strongbox.plist
+
+sudo launchctl load /opt/strongbox/etc/strongbox.plist
+
+# Strongbox will now start on boot.
+
+```
+
 ```Docker linenums="1" tab=
 
 Currently unavailable due to our heavy development.
@@ -66,6 +96,3 @@ use `docker-compose up` instead.
 ```
 
 
-!!! info "Help wanted!"
-
-    We would like to add instructions for MacOS. If you're interested in giving us a hand, please have a look at <a href="https://github.com/strongbox/strongbox/issues/1008">strongbox/strongbox#1008</a>
