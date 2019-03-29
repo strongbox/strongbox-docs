@@ -44,6 +44,7 @@ for hosting your (binary) artifacts, regardless or your repository layout.
     * [ ] Composer ([contributors, check here](https://github.com/strongbox/strongbox/issues/872))
     * [ ] Docker ([contributors, check here](https://github.com/strongbox/strongbox/issues/817))
     * [ ] DEB ([contributors, check here](https://github.com/strongbox/strongbox/issues/861))
+    * [ ] Gems ([contributors, check here](https://github.com/strongbox/strongbox/issues/829))
     * [ ] PyPi ([contributors, check here](https://github.com/strongbox/strongbox/issues/807))
     * [ ] RPM ([contributors, check here](https://github.com/strongbox/strongbox/issues/845))
     * [ ] Yum ([contributors check here](https://github.com/strongbox/strongbox/issues/993))
