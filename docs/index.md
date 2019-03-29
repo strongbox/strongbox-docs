@@ -42,7 +42,7 @@ for hosting your (binary) artifacts, regardless or your repository layout.
     * [x] [NuGet v2](./developer-guide/layout-providers/nuget-layout-provider.md)
     * [x] [Raw](./developer-guide/layout-providers/raw-layout-provider.md)
     * [ ] Composer ([contributors, check here](https://github.com/strongbox/strongbox/issues/872))
-    * [ ] Docker ([contributors check here](https://github.com/strongbox/strongbox/issues/817))
+    * [ ] Docker ([contributors, check here](https://github.com/strongbox/strongbox/issues/817))
     * [ ] DEB ([contributors, check here](https://github.com/strongbox/strongbox/issues/861))
     * [ ] PyPi ([contributors, check here](https://github.com/strongbox/strongbox/issues/807))
     * [ ] RPM ([contributors, check here](https://github.com/strongbox/strongbox/issues/845))
