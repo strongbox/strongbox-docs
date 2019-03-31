@@ -67,6 +67,11 @@ nav:
   - License: license.md
   - User guide:
     - Getting started: user-guide/getting-started.md
+    - Configuration Files:
+      - The strongbox.yaml file: user-guide/configuration-files/strongbox-yaml.md
+      - The strongbox-authorization.yaml file: user-guide/configuration-files/strongbox-authorization-yaml.md
+      - The strongbox-cron-tasks.yaml file: user-guide/configuration-files/strongbox-cron-tasks-yaml.md
+      - The strongbox-security-users.yaml file: user-guide/configuration-files/strongbox-security-users-yaml.md
     - Application properties: user-guide/application-properties.md
     - Directory structure: user-guide/directory-structure.md
     - Upgrading: user-guide/upgrading.md
