@@ -1,3 +1,4 @@
+# Logging
 
 The logging in the application is set up using:
 

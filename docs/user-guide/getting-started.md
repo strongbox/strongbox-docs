@@ -1,3 +1,5 @@
+# Getting started (User)
+
 ## Pre-requisites
 
 * OpenJDK 1.8

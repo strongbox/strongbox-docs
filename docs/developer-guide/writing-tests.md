@@ -1,3 +1,5 @@
+# Writing tests
+
 ## Basic rules
 
 * Use [JUnit 5] as testing framework (both unit and integration tests).

@@ -1,3 +1,5 @@
+# Application Properties
+
 The following is a list of configuration properties, which can be used to customize your installation.
 
 <div class="env" markdown="1">

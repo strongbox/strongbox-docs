@@ -1,4 +1,4 @@
-# Maven
+# Maven Artifact Coordinate Validators
 
 The following are a list of Maven-specific artifact coordinate validators.
 

@@ -1,3 +1,5 @@
+# Artifact Coordinates
+
 ## Introduction
 
 Artifact coordinates are an abstraction which allows you to identify an artifact (regardless of the type of artifact -- Maven, Ant, Nuget, RPM, etc).
