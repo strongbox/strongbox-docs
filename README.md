@@ -4,15 +4,17 @@
 
 **OR**
 
-* python
+* python3
 * pip
 * mkdocs-material (it should install mkdocs automatically)
+* mkdocs-markdownextradata-plugin 
+* mkdocs-git-revision-date-plugin
 
 # Getting started
 
 If you prefer to go with locally installed `python` and `pip`, then:
 
-1. `pip install mkdocs-material`
+1. `pip install -r requirements.txt`
 2. `mkdocs serve` (binds to `http://localhost:8000`)
 
 If you prefer going the `docker-compose` way:
