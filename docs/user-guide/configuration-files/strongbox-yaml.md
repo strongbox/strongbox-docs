@@ -104,7 +104,7 @@ The following is an example of a `strongbox.yaml` configuration file:
               layout: Maven 2
               type: proxy
               remoteRepository:
-                url: http://dev.carlspring.org/nexus/content/groups/carlspring
+                url: https://repo.carlspring.org/content/groups/carlspring
                 downloadRemoteIndexes: true
                 autoBlocking: true
                 checksumValidation: true
