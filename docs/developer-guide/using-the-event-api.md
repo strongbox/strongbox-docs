@@ -1,3 +1,5 @@
+# Using the event api
+
 ## Introduction
 
 The code for the events API is located under the [strongbox-event-api] module.

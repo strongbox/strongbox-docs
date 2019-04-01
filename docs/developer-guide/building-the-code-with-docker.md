@@ -1,3 +1,5 @@
+# Building the code with Docker
+
 ## Introduction
 
 Docker is awesome and we are using it to build and test almost everything. 

@@ -1,4 +1,6 @@
-# General
+# Repositories
+
+## General
 
 Similarly to sources and version control, artifact repositories are a place to store the compiled code. 
 This reduces build times, as storing binaries in a central place removes the need to constantly recompile them. 

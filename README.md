@@ -34,12 +34,12 @@ Execute one of these (depending on your local setup):
 # Guidelines for contributors
 
 * When adding new pages it is preferable to have the filename with lowercase characters.
-* Avoid using `h1` (i.e `# my header`) at places other than the page title. Also, note that having multiple `h1` 
+* The first line of the page should be `# Page Title` - this helps in the indexing and search afterwards.
+* Avoid using `h1` (i.e `# my header`) at places other than the page title. Having multiple `h1` 
   confuses the `Table of contents` section so please avoid that as well.
 * If you are adding a `resource` like `PDF`, `image`, `XML` file, it should be placed under `./docs/assets/resources/`.
 * Use `{{resource}}/path/to/asset` when linking to the resource. You can also use `{{url}}` and ``{{assets}}`` depending
   on which link you need.
-* The first line of the page should be `# Page Title` - this helps in the indexing and search afterwards.
 * Please avoid using `inline links` and use `reference links` instead as it makes maintenance easier.  
   Avoid this example:  
   ```

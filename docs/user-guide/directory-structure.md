@@ -1,3 +1,5 @@
+# Directory Structure
+
 ## Strongbox Distribution
 
 When you download and extract `strongbox-distribution.tar.gz` you will find the following directory structure:
