@@ -50,10 +50,11 @@ If a popup `Discover m2e connectors` appears - click `Resolve All Later` and `Fi
         ![strongbox-aql -> Properties -> Java Build Path -> Add Library -> Groovy Runtime Libraries][AQL groovy project nature]
     * `Project Natures -> Add -> Groovy Nature`
         ![strongbox-aql -> Properties -> Project Natures -> Add -> Confirm Project Nature update -> Groovy Nature][AQL groovy libraries in Build Path]
-* Build the project through command line `mvn clean install` (append `-DskipTests` optionally if tests are not necessary at this point)
-* Select all eclipse projects, Right click -> Refresh 
-* Select `strongbox-masterbuild` project, Right click -> Maven -> Update Project
-    ![strongbox-masterbuild -> Maven -> Update Project][masterbuild maven update]
+
+### Trigger maven update for `strongbox-masterbuild`
+Select `strongbox-masterbuild` project, Right click -> Maven -> Update Project
+
+![strongbox-masterbuild -> Maven -> Update Project][masterbuild maven update]
 
 [Building / Building the code / Building strongbox]: ../developer-guide/building-the-code.html#building-strongbox
 [Hide Welcome]: {{assets}}/screenshots/09-eclipse-hide-welcome.png "Hide Welcome"
