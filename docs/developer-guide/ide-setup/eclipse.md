@@ -59,7 +59,7 @@ If a popup `Discover m2e connectors` appears - click `Resolve All Later` and `Fi
 [Hide Welcome]: {{assets}}/screenshots/09-eclipse-hide-welcome.png "Hide Welcome"
 [Import Maven Project]: {{assets}}/screenshots/10-eclipse-import-maven-project.png "Import Maven Project"
 [Discover m2e connectors]: {{assets}}/screenshots/11-eclipse-discover-m2e-connectors.png "Discover m2e connectors"
-[Ignore m2e mapping errors epf]: {{resources}}/eclipse/eclipse-ignore-m2e-connector-errors.epf
+[Ignore m2e mapping errors epf]: {{resources}}/ide/eclipse/eclipse-ignore-m2e-connector-errors.epf
 [Ignore m2e mapping errors]: {{assets}}/screenshots/12-eclipse-ignore-m2e-mapping-errors.png "Ignore m2e lifecycle errors"
 [ANTLR4 Eclipse plugin]: https://github.com/antlr4ide/antlr4ide#eclipse-installation
 [parent pom]: https://github.com/strongbox/strongbox-parent/blob/master/pom.xml
