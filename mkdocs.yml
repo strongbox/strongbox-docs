@@ -93,7 +93,7 @@ nav:
       - Events API: developer-guide/using-the-event-api.md
       - Layout providers:
           - Writing a layout provider: developer-guide/layout-providers/how-to-implement-your-own-repository-format.md
-          - Build-in providers:
+          - Implemented providers:
               - Maven Layout Provider: developer-guide/layout-providers/maven-2-layout-provider.md
               - NPM Layout Provider: developer-guide/layout-providers/npm-layout-provider.md
               - NuGet Layout Provider: developer-guide/layout-providers/nuget-layout-provider.md
