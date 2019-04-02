@@ -28,11 +28,6 @@ plugins:
 
 extra:
   url: &url !!python/object/apply:os.getenv ["DEPLOY_URL", "http://localhost:8000"]
-  _url_path: &_url_path !!python/object/apply:urllib.parse.urljoin [*url, "./"]
-  assets: &assets !!python/object/apply:urllib.parse.urljoin [*_url_path, "assets"]
-  _assets_path: &_assets_path !!python/object/apply:urllib.parse.urljoin [*_url_path, "assets/"]
-extra:
-  url: &url !!python/object/apply:os.getenv ["DEPLOY_URL", "http://localhost:8000"]
   assets: !!python/object/apply:urllib.parse.urljoin [*url, "/assets"]
   resources: !!python/object/apply:urllib.parse.urljoin [*url, "/assets/resources"]
 

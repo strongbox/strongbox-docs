@@ -42,6 +42,7 @@ Execute one of these (depending on your local setup):
 * If you are adding a `resource` like `PDF`, `image`, `XML` file, it should be placed under `./docs/assets/resources/`.
 * Use `{{resource}}/path/to/asset` when linking to the resource. You can also use `{{url}}` and ``{{assets}}`` depending
   on which link you need.
+* An exception is when linking to internal docs. Just use relative URLs to the markdown file. Mkdocs will take care to build the links. Follow [this guide][mkdocs internal-links].
 * Please avoid using `inline links` and use `reference links` instead as it makes maintenance easier.  
   Avoid this example:  
   ```
@@ -66,3 +67,5 @@ We have divided the documentation into 3 sections:
 1. `User guide` - pages with instructions for how to use Strongbox as a normal "user".
 2. `Developer guide` - pages with instructions for developers who are interested in contributing.
 3. `Knowledge base` - pages which explain some of our concepts as well as other important information.
+
+[mkdocs internal-links]: https://www.mkdocs.org/user-guide/writing-your-docs/#internal-links

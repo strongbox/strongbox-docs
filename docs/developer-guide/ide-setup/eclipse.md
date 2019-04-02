@@ -1,8 +1,8 @@
 # Eclipse
 
-!!! tip "Before continuing, please make sure you've built the code using [Building / Building the code / Building strongbox] section."
+!!! tip "Before continuing, please make sure you've built the code using [Building the code] section."
 
-## Choose eclipse distribution
+## Choose Eclipse distribution
 The `Eclipse IDE for Java Developers` package is a sufficient base for strongbox project development.
 
 ## Install ANTLR4 IDE plugin
@@ -12,12 +12,12 @@ Follow ANTLR4 Eclipse plugin installation guide `Prerequisites` and `Installatio
 ![Window -> Preferences -> ANTLR 4 -> Tool | Add | Apply and Close][ANTLR 4 tool]
 
 ## Install Groovy-Eclipse M2E Integration 
-Install from your eclpise distro update site [here][Groovy-Eclipse M2E]. Necessary dependencies will be automatically selected.
+Install from your Eclipse distro update site [here][Groovy-Eclipse M2E]. Necessary dependencies will be automatically selected.
 
-## Set up eclipse workspace
+## Set up Eclipse workspace
 
 ### Create empty workspace
-You should create an empty workspace - this is the default behavior when you first start eclipse. Just make sure you untick the "Always show Welcome at start up" checkbox before closing the welcome screen to see the usual perspective on startup.
+You should create an empty workspace - this is the default behavior when you first start Eclipse. Just make sure you untick the "Always show Welcome at start up" checkbox before closing the Welcome screen to see the usual perspective on startup.
 ![Welcome X | V Always show Welcome at start up][Hide Welcome]
 
 ### Import Maven project
@@ -27,7 +27,7 @@ You should create an empty workspace - this is the default behavior when you fir
 ![Import -> Existing Maven Project -> Finish][Import Maven Project]
 
 ### Workaround m2e connectors
-If a popup `Discover m2e connectors` appears - click `Resolve All Later` and `Finish`. Issues with m2e connectors are known and we workaround this through maven command line build:
+If a popup `Discover m2e connectors` appears - click `Resolve All Later` and `Finish`. Issues with m2e connectors are known and we workaround this through [Maven command line build][Building the code].
 
 ![Discover m2e connectors | Resolve All Later | Finish][Discover m2e connectors]
     
@@ -51,23 +51,23 @@ If a popup `Discover m2e connectors` appears - click `Resolve All Later` and `Fi
     * `Project Natures -> Add -> Groovy Nature`
         ![strongbox-aql -> Properties -> Project Natures -> Add -> Confirm Project Nature update -> Groovy Nature][AQL groovy libraries in Build Path]
 
-### Trigger maven update for `strongbox-masterbuild`
+### Trigger Maven update for `strongbox-masterbuild`
 Select `strongbox-masterbuild` project, Right click -> Maven -> Update Project
 
-![strongbox-masterbuild -> Maven -> Update Project][masterbuild maven update]
+![strongbox-masterbuild -> Maven -> Update Project][masterbuild Maven update]
 
-[Building / Building the code / Building strongbox]: ../developer-guide/building-the-code.html#building-strongbox
-[Hide Welcome]: {{assets}}/screenshots/09-eclipse-hide-welcome.png "Hide Welcome"
-[Import Maven Project]: {{assets}}/screenshots/10-eclipse-import-maven-project.png "Import Maven Project"
-[Discover m2e connectors]: {{assets}}/screenshots/11-eclipse-discover-m2e-connectors.png "Discover m2e connectors"
+[Building the code]: ../building-the-code.md#building-strongbox
+[Hide Welcome]: {{assets}}/screenshots/ide/eclipse-setup/09-eclipse-hide-welcome.png "Hide Welcome"
+[Import Maven Project]: {{assets}}/screenshots/ide/eclipse-setup/10-eclipse-import-maven-project.png "Import Maven Project"
+[Discover m2e connectors]: {{assets}}/screenshots/ide/eclipse-setup/11-eclipse-discover-m2e-connectors.png "Discover m2e connectors"
 [Ignore m2e mapping errors epf]: {{resources}}/ide/eclipse/eclipse-ignore-m2e-connector-errors.epf
-[Ignore m2e mapping errors]: {{assets}}/screenshots/12-eclipse-ignore-m2e-mapping-errors.png "Ignore m2e lifecycle errors"
+[Ignore m2e mapping errors]: {{assets}}/screenshots/ide/eclipse-setup/12-eclipse-ignore-m2e-mapping-errors.png "Ignore m2e lifecycle errors"
 [ANTLR4 Eclipse plugin]: https://github.com/antlr4ide/antlr4ide#eclipse-installation
 [parent pom]: https://github.com/strongbox/strongbox-parent/blob/master/pom.xml
 [Groovy-Eclipse M2E]: https://github.com/groovy/groovy-eclipse/wiki#releases
-[ANTLR 4 tool]: {{assets}}/screenshots/13-eclipse-antlr-tool.png "ANTLR 4 tool"
-[Nuget ANTLR Build Path]: {{assets}}/screenshots/14-eclipse-nuget-antlr-to-build-path.png "Nuget ANTLR Build Path"
-[AQL groovy and twig Build Path]: {{assets}}/screenshots/15-eclipse-aql-groovy-twig-to-build-path.png "AQL groovy and twig Build Path"
-[AQL groovy libraries in Build Path]: {{assets}}/screenshots/16-eclipse-aql-groovy-libraries.png "AQL groovy libraries in Build Path"
-[AQL groovy project nature]: {{assets}}/screenshots/17-eclipse-aql-groovy-nature.png "AQL groovy project nature"
-[masterbuild maven update]: {{assets}}/screenshots/18-eclipse-masterbuild-maven-update.png "masterbuild maven update"
+[ANTLR 4 tool]: {{assets}}/screenshots/ide/eclipse-setup/13-eclipse-antlr-tool.png "ANTLR 4 tool"
+[Nuget ANTLR Build Path]: {{assets}}/screenshots/ide/eclipse-setup/14-eclipse-nuget-antlr-to-build-path.png "Nuget ANTLR Build Path"
+[AQL groovy and twig Build Path]: {{assets}}/screenshots/ide/eclipse-setup/15-eclipse-aql-groovy-twig-to-build-path.png "AQL groovy and twig Build Path"
+[AQL groovy libraries in Build Path]: {{assets}}/screenshots/ide/eclipse-setup/16-eclipse-aql-groovy-libraries.png "AQL groovy libraries in Build Path"
+[AQL groovy project nature]: {{assets}}/screenshots/ide/eclipse-setup/17-eclipse-aql-groovy-nature.png "AQL groovy project nature"
+[masterbuild Maven update]: {{assets}}/screenshots/ide/eclipse-setup/18-eclipse-masterbuild-maven-update.png "masterbuild Maven update"
