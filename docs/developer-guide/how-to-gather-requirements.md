@@ -76,4 +76,4 @@ This is a short list of things to keep in mind when gathering requirements, so t
 
     * It will also help you not waste time to figure out that three line script you knocked up yesterday that you used to check some data.
 
-
+Here are some example tasks that follow these principles: [#1056](https://github.com/strongbox/strongbox/pull/1056), [#1130](https://github.com/strongbox/strongbox/issues/1130), [#1165](https://github.com/strongbox/strongbox/issues/1165).
