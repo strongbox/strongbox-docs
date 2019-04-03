@@ -28,8 +28,8 @@ plugins:
 
 extra:
   url: &url !!python/object/apply:os.getenv ["DEPLOY_URL", "http://localhost:8000"]
-  assets: &assets !!python/object/apply:os.path.join [*url, "assets"]
-  resources: !!python/object/apply:os.path.join [*assets, "resources"]
+  assets: !!python/object/apply:urllib.parse.urljoin [*url, "/assets"]
+  resources: !!python/object/apply:urllib.parse.urljoin [*url, "/assets/resources"]
 
 # Extensions
 markdown_extensions:
@@ -85,6 +85,8 @@ nav:
       - Building the code: developer-guide/building-the-code.md
       - Building the code (Docker): developer-guide/building-the-code-with-docker.md
       - Building Strongbox against Strongbox: developer-guide/building-strongbox-against-strongbox.md
+    - IDE setup:
+      - Eclipse: developer-guide/ide-setup/eclipse.md
     - Project structure: developer-guide/project-structure.md
     - Writing code:
       - Coding convention: developer-guide/coding-convention.md
