@@ -35,7 +35,7 @@ section to see which property to override to change the default location.
         * `${storageId}/`
             * `${repositoryId}/`
                 * [.index/](../developer-guide/maven-indexer.md#where-are-the-maven-indexes-located)
-                * `local/`
-                * `remote/`
+                  * `local/`
+                  * `remote/`
             * `.trash/`
     * `tmp/`
