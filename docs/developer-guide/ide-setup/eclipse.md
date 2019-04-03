@@ -16,8 +16,8 @@ Install from your Eclipse distro update site [here][Groovy-Eclipse M2E]. Necessa
 
 ## Set up Eclipse workspace
 
-### Create empty workspace
-You should create an empty workspace - this is the default behavior when you first start Eclipse. Just make sure you untick the "Always show Welcome at start up" checkbox before closing the Welcome screen to see the usual perspective on startup.
+### Disable Welcome screen
+You should already have created an empty workspace - this is the default behavior when you first start Eclipse. Just make sure you untick the "Always show Welcome at start up" checkbox before closing the Welcome screen to see the usual perspective on startup.
 ![Welcome X | V Always show Welcome at start up][Hide Welcome]
 
 ### Import Maven project
