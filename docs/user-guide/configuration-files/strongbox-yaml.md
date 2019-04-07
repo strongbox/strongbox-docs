@@ -1,4 +1,4 @@
-# General
+# Strongbox Configuration Yaml
 
 This resource file describes the configuration of the server.
 
@@ -9,7 +9,7 @@ The cases in which this file is required are:
 * For a configuration import from another server
 * For a configuration export of the server
 
-# The Configuration File
+## The Configuration File
 
 The following is an example of a `strongbox.yaml` configuration file:
 
@@ -383,7 +383,7 @@ The following is an example of a `strongbox.yaml` configuration file:
               - storageId: storage-common-proxies
                 repositoryId: jboss-public-releases
 
-# Information for Developers
+## Information for Developers
 
 The following classes are related to various aspects of the configuration:
 
@@ -394,5 +394,5 @@ The following classes are related to various aspects of the configuration:
 
 The [strongbox.yaml](https://github.com/strongbox/strongbox/blob/master/strongbox-resources/strongbox-storage-api-resources/src/main/resources/etc/conf/strongbox.yaml), which is packaged in the distribution, is located under the [strongbox-storage-api-resources](https://github.com/strongbox/strongbox/blob/master/strongbox-resources/strongbox-storage-api-resources/)'s `src/main/resources/etc/conf` directory.
 
-# See Also
+## See Also
 * [Artifact Routing Rules](../artifact-routing-rules.md)

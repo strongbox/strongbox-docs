@@ -1,8 +1,8 @@
-# General
+# Strongbox Security Users Yaml
 
 TODO @sbespalov
 
-# Example
+## Example
 
 The configuration file consists of a set of `user` configurations and has the following structure:
 
@@ -67,11 +67,11 @@ The configuration file consists of a set of `user` configurations and has the fo
 
 The `access-model` element is optional.
 
-## Configuring The User Access Model
+### Configuring The User Access Model
 
 TODO @sbespalov
 
-# Information for Developers
+## Information for Developers
 
 The following classes are related to various aspects of the users configuration:
 
