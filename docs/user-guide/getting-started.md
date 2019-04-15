@@ -15,17 +15,14 @@
 
 sudo su
 
-mkdir /opt/strongbox
-mkdir /opt/strongbox-vault
+mkdir /opt/strongbox /opt/strongbox-vault
 
 groupadd strongbox
 useradd -d /opt/strongbox -g strongbox -r strongbox
 
-chown -R strongbox:strongbox /opt/strongbox
-chown -R strongbox:strongbox /opt/strongbox-vault
+chown -R strongbox:strongbox /opt/strongbox /opt/strongbox-vault
 
-chmod -R 770 /opt/strongbox
-chmod -R 770 /opt/strongbox-vault
+chmod -R 770 /opt/strongbox /opt/strongbox-vault
 
 su strongbox
 tar -zxf /path/to/strongbox-distribution*.tar.gz \
@@ -72,14 +69,11 @@ c:\java\strongbox> bin\strongbox.bat start
 sudo su
 sysadminctl -addUser strongbox
 
-mkdir -p /opt/strongbox
-mkdir -p /opt/strongbox-vault
+mkdir -p /opt/strongbox /opt/strongbox-vault
 
-chown -R strongbox:staff /opt/strongbox
-chown -R strongbox:staff /opt/strongbox-vault
+chown -R strongbox:staff /opt/strongbox /opt/strongbox-vault
 
-chmod -R 770 /opt/strongbox
-chmod -R 770 /opt/strongbox-vault
+chmod -R 770 /opt/strongbox /opt/strongbox-vault
 
 su strongbox
 tar -zxf /path/to/strongbox-distribution*.tar.gz \
