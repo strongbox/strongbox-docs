@@ -42,6 +42,7 @@ Test Repository injected as test method parameter with help of `RepositoryManage
 The other feature is that Test Repository will be removed and cleaned up after test execution, just like it was created before test execution from scratch.
 
 Below is the main configuration parameters that avaliable:
+
 - with `storage` and `repository` you can specifiy Storage and Repository ID to use
 - with `layout` you can set the Layout to use (ex. `MavenArtifactCoordinates.LAYOUT_NAME`, `NpmArtifactCoordinates.LAYOUT_NAME`, `NugetArtifactCoordinates.LAYOUT_NAME` etc.)
 - with `setup` parameter you can customize the Test Repository initialization with `RepositorySetup` strategy, for example there is `MavenIndexedRepositorySetup` for Indexed Maven Repositories.
