@@ -1,6 +1,6 @@
 # Writing tests
 
-## Basic rules
+## Basic Rules
 
 * Use [JUnit 5] as testing framework (both unit and integration tests).
 * All code must be accompanied with sufficiently thorough test cases which validate the functionality.
@@ -14,7 +14,7 @@
 * Tests that need to execute operations against a repository, should create the repository on the fly in order to guarantee test resource isolation.
   * The naming convention for such repositories is as follows: given a class name of `MavenMetadataForReleasesTest`, the respective repository should be called `mmfrt-releases`.
 
-## Test resources
+## Test Resources
 
 * Test cases should be self-sufficient and not rely on data, or resources produced by other tests, or the outcome of other tests in any other way.
 * Every test case should generate all the resources it requires in each of its respective test methods.
@@ -102,7 +102,7 @@ ArtifactGenerator mavenArtifactGenerator = new MavenArtifactGenerator(Paths.get(
 mavenArtifactGenerator.generateArtifact("org.carlspring.test:test-artifact", "1.2.4", 1024):
 ```
 
-The above example will generate **test-artifact-1.2.4.jar**, **test-artifact-1.2.4.jar.md5** , **test-artifact-1.2.4.jar.sha1** and **test-artifact-1.2.4.pom** files.
+The above example will generate `test-artifact-1.2.4.jar`, `test-artifact-1.2.4.jar.md5` , `test-artifact-1.2.4.jar.sha1` and `test-artifact-1.2.4.pom` files.
 
 The other way to generate artifacts within your test method is by using the `@TestArtifact` annotation.
 
@@ -167,7 +167,7 @@ It is possible to customize the test artifact generation with `ArtifactGenerator
 
 Below you can find some tips to help you write some nice tests.
 
-#### Shortcut annotations
+#### Shortcut Annotations
 
 You can use shortcut annotations defined directly within your test class with the `@AliasFor` annotation:
 
@@ -215,7 +215,7 @@ public class NiceArtifactAndRepositoryTest
 
 Above example shows how to reduce boilerplate code with predefined `@MavenSnapshotArtifactsWithClassifiers` annotation, so test methods can reuse it to define test artifacts with common configuration parameters.
 
-#### NullLayoutProvider
+#### `NullLayoutProvider`
 
 It is possible to use `NullLayoutProvider` to write generic tests in modules where other specific layouts are not avaliable.
 
@@ -246,29 +246,35 @@ It is needed to test them in order to ensure that every validation is correct. P
 
 ## Testing REST calls
 
-### How to write your own integration test
+### How To Write Your Own Integration Test
 
 Here is sequence of actions for anyone who would like to write it's own REST API test.
+
 * Extend `RestAssuredBaseTest` class
+
 * Put `@IntegrationTest` and `@ExtendWith(SpringExtension.class)` on top of your class
+
 * Review existing examples (subclasses of `RestAssuredBaseTest`)
 
-### How to use rest-assured
+
+### How To Use rest-assured
 
 Here is the simplest example that will send HTTP GET request to the `/greeting` endpoint:
 
-    given().when()
-           .get("/greeting")
-           .then()
-           .statusCode(200);
+```
+given().when()
+       .get("/greeting")
+       .then()
+       .statusCode(200);
+```
 
 **Note:** You should have `import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.*;` in your test.
 
-### Where it differs from stock version of rest-assured
+### Where It Differs From Stock Version Of rest-assured
 
 Instead of `given()` please use `givenLocal()` of `RestAssuredBaseTest`.
 
-### Do I need to extend `RestAssuredArtifactClient` or write my own methods in unit tests?
+### Do I Need To Extend `RestAssuredArtifactClient`, Or Write My Own Methods In Unit Tests?
 
 Basically, **_no_**. The only reason to extend that class is when you would like to reuse something between several unit tests (to avoid code duplication).
 
@@ -284,7 +290,7 @@ If you still have any questions please review original [usage wiki page by rest-
 
 Spring provides a support for Test Context caching (see [here](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html#testcontext-ctx-management-caching)). Using single Test Context per maven module is preferable. Expand, adjust existing test context rather than create new one.
 
-### `@PostConstruct` and `@PreDestroy` pitfalls
+### `@PostConstruct` and `@PreDestroy` Pitfalls
 
 * `@PostConstruct` method on any application component configured in the `ApplicationContext` is getting called while Spring actually creates new Test Context
 * `@PostConstruct` within an actual test class will be executed before any `@BeforeEach` method of the underlying test
