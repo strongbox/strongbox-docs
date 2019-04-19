@@ -22,7 +22,7 @@
 
 ## Test Repositories
 
-As mentoned above every test should have isolated and self-sufficient resources, this requirment can be achieved with `@TestRepository` annotation. This annotation provides isolated Test Repository which can be used as sandbox for purposes of your test method.
+As mentoned above every test should have isolated and self-sufficient resources. This requirement can be achieved using the `@TestRepository` annotation. This annotation provides s isolated test repository which can be used as a sandbox for your test method.
 
 Usage Example:
 
@@ -38,21 +38,22 @@ public void testWithRepository(@TestRepository(storage = "storage0",
 }
 ```
 
-Test Repository injected as test method parameter with help of `RepositoryManagementTestExecutionListener`. The important feature here is synchronization between concurrent test executions, so even if there will be other repositories with the same name within other tests then it will be synchronized by Repository ID and will not affect on each other.
-The other feature is that Test Repository will be removed and cleaned up after test execution, just like it was created before test execution from scratch.
+The test repository is injected as a test method parameter with the help of `RepositoryManagementTestExecutionListener`. The important feature here is the synchronization between the concurrent test executions, so even if there will be other repositories with the same name within other tests, then it will be synchronized by the repository ID and they will not affect each other.
 
-Below is the main configuration parameters that avaliable:
+The other feature is that th test repository will be removed and cleaned up after test execution, just like it was created before the test execution from scratch.
 
-- with `storage` and `repository` you can specifiy Storage and Repository ID to use
-- with `layout` you can set the Layout to use (ex. `MavenArtifactCoordinates.LAYOUT_NAME`, `NpmArtifactCoordinates.LAYOUT_NAME`, `NugetArtifactCoordinates.LAYOUT_NAME` etc.)
-- with `setup` parameter you can customize the Test Repository initialization with `RepositorySetup` strategy, for example there is `MavenIndexedRepositorySetup` for Indexed Maven Repositories.
-- for debug purpose there is a `cleanup` flag (`true` by default), you can disable Test Reoisutory clean up with set it to `false`
+Below, you can find the main configuration parameters that are avaliable:
 
-By default `TestRepository` provides [Hosted](https://strongbox.github.io/knowledge-base/repositories.html#hosted) repository, other Repository Types also avaliable. 
+- with `storage` and `repository` you can specifiy the storage and repository ID to use
+- with `layout` you can set the layout format to use (ex. `MavenArtifactCoordinates.LAYOUT_NAME`, `NpmArtifactCoordinates.LAYOUT_NAME`, `NugetArtifactCoordinates.LAYOUT_NAME` etc.)
+- with `setup` parameter you can customize the test repository initialization with `RepositorySetup` strategy, (for example, there is `MavenIndexedRepositorySetup` for indexed maven repositories).
+- for debugging purposes, there is a `cleanup` flag (`true` by default), with which you can disable the test repository clean up by setting it to `false`
+
+By default, `TestRepository` provides [Hosted](https://strongbox.github.io/knowledge-base/repositories.html#hosted) repository, other repository types are also avaliable (check below).
 
 ### Proxy Repositories
 
-[Proxy](https://strongbox.github.io/knowledge-base/repositories.html#proxy) reposiotry support provided with `@TestRepository.Remote` annotation.
+[Proxy](https://strongbox.github.io/knowledge-base/repositories.html#proxy) repository support provided with `@TestRepository.Remote` annotation.
 Example:
 
 ```
@@ -68,7 +69,7 @@ public void testWithProxyRepository(@TestRepository.Remote(url = "http://repo1.m
 
 ### Group Repositories
 
-[Group](https://strongbox.github.io/knowledge-base/repositories.html#group) reposiotry support provided with `@TestRepository.Group` annotation.
+[Group](https://strongbox.github.io/knowledge-base/repositories.html#group) repository support provided with `@TestRepository.Group` annotation.
 Example:
 
 ```
@@ -92,9 +93,9 @@ public void testWithGroupRepository(@MavenRepositroy(repository = "group-member-
 
 ## Test Artifacts
 
-The is a generic [ArtifactGenerator](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-api/src/test/java/org/carlspring/strongbox/artifact/generator/ArtifactGenerator.java) interface which provides various methods for generating Test Artifacts.
+There is a generic [ArtifactGenerator](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-api/src/test/java/org/carlspring/strongbox/artifact/generator/ArtifactGenerator.java) interface which provides various methods for generating test artifacts.
 
-You can use this interface implementations standalone like below:
+You can use this interface implementation standalone like below:
 
 ``` 
 ArtifactGenerator mavenArtifactGenerator = new MavenArtifactGenerator(Paths.get("."));
@@ -103,10 +104,9 @@ mavenArtifactGenerator.generateArtifact("org.carlspring.test:test-artifact", "1.
 
 The above example will generate **test-artifact-1.2.4.jar**, **test-artifact-1.2.4.jar.md5** , **test-artifact-1.2.4.jar.sha1** and **test-artifact-1.2.4.pom** files.
 
-The other way to generate artifacts within your test method is `@TestArtifact` annotation.
+The other way to generate artifacts within your test method is by using the `@TestArtifact` annotation.
 
 Example:
-
 
 ```
 @ExtendWith(ArtifactManagementTestExecutionListener.class)
@@ -123,16 +123,17 @@ public void testWithArtifact(@TestArtifact(resource = "org/carlspring/strongbox/
 }
 ```
 
-This will also genrate jar, checksums and pom and inject the `java.nio.file.Path` instance, pointing to jar artifact, as test method parameter. Having the artifact `Path` you can easily get the **md5** following way:
+This will also genrate a `jar`, checksums and `pom` and inject the `java.nio.file.Path` instance, pointing to the `jar` artifact, as test method parameter. Having the artifact `Path` you can easily get the `md5` like this:
 
 ```
 Path artifact1Md5 = artifact1.resolveSbilling(artifact1.getFileName() + ".md5");
 ```
-Test artifacts also synchronized between concurrent test executions, same way as Test Repository.
 
-Note that above examples will just generate Test Artifacts without deploing to any repository, generated files will be placed in test method related temporary folder.
+Test artifacts are also synchronized between concurrent test executions, the same way as the test repository.
 
-### Deploy Test Artifacts into Test Repository
+Note that the examples above will just generate test artifacts without deploing to any repository. The generated files will be placed in a temporary folder for the related test method.
+
+### Deploy Test Artifacts Into Test Repository
 
 It's also possible to inject deployed artifacts:
 
@@ -151,7 +152,7 @@ public void testArtifact(@MavenRepository(repository = "r1")
 }
 ```
 
-With `repository` attribute the Test Artifacts `repositoryArtifacts` will be deployed into Test Repository `r1`, other generated files (checksums, poms etc.) will also be deployed. The above example also shows the case when multiply artifact versions generated, so the `List` contains ordered artifact versions:
+With the `repository` attribute the test artifacts `repositoryArtifacts` will be deployed into test repository `r1`, along with other generated files (checksums, poms etc). The above example also shows the case when multiple artifact versions are generated, so the `List` contains ordered artifact versions:
 
 ```
 Path v1_1Artifact = repositoryArtifacs.get(0);
@@ -160,16 +161,15 @@ Path v1_2Artifact = repositoryArtifacs.get(1);
 
 ### Layout specific Test Artifacts
 
-It is possible to customize the Test Artifact generation with `ArtifactGeneratorStrategy`. For example there is `MavenArtifactGeneratorStrategy` implementation and `@MavenTestArtifact` annotation which allows to generate Maven sprcific artifacts like classifiers and plugins.
+It is possible to customize the test artifact generation with `ArtifactGeneratorStrategy`. For example, there's a `MavenArtifactGeneratorStrategy` implementation and a `@MavenTestArtifact` annotation which allow to generate Maven-specific artifacts which have things like classifiers and plugins.
 
+### Life Hacks To Make Artifacts Testing Easier
 
-### Life Hacks to make Artifacts testing easier
-
-Below is the tips to help wiring nice tests
+Below you can find some tips to help you write some nice tests.
 
 #### Shortcut annotations
 
-You can use Shortcut annotations defined directly wihitn your test class with `@AliasFor` annotation:
+You can use shortcut annotations defined directly within your test class with the `@AliasFor` annotation:
 
 ```
 public class NiceArtifactAndRepositoryTest 
@@ -213,17 +213,15 @@ public class NiceArtifactAndRepositoryTest
 } 
 ```
 
-Above example shows how to reduce boilerplate code with predefined `@MavenSnapshotArtifactsWithClassifiers` annotation, so test methods can reuse it to define Test Artifacts with common configuration parameters.
+Above example shows how to reduce boilerplate code with predefined `@MavenSnapshotArtifactsWithClassifiers` annotation, so test methods can reuse it to define test artifacts with common configuration parameters.
 
 #### NullLayoutProvider
 
-It is possible to use `NullLayoutProvider` to write generic tests in modules where other specific layouts not avaliable.
+It is possible to use `NullLayoutProvider` to write generic tests in modules where other specific layouts are not avaliable.
 
 ### Adding Artifacts To The Maven Index
 
-For test cases where you need to generate artifacts and add them to the index, please have a look at the [TestCaseWithArtifactGenerationWithIndexing](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-indexing/src/test/java/org/carlspring/strongbox/testing/TestCaseWithArtifactGenerationWithIndexing.java) class.
-
-Please, note that the above class is not currently something you can extend outside the scope of the `strongbox-storage-indexing` module.
+For test cases where you need to generate artifacts and add them to the index, please have a look at the [TestCaseWithMavenArtifactGenerationAndIndexing](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider/src/test/java/org/carlspring/strongbox/testing/TestCaseWithMavenArtifactGenerationAndIndexing.java) class.
 
 ## Integration Tests
 
