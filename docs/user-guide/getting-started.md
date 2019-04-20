@@ -44,6 +44,10 @@ sudo systemctl enable strongbox
 ```Linux (RPM) linenums="1" tab=
 # Open a terminal
 
+# First, make sure you have a JRE with version 1.8 or greater
+# installed on your system.  You can use your favorite package manager
+# to find one.
+
 sudo rpm -ivh /path/to/strongbox-distribution-*.rpm
 
 # If you just want to start Strongbox without installing the systemd service:
