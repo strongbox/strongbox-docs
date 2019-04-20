@@ -4,7 +4,7 @@
 
 ## Building strongbox
 
-Running the commands bellow should be enough to end with a successful build:
+Running the commands below should be enough to end with a successful build:
 
 ```linenums="1"
 git clone https://github.com/strongbox/strongbox
