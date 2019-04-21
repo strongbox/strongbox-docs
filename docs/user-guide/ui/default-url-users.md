@@ -2,12 +2,12 @@
 
 This page provides information about the default URL and user credentials while using Strongbox UI
 
-#### Default URL
+## Default URL
  ```
  http://localhost:48080
  ```
  
-#### User Credentials
+## User Credentials
   
 | username   | password        | 
 | ---------- |---------------- |
