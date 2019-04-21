@@ -1,6 +1,6 @@
 # Default URL and Credentials
 
-This page provides information about the default URL and user credentials while using Strongbox UI
+Below you can find the default URL and user credentials for the Strongbox UI.
 
 ## Default URL
  ```
@@ -13,6 +13,3 @@ This page provides information about the default URL and user credentials while 
 | ---------- |---------------- |
 | `admin`    | password        |
 | `deployer` | password        |
-
-
-  
