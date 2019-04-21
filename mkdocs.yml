@@ -81,6 +81,7 @@ nav:
       - User management: user-guide/ui/user-management.md
       - Storage management: user-guide/ui/storage-management.md
       - System Information: user-guide/ui/system-information.md
+      - Default URL and Credentials: user-guide/ui/default-url-users.md
     - AQL (search): user-guide/artifact-query-language.md
     - Artifact Routing Rules: user-guide/artifact-routing-rules.md
     - REST API: user-guide/rest-api.md
