@@ -4,7 +4,7 @@ Below you can find the default URL and user credentials for the Strongbox UI.
 
 ## Default URL
  ```
- http://localhost:48080
+ http://localhost:48080/
  ```
  
 ## User Credentials
