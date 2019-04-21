@@ -8,7 +8,7 @@
 
 <a href="https://github.com/strongbox/strongbox/releases" target="_blank">Download strongbox</a>
 
-```Linux (tar) linenums="1" tab=
+```linuxtar linenums="1" tab="Linux (tar)"
 # Open a terminal
 
 sudo su
@@ -41,7 +41,7 @@ sudo service strongbox start
 sudo systemctl enable strongbox
 ```
 
-```Linux (RPM) linenums="1" tab=
+```linuxrpm linenums="1" tab="Linux (RPM)"
 # Open a terminal
 
 # First, make sure you have a JRE with version 1.8 or greater
