@@ -10,7 +10,7 @@
 
 <a href="https://github.com/strongbox/strongbox/releases" target="_blank">Download strongbox</a>
 
-```Linux linenums="1" tab=
+```linuxtar linenums="1" tab="Linux (tar)"
 # Open a terminal
 
 sudo su
@@ -46,6 +46,26 @@ sudo service strongbox start
 
 # this step is optional: only if you want to start Strongbox at boot!
 sudo systemctl enable strongbox
+```
+
+```linuxrpm linenums="1" tab="Linux (RPM)"
+# Open a terminal
+
+# First, make sure you have a JRE with version 1.8 or greater
+# installed on your system.  You can use your favorite package manager
+# to find one.
+
+sudo rpm -ivh /path/to/strongbox-distribution-*.rpm
+
+# If you just want to start Strongbox without installing the systemd service:
+su strongbox
+/opt/strongbox/bin/strongbox console
+
+# If you want to configure strongbox to start at system, boot:
+
+sudo systemctl enable strongbox.service
+sudo service strongbox start
+
 ```
 
 ```Windows linenums="1" tab=
