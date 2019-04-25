@@ -8,6 +8,38 @@ The Strongbox project uses [OrientDB](http://orientdb.com/orientdb/) as its inte
 corresponding `JPA` implementation and `spring-orm` middle tier. Also we use `JTA` for transaction management and 
 `spring-tx` implementation module from Spring technology stack.
 
+## OrientDB Studio
+
+As you are learning about Strongbox persistence, you may want to explore the existing persistence implementation.
+For development environments, Strongbox includes an embedded OrientDB server as well as an embedded instance of
+OrientDB Studio.  By default, when you run the application from the source tree, you'll use the embedded database
+server.  However, OrientDB Studio is disabled by default.
+
+To enable OrientDB Studio, you need only to set the property `strongbox.orientdb.studio.enabled` to `true`.  You
+can do this on the Maven command line by running Strongbox as follows:
+
+```
+$ mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dstrongbox.orientdb.studio.enabled=true"
+```
+
+There are two additional properties that can be used to configure OrientDB Studio:
+
+- `strongbox.orientdb.studio.ip.address`
+- `strongbox.orientdb.studio.port`
+
+Once the application is running, you can login to OrientDB Studio by visiting
+http://127.0.0.1:2480/studio/index.html in your browser.  The initial credentials are `admin` and `password`.
+
+![Login Screen](/assets/screenshots/orientdb-studio/login-screen.png)
+
+After your login, you'll land on the Browse Screen, which allows you to query the embedded database.
+
+![Browse Screen](/assets/screenshots/orientdb-studio/browse-screen.png)
+
+Finally, you can explore the schema defined in the database by clicking `SCHEMA`.
+
+![Schema Screen](/assets/screenshots/orientdb-studio/schema-screen.png)
+
 ## Adding Dependencies
 
 Let's assume that you, as a Strongbox developer, need to create a new module or write some persistence code in an 
