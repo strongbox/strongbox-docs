@@ -75,13 +75,22 @@ The reason for this failure is that OrientDB can't start, if another OrientDB pr
 
 ### Filename too long (Windows 7 and 10)
 
-If you hit an error like:
+If you are getting one of these errors:
 
-```
-error: unable to create file strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-maven-metadata-api/src/main/java/org/carlspring/strongbox/storage/metadata/comparators/MetadataVersionComparator.java: Filename too long
-```
+1.  
+    ```
+    error: unable to create file strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-maven-metadata-api/src/main/java/org/carlspring/strongbox/storage/metadata/comparators/MetadataVersionComparator.java: Filename too long
+    ```
 
-You will need to execute the following command:
+2.  
+
+    ```
+    package org.carlspring.strongbox.x.y.z does not exist
+    ```
+
+
+Then you are likely hitting a well known issue with long paths under Windows. 
+Executing command below should fix the issue:
 
 ```
 git config --system core.longpaths true
