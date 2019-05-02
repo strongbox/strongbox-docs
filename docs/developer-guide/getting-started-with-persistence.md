@@ -35,7 +35,7 @@ If you're running from the TAR or RPM distributions, you can start Strongbox as 
 
 ```
 $ cd /opt/strongbox
-$ STRONGBOX_ORIENTDB_STUDIO_ENABLED=true ./bin/strongbox console
+$ STRONGBOX_VAULT=/opt/strongbox-vault STRONGBOX_ORIENTDB_STUDIO_ENABLED=true ./bin/strongbox console
 ```
 
 As with the source distribution, you can set additional environment variables to further configure OrientDB Studio:
