@@ -15,6 +15,8 @@ For development environments, Strongbox includes an embedded OrientDB server as 
 OrientDB Studio.  By default, when you run the application from the source tree, you'll use the embedded database
 server.  However, OrientDB Studio is disabled by default.
 
+### Running OrientDB Studio from Source Tree
+
 To enable OrientDB Studio, you need only to set the property `strongbox.orientdb.studio.enabled` to `true`.  You
 can do this on the Maven command line by running Strongbox as follows:
 
@@ -26,6 +28,22 @@ There are two additional properties that can be used to configure OrientDB Studi
 
 - `strongbox.orientdb.studio.ip.address`
 - `strongbox.orientdb.studio.port`
+
+### Running OrientDB Studio from the Distribution
+
+If you're running from the TAR or RPM distributions, you can start Strongbox as follows to enable OrientDB Studio:
+
+```
+$ cd /opt/strongbox
+$ STRONGBOX_ORIENTDB_STUDIO_ENABLED=true ./bin/strongbox console
+```
+
+As with the source distribution, you can set additional environment variables to further configure OrientDB Studio:
+
+```
+$ export STRONGBOX_ORIENTDB_STUDIO_IP_ADDRESS=0.0.0.0
+$ export STRONGBOX_ORIENTDB_STUDIO_PORT=2480
+```
 
 Once the application is running, you can login to OrientDB Studio by visiting
 http://127.0.0.1:2480/studio/index.html in your browser.  The initial credentials are `admin` and `password`.
