@@ -12,12 +12,12 @@ corresponding `JPA` implementation and `spring-orm` middle tier. Also we use `JT
 
 As you are learning about Strongbox persistence, you may want to explore the existing persistence implementation.
 For development environments, Strongbox includes an embedded OrientDB server as well as an embedded instance of
-OrientDB Studio.  By default, when you run the application from the source tree, you'll use the embedded database
-server.  However, OrientDB Studio is disabled by default.
+OrientDB Studio. By default, when you run the application from the source tree, you'll use the embedded database
+server. However, OrientDB Studio is disabled by default.
 
-### Running OrientDB Studio from Source Tree
+### Running OrientDB Studio From Source Tree
 
-To enable OrientDB Studio, you need only to set the property `strongbox.orientdb.studio.enabled` to `true`.  You
+To enable OrientDB Studio, you need only to set the property `strongbox.orientdb.studio.enabled` to `true`. You
 can do this on the Maven command line by running Strongbox as follows:
 
 ```
@@ -29,9 +29,9 @@ There are two additional properties that can be used to configure OrientDB Studi
 - `strongbox.orientdb.studio.ip.address`
 - `strongbox.orientdb.studio.port`
 
-### Running OrientDB Studio from the Distribution
+### Running OrientDB Studio From The Distribution
 
-If you're running from the TAR or RPM distributions, you can start Strongbox as follows to enable OrientDB Studio:
+If you're running from the `tar.gz`, or `rpm` distributions, you can start Strongbox as follows to enable OrientDB Studio:
 
 ```
 $ cd /opt/strongbox
@@ -46,7 +46,7 @@ $ export STRONGBOX_ORIENTDB_STUDIO_PORT=2480
 ```
 
 Once the application is running, you can login to OrientDB Studio by visiting
-http://127.0.0.1:2480/studio/index.html in your browser.  The initial credentials are `admin` and `password`.
+http://127.0.0.1:2480/studio/index.html in your browser. The initial credentials are `admin` and `password`.
 
 ![Login Screen](/assets/screenshots/orientdb-studio/login-screen.png)
 
@@ -194,7 +194,7 @@ After that you will need to define an implementation of your service class.
 
 Follow these rules for the service implementation:
 
-* Inherit your CURD service from `CommonCrudService<MyEntity>` class;
+* Inherit your CRUD service from `CommonCrudService<MyEntity>` class;
 * Name it like your service interface with an `Impl` suffix, for example `MyEntityServiceImpl`;
 * Annotate your class with the Spring `@Service` and `@Transactional` annotations;
 * Do **not** define your service class as public and use interface instead of class for injection (with `@Autowired`); 
