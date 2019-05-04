@@ -8,6 +8,58 @@ The Strongbox project uses [OrientDB](http://orientdb.com/orientdb/) as its inte
 corresponding `JPA` implementation and `spring-orm` middle tier. Also we use `JTA` for transaction management and 
 `spring-tx` implementation module from Spring technology stack.
 
+## OrientDB Studio
+
+As you are learning about Strongbox persistence, you may want to explore the existing persistence implementation.
+For development environments, Strongbox includes an embedded OrientDB server as well as an embedded instance of
+OrientDB Studio. By default, when you run the application from the source tree, you'll use the embedded database
+server. However, OrientDB Studio is disabled by default.
+
+### Running OrientDB Studio From Source Tree
+
+To enable OrientDB Studio, you need only to set the property `strongbox.orientdb.studio.enabled` to `true`. You
+can do this on the Maven command line by running Strongbox as follows:
+
+```
+$ mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dstrongbox.orientdb.studio.enabled=true"
+```
+
+There are two additional properties that can be used to configure OrientDB Studio:
+
+- `strongbox.orientdb.studio.ip.address`
+- `strongbox.orientdb.studio.port`
+
+### Running OrientDB Studio From The Distribution
+
+If you're running from the `tar.gz`, or `rpm` distributions, you can start Strongbox as follows to enable OrientDB Studio:
+
+```
+$ cd /opt/strongbox
+$ STRONGBOX_VAULT=/opt/strongbox-vault STRONGBOX_ORIENTDB_STUDIO_ENABLED=true ./bin/strongbox console
+```
+
+Please, note that the `STRONGBOX_VAULT` environment variable needs to be pointing to an absolute path for this to work.
+
+As with the source distribution, you can set additional environment variables to further configure OrientDB Studio:
+
+```
+$ export STRONGBOX_ORIENTDB_STUDIO_IP_ADDRESS=0.0.0.0
+$ export STRONGBOX_ORIENTDB_STUDIO_PORT=2480
+```
+
+Once the application is running, you can login to OrientDB Studio by visiting
+http://127.0.0.1:2480/studio/index.html in your browser. The initial credentials are `admin` and `password`.
+
+![Login Screen](/assets/screenshots/orientdb-studio/login-screen.png)
+
+After your login, you'll land on the Browse Screen, which allows you to query the embedded database.
+
+![Browse Screen](/assets/screenshots/orientdb-studio/browse-screen.png)
+
+Finally, you can explore the schema defined in the database by clicking `SCHEMA`.
+
+![Schema Screen](/assets/screenshots/orientdb-studio/schema-screen.png)
+
 ## Adding Dependencies
 
 Let's assume that you, as a Strongbox developer, need to create a new module or write some persistence code in an 
@@ -144,13 +196,11 @@ After that you will need to define an implementation of your service class.
 
 Follow these rules for the service implementation:
 
-* Inherit your CURD service from `CommonCrudService<MyEntity>` class;
+* Inherit your CRUD service from `CommonCrudService<MyEntity>` class;
 * Name it like your service interface with an `Impl` suffix, for example `MyEntityServiceImpl`;
 * Annotate your class with the Spring `@Service` and `@Transactional` annotations;
 * Do **not** define your service class as public and use interface instead of class for injection (with `@Autowired`); 
   this follows the best practice principles from Joshua Bloch 'Effective Java' book called Programming to Interface;
-* _Optional_ - feel free to use `@Cacheable` whenever you need to use second level cache that's already configured in 
-  the project (do not forget to modify `ehcache.xml` file accordingly);
 * _Optional_ - define any methods you need to work with your `MyEntity` class; these methods mostly should be based on 
   common API form `javax.persistence.EntityManager`, or custom queries (see example below);
 
