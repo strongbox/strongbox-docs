@@ -38,6 +38,8 @@ $ cd /opt/strongbox
 $ STRONGBOX_VAULT=/opt/strongbox-vault STRONGBOX_ORIENTDB_STUDIO_ENABLED=true ./bin/strongbox console
 ```
 
+Please, note that the `STRONGBOX_VAULT` envorinment variable needs to be pointing to an absolute path for this to work.
+
 As with the source distribution, you can set additional environment variables to further configure OrientDB Studio:
 
 ```
