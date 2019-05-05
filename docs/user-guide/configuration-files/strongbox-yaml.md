@@ -1,4 +1,4 @@
-# The `strongbox.yaml` Configuration File
+# The `strongbox.yaml` File
 
 This resource file describes the configuration of the server.
 
@@ -9,7 +9,7 @@ The cases in which this file is required are:
 * For a configuration import from another server
 * For a configuration export of the server
 
-# Example `strongbox.yaml` Configuration File
+# Example `strongbox.yaml` File
 
 The following is an example of a `strongbox.yaml` configuration file:
 
