@@ -1,8 +1,8 @@
-# Strongbox Security Users Yaml
+# The `strongbox-security-users.yaml` File
 
 TODO @sbespalov
 
-## Example
+# Example `strongbox-security-users.yaml` File
 
 The configuration file consists of a set of `user` configurations and has the following structure:
 
