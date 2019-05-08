@@ -12,13 +12,18 @@ mvn clean install
 
 If (and only if) this does not work out of the box, then you might have to build and install the following projects 
 using `mvn clean install` in the order they are listed below:
+
 1. [unboundid-maven-plugin](https://github.com/carlspring/unboundid-maven-plugin)
+
 2. [little-proxy-maven-plugin](https://github.com/carlspring/little-proxy-maven-plugin)
+
 3. [maven-commons](https://github.com/carlspring/maven-commons/)
+
 4. [commons-io](https://github.com/carlspring/commons-io/)
+
 5. [commons-http](https://github.com/carlspring/commons-http/)
+
 6. [logback-configuration](https://github.com/carlspring/logback-configuration)
-7. [JNuGet](https://bitbucket.org/strongbox/jnuget) (this is our own stable clone)
 
 ## Tests
 
@@ -69,6 +74,7 @@ If you see something like this:
 Then please make sure that:
 
 * You don't have any other build already running
+
 * You don't have any other test in progress (e.g. halted by debugger process)
 
 The reason for this failure is that OrientDB can't start, if another OrientDB process is running an listening on the same port.
@@ -89,7 +95,7 @@ If you are getting one of these errors:
     ```
 
 
-Then you are likely hitting a well known issue with long paths under Windows. 
+Then you are likely hitting a well-known issue with long paths under Windows. 
 Executing command below should fix the issue:
 
 ```
@@ -122,4 +128,5 @@ Then in order to sync your fork with the original remote, execute the following:
 ## See Also
 
 * [Building Strongbox Against Strongbox](./building-strongbox-against-strongbox.md)
+
 * [Git Tips](https://github.com/git-tips/tips)
