@@ -19,7 +19,6 @@ for hosting your (binary) artifacts, regardless of your repository layout.
     * [x] Groovy implementation
 
 ??? success "Event handling"
-(empty section with no information but still have a drop down)
     
 
 ??? abstract "Logging"
@@ -53,7 +52,7 @@ for hosting your (binary) artifacts, regardless of your repository layout.
     Search providers offer a way to execute searches against different search engines. By default, searches are executed 
     against OrientDB, unless a search provider has been specified. [Click here for more details](./developer-guide/search-providers.md)
 
-    * [x] [Artifact Query Language (AQL)] to make searching easy and consistent between layouts(./user-guide/artifact-query-language.md) 
+    * [x] <a href="/user-guide/artifact-query-language.md" target="_blank">Artifact Query Language (AQL)</a> to make searching easy and consistent between layouts
     * [x] OrientDB (default implementation for all repositories and layout formats)
     * [x] Maven Indexer
 
