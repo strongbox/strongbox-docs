@@ -67,8 +67,8 @@ for hosting your (binary) artifacts, regardless of your repository layout.
 
 ??? success "REST API"
 
-    All of Strongbox's features are available via REST API endpoints. 
-    You can customize a user's access to only allow specific endpoints to be accessible.
+    All of Strongbox's features are available via REST API end-points. 
+    You can customize a user's access to only allow specific end-points to be accessible.
 
     * [x] Search for artifacts
     * [x] Manage the server's core configuration
