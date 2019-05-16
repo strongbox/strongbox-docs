@@ -61,8 +61,8 @@ for hosting your (binary) artifacts, regardless of your repository layout.
     * [x] HTTP Basic authentication
     * [x] JWT authentication
     * [x] LDAP
-    * [x] Custom authentication provider based on users that reside in the second-level cache that exists in OrientDB
-    * [x] Users are predefined in the `etc/conf/strongbox-security-users.xml` file
+    * [x] Custom authentication provider, based on users that stored in the second-level cache backed by OrientDB
+    * [x] Users are pre-defined in the `etc/conf/strongbox-security-users.xml` file
 
 
 ??? success "REST API"
