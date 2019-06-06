@@ -1,6 +1,6 @@
 # The `strongbox-security-users.yaml` File
 
-TODO @sbespalov
+
 
 # Example `strongbox-security-users.yaml` File
 
@@ -69,7 +69,7 @@ The `access-model` element is optional.
 
 ### Configuring The User Access Model
 
-TODO @sbespalov
+
 
 ## Information for Developers
 

@@ -10,7 +10,7 @@ This file is read by the system at the server startup time and it automatically 
 
 For an example, check [here](https://github.com/strongbox/strongbox/blob/master/strongbox-cron/strongbox-cron-api/src/main/resources/etc/conf/strongbox-cron-tasks.yaml)
 
-Every cron task configuration is an `cronTaskConfigurations` array element. Inner properties are:
+Every cron task configuration is a `cronTaskConfigurations` array element. Inner properties are:
 
 * `uuid`: identifies the individual cron task configuration in the system
 
