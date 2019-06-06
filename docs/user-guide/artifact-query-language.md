@@ -33,10 +33,10 @@ needs to work the same across all layouts:
 
 ### Values
 
-* _**Values**_ can be strings:
+* _**Values**_ can be strings
 
   * Quoted with single quotes `'` when the value is more than one word (for example: `storage: storage0`, `layout: 'Maven 2'`)
-  * Separated with comma `,` for multiple values; you can consider this the same as `IN` operator in SQL  (for example: `repository: releases, snapshots`, `layout: 'Maven 2', NuGet`)
+  * Separated with a comma `,` for multiple values; you can consider this the same as `IN` operator in SQL  (for example: `repository: releases, snapshots`, `layout: 'Maven 2', NuGet`)
   * Wildcards are supported `*` (for example: `group: org.carlspring.*`)
 
 * _**Values**_ can be dates in Unicode format: `2018-03-21 13:00:00`, `2018-03-21` (for example: `updated: 2018-03-21`, `updated: '2018-03-21 13:00'`)
