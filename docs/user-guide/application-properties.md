@@ -67,7 +67,7 @@ The following is a list of configuration properties, which can be used to custom
 
 ??? info "export STRONGBOX_DOWNLOAD_INDEXES_\${storageId}\_\* or <br> -Dstrongbox.download.indexes_\${storageId}_*"
 
-    Whether, or not to download the Maven indexes for all remote repositories in the `$storageId`.
+    Whether to download the Maven indexes for all remote repositories in the `$storageId`.
     
     Can be passed as `-Dstrongbox.download.indexes_${storageId}_*` or set via the env variable `STRONGBOX_DOWNLOAD_INDEXES_${storageId}_*`     
     
