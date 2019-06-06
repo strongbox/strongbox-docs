@@ -96,7 +96,7 @@ If you are getting one of these errors:
 
 
 Then you are likely hitting a well-known issue with long paths under Windows. 
-Executing command below should fix the issue:
+Executing the command below should fix the issue:
 
 ```
 git config --system core.longpaths true

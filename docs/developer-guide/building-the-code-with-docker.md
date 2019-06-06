@@ -12,7 +12,7 @@ However, things under Windows shouldn't be that different.
 
 ## Docker installation
 
-Depending on your OS and distribution you can install different versions of Docker CE (Community Edition).
+Depending on your OS and distribution, you can install different versions of Docker CE (Community Edition).
 In most cases your distribution will have it's own package of Docker which works fine. 
 
 Please head to the docker [installation manual](https://docs.docker.com/install/) pages to check how to install it on your machine:
@@ -49,7 +49,7 @@ uid=1000(your-username) gid=1000(your-username) groups=1000(your-username)
 ```
   
 If you see another `uid/gid` you will likely hit a permission issue. Unfortunately [docker/compose#3328][issue-3328], 
-[docker/compose#4700][issue-4700] and [docker/cli#1318][issue-1318] are preventing `docker-compose` from being able to 
+[docker/compose#4700][issue-4700], and [docker/cli#1318][issue-1318] are preventing `docker-compose` from being able to 
 automatically fix the group id. There are two workarounds which you can apply for things to work as expected:
 
 1. Instead of using `docker-compose`, you can use plain `docker` and pass ```--group-add `id -g` ``` to the arguments. 
@@ -137,7 +137,7 @@ Our `.bashrc` has two types of commands which:
 1. Start a container by mounting the current working directory as `workspace` (i.e `dockerMvn35`, `dockerGradle45`, etc)
 2. Start a container and automatically clone a project from github and use that as the `workspace`. (i.e. `dockerMvn35Checkout`, `dockerGradle45Checkout`, etc) 
 
-If you don't remember arguments the command needs you can always execute `dockerMvn35 --help` and it will print them to you as well as an example.
+If you don't remember arguments the command needs, you can always execute `dockerMvn35 --help` and it will print them to you as well as an example.
 
 ### Setting up `~/.bashrc`
 
@@ -151,7 +151,7 @@ echo "\$HOME/.bashrc-strongbox" >> ~/.bashrc
 ```
 
 You can now either open up a new terminal or execute `source ~/.bashrc`  
-Have fun building things in docker :smile:
+Have fun building things in docker! :smile:
 
 
 ### Example commands
