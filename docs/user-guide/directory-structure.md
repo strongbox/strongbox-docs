@@ -31,7 +31,7 @@ section to see which property to override to change the default location.
 * `strongbox-vault/`
     * `cache/`
     * `db/`
-    * [storages](./knowledge-base/storages.html)/
+    * [storages](../../knowledge-base/storages.html)/
         * `${storageId}/`
             * `${repositoryId}/`
                 * [.index/](../developer-guide/maven-indexer.md#where-are-the-maven-indexes-located)
