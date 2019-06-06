@@ -26,7 +26,7 @@ Below is a simple scrap of the `strongbox-authorization.yaml` configuration file
 
 # Anonymous User Privileges
 
-There is a special treatment role called **`ANONYMOUS_ROLE`** that is not considered as a [built-in role](http://TODO_link_to_roles) so it doesn't have a fixed set of permissions. Anonymous user's privileges are configurable and can be defined in the `strongbox-authorization.yaml` configuration file.
+There is a special treatment role called **`ANONYMOUS_ROLE`** that is not considered as a (link not completed) [built-in role](http://TODO_link_to_roles)  so it doesn't have a fixed set of permissions. Anonymous user's privileges are configurable and can be defined in the `strongbox-authorization.yaml` configuration file.
 
     authorizationConfiguration:
       roles:
