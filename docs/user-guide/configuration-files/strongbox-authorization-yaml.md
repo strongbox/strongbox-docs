@@ -41,9 +41,9 @@ This way every user not logged in will be awarded by the `ARTIFACTS_RESOLVE` and
 
 # Information for Developers
 
-The following classes are related to various aspects of the authorization configuration: 
+The following classes are related to various aspects of the authorization configuration:
 
-| Class Name  | Description |   
+| Class Name  | Description |  
 |:------------|-------------|
 | [`org.carlspring.strongbox.authorization.dto.AuthorizationConfigDto`](https://github.com/strongbox/strongbox/blob/master/strongbox-security/strongbox-user-management/src/main/java/org/carlspring/strongbox/authorization/dto/AuthorizationConfigDto.java) | Represents authorization configuration in a deserialized form. |
 | [`org.carlspring.strongbox.authorization.AuthorizationConfigFileManager`](https://github.com/strongbox/strongbox/blob/master/strongbox-security/strongbox-user-management/src/main/java/org/carlspring/strongbox/authorization/AuthorizationConfigFileManager.java) | Class to serialize / deserialize the authorization configuration. | 
