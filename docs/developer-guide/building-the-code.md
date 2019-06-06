@@ -77,7 +77,7 @@ Then please make sure that:
 
 * You don't have any other test in progress (e.g. halted by debugger process)
 
-The reason for this failure is that OrientDB can't start, if another OrientDB process is running an listening on the same port.
+The reason for this failure is that OrientDB can't start, if another OrientDB process is running and listening on the same port.
 
 ### Filename too long (Windows 7 and 10)
 
