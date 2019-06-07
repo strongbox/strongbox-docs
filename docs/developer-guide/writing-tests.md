@@ -60,7 +60,7 @@ Example:
 @ExtendWith(RepositoryManagementTestExecutionListener.class)
 @Test
 public void testWithProxyRepository(@TestRepository.Remote(url = "http://repo1.maven.org/maven2/")
-                                    @MavenRepositroy(repository = "repo1") 
+                                    @MavenRepository(repository = "repo1") 
                                     Repository repository)
 {
     System.out.println(repository.getId());
@@ -75,14 +75,14 @@ Example:
 ```
 @ExtendWith(RepositoryManagementTestExecutionListener.class)
 @Test
-public void testWithGroupRepository(@MavenRepositroy(repository = "group-member-repo1") 
+public void testWithGroupRepository(@MavenRepository(repository = "group-member-repo1") 
                                     Repository repository1,
-                                    @MavenRepositroy(repository = "group-member-repo2") 
+                                    @MavenRepository(repository = "group-member-repo2") 
                                     Repository repository2,
-                                    @MavenRepositroy(repository = "group-member-repo3") 
+                                    @MavenRepository(repository = "group-member-repo3") 
                                     Repository repository3,
                                     @Group({"group-member-repo1", "group-member-repo2", "group-member-repo3"})
-                                    @MavenRepositroy(repository = "repo1") 
+                                    @MavenRepository(repository = "repo1") 
                                     Repository groupRepository)
 {
     System.out.println(groupRepository.getId());
