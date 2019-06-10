@@ -29,12 +29,12 @@ tar -zxf /path/to/strongbox-distribution*.tar.gz \
     -C /opt/strongbox \ 
     --strip-components=2
 
-# If you just want to start Strongbox without installing the system service:
+# If you just want to start Strongbox without installing the systemd service:
 
 /opt/strongbox/bin/strongbox console
 
 # If you want to install Strongbox as a service then download the 
-# system service file. Make sure to change the `Environment` variables 
+# systemd service file. Make sure to change the `Environment` variables 
 # in the service file where necessary. Depending on your distribution, 
 # you could also move the environment variables into `EnvironmentFile` 
 # and load that instead.
