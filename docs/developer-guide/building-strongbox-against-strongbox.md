@@ -2,7 +2,7 @@
 
 We like our dog food and we try it all the time! :smiley:
 
-There will be many cases where you need to test things against either a full-blown Strongbox (via `strongbox-distribution`), 
+There will be many cases where you need to test things against either a full-blown Strongbox (via `strongbox-distribution`)
 or the `strongbox-web-core`. The following article shows you how to do so.
 
 ## Pre-requisites
@@ -64,14 +64,13 @@ You will need to use the following Maven settings file (that we've called `setti
 </settings>
 ```
 
-This settings file will ensure that all required artifacts, plugins and extensions are resolved via the running instance 
-of Strongbox. In addition, it will override Maven Central as a fallback repository, so everything required will indeed 
+This settings file will ensure that all required artifacts, plugins and extensions are resolved via the running instance of Strongbox. In addition, it will override Maven Central as a fallback repository, so everything required will indeed 
 be resolved through `http://localhost:48080/storages/public/public-group/` which is a group repository that includes 
 all the hosted repositories in Strongbox, as well as all defined proxy repositories.
 
 ## Building Strongbox Against The `strongbox-web-core`
 
-1. Checkout and build the `strongbox` project (either with `mvn clean install`, or `mvn clean install -DskipTests`, based on your needs)
+1. Check out and build the `strongbox` project (either with `mvn clean install`, or `mvn clean install -DskipTests`, based on your needs)
 2. In the `strongbox-web-core` module, execute the following in order to start Strongbox inside a Jetty instance waiting for connections:
    ```
    mvn clean install spring-boot:run

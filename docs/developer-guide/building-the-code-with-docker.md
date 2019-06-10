@@ -3,17 +3,17 @@
 ## Introduction
 
 Docker is awesome and we are using it to build and test almost everything. 
-It has proven to be quite fast and convenient way to easily reproduce issues.
-We encourage you to have a decent version of Docker installed on your machine 
+It has proven to be quite a fast and convenient way to easily reproduce issues.
+We encourage you to have a recent version of Docker installed on your machine 
 so that you can debug or reproduce issues easier.
 
-You should note that we are mostly using Linux so this guide is more focused on how to do things on Linux distributions.
+You should note that we are mostly using Linux, so this guide is more focused on how to do things on Linux distributions.
 However, things under Windows shouldn't be that different.
 
 ## Docker installation
 
 Depending on your OS and distribution, you can install different versions of Docker CE (Community Edition).
-In most cases your distribution will have it's own package of Docker which works fine. 
+In most cases, your distribution will have its own package of Docker which works fine. 
 
 Please head to the docker [installation manual](https://docs.docker.com/install/) pages to check how to install it on your machine:
 
@@ -127,7 +127,7 @@ This might take a while, but in the end you should have a successful build.
 
 ## Making life easier
 
-If you have already checked out our [strongboxci/alpine] repository you would have noticed the amount of 
+If you have already checked out our [strongboxci/alpine] repository you would have noticed the number of 
 different images we have. Trying to remember all of them and the way you need to setup the container is tedious and 
 unnecessary. We have created a [.bashrc]({{resources}}/docker/bashrc-strongbox) with commands you can execute to easily 
 get a container up and running
@@ -166,7 +166,7 @@ Have fun building things in docker! :smile:
     dockerMvn35Checkout strongbox master/branch/PR-1234 "mvn clean install"
     ```
 
-* Use current working directory to build project
+* Use the current working directory to build the project
     ```
     cd /some/path
     dockerMvn35
