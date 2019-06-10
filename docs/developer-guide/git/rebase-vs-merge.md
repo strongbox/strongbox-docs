@@ -97,7 +97,7 @@ However, before executing this command, please be **sure** nobody else is workin
 ## But how do I rebase?
 
 Before you start, it is a good idea to backup your current project. If this is your first time doing a rebase, you can 
-screw things up and loose/damage the work you've already done. So better safe than sorry. (If you are a pro - what are
+screw things up and lose/damage the work you've already done. So better safe than sorry. (If you are a pro - what are
 you even doing here? :smile: )  
   
 
