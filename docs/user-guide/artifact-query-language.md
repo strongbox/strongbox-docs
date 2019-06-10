@@ -94,8 +94,7 @@ needs to work the same across all layouts:
 
 ## How to use
 
-The easiest way to use the AQL is by using the search bar in the user interface. Once you start writing, you will see suggestions
-based on what you've typed. You could also directly search via the REST API Endpoint.  
+The easiest way to use the AQL is by using the search bar in the user interface. As soon as you start typing, you will see suggestions based on what you've typed. You could also directly search via the REST API end-point.  
 
 Example `curl` request:
 
