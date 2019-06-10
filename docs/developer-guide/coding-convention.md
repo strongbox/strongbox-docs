@@ -3,7 +3,7 @@
 ## Reasoning
 
 It is important to have consistency across the codebase. This won't necessarily make your code work better, but it might 
-help make it more understandable, time-consuming and less irritating to go through when doing a code review of your changes.  
+help make it more understandable, time-consuming, and less irritating to go through when doing a code review of your changes.  
   
 While to some this will seem like a nuisance, with no real benefit to the actual code, and while we do understand 
 this point of view, we think that reading `diff`-s should be quick and easy. Accepting a pull request requires for it to
@@ -62,13 +62,13 @@ and whether, or not it will impact something else. All of this takes time, which
         ```
 
 * When re-indenting code, please make a single commit with just the indentation changes and make sure you describe that 
-  this is just an re-indentation change in the commit message. Mixing reformatting and actual functional changes in the 
+  this is just a re-indentation change in the commit message. Mixing reformatting and actual functional changes in the 
   same commit makes things much more obscure to track and figure out.
 
 * Don't reformat entire files, unless absolutely necessary! This makes it harder (and more time-consuming) to check what 
   changes you've actually made.
 
-* Try not to re-order code imports. Sometimes, while optimizing imports this is not possible, but re-ordering a long 
+* Try not to re-order code imports. Sometimes, while optimizing imports, this is not possible, but re-ordering a long 
   list of imports can make a diff hard to read.
 
 ## Code Example
