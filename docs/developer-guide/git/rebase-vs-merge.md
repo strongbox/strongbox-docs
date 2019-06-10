@@ -3,7 +3,7 @@
 ## Conceptual Overview
 
 The first thing to understand about `git rebase` is that it solves the same problem as git merge. Both of these commands 
-are designed to integrate changes from one branch into another branch. T hey just do it in very different ways.  
+are designed to integrate changes from one branch into another branch. They just do it in very different ways.  
 
 Consider what happens when you start working on a new feature in a dedicated branch, then another team member updates 
 the `master` branch with new commits. This results in a forked history, which should be familiar to anyone who has used 
