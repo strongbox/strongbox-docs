@@ -3,7 +3,7 @@
 ## Conceptual Overview
 
 The first thing to understand about `git rebase` is that it solves the same problem as git merge. Both of these commands 
-are designed to integrate changes from one branch into another branch. T hey just do it in very different ways.  
+are designed to integrate changes from one branch into another branch. They just do it in very different ways.  
 
 Consider what happens when you start working on a new feature in a dedicated branch, then another team member updates 
 the `master` branch with new commits. This results in a forked history, which should be familiar to anyone who has used 
@@ -97,7 +97,7 @@ However, before executing this command, please be **sure** nobody else is workin
 ## But how do I rebase?
 
 Before you start, it is a good idea to backup your current project. If this is your first time doing a rebase, you can 
-screw things up and loose/damage the work you've already done. So better safe than sorry. (If you are a pro - what are
+screw things up and lose/damage the work you've already done. So better safe than sorry. (If you are a pro - what are
 you even doing here? :smile: )  
   
 
