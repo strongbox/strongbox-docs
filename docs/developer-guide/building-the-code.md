@@ -4,14 +4,17 @@
 
 ## Building strongbox
 
+Running the commands below should be enough to end with a successful build:
+
 ```linenums="1"
 git clone https://github.com/strongbox/strongbox
 cd strongbox
 mvn clean install
 ```
 
-If (and only if) this does not work out of the box, then you might have to build and install the following projects 
-using `mvn clean install` in the order they are listed below:
+!!! warning "When you have properly setup your [settings.xml](./getting-started.md) file, you should not need to run any of the steps below."
+
+In case our artifact repository manager is not working (which happens very rarely), you might have to build and install the following projects using `mvn clean install` in the order they are listed below before building Strongbox:
 
 1. [unboundid-maven-plugin](https://github.com/carlspring/unboundid-maven-plugin)
 
