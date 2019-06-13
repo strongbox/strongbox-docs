@@ -52,7 +52,7 @@ failing tests. In case of issues (i.e. build failures), please ping us in the ch
 Please continue reading our [CONTRIBUTING.md](https://github.com/strongbox/strongbox/blob/master/CONTRIBUTING.md). 
 
 !!! warning
-    For legal reasons we will request you to sign our <a href="/docs/assets/resources/pdfs/ICLA.pdf" target="_blank">ICLA</a> before we can merge your 
+    For legal reasons we will request you to sign our <a href="{{resources}}/pdfs/ICLA.pdf" target="_blank">ICLA</a> before we can merge your 
     pull request. The collected information is in no way provided to third-party companies nor anybody else.  
        
     **Refusing to sign the ICLA will leave us with no other choice but to close any pull request you might have opened.**
