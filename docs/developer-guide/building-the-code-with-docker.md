@@ -49,7 +49,7 @@ uid=1000(your-username) gid=1000(your-username) groups=1000(your-username)
 ```
   
 If you see another `uid/gid` you will likely hit a permission issue. Unfortunately [docker/compose#3328][issue-3328], 
-[docker/compose#4700][issue-4700], and [docker/cli#1318][issue-1318] are preventing `docker-compose` from being able to 
+[docker/compose#4700][issue-4700] and [docker/cli#1318][issue-1318] are preventing `docker-compose` from being able to 
 automatically fix the group id. There are two workarounds which you can apply for things to work as expected:
 
 1. Instead of using `docker-compose`, you can use plain `docker` and pass ```--group-add `id -g` ``` to the arguments. 
