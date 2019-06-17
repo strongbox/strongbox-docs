@@ -73,7 +73,7 @@ and whether, or not it will impact something else. All of this takes time, which
 
 ## Code Example
 
-Please, consider the following an example of how to indent your code.
+Please consider the following an example of how to indent your code.
 
 ??? success "Example class with proper formatting"
 
