@@ -71,5 +71,5 @@ public class ArtifactEventHandlingExample
 
 [strongbox-event-api]: https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/
 [org.carlspring.strongbox.event.Event]: https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/src/main/java/org/carlspring/strongbox/event/Event.java
-[org.carlspring.strongbox.event.EventListener]: https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/src/main/java/org/carlspring/strongbox/event/EventListener.java
+[org.carlspring.strongbox.event.EventListener]: https://github.com/strongbox/strongbox/tree/master/strongbox-event-api/src/main/java/org/carlspring/strongbox/event
 [org.carlspring.strongbox.event.AbstractEventListenerRegistry]: https://github.com/strongbox/strongbox/blob/master/strongbox-event-api/src/main/java/org/carlspring/strongbox/event/AbstractEventListenerRegistry.java
