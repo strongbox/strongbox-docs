@@ -79,6 +79,54 @@ then the value specified by this option will override the others.
 |:--------- |:--------- |
 | `Boolean` | `true`    | 
 
+### Logging properties
+
+These properties are used for configuring the logging - should logs be printed to the console, logged to a file or both?
+
+#### STRONGBOX_DEBUG
+
+When set to `true`, Strongbox will output debugging information.
+
+| Type      | Default   |
+|:--------- |:--------- |
+| `Boolean` | `false` when using `strongbox-distribution`; <br>`true` when running via `mvn spring-boot:run` | 
+
+#### STRONGBOX_LOG_CONSOLE_ENABLED
+
+When set to `true`, Strongbox will output the logs to the console
+
+| Type      | Default   |
+|:--------- |:--------- |
+| `Boolean` | `false` when using `strongbox-distribution`; <br>`true` when running via `mvn spring-boot:run` |
+
+#### STRONGBOX_LOG_FILE_ENABLED
+
+When set to `true`, Strongbox will save the logs into log files under `./strongbox-vault/logs`. 
+
+##### STRONGBOX_LOG_FILE_SIZE_SINGLE
+
+The maximum file size of one log file.
+
+| Type      | Default   |
+|:--------- |:--------- |
+| `String`  | `128M`    |
+
+##### STRONGBOX_LOG_FILE_SIZE_TOTAL
+
+The maximum size of all log files.
+
+| Type      | Default   |
+|:--------- |:--------- |
+| `String`  | `1GB`     | 
+
+##### STRONGBOX_LOG_FILE_HISTORY
+
+The maximum number of log files to keep.
+
+| Type      | Default   |
+|:--------- |:--------- |
+| `Integer` | `31`      | 
+
 ### OrientDB properties
 
 #### STRONGBOX_ORIENTDB_HOST
