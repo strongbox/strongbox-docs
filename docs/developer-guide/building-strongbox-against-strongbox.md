@@ -70,7 +70,7 @@ all the hosted repositories in Strongbox, as well as all defined proxy repositor
 
 ## Building Strongbox Against The `strongbox-web-core`
 
-1. Check out and build the `strongbox` project (either with `mvn clean install`, or `mvn clean install -DskipTests`, based on your needs)
+1. Clone and build the `strongbox` project (either with `mvn clean install`, or `mvn clean install -DskipTests`, based on your needs)
 2. In the `strongbox-web-core` module, execute the following in order to start Strongbox inside a Jetty instance waiting for connections:
    ```
    mvn clean install spring-boot:run

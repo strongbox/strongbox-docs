@@ -45,7 +45,7 @@ If a popup `Discover m2e connectors` appears - click `Resolve All Later` and `Fi
 * Expand the `src/main` directory and select the `groovy` and `twig` folders, then right click and pick `Build path -> Use as Source Folder`
     ![strongbox-aql/src/main/groovy & twig ->  Build Path -> Use as Source Folder][AQL groovy and twig Build Path]
 
-* Right click the project and cick Properties 
+* Right click the project and click Properties 
     * `Java Build Path -> Libraries -> Add Library -> Groovy Runtime Libraries`. Note that if on right click you pick Build path directly, adding the groovy libraries gives an error
         ![strongbox-aql -> Properties -> Java Build Path -> Add Library -> Groovy Runtime Libraries][AQL groovy project nature]
     * `Project Natures -> Add -> Groovy Nature`

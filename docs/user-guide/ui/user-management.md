@@ -6,4 +6,5 @@ The user management module allows you to list/add/update/delete users and fine-t
 
 ## Access Model
 
+TODO: Add mode information about this later. (SB-1339; SB-1285)
 
