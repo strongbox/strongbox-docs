@@ -38,7 +38,7 @@ $ cd /opt/strongbox
 $ STRONGBOX_VAULT=/opt/strongbox-vault STRONGBOX_ORIENTDB_STUDIO_ENABLED=true ./bin/strongbox console
 ```
 
-Please, note that the `STRONGBOX_VAULT` environment variable needs to be pointing to an absolute path for this to work.
+Please note that the `STRONGBOX_VAULT` environment variable needs to be pointing to an absolute path for this to work.
 
 As with the source distribution, you can set additional environment variables to further configure OrientDB Studio:
 
@@ -81,7 +81,7 @@ the `strongbox-data-service` module.
 ## Creating Your Entity Class
 
 Let's now assume that you have a POJO and you need to save it to the database (and that you probably have at least 
-CRUD operation's implemented in it as well). Place your code under the `org.carlspring.strongbox.domain.yourstuff` 
+CRUD operations implemented in it as well). Place your code under the `org.carlspring.strongbox.domain.yourstuff` 
 package. For the sake of the example, let's pick `MyEntity` as the name of your entity.
 
 If you want to store that entity properly you need to adopt the following rules:
@@ -90,7 +90,7 @@ If you want to store that entity properly you need to adopt the following rules:
   the superclass.
 * Define getters and setters according to the `JavaBeans` coding convention for all non-transient properties in your 
   class.
-* Define a default empty constructor for safety (even if the compiler will create one for you, if you don't define any 
+* Define a default empty constructor for safety (even if the compiler will create one for you and you don't define any 
   other constructors) and follow the `JPA` and `java.io.Serializable` standards.
 * Override the `equals() `and `hashCode()` methods according to java `hashCode` contract (because your entity could be 
   used in collection classes such as `java.util.Set` and if you don't define such methods properly other developers or 
@@ -164,7 +164,7 @@ public class MyEntity
 
 ## Creating a DAO Layer
 
-First of all you will need to extend the `CrudService` with the second type parameter that corresponds to your ID's data type. Usually it's just strings. 
+First of all, you will need to extend the `CrudService` with the second type parameter that corresponds to your ID's data type. Usually it's just strings. 
 
 
 !!! tip "To read more about ID's in OrientDB, check the <a href='http://orientdb.com/docs/2.0/orientdb.wiki/Tutorial-Record-ID.html' target='_blank'>manual</a>"
@@ -196,20 +196,20 @@ After that you will need to define an implementation of your service class.
 
 Follow these rules for the service implementation:
 
-* Inherit your CRUD service from `CommonCrudService<MyEntity>` class;
-* Name it like your service interface with an `Impl` suffix, for example `MyEntityServiceImpl`;
-* Annotate your class with the Spring `@Service` and `@Transactional` annotations;
-* Do **not** define your service class as public and use interface instead of class for injection (with `@Autowired`); 
-  this follows the best practice principles from Joshua Bloch 'Effective Java' book called Programming to Interface;
-* _Optional_ - define any methods you need to work with your `MyEntity` class; these methods mostly should be based on 
-  common API form `javax.persistence.EntityManager`, or custom queries (see example below);
+* Inherit your CRUD service from the `CommonCrudService<MyEntity>` class.
+* Name it like your service interface with an `Impl` suffix, for example `MyEntityServiceImpl`.
+* Annotate your class with the Spring `@Service` and `@Transactional` annotations.
+* Do **not** define your service class as public and use an interface instead of a class for injection (with `@Autowired`). 
+  This follows the best practice principles from Joshua Bloch 'Effective Java' book called Programming to Interface.
+* _Optional_ - define any methods you need to work with your `MyEntity` class. These methods should mostly be based on 
+  common API form `javax.persistence.EntityManager`, or custom queries (see example below).
 
 * !!! warning "Avoid query parameters construction through string concatenation!"
       Please avoid using query parameter construction through string concatenation!  
       This usually leads to [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection) issues!    
       Bad query example:  
       `String sQuery = "select * from MyEntity where proprety='" + propertyValue + "'"`;  
-      What you should do instead is to create a service which does properly assigns the parameters.  
+      What you should do instead is to create a service which properly assigns the parameters.  
       Here's an example service:
       ```java
       @Transactional
