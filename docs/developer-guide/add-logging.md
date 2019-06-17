@@ -1,4 +1,4 @@
-# Logging
+# Add logging to projects or modules
 
 The logging in the application is set up using:
 
