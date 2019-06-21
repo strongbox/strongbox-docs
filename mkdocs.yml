@@ -109,7 +109,7 @@ nav:
       - Metadata:
           - Maven Metadata: developer-guide/metadata/maven-metadata.md
           - NPM Metadata: developer-guide/metadata/npm-metadata.md
-      - Logging: developer-guide/logging.md
+      - Logging: developer-guide/add-logging.md
       - Search Providers: developer-guide/search-providers.md
       - Maven Indexer: developer-guide/maven-indexer.md
       - Writing custom authenticator: developer-guide/how-to-implement-a-custom-authenticator.md
