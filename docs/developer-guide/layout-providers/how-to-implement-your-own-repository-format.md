@@ -43,7 +43,7 @@ This is how it looks like:
 
 ![Strongbox Repository, Layout and Storage Provider Classes][classes]
 
-You will need to implement following entities:
+You will need to implement the following entities:
 
 - `ConcreteLayoutFileSystemProvider`
 - `ConcreteLayoutFileSystem`
@@ -86,7 +86,7 @@ Below is the set of base classes which need to be extended:
 - `LayoutFileSystemProvider`
 - `AbstractLayoutProvider`
 
-Almost all components in Strongbox are managed by Spring's IoC container, the same goes for the for layout-related 
+Almost all components in Strongbox are managed by Spring's IoC container, the same goes for the layout-related 
 components and there should be the following factories to put everything into context:
 
 - `LayoutFileSystemProviderFactory`
@@ -94,7 +94,7 @@ components and there should be the following factories to put everything into co
 
 ### Putting It All Together
 
-Strongbox has plugable layout providers, so once you have impelemted all the extension points, it should work out of the box.
+Strongbox has plugable layout providers, so once you have implemented all the extension points, it should work out of the box.
 
 Below you can see how the general flow goes, based on the artifact download example:
 
@@ -115,7 +115,7 @@ Below you can see how the general flow goes, based on the artifact download exam
 
 [Artifact Coordinates]: ../../knowledge-base/artifact-coordinates.md
 [Artifact Coordinate Validators]: ../../knowledge-base/artifact-coordinate-validators/artifact-coordinate-validators.md 
-[ArtifactCoordinates.java]: https://github.com/strongbox/strongbox/blob/master/strongbox-commons/src/main/java/org/carlspring/strongbox/artifact/coordinates/ArtifactCoordinates.java 
+[ArtifactCoordinates.java]: https://github.com/strongbox/strongbox/blob/895112251c143ebc711924c582bc022c51656d26/strongbox-storage/strongbox-storage-api/src/main/java/org/carlspring/strongbox/artifact/coordinates/ArtifactCoordinates.java 
 [BaseArtifactController.java]: https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/BaseArtifactController.java
 [Layout Providers]: ../../knowledge-base/layout-providers.md 
 [Maven 2 Layout Provider]: ./maven-2-layout-provider.md
