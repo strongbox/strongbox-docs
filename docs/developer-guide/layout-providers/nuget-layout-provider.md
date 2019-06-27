@@ -27,7 +27,7 @@ This layout provider has feeds.
 
 ## NuGet 2 Search Provider
 
-The NuGet layout provider supports uses the [OrientDB (default)](../search-providers#orientdbsearchprovider).
+The NuGet layout provider supports the use of the [OrientDB (default)](../search-providers#orientdbsearchprovider).
 
 # Supported Commands
 
@@ -40,7 +40,7 @@ Following [CLI commands](https://docs.microsoft.com/ru-ru/nuget/tools/nuget-exe-
 
 ## Classes of Interest
 
-The following are some of the most important classes you will need to be familiar with in order to work on this layout provider:
+The following are some of the more important classes you will need to be familiar with in order to work on this layout provider:
 
 | Class | Description |
 |:-----------|:------------|

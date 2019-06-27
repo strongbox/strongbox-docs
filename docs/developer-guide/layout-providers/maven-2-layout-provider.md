@@ -49,7 +49,7 @@ Please, be aware that the Maven 2 layout provider (unlike most of the other layo
 
 ## Classes of Interest
 
-The following are some of the most important classes you will need to be familiar with in order to work on this layout provider:
+The following are some of the more important classes you will need to be familiar with in order to work on this layout provider:
 
 | Coordinate   | Description |
 |:-------------|:------------|
@@ -79,7 +79,7 @@ The following are some of the most important classes you will need to be familia
 [ArtifactIndexesServiceImpl]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/services/impl/ArtifactIndexesServiceImpl.java
 [MavenIndexerSearchProvider]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/providers/search/MavenIndexerSearchProvider.java
 [ArtifactMetadataServiceImpl]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/services/impl/ArtifactMetadataServiceImpl.java
-[MavenArtifactController]: https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/maven/MavenArtifactController.java
+[MavenArtifactController]: https://github.com/strongbox/strongbox/blob/e8beb1f7b97483355f55045c8947decdc1b1c26b/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/layout/maven/MavenArtifactController.java
 [Maven Metadata]: ../metadata/maven-metadata.md
 [Maven Indexer]: ../maven-indexer.md
 [search provider]: ../search-providers.md
