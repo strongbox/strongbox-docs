@@ -3,7 +3,7 @@
 ## What is stored in the Maven metadata?
 
 The `maven-metadata.xml` file is a place where Maven stores basic information about artifacts. 
-It can contain useful data such as, for example:
+It can contain useful data such as:
 
 - Which timestamped artifact file represents the current `SNAPSHOT` artifact
 - What the latest deployed version of an artifact is
@@ -144,7 +144,7 @@ The `<latest/>` field is used to point to the most-recently deployed (release, o
 that this is not always necessarily the highest available version. For example, if you have several active branches 
 under version control from which you're deploying versions of the artifact (for example `1.2` and `2.0` branches from 
 which you respectively release artifacts with versions `1.2.1`, `1.2.2`, etc. and `2.0.1`, `2.0.2`), you may have the 
-case where an artifact from the `1.2` branch been deployed while at the same time there is also a `2.0.3` version as well. 
+case where an artifact from the `1.2` branch has been deployed while at the same time there is also a `2.0.3` version. 
 Depending on the repository type, the `<latest/>` field may also be pointing to `SNAPSHOT` artifacts as well.
 
 ## What is the `release` field used for?
@@ -168,7 +168,7 @@ When you deploy an artifact to a remote repository, Maven will check if there is
 necessary changes into a new copy and then overwrite the data on the remote. If there is no existing `maven-metadata.xml` 
 in the remote repository, Maven will generate a new one and deploy it.
 
-Sometimes the data in the repository can become corrupt and this is when the repository manager needs to be told 
+Sometimes, the data in the repository can become corrupt and this is when the repository manager needs to be told 
 to rebuild it (or, alternatively, a scheduled task on the repository manager can take care of this to pre-emptively fix it). 
 
 ## What are the official resources on Maven metadata?
