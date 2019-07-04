@@ -10,7 +10,7 @@ The logging in the application is set up using:
 
 ### Configuration
 
-If you have `strongbox-commons` as a (direct, or transitive) dependency of your module, you will be able to use the logging, without having to specify the dependencies yourself. If, for one reason, or another, you do not want to have this dependency, you will need the following dependencies instead:
+If you have `strongbox-commons` as a (direct or transitive) dependency of your module, you will be able to use the logging, without having to specify the dependencies yourself. If, for one reason or another, you do not want to have this dependency, you will need the following dependencies instead:
 
 ```xml
 <!-- Logging -->
@@ -56,7 +56,7 @@ In order to exclude them as transitive dependencies, you will need to have somet
 
 ## Logging Configuration File Location
 
-The logging is controlled via the [strongbox/strongbox-resources/strongbox-common-resources/src/main/resources/logback.xml]. 
+The logging is controlled via the [strongbox/strongbox-resources/strongbox-common-resources/src/main/resources/logbac-spring.xml]. 
 This resource should be copied wherever necessary using:
 
 ```xml
@@ -94,9 +94,9 @@ This resource should be copied wherever necessary using:
 
 The logging can be configured via the REST API. We have created a separate project called [logback-configuration] for this purpose.  
   
-For details on how to configure the logging and resolve the log files via the REST API, please visit the rest documentation
+For details on how to configure the logging and resolve the log files via the REST API, please visit the REST documentation
 in your Strongbox instance at `http://localhost:48080/docs/rest/api.html`.
 
 
 [logback-configuration]: https://github.com/carlspring/logback-configuration
-[strongbox/strongbox-resources/strongbox-common-resources/src/main/resources/logback.xml]: https://github.com/strongbox/strongbox/blob/master/strongbox-resources/strongbox-common-resources/src/main/resources/logback.xml
+[strongbox/strongbox-resources/strongbox-common-resources/src/main/resources/logback.xml]: https://github.com/strongbox/strongbox/blob/master/strongbox-resources/strongbox-common-resources/src/main/resources/logback-spring.xml
