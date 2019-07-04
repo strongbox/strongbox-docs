@@ -57,7 +57,7 @@ The Maven Indexer is used for integration with IDE-s.
 
 The Maven indexes produced by most public repository managers (such as Maven Central), are usually rebuilt once a week, 
 as it can take quite a while to scan large repositories with countless small artifacts. Hence, these indexes have proven
- to not be quite as up-to-date, as the real server's contents. For this reason, we are using OrientDB to keep more 
+ to not be quite as up-to-date as the real server's contents. For this reason, we are using OrientDB to keep more 
  accurate information.
 
 There are two types of Maven Indexer indexes:
