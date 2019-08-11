@@ -257,3 +257,44 @@ Collection<DynamicTest> dynamicTestsFromCollection() {
     );
 }
 ``` 
+
+## Temp directories
+The `@TempDir` annotation is used to create and clean up a temporary directory for an individual test or all tests in a test class. To use it, annotate a non-private field of type `java.nio.file.Path` or `java.io.File` with `@TempDir` or add a parameter of type `java.nio.file.Path` or `java.io.File` annotated with `@TempDir` to a lifecycle method or test method.
+
+For example, the following test declares a parameter annotated with `@TempDir` for a single test method, creates and writes to a file in the temporary directory, and checks its content.
+
+```java
+@Test
+void writeItemsToFile(@TempDir Path tempDir) throws IOException {
+    Path file = tempDir.resolve("test.txt");
+
+    new ListWriter(file).write("a", "b", "c");
+
+    assertEquals(singletonList("a,b,c"), Files.readAllLines(file));
+}
+``` 
+
+The following example stores a shared temporary directory in a `static` field. This allows the same `sharedTempDir` to be used in all lifecycle methods and test methods of the test class.
+
+```java
+class SharedTempDirectoryDemo {
+
+    @TempDir
+    static Path sharedTempDir;
+
+    @Test
+    void writeItemsToFile() throws IOException {
+        Path file = sharedTempDir.resolve("test.txt");
+
+        new ListWriter(file).write("a", "b", "c");
+
+        assertEquals(singletonList("a,b,c"), Files.readAllLines(file));
+    }
+
+    @Test
+    void anotherTestThatUsesTheSameTempDir() {
+        // use sharedTempDir
+    }
+
+}
+``` 
