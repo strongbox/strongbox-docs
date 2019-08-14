@@ -239,7 +239,8 @@ A new feature in JUnit 5 which allows us to repeat a test in a specified number 
 
 ```java
 @RepeatedTest(100)
-void repeatedTest() {
+void repeatedTest()
+{
     // ...
 }
 ``` 
@@ -250,7 +251,8 @@ Let’s see an example which we generate 2 tests at runtime:
 
 ```java
 @TestFactory
-Collection<DynamicTest> dynamicTestsFromCollection() {
+Collection<DynamicTest> dynamicTestsFromCollection()
+{
     return Arrays.asList(
         dynamicTest("1st dynamic test", () -> assertTrue(true)),
         dynamicTest("2nd dynamic test", () -> assertEquals(4, 2 * 2))
@@ -265,7 +267,8 @@ For example, the following test declares a parameter annotated with `@TempDir` f
 
 ```java
 @Test
-void writeItemsToFile(@TempDir Path tempDir) throws IOException {
+void writeItemsToFile(@TempDir Path tempDir) throws IOException
+{
     Path file = tempDir.resolve("test.txt");
 
     new ListWriter(file).write("a", "b", "c");
@@ -277,13 +280,15 @@ void writeItemsToFile(@TempDir Path tempDir) throws IOException {
 The following example stores a shared temporary directory in a `static` field. This allows the same `sharedTempDir` to be used in all lifecycle methods and test methods of the test class.
 
 ```java
-class SharedTempDirectoryDemo {
+class SharedTempDirectoryDemo
+{
 
     @TempDir
     static Path sharedTempDir;
 
     @Test
-    void writeItemsToFile() throws IOException {
+    void writeItemsToFile() throws IOException
+    {
         Path file = sharedTempDir.resolve("test.txt");
 
         new ListWriter(file).write("a", "b", "c");
@@ -292,7 +297,8 @@ class SharedTempDirectoryDemo {
     }
 
     @Test
-    void anotherTestThatUsesTheSameTempDir() {
+    void anotherTestThatUsesTheSameTempDir()
+    {
         // use sharedTempDir
     }
 
