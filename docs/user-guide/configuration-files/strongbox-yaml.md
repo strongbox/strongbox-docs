@@ -69,6 +69,8 @@ The following is an example of a `strongbox.yaml` configuration file:
               repositoryConfiguration:
                 type: Maven 2
                 indexingEnabled: true
+                downloadRemoteMavenIndexCronExpression: "0 0 2 * * ?"
+                rebuildMavenIndexesCronExpression: "0 0 2 * * ?"
             snapshots:
               id: snapshots
               policy: snapshot
@@ -80,6 +82,8 @@ The following is an example of a `strongbox.yaml` configuration file:
               repositoryConfiguration:
                 type: Maven 2
                 indexingEnabled: true
+                downloadRemoteMavenIndexCronExpression: "0 0 2 * * ?"
+                rebuildMavenIndexesCronExpression: "0 0 2 * * ?"
         storage-common-proxies:
           id: storage-common-proxies
           repositories:
@@ -97,6 +101,8 @@ The following is an example of a `strongbox.yaml` configuration file:
               repositoryConfiguration:
                 type: Maven 2
                 indexingEnabled: true
+                downloadRemoteMavenIndexCronExpression: "0 0 2 * * ?"
+                rebuildMavenIndexesCronExpression: "0 0 2 * * ?"
             carlspring:
               id: carlspring
               policy: mixed
