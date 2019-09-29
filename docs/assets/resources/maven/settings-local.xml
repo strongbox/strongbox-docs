@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+
+    <localRepository>.m2/repository-strongbox-local</localRepository>
+
+    <mirrors>
+        <mirror>
+            <id>strongbox</id>
+            <name>strongbox</name>
+            <url>http://localhost:48080/storages/public/maven-group/</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+    </mirrors>
+
+    <profiles>
+        <profile>
+            <id>carlspring-repositories</id>
+
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <repositories>
+                <repository>
+                    <id>strongbox</id>
+                    <name>strongbox</name>
+                    <url>http://localhost:48080/storages/public/maven-group/</url>
+                    <layout>default</layout>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>strongbox</id>
+                    <name>strongbox</name>
+                    <url>http://localhost:48080/storages/public/maven-group/</url>
+                    <layout>default</layout>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+
+    <servers>
+        <server>
+            <id>releases</id>
+            <username>admin</username>
+            <password>password</password>
+        </server>
+        <server>
+            <id>snapshots</id>
+            <username>admin</username>
+            <password>password</password>
+        </server>
+    </servers>
+</settings>
