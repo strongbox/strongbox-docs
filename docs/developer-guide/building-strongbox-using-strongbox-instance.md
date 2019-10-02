@@ -5,9 +5,7 @@
 We like our dog food and we try it all the time! :smiley:
 
 Working on Strongbox features is fun, but has a hidden issue - you can unintentionally break things.
-The best way to know if your changes are not affecting Strongbox is by testing it in a real-world environment.
-Building @strongbox/strongbox using a Strongbox instance is as "real world" environment as it can get and this 
-article goes into details how to do the testing.
+Even though we try to have our code covered with lots of test cases - a moment comes when you need to test things manually to make sure your changes are not affecting other features or performance. Doing a build of @strongbox/strongbox using a Strongbox instance is as "real world" environment as it can get and this article goes into details how to do the testing.
 
 ## Starting a Strongbox Instance
 
