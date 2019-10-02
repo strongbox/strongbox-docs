@@ -1,7 +1,7 @@
 ## Strongbox
 
 Strongbox is an OpenSource artifact repository manager written in Java. We aim to provide an easy and reliable platform, 
-for hosting your (binary) artifacts, regardless or your repository layout.
+for hosting your (binary) artifacts, regardless of your repository layout.
 
 ## Features 
 
@@ -13,13 +13,12 @@ for hosting your (binary) artifacts, regardless or your repository layout.
 
 ??? success "Cron Tasks"
     
-    We have various cron tasks available to automate almost anything like rebuilding metadata, emptying Trash, etc.
+    We have various cron tasks available to automate almost anything like rebuilding metadata, emptying trash, etc.
     
     * [x] Java implementation
     * [x] Groovy implementation
 
 ??? success "Event handling"
-
     
 
 ??? abstract "Logging"
@@ -53,7 +52,7 @@ for hosting your (binary) artifacts, regardless or your repository layout.
     Search providers offer a way to execute searches against different search engines. By default, searches are executed 
     against OrientDB, unless a search provider has been specified. [Click here for more details](./developer-guide/search-providers.md)
 
-    * [x] [Artifact Query Language (AQL) to make searching easy and consistent between layouts](./user-guide/artifact-query-language.md) 
+    * [x] [Artifact Query Language (AQL) to make searching easy and consistent between layouts](./user-guide/artifact-query-language.md)
     * [x] OrientDB (default implementation for all repositories and layout formats)
     * [x] Maven Indexer
 
@@ -62,14 +61,14 @@ for hosting your (binary) artifacts, regardless or your repository layout.
     * [x] HTTP Basic authentication
     * [x] JWT authentication
     * [x] LDAP
-    * [x] Custom authentication provider based on users that resides in second-level cache that exists in OrientDB
-    * [x] Users are predefined in the `etc/conf/strongbox-security-users.xml` file
+    * [x] Custom authentication provider, based on users that stored in the second-level cache backed by OrientDB
+    * [x] Users are pre-defined in the `etc/conf/strongbox-security-users.xml` file
 
 
 ??? success "REST API"
 
-    All of Strongbox's features are available via REST API endpoints. 
-    You can customize user's access to only allow specific endpoints to be accessible.
+    All of Strongbox's features are available via REST API end-points. 
+    You can customize a user's access to only allow specific end-points to be accessible.
 
     * [x] Search for artifacts
     * [x] Manage the server's core configuration
@@ -108,4 +107,4 @@ for hosting your (binary) artifacts, regardless or your repository layout.
 
 ## Show us some love!
 
-If you like what you are seeing, please give us star and follow our journey!  
+If you like what you are seeing, please give us a star and follow our journey!  

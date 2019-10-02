@@ -69,6 +69,7 @@ The following is an example of a `strongbox.yaml` configuration file:
               repositoryConfiguration:
                 type: Maven 2
                 indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             snapshots:
               id: snapshots
               policy: snapshot
@@ -80,6 +81,7 @@ The following is an example of a `strongbox.yaml` configuration file:
               repositoryConfiguration:
                 type: Maven 2
                 indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
         storage-common-proxies:
           id: storage-common-proxies
           repositories:
@@ -97,6 +99,7 @@ The following is an example of a `strongbox.yaml` configuration file:
               repositoryConfiguration:
                 type: Maven 2
                 indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             carlspring:
               id: carlspring
               policy: mixed
@@ -108,6 +111,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 downloadRemoteIndexes: true
                 autoBlocking: true
                 checksumValidation: true
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             apache-snapshots:
               id: apache-snapshots
               policy: snapshot
@@ -119,6 +126,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 downloadRemoteIndexes: true
                 autoBlocking: true
                 checksumValidation: true
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             jboss-public-releases:
               id: jboss-public-releases
               policy: release
@@ -130,6 +141,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 downloadRemoteIndexes: true
                 autoBlocking: true
                 checksumValidation: true
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             maven-oracle:
               id: maven-oracle
               policy: release
@@ -142,6 +157,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 autoBlocking: true
                 checksumValidation: true
                 allowsDirectoryBrowsing: false
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             group-common-proxies:
               id: group-common-proxies
               policy: release
@@ -154,6 +173,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 - maven-central
                 - apache-snapshots
                 - jboss-public-releases
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             nuget.org:
               id: nuget.org
               policy: release
@@ -179,6 +202,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 downloadRemoteIndexes: true
                 autoBlocking: true
                 checksumValidation: true
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             springsource-releases:
               id: springsource-releases
               policy: release
@@ -190,6 +217,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 downloadRemoteIndexes: true
                 autoBlocking: true
                 checksumValidation: true
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             springsource-milestones:
               id: springsource-milestones
               policy: release
@@ -201,6 +232,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 downloadRemoteIndexes: true
                 autoBlocking: true
                 checksumValidation: true
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             springsource-proxies:
               id: springsource-proxies
               policy: mixed
@@ -212,6 +247,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 - springsource-snapshots
                 - springsource-releases
                 - springsource-milestones
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
         storage-ivy-proxies:
           id: storage-ivy-proxies
           repositories:
@@ -226,6 +265,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 downloadRemoteIndexes: true
                 autoBlocking: true
                 checksumValidation: true
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             typesafe-ivy-releases:
               id: typesafe-ivy-releases
               policy: release
@@ -237,6 +280,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 downloadRemoteIndexes: true
                 autoBlocking: true
                 checksumValidation: true
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             group-ivy-proxies:
               id: group-ivy-proxies
               policy: release
@@ -247,6 +294,10 @@ The following is an example of a `strongbox.yaml` configuration file:
               groupRepositories:
                 - typesafe-releases
                 - typesafe-ivy-releases
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
         storage-sbt-proxies:
           id: storage-sbt-proxies
           repositories:
@@ -261,6 +312,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 downloadRemoteIndexes: true
                 autoBlocking: true
                 checksumValidation: true
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             group-sbt-proxies:
               id: group-sbt-proxies
               policy: release
@@ -271,6 +326,10 @@ The following is an example of a `strongbox.yaml` configuration file:
               groupRepositories:
                 - sbt-plugin-releases
                 - storage-ivy-proxies:group-ivy-proxies
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
         storage-third-party:
           id: storage-third-party
           repositories:
@@ -282,6 +341,10 @@ The following is an example of a `strongbox.yaml` configuration file:
               type: hosted
               allowsForceDeletion: true
               checksumHeadersEnabled: true
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             nuget-third-party:
               id: nuget-third-party
               policy: release
@@ -353,6 +416,10 @@ The following is an example of a `strongbox.yaml` configuration file:
                 - storage-ivy-proxies:group-ivy-proxies
                 - storage-sbt-proxies:group-sbt-proxies
                 - storage-third-party:third-party
+              repositoryConfiguration:
+                type: Maven 2
+                indexingEnabled: true
+                cronExpression: "0 0 2 * * ?"
             nuget-group:
               id: nuget-group
               policy: mixed

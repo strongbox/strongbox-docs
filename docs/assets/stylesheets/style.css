@@ -12,6 +12,28 @@ body > .md-container {
     color: rgba(255, 255, 255, 0.9);
 }
 
+.md-typeset .admonition.hint,
+.md-typeset .admonition.important,
+.md-typeset .admonition.tip,
+.md-typeset details.hint,
+.md-typeset details.important,
+.md-typeset details.tip {
+    border-top-color: #00bfa5;
+}
+
+.md-typeset .admonition.attention, .md-typeset .admonition.caution, .md-typeset .admonition.warning, .md-typeset details.attention, .md-typeset details.caution, .md-typeset details.warning {
+    border-top-color: #ff9100;
+}
+
+.md-typeset .admonition, .md-typeset details {
+    border-top: .068rem solid #448aff
+}
+
+.md-typeset {
+    /* break extra long headers */
+    overflow-wrap: break-word;
+}
+
 .md-typeset h1,
 .md-typeset h2,
 .md-typeset h3,
@@ -19,6 +41,74 @@ body > .md-container {
 .md-typeset h5,
 .md-typeset h6 {
     color: white;
+    font-weight: 300;
+}
+
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+    margin: 2rem 0 0.4rem;
+}
+
+.md-typeset h1 {
+    margin: 0 0 0.4rem;
+}
+
+.md-typeset h2:first-child,
+.md-typeset h3:first-child,
+.md-typeset h4:first-child,
+.md-typeset h5:first-child,
+.md-typeset h6:first-child {
+    margin: 0.8rem 0 0.4rem;
+}
+
+.md-typeset h1 + h2,
+.md-typeset h1 + h3,
+.md-typeset h1 + h4,
+.md-typeset h1 + h5,
+.md-typeset h1 + h6,
+.md-typeset h2 + h2,
+.md-typeset h2 + h3,
+.md-typeset h2 + h4,
+.md-typeset h2 + h5,
+.md-typeset h2 + h6,
+.md-typeset h3 + h3,
+.md-typeset h3 + h4,
+.md-typeset h3 + h5,
+.md-typeset h3 + h6,
+.md-typeset h4 + h4,
+.md-typeset h4 + h4,
+.md-typeset h4 + h5,
+.md-typeset h5 + h5,
+.md-typeset h5 + h6,
+.md-typeset h6 + h6 {
+    margin: 0.8rem 0 0.4rem !important;
+}
+
+.md-typeset h1 {
+    font-size: 1.8rem;
+}
+
+.md-typeset h2 {
+    font-size: 1.6rem;
+}
+
+.md-typeset h3 {
+    font-size: 1.34rem;
+}
+
+.md-typeset h4 {
+    font-size: 1.22rem;
+}
+
+.md-typeset h5 {
+    font-size: 1.18rem;
+}
+
+.md-typeset h6 {
+    font-size: 1.1rem;
 }
 
 [data-md-color-primary=blue-grey] .md-typeset a {
@@ -101,12 +191,28 @@ body > .md-container {
     background-color: hsla(343, 100%, 31%, 0.3)
 }
 
+.md-typeset table:not([class]) {
+    border: 1px solid rgba(0,0,0,0.3);
+}
+
 .md-typeset table:not([class]) th {
     background-color: rgba(0,0,0,0.3);
+    vertical-align: middle;
+}
+
+.md-typeset table:not([class]) tr:hover {
+    box-shadow: none;
+}
+
+.md-typeset table:not([class]) td {
+    border-top: 0px !important;
 }
 
 .md-typeset .md-typeset__table {
     width: 100%;
+    display: block;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+
 }
 
 @media only screen and (max-width: 76.1875em)
@@ -262,3 +368,6 @@ html .md-typeset .env details > :last-child {
     object-fit: cover;
 }
 
+.hidden {
+    display: none;
+}

@@ -42,10 +42,7 @@ This layout provider also indexes the artifacts using the Lucene-based [Maven In
 
 ## Maven 2 Search Providers
 
-Please, be aware that the Maven 2 layout provider (unlike most of the other layout providers) supports two search providers:
-
-* [OrientDB (default)](../search-providers.md#orientdbsearchprovider)
-* [Maven Indexer](../search-providers.md#mavenindexersearchprovider) (search provider)
+The Maven 2 layout provider uses the [OrientDB (default)](../search-providers#orientdbsearchprovider).
 
 ## Classes of Interest
 

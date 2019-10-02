@@ -32,11 +32,12 @@ The `id` would be the name/id of the artifact, whereas, the `version` would desc
 
 Strongbox comes with the following built-in implementations:
 
-* [MavenArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/artifact/coordinates/MavenArtifactCoordinates.java)
+* [MavenArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/artifact/coordinates/MavenArtifactCoordinates.java)
 * [NpmArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-npm-layout-provider/src/main/java/org/carlspring/strongbox/artifact/coordinates/NpmArtifactCoordinates.java)
 * [NugetArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider/src/main/java/org/carlspring/strongbox/artifact/coordinates/NugetArtifactCoordinates.java)
-* [NullArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-commons/src/main/java/org/carlspring/strongbox/artifact/coordinates/NullArtifactCoordinates.java) (used by the [[Raw Layout Provider]])
+* [NullArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-api/src/main/java/org/carlspring/strongbox/artifact/coordinates/NullArtifactCoordinates.java) (used by the [Raw Layout Provider])
 
 
-[ArtifactCoordinates]: https://github.com/strongbox/strongbox/tree/master/strongbox-commons/src/main/java/org/carlspring/strongbox/artifact/coordinates/ArtifactCoordinates.java
-[AbstractArtifactCoordinates]: https://github.com/strongbox/strongbox/tree/master/strongbox-commons/src/main/java/org/carlspring/strongbox/artifact/coordinates/AbstractArtifactCoordinates.java
+[ArtifactCoordinates]: https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-api/src/main/java/org/carlspring/strongbox/artifact/coordinates/ArtifactCoordinates.java
+[AbstractArtifactCoordinates]: https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-api/src/main/java/org/carlspring/strongbox/artifact/coordinates/AbstractArtifactCoordinates.java
+[Raw Layout Provider]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-raw-layout-provider/src/main/java/org/carlspring/strongbox/providers/layout/RawLayoutProvider.java

@@ -28,8 +28,11 @@ plugins:
 
 extra:
   url: &url !!python/object/apply:os.getenv ["DEPLOY_URL", "http://localhost:8000"]
-  assets: !!python/object/apply:urllib.parse.urljoin [*url, "/assets"]
-  resources: !!python/object/apply:urllib.parse.urljoin [*url, "/assets/resources"]
+  assetsPath: &assetsPath "assets/"
+  resourcesPath: &resourcesPath !!python/object/apply:urllib.parse.urljoin [*assetsPath, "resources"]
+  assets: !!python/object/apply:urllib.parse.urljoin [*url, *assetsPath]
+  resources: !!python/object/apply:urllib.parse.urljoin [*url, *resourcesPath]
+  repo_url: "https://github.com/strongbox/strongbox"
 
 # Extensions
 markdown_extensions:
@@ -54,10 +57,13 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      base_path: docs
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - mdx_gh_links
 
 # Page tree
 nav:
@@ -90,7 +96,7 @@ nav:
     - Building:
       - Building the code: developer-guide/building-the-code.md
       - Building the code (Docker): developer-guide/building-the-code-with-docker.md
-      - Building Strongbox against Strongbox: developer-guide/building-strongbox-against-strongbox.md
+      - Building Strongbox using a Strongbox instance: developer-guide/building-strongbox-using-strongbox-instance.md
     - IDE setup:
       - Eclipse: developer-guide/ide-setup/eclipse.md
     - Project structure: developer-guide/project-structure.md
@@ -109,7 +115,7 @@ nav:
       - Metadata:
           - Maven Metadata: developer-guide/metadata/maven-metadata.md
           - NPM Metadata: developer-guide/metadata/npm-metadata.md
-      - Logging: developer-guide/logging.md
+      - Logging: developer-guide/add-logging.md
       - Search Providers: developer-guide/search-providers.md
       - Maven Indexer: developer-guide/maven-indexer.md
       - Writing custom authenticator: developer-guide/how-to-implement-a-custom-authenticator.md
