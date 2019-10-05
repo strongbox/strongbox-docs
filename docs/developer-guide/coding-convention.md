@@ -227,6 +227,7 @@ Please, consider the following an example of how to indent your code.
         }
         
     }
+    
     ```
 
 ## Code style profiles
