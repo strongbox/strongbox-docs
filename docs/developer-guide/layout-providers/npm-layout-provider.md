@@ -22,9 +22,13 @@ The accepted `User-Agent` headers supported must look like `User-Agent=npm/*`.
 ## Supported Commands
 
 Following [CLI commands](https://docs.npmjs.com/cli/npm) supported:
+
 - `npm publish`
+
 - `npm install`
+
 - `npm view` 
+
 - `npm search` 
 
 ### Classes of Interest
