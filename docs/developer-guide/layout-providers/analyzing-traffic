@@ -1,0 +1,8 @@
+#Analyzing Traffic
+----
+## Wireshark
+[Wireshark](https://www.wireshark.org/) is a cross-platform open source GUI tool that analyzes traffic on a network. It accomplishes this by listening through a given network interface. It logs the traffic as it listens, it also shows the protocols used in each item that is logged. Traffic logs can be written to .pcap files for further inspection.
+
+----
+## tcpdump
+[tcpdump](https://www.tcpdump.org) is an open source packet analyzer on Linux that can be used via the command line interface. Similar in function to Wireshark, it listens on a given interface capturing packets and can write logs to .pcap files. It can be used as an alternative to Wireshark or in conjunction with Wireshark to analyze logs. 
