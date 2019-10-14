@@ -113,44 +113,9 @@ can be extended, for example:
 
 ## Assertions
 
-JUnit Jupiter comes with many of the assertion methods that JUnit 4 has and adds a few that lend themselves well to 
-being used with Java 8 lambdas. All JUnit Jupiter assertions are static methods in the `org.junit.jupiter.api.Assertions` class.
+We decided to use AssertJ assertions instead of JUnit 5 assertions.
 
-We have to know a few basic rules:
-
-* If we want to specify a custom error message that is shown when our assertion fails, we have to pass this message as the **last** method parameter of the invoked assertion method.
-* If we want to compare two values (or objects), we have to pass these values (or objects) to the invoked assertion method in this order: the expected value (or object) and the actual value (or object).
-
-| Assertion     | Condition     | 
-| ------------- | ------------- |
-| `fail` | Fails a test with the given failure message |
-| `assertTrue` | If we want to verify that a boolean value is true |
-| `assertSame` | If we want to ensure that two objects refer to the same object |
-| `assertNull` | If we want to verify that an object is null |
-| `assertNotSame` | If we want to ensure that two objects don't refer to the same object |
-| `assertNotEquals` | If we want to verify that the expected value (or object) is not equal to the actual value (or object) |
-| `assertNotNull` | If we want to verify that an object is not null |
-| `assertFalse`| If we want to verify that a boolean value is false |
-| `assertEquals` | If we want to verify that the expected value (or object) is equal to the actual value (or object) |
-| `assertArrayEquals` &nbsp; &nbsp; | If we want to verify that two arrays are equal |
-| `assertAll`| If we have to write an assertion for a state that requires multiple assertions |
-| `assertThrows` | If we want to write assertions for the exceptions thrown by the system |
-
-### Difference  in the position of optional assertion message parameter
-The optional assertion message is the last parameter applied for all assertion methods support it.
-
-`assertEquals(48080, configuration.getPort(), "Incorrect port number!");`
-
-### Lambda expressions
-
-Assert methods in JUnit 5 can be used with Java 8 Lambdas.
-For example:
-
-```java
-assertThrows(VersionValidationException.class, () -> {
-    validator.validate(repository, coordinates);
-});
-```
+For more see [AssertJ user guide](./assertj-user-guide.md)
 
 ## Tagging and Filtering
 
