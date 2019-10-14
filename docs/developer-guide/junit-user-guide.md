@@ -115,7 +115,7 @@ can be extended, for example:
 
 We decided to use AssertJ assertions instead of JUnit 5 assertions.
 
-For more see [AssertJ user guide](./assertj-user-guide.md)
+For more details, please check the [AssertJ user guide](./assertj-user-guide.md) article.
 
 ## Tagging and Filtering
 
