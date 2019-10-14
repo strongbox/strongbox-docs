@@ -3,7 +3,7 @@
 ## Basic Rules
 
 * Use [JUnit 5] as testing framework (both unit and integration tests).
-* For assertions please kindly use [AssertJ]. The only module allowed to use `hamcrest` for assertions is `strongbox-web-core` because actual implementation of MockMvc allows only `hamcrest` in their api - see [issue](https://github.com/spring-projects/spring-framework/issues/21178).
+* For assertions, please use the [AssertJ] library. The only module allowed to use `hamcrest` for assertions is the `strongbox-web-core`, because the actual implementation of `MockMvc` allows only `hamcrest` in their API - see [issue](https://github.com/spring-projects/spring-framework/issues/21178).
 * All code must be accompanied with sufficiently thorough test cases which validate the functionality.
 * If tests are failing, they are a top priority.
 * Pull requests will not be merged, if there are failing tests.
