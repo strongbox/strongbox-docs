@@ -4,18 +4,18 @@
 
 All AssertJ assertions are static methods in the `org.assertj.core.api.Assertions` class.
 
-AssertJ assertions always looks like 
-`assertThat(testedValue).<condition>(realValue)`
+AssertJ assertions always look like 
+`assertThat(testedValue).<condition>(realValue)`.
 
-For example what we want to check the equality:
+For example, when we want to check if objects are equal, we would use:
 
 `assertThat("actual string").isEqualTo("expected string")`
 
-If we want to add description for our assertion we should use `.as(description)`
+If we would like to to add a description to our assertion, we would use `as(description)`.
 
 For example:
 
-`assertThat("actual string").as(Values should be equals).isEqualTo("expected string")`
+`assertThat("actual string").as("Values should be equal").isEqualTo("expected string")`
 
 | Assertion     | Condition     | 
  | ------------- | ------------- |
