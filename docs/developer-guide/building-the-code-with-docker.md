@@ -3,17 +3,17 @@
 ## Introduction
 
 Docker is awesome and we are using it to build and test almost everything. 
-It has proven to be quite fast and convenient way to easily reproduce issues.
-We encourage you to have a decent version of Docker installed on your machine 
+It has proven to be quite a fast and convenient way to easily reproduce issues.
+We encourage you to have a recent version of Docker installed on your machine 
 so that you can debug or reproduce issues easier.
 
-You should note that we are mostly using Linux so this guide is more focused on how to do things on Linux distributions.
+You should note that we are mostly using Linux, so this guide is more focused on how to do things on Linux distributions.
 However, things under Windows shouldn't be that different.
 
 ## Docker installation
 
-Depending on your OS and distribution you can install different versions of Docker CE (Community Edition).
-In most cases your distribution will have it's own package of Docker which works fine. 
+Depending on your OS and distribution, you can install different versions of Docker CE (Community Edition).
+In most cases, your distribution will have its own package of Docker which works fine. 
 
 Please head to the docker [installation manual](https://docs.docker.com/install/) pages to check how to install it on your machine:
 
@@ -127,7 +127,7 @@ This might take a while, but in the end you should have a successful build.
 
 ## Making life easier
 
-If you have already checked out our [strongboxci/alpine] repository you would have noticed the amount of 
+If you have already checked out our [strongboxci/alpine] repository you would have noticed the number of 
 different images we have. Trying to remember all of them and the way you need to setup the container is tedious and 
 unnecessary. We have created a [.bashrc]({{resources}}/docker/bashrc-strongbox) with commands you can execute to easily 
 get a container up and running
@@ -137,7 +137,7 @@ Our `.bashrc` has two types of commands which:
 1. Start a container by mounting the current working directory as `workspace` (i.e `dockerMvn35`, `dockerGradle45`, etc)
 2. Start a container and automatically clone a project from github and use that as the `workspace`. (i.e. `dockerMvn35Checkout`, `dockerGradle45Checkout`, etc) 
 
-If you don't remember arguments the command needs you can always execute `dockerMvn35 --help` and it will print them to you as well as an example.
+If you don't remember arguments the command needs, you can always execute `dockerMvn35 --help` and it will print them to you as well as an example.
 
 ### Setting up `~/.bashrc`
 
@@ -151,7 +151,7 @@ echo "\$HOME/.bashrc-strongbox" >> ~/.bashrc
 ```
 
 You can now either open up a new terminal or execute `source ~/.bashrc`  
-Have fun building things in docker :smile:
+Have fun building things in docker! :smile:
 
 
 ### Example commands
@@ -166,7 +166,7 @@ Have fun building things in docker :smile:
     dockerMvn35Checkout strongbox master/branch/PR-1234 "mvn clean install"
     ```
 
-* Use current working directory to build project
+* Use the current working directory to build the project
     ```
     cd /some/path
     dockerMvn35

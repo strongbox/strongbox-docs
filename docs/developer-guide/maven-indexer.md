@@ -64,6 +64,12 @@ Packed indexes are used for transferring indexes from the remote to the proxy/to
 
 The Maven Indexer is used for integration with IDE-s.
 
+<<<<<<< HEAD
+The Maven indexes produced by most public repository managers (such as Maven Central), are usually rebuilt once a week, 
+as it can take quite a while to scan large repositories with countless small artifacts. Hence, these indexes have proven
+ to not be quite as up-to-date as the real server's contents. For this reason, we are using OrientDB to keep more 
+ accurate information.
+=======
 ## How Does The Maven Indexer Work In Strongbox ?
 
 Strongbox allows you to download packed repository Maven Index. Every maven repository with indexing enabled serves the packed Maven Index. 
@@ -119,6 +125,7 @@ Based on the repository type, the index is prepared as follows:
   The process of rebuilding the group repository Maven Index purges previous index and recreates it from scratch to keep more accurate information. 
 
 ## Where Are The Maven Indexes Located in Strongbox ?
+>>>>>>> upstream/master
 
 There are two types of Maven Indexer indexes:
 

@@ -10,7 +10,7 @@ This file is read by the system at the server startup time and it automatically 
 
 For an example, check [here](https://github.com/strongbox/strongbox/blob/master/strongbox-cron/strongbox-cron-api/src/main/resources/etc/conf/strongbox-cron-tasks.yaml)
 
-Every cron task configuration is an `cronTaskConfigurations` array element. Inner properties are:
+Every cron task configuration is a `cronTaskConfigurations` array element. Inner properties are:
 
 * `uuid`: identifies the individual cron task configuration in the system
 
@@ -35,18 +35,18 @@ Every cron task configuration is an `cronTaskConfigurations` array element. Inne
 
 | Description  | Implementation | Mandatory properties | Optional properties |
 | ------------- | ------------- | ------------- | ------------- |
-| [Empty Trash](https://github.com/strongbox/strongbox/wiki/Cron-Tasks#empty-trash) | `org.carlspring.strongbox.cron.jobs.ClearRepositoryTrashCronJob` ||`storageId`<br>`repositoryId`|
-| [Regenerate Checksums](https://github.com/strongbox/strongbox/wiki/Cron-Tasks#regenerate-checksums) | `org.carlspring.strongbox.cron.jobs.RegenerateChecksumCronJob` ||`storageId`<br>`repositoryId`<br>`basePath`<br>`forceRegeneration`|
+| [Empty Trash](https://github.com/strongbox/strongbox/tree/master/strongbox-cron/strongbox-cron-tasks/src/main/java/org/carlspring/strongbox/cron/jobs) | `org.carlspring.strongbox.cron.jobs.ClearRepositoryTrashCronJob` ||`storageId`<br>`repositoryId`|
+| [Regenerate Checksums](https://github.com/strongbox/strongbox/tree/master/strongbox-cron/strongbox-cron-tasks/src/main/java/org/carlspring/strongbox/cron/jobs) | `org.carlspring.strongbox.cron.jobs.RegenerateChecksumCronJob` ||`storageId`<br>`repositoryId`<br>`basePath`<br>`forceRegeneration`|
 | Cleanup Expired Artifacts From Proxy Repositories | `org.carlspring.strongbox.cron.jobs.CleanupExpiredArtifactsFromProxyRepositoriesCronJob` |`lastAccessedTimeInDays`|`minSizeInBytes`|
 
 ### Maven-Specific Cron Task Configuration
 
 | Description  | Implementation | Mandatory properties | Optional properties |
 | ------------- | ------------- | ------------- | ------------- |
-| [Rebuild Maven Metadata](https://github.com/strongbox/strongbox/wiki/Cron-Tasks#rebuild-maven-metadata) | `org.carlspring.strongbox.cron.jobs.RebuildMavenMetadataCronJob` ||`storageId`<br>`repositoryId`<br>`basePath`|
-| [Rebuild Maven Indexes](https://github.com/strongbox/strongbox/wiki/Cron-Tasks#rebuild-maven-indexes) | `org.carlspring.strongbox.cron.jobs.RebuildMavenIndexesCronJob` |`storageId`<br>`repositoryId`|`basePath`|
-| [Download Remote Indexes](https://github.com/strongbox/strongbox/wiki/Cron-Tasks#download-remote-indexes-maven-repositories-only) | `org.carlspring.strongbox.cron.jobs.DownloadRemoteMavenIndexCronJob` |`storageId`<br>`repositoryId`||
-| [Remove Timestamped Snapshot Artifacts](https://github.com/strongbox/strongbox/wiki/Cron-Tasks#remove-timestamped-maven-snapshot-artifacts) | `org.carlspring.strongbox.cron.jobs.RemoveTimestampedMavenSnapshotCronJob` ||`storageId`<br>`repositoryId`<br>`basePath`<br>`numberToKeep`<br>`keepPeriod`|
+| [Rebuild Maven Metadata]https://github.com/strongbox/strongbox/blob/fea19c505ebf09f119e15e7359275a428c8c86ee/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/cron/jobs/RebuildMavenMetadataCronJob.java) | `org.carlspring.strongbox.cron.jobs.RebuildMavenMetadataCronJob` ||`storageId`<br>`repositoryId`<br>`basePath`|
+| [Rebuild Maven Indexes](https://github.com/strongbox/strongbox/blob/fea19c505ebf09f119e15e7359275a428c8c86ee/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/cron/jobs/RebuildMavenIndexesCronJob.java) | `org.carlspring.strongbox.cron.jobs.RebuildMavenIndexesCronJob` |`storageId`<br>`repositoryId`|`basePath`|
+| [Download Remote Indexes](https://github.com/strongbox/strongbox/blob/fea19c505ebf09f119e15e7359275a428c8c86ee/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/cron/jobs/DownloadRemoteMavenIndexCronJob.java) | `org.carlspring.strongbox.cron.jobs.DownloadRemoteMavenIndexCronJob` |`storageId`<br>`repositoryId`||
+| [Remove Timestamped Snapshot Artifacts](https://github.com/strongbox/strongbox/blob/fea19c505ebf09f119e15e7359275a428c8c86ee/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/cron/jobs/RemoveTimestampedMavenSnapshotCronJob.java) | `org.carlspring.strongbox.cron.jobs.RemoveTimestampedMavenSnapshotCronJob` ||`storageId`<br>`repositoryId`<br>`basePath`<br>`numberToKeep`<br>`keepPeriod`|
 
 ### Nuget-Specific Cron Task Configuration
 

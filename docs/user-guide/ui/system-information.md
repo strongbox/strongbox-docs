@@ -1,7 +1,7 @@
 # System Information
 
 This module provides information about the environment where Strongbox is currently running.
-To make your live easier, we've included a `search` filter so that you can find what you're looking for faster.
+To make your life easier, we've included a `search` filter so that you can find what you're looking for faster.
 
 ## JVM Arguments
 

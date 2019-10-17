@@ -53,4 +53,10 @@ catch (SearchException e)
 
 [SearchProvider]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-api/src/main/java/org/carlspring/strongbox/providers/search/SearchProvider.java
 [OrientDbSearchProvider]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-api/src/main/java/org/carlspring/strongbox/providers/search/OrientDbSearchProvider.java
+<<<<<<< HEAD
+[MavenIndexerSearchProvider]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/providers/search/MavenIndexerSearchProvider.java
 [REST-API]: ../user-guide/rest-api.md
+[Maven Indexer]: ./maven-indexer.md
+=======
+[REST-API]: ../user-guide/rest-api.md
+>>>>>>> upstream/master

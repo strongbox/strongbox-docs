@@ -2,7 +2,7 @@
 
 ## Strongbox Distribution
 
-When you download and extract `strongbox-distribution.tar.gz` you will find the following directory structure:
+When you download and extract `strongbox-distribution.tar.gz`, you will find the following directory structure:
 
 ### Directory structure
 
@@ -23,7 +23,7 @@ When you download and extract `strongbox-distribution.tar.gz` you will find the 
 
 The vault is the work area of the server. This includes things like the cache, location of the OrientDB files, 
 storages and temporary directory. You can find this directory right next to where `strongbox-distribution` is located 
-(in other words - `strongbox-distribution/../strongbox-vault`). Check the [Application Properties](/user-guide/application-properties.md) 
+(in other words - `strongbox-distribution/../strongbox-vault`). Check the [Application Properties](./user-guide/application-properties.html) 
 section to see which property to override to change the default location.
 
 ### Directory structure
@@ -31,7 +31,7 @@ section to see which property to override to change the default location.
 * `strongbox-vault/`
     * `cache/`
     * `db/`
-    * [storages](/knowledge-base/storages/)/
+    * [storages](../knowledge-base/storages.md)/
         * `${storageId}/`
             * `${repositoryId}/`
                 * [.index/](../developer-guide/maven-indexer.md#where-are-the-maven-indexes-located)

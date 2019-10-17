@@ -1,6 +1,6 @@
 # Eclipse
 
-!!! tip "Before continuing, please make sure you've built the code using [Building the code] section."
+!!! tip "Before continuing, please make sure you've built the code using the [Building the code] section."
 
 ## Choose Eclipse distribution
 The `Eclipse IDE for Java Developers` package is a sufficient base for strongbox project development.
@@ -23,7 +23,7 @@ You should already have created an empty workspace - this is the default behavio
 ### Import Maven project
 * Choose `File -> Import -> Maven -> Existing Maven Projects`
 * Point the `Root Directory` to the strongbox cloned repository.
-* Click `Finish` button.
+* Click the `Finish` button.
 ![Import -> Existing Maven Project -> Finish][Import Maven Project]
 
 ### Workaround m2e connectors
@@ -42,11 +42,11 @@ If a popup `Discover m2e connectors` appears - click `Resolve All Later` and `Fi
     ![strongbox-storage-nuget-layout-provider/src/main/antlr4 -> Build Path -> Use as Source Folder][Nuget ANTLR Build Path]
 
 ### Configure `strongbox-aql` project
-* Expand the `src/main` directory and select `groovy` and `twig` folders, then right click and pick `Build path -> Use as Source Folder`
+* Expand the `src/main` directory and select the `groovy` and `twig` folders, then right click and pick `Build path -> Use as Source Folder`
     ![strongbox-aql/src/main/groovy & twig ->  Build Path -> Use as Source Folder][AQL groovy and twig Build Path]
 
-* Right click the project and pick Properties 
-    * `Java Build Path -> Libraries -> Add Library -> Groovy Runtime Libraries`. Note that if on right click you pick directly Build path adding the groovy libraries gives an error
+* Right click the project and click Properties 
+    * `Java Build Path -> Libraries -> Add Library -> Groovy Runtime Libraries`. Note that if on right click you pick Build path directly, adding the groovy libraries gives an error
         ![strongbox-aql -> Properties -> Java Build Path -> Add Library -> Groovy Runtime Libraries][AQL groovy project nature]
     * `Project Natures -> Add -> Groovy Nature`
         ![strongbox-aql -> Properties -> Project Natures -> Add -> Confirm Project Nature update -> Groovy Nature][AQL groovy libraries in Build Path]

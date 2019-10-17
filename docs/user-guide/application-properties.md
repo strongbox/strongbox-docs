@@ -65,9 +65,19 @@ Whether, or not to download the Maven indexes for remote repositories.
 
 Whether, or not to download the Maven indexes for all remote repositories in the `$storageId` 
 
+<<<<<<< HEAD
+    Whether to download the Maven indexes for all remote repositories in the `$storageId`.
+    
+    Can be passed as `-Dstrongbox.download.indexes_${storageId}_*` or set via the env variable `STRONGBOX_DOWNLOAD_INDEXES_${storageId}_*`     
+    
+    | Type   | Default Value | 
+    |:------:|:-------------:|
+    | boolean | true         | 
+=======
 | Type      | Default   |
 |:--------- |:--------- |
 | `Boolean` | `true`    | 
+>>>>>>> upstream/master
 
 ##### STRONGBOX_DOWNLOAD_INDEXES_\${storageId}_\${repositoryId}
 

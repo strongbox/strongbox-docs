@@ -3,9 +3,9 @@
 ## Preface
 
 This guideline aims to outline some of the basic expectations that must be met before you can commit your code. The scope
-of this guide are controllers which will be used by the front-end. Controllers which are specific to handling traffic 
-such as downloading/uploading/processing artifacts are out of this scope and need to be discussed before proceeding. 
-In case you have doubts, conflicts or any questions/ideas, please don't hesitate to message us on gitter!
+of this guide are controllers which will be used by the front-end. Controllers, which are specific to handling traffic 
+such as downloading/uploading/processing artifacts, are out of this scope and need to be discussed before proceeding. 
+In case you have doubts, conflicts, or any questions/ideas, please don't hesitate to message us on gitter!
 
 The key words "**MUST**", "**MUST NOT**", "**REQUIRED**", "**SHALL**", "**SHALL NOT**", "**SHOULD**", "**SHOULD NOT**", 
 "**RECOMMENDED**", "**MAY**", and "**OPTIONAL**" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
@@ -21,7 +21,7 @@ or a proper sub-directory in that path.
 
 <div id="general-rule-3"></div> 
  
-[2.](#general-rule-2) You **MUST** have test cases which cover as much as possible your controller.
+[2.](#general-rule-2) You **MUST** have test cases which cover your controller as much as possible.
 
 <div id="general-rule-4"></div> 
  
@@ -30,11 +30,11 @@ or a proper sub-directory in that path.
 <div id="general-rule-5"></div> 
 
 [4.](#general-rule-4) If your controller/method is going to be processing data submitted by a client, you **MUST** use 
-Spring Form Validation and follow the [Spring Form Validation Rules](#form-validation) which also shows an example.
+Spring Form Validation and follow the [Spring Form Validation Rules](#form-validation), which also shows an example.
 
 <div id="general-rule-5.1"></div> 
 
-[5.](#general-rule-5) You **MUST** respond with an appropriate status code and `successful` or `failed` message 
+[5.](#general-rule-5) You **MUST** respond with an appropriate status code and a `successful` or `failed` message 
 when an action has been completed (i.e. user created/updated/deleted). `BaseController` has already implemented methods for these cases.
 
    - Status code for **successful** operations **MUST** be `200 OK`

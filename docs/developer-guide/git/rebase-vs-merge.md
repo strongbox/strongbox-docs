@@ -3,7 +3,7 @@
 ## Conceptual Overview
 
 The first thing to understand about `git rebase` is that it solves the same problem as git merge. Both of these commands 
-are designed to integrate changes from one branch into another branch—they just do it in very different ways.  
+are designed to integrate changes from one branch into another branch. They just do it in very different ways.  
 
 Consider what happens when you start working on a new feature in a dedicated branch, then another team member updates 
 the `master` branch with new commits. This results in a forked history, which should be familiar to anyone who has used 
@@ -18,7 +18,7 @@ new commits into your `feature` branch, you have two options: `merging` or `reba
 
 ??? danger "Please avoid using this option!"
     Please avoid using this option. It creates unnecessary noise in your PRs and makes it ***extremely*** hard to 
-    follow your real changes. We have included this information because it will give you better understanding of why we 
+    follow your real changes. We have included this information because it will give you a better understanding of why we 
     prefer `rebasing` over `merging`.
 
 The easiest option is to merge the `master` branch into the feature branch using something like the following:
@@ -51,7 +51,7 @@ to understand the history of the project or branch you are working on.
 
 !!! success "We prefer this option over `merging`"
 
-As an alternative to merging, you can rebase the feature branch onto master branch using the following commands:
+As an alternative to merging, you can rebase the feature branch onto the master branch using the following commands:
 
 ```
 git checkout feature
@@ -59,7 +59,7 @@ git rebase master
 ```
 
 This moves the entire `feature` branch to begin on the tip of the master branch, effectively incorporating all of 
-the new commits in `master`. But, instead of using a `merge` commit, `rebasing` re-writes the project history by 
+the new commits in `master`. Instead of using a `merge` commit, `rebasing` re-writes the project history by 
 creating brand new commits for each commit in the original branch.
 
 ![](images/03.svg)
@@ -97,7 +97,7 @@ However, before executing this command, please be **sure** nobody else is workin
 ## But how do I rebase?
 
 Before you start, it is a good idea to backup your current project. If this is your first time doing a rebase, you can 
-screw things up and loose/damage the work you've already done. So better safe, than sorry. (If you are a pro - what are
+screw things up and lose/damage the work you've already done. So better safe than sorry. (If you are a pro - what are
 you even doing here? :smile: )  
   
 
@@ -114,10 +114,10 @@ Steps:
   ```linenums="1"
   $ git remote add upstream git@github.com:strongbox/strongbox.git
   $ git remote -v
-    origin  	git@github.com:your-username/strongbox.git (fetch)
-    origin  	git@github.com:your-username/strongbox.git (push)
-    upstream	git@github.com:strongbox/strongbox.git (fetch)
-    upstream	git@github.com:strongbox/strongbox.git (push)
+    origin    git@github.com:your-username/strongbox.git (fetch)
+    origin    git@github.com:your-username/strongbox.git (push)
+    upstream  git@github.com:strongbox/strongbox.git (fetch)
+    upstream  git@github.com:strongbox/strongbox.git (push)
   ```
 
 * Sync your fork   
@@ -156,7 +156,7 @@ You can also check Idea's manual for [Resolving Conflicts]
 
 #### Command line
 
-If you are command line lover, you can execute the commands manually:
+If you are a command line lover, you can execute the commands manually:
 
 ```linenums="1"
 git checkout feature-branch
@@ -167,7 +167,7 @@ However, when conflicts arise, it could be a bit challenging to fix them from yo
 
 #### Finally
 
-Once you are done rebasing and you have ensured that the code builds as well as the tests are passing, then you will 
+Once you are done rebasing and you have ensured that the code builds and the tests are passing, then you will 
 need to force push your branch (remember the [Force Pushing](#force-pushing) section?)
 
 ```

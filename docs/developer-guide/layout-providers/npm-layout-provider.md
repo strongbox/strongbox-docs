@@ -33,7 +33,7 @@ Following [CLI commands](https://docs.npmjs.com/cli/npm) supported:
 
 ### Classes of Interest
 
-The following are some of the most important classes you will need to be familiar with in order to work on this layout provider:
+The following are some of the more important classes you will need to be familiar with in order to work on this layout provider:
 
 | Coordinate   | Description |
 |:-------------|:------------|
@@ -53,5 +53,5 @@ The following are some of the most important classes you will need to be familia
 [NpmLayoutProvider]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-npm-layout-provider/src/main/java/org/carlspring/strongbox/providers/layout/NpmLayoutProvider.java
 [NpmRepositoryFeatures]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-npm-layout-provider/src/main/java/org/carlspring/strongbox/repository/NpmRepositoryFeatures.java
 [NpmRepositoryManagementStrategy]: https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-npm-layout-provider/src/main/java/org/carlspring/strongbox/repository/NpmRepositoryManagementStrategy.java
-[NpmArtifactController]: https://github.com/strongbox/strongbox/blob/master/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/npm/NpmArtifactController.java
+[NpmArtifactController]: https://github.com/strongbox/strongbox/blob/e8beb1f7b97483355f55045c8947decdc1b1c26b/strongbox-web-core/src/main/java/org/carlspring/strongbox/controllers/layout/npm/NpmArtifactController.java
 [NPM Metadata]: ../metadata/npm-metadata.md

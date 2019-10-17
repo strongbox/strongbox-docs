@@ -88,7 +88,7 @@ Example:
 
 ### Denied Patterns
 
-* The following example disable lookups for `.*(com|org)/carlspring.*` in the group repository identified by `storage-id` equal to `storage-common-proxies` and `repository-id` equal to `group-common-proxies` in the underlying repository identified by `storage-id` equal to `storage-common-proxies` and `repository-id` equal to `jboss-public-releases`.  
+* The following example disables lookups for `.*(com|org)/carlspring.*` in the group repository identified by `storage-id` equal to `storage-common-proxies` and `repository-id` equal to `group-common-proxies` in the underlying repository identified by `storage-id` equal to `storage-common-proxies` and `repository-id` equal to `jboss-public-releases`.  
 
   To put it more simply, if someone tries to access `.*(com|org)/carlspring.*` from group repository `storage-id="storage-common-proxies" repository-id="group-common-proxies"` then this group repository won't serve this request from repository `storage-id="storage-common-proxies" repository-id="jboss-public-releases"`, for sure.
 

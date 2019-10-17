@@ -1,7 +1,7 @@
 # Upgrading Strongbox
 
-We try to test everything as through as possible. However Strongbox is still under development and sometimes things
-could go wrong. This is why 
+We try to test everything as thorough as possible. However, Strongbox is still under development and sometimes things
+could go wrong. This is why: 
 
 !!! danger
     **YOU SHOULD ALWAYS CREATE A BACKUP OF YOUR [`STRONGBOX_VAULT`](./application-properties.md) and 

@@ -80,7 +80,7 @@ Then please make sure that:
 
 * You don't have any other test in progress (e.g. halted by debugger process)
 
-The reason for this failure is that OrientDB can't start, if another OrientDB process is running an listening on the same port.
+The reason for this failure is that OrientDB can't start, if another OrientDB process is running and listening on the same port.
 
 ### Filename too long (Windows 7 and 10)
 
@@ -99,7 +99,7 @@ If you are getting one of these errors:
 
 
 Then you are likely hitting a well-known issue with long paths under Windows. 
-Executing command below should fix the issue:
+Executing the command below should fix the issue:
 
 ```
 git config --system core.longpaths true

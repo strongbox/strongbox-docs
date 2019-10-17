@@ -5,7 +5,7 @@
 ### Core Modules
 
 All the core modules are located under the [Strongbox] project. Each of these modules has a `README.md` file explaining 
-briefly what kind of code contains. New modules should also follow the same format.
+briefly what kind of code it contains. New modules should also follow the same format.
 
 This is a brief breakdown of the modules:
 
@@ -43,7 +43,7 @@ This is a brief breakdown of the modules:
 * [strongbox-resources]  
 
     * [strongbox-common-resources]    
-        This is the place where common resources which can be used by multiple projects reside. The idea is not have to 
+        Contains common resources that can be used by multiple projects. The idea is not to have to 
         duplicate things such as `logback*xml`, keystores and so on across the other modules. These resources are copied 
         using the `maven-dependency-plugin`.
 
@@ -76,7 +76,7 @@ This is a brief breakdown of the modules:
     Contains the code for the storage related modules.
 
     * [strongbox-storage-api]  
-        Contains the the storage API.
+        Contains the storage API.
 
     * [strongbox-storage-core]  
         Contains the core classes for the storage API.
@@ -99,7 +99,7 @@ This is a brief breakdown of the modules:
         
     * [strongbox-storage-p2-layout-provider]  
         This is an incomplete early draft implementation of the P2 OSGi layout provider. This module needs a lot more 
-        work, before the P2 layout provider could be usable.
+        work before the P2 layout provider could be usable.
 
     * [strongbox-storage-raw-layout-provider]  
         This is the implementation of the [Raw layout provider].
@@ -127,10 +127,10 @@ All the [Strongbox] modules are organized under the [Strongbox organization].
 
 ### Creating New Modules/Projects
 
-* Each new modules needs to extend the `strongbox-parent`, from where it should be extending the dependencies and the 
+* Each new module needs to extend the `strongbox-parent`, from where it should be extending the dependencies and the 
   configuration for Maven plugins. Modules should not contain any artifact or plugin versions.
 
-* All modules need to have a `README.md` file describing in brief what the module is and give brief pointers 
+* All modules need to have a `README.md` file describing, in brief, what the module is and give brief pointers 
   on what classes and tests are of primary interest.
 
 * Each project in the [Strongbox organization] needs to have a copy of the [LICENSE] file.
@@ -144,12 +144,11 @@ All the [Strongbox] modules are organized under the [Strongbox organization].
 The web integration tests are located in the [strongbox-web-integration-tests] project. 
 They are using the [maven-invoker-plugin] to execute various tests 
 against a Strongbox instance which is started for this purpose. These tests start Maven processes via the [maven-invoker-plugin]
-and are literally mimicking Maven behaviour. The outcome of the tests is validated using Groovy scripts.
+and are literally mimicking Maven behavior. The outcome of the tests is validated using Groovy scripts.
 
 ## Packaging Modules
 
-For a much more lightweight build the modules which carry out the actual packaging into assemblies and distributions, 
-these have been extracted into separate projects under the organization.
+For a much more lightweight build the modules, which carry out the actual packaging into assemblies and distributions, have been extracted into separate projects under the organization.
 
 ## See Also
 * [Writing Tests](./writing-tests.md)
