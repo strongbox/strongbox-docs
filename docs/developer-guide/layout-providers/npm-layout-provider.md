@@ -23,6 +23,8 @@ The accepted `User-Agent` headers supported must look like `User-Agent=npm/*`.
 
 Following [CLI commands](https://docs.npmjs.com/cli/npm) supported:
 
+- `npm [adduser|login]` 
+
 - `npm publish`
 
 - `npm install`
@@ -30,8 +32,6 @@ Following [CLI commands](https://docs.npmjs.com/cli/npm) supported:
 - `npm view` 
 
 - `npm search`
-
-- `npm [adduser|login]` 
 
 ### Classes of Interest
 
