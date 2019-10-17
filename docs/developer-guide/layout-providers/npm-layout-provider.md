@@ -31,7 +31,7 @@ Following [CLI commands](https://docs.npmjs.com/cli/npm) supported:
 
 - `npm search`
 
-- `npm adduser` 
+- `npm [adduser|login]` 
 
 ### Classes of Interest
 
