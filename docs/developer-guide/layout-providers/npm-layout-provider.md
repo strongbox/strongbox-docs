@@ -29,7 +29,9 @@ Following [CLI commands](https://docs.npmjs.com/cli/npm) supported:
 
 - `npm view` 
 
-- `npm search` 
+- `npm search`
+
+- `npm adduser` 
 
 ### Classes of Interest
 
