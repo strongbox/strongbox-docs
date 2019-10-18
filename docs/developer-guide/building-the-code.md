@@ -108,7 +108,7 @@ At this point, you should be able to `git clone` the project properly under Wind
 
 ### Windows 10
 
-If some tests on master or other stable branch cannot pass consider running terminal as administrator.
+If some tests on the `master` or other stable branch fail, please consider running terminal as an administrator.
 
 ## Spring Boot
 
