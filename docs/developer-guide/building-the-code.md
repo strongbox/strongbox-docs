@@ -56,9 +56,8 @@ To execute the tests in remote debug mode, run:
 
 ### Executing the tests like they are run in Jenkins
 
-Jenkins runs the tests in invoking a few Maven profiles, so that, for example, random ports can be allocated for the
-various plugins that open ports (such as the `jetty-maven-plugin`, `little-proxy-maven-plugin`, `orientdb-maven-plugin`
-and `unboundid-maven-plugin`, for example).
+Jenkins runs the tests by invoking a few Maven profiles, so that, for example, random ports can be allocated for the
+various plugins that open ports (such as the `little-proxy-maven-plugin` and `unboundid-maven-plugin`, for example).
 
     mvn clean install \
         -Preserve-ports,run-it-tests,!set-default-ports \
