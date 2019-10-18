@@ -56,8 +56,8 @@ To execute the tests in remote debug mode, run:
 
 ### Executing the tests like they are run in Jenkins
 
-Jenkins runs the tests in invoking a few Maven profiles, so that, for example, random ports can be allocated for the 
-various plugins that open ports (such as the `jetty-maven-plugin`, `little-proxy-maven-plugin`, `orientdb-maven-plugin` 
+Jenkins runs the tests in invoking a few Maven profiles, so that, for example, random ports can be allocated for the
+various plugins that open ports (such as the `jetty-maven-plugin`, `little-proxy-maven-plugin`, `orientdb-maven-plugin`
 and `unboundid-maven-plugin`, for example).
 
     mvn clean install \
@@ -98,7 +98,7 @@ If you are getting one of these errors:
     ```
 
 
-Then you are likely hitting a well-known issue with long paths under Windows. 
+Then you are likely hitting a well-known issue with long paths under Windows.
 Executing command below should fix the issue:
 
 ```
@@ -106,6 +106,10 @@ git config --system core.longpaths true
 ```
 
 At this point, you should be able to `git clone` the project properly under Windows and procceed with the build.
+
+### Windows 10
+
+If some tests on master or other stable branch cannot pass consider running terminal as administrator.
 
 ## Spring Boot
 

@@ -3,7 +3,7 @@
 ## Pre-requisites
 
 * `Maven 3.5`
-* `OpenJDK 1.8` (or `OracleJDK 1.8`)
+* `OpenJDK 1.8` (or `OracleJDK 1.8`) - support for higher version is not ready yet
 * `Git` installed and in your `PATH` variable
 
 ## Before you continue
@@ -13,7 +13,7 @@ We have dependencies which are only available through our repository and if you 
 
 ```Linux tab= linenums="1"
 mkdir ~/.m2
-curl -o ~/.m2/settings.xml \ 
+curl -o ~/.m2/settings.xml \
         {{resources}}/maven/settings.xml
 ```
 
@@ -25,7 +25,7 @@ curl -o %HOMEPATH%\.m2\settings.xml ^
 
 !!! tip
     You can use a different location to save our `settings.xml`. For example, you could save it as   
-    `~/.m2/settings-strongbox.xml` and then specify this path when executing maven commands: 
+    `~/.m2/settings-strongbox.xml` and then specify this path when executing maven commands:
     ```
     mvn -s ~/.m2/settings-strongbox.xml clean install
-    ``` 
+    ```
