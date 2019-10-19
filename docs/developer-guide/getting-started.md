@@ -3,7 +3,7 @@
 ## Pre-requisites
 
 * `Maven 3.5`
-* `OpenJDK 1.8` (or `OracleJDK 1.8`) - support for higher version is not ready yet
+* `OpenJDK 1.8`, or `OracleJDK 1.8` (higher versions will not work yet)
 * `Git` installed and in your `PATH` variable
 
 ## Before you continue
