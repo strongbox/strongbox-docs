@@ -23,11 +23,10 @@ for hosting your (binary) artifacts, regardless of your repository layout.
 
 ??? abstract "Logging"
   
-    * [ ] Log tailing (planned)
-    * [ ] View logs without downloading (planned)
-    * [ ] Configure log levels globally (and per package) (planned) 
-    * [x] Download logs over HTTP
- 
+    * [x] Log tailing
+    * [ ] View logs without downloading
+    * [x] Configure log levels globally (and per package)
+    * [x] Download logs over HTTP 
   
 ??? success "Repository types" 
     * [x] Hosted
