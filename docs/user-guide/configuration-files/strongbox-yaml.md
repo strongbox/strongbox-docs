@@ -66,6 +66,7 @@ The following is an example of a `strongbox.yaml` configuration file:
               type: hosted
               allowsForceDeletion: true
               checksumHeadersEnabled: true
+              strictChecksum: true
               repositoryConfiguration:
                 type: Maven 2
                 indexingEnabled: true
@@ -78,6 +79,7 @@ The following is an example of a `strongbox.yaml` configuration file:
               type: hosted
               secured: true
               checksumHeadersEnabled: true
+              strictChecksum: true
               repositoryConfiguration:
                 type: Maven 2
                 indexingEnabled: true
