@@ -7,7 +7,7 @@ def notifyBranch = [recipients: [brokenTestsSuspects(), requestor()]]
 pipeline {
     agent {
         node {
-            label 'alpine-mkdocs'
+            label 'mkdocs'
         }
     }
     environment {
