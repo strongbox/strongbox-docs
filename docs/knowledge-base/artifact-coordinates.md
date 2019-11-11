@@ -35,7 +35,7 @@ Strongbox comes with the following built-in implementations:
 * [MavenArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-maven-layout/strongbox-storage-maven-layout-provider/src/main/java/org/carlspring/strongbox/artifact/coordinates/MavenArtifactCoordinates.java)
 * [NpmArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-npm-layout-provider/src/main/java/org/carlspring/strongbox/artifact/coordinates/NpmArtifactCoordinates.java)
 * [NugetArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-layout-providers/strongbox-storage-nuget-layout-provider/src/main/java/org/carlspring/strongbox/artifact/coordinates/NugetArtifactCoordinates.java)
-* [NullArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-api/src/main/java/org/carlspring/strongbox/artifact/coordinates/NullArtifactCoordinates.java) (used by the [Raw Layout Provider])
+* [RawArtifactCoordinates](https://github.com/strongbox/strongbox/blob/master/strongbox-storage/strongbox-storage-api/src/main/java/org/carlspring/strongbox/artifact/coordinates/RawArtifactCoordinates.java) (used by the [Raw Layout Provider])
 
 
 [ArtifactCoordinates]: https://github.com/strongbox/strongbox/tree/master/strongbox-storage/strongbox-storage-api/src/main/java/org/carlspring/strongbox/artifact/coordinates/ArtifactCoordinates.java
