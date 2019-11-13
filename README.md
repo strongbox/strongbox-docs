@@ -23,7 +23,7 @@ If you prefer going the `docker-compose` way:
 
 If you prefer plain `docker`:
 
-`docker run -it --rm -v ./:/docs -p 8000:8000 strongboxci/alpine:mkdocs-4.0 mkdocs serve`
+`docker run -it --rm -v ./:/docs -p 8000:8000 strongboxci/mkdocs:base mkdocs serve`
 
 # Building 
 
@@ -31,7 +31,7 @@ Execute one of these (depending on your local setup):
 
 1. `mkdocs build`
 2. `docker-compose up mkdocs mkdocs build`
-3. `docker run -it --rm -v ./:/docs -p 8000:8000 strongboxci/alpine:mkdocs-4.0 mkdocs build`
+3. `docker run -it --rm -v ./:/docs -p 8000:8000 strongboxci/mkdocs:base mkdocs build`
 
 # Guidelines for contributors
 

@@ -4,7 +4,7 @@ dockerCheckout() {
     M2_CACHE_PATH=~/.m2/repository-docker
 
     # Don't edit if you don't know what you're doing
-    IMAGE=${1:-"strongboxci/alpine:jdk8-mvn-3.5"}
+    IMAGE=${1:-"strongboxci/alpine:jdk8-mvn3.6"}
     PROJECT=${2-strongbox}
     BRANCH=${3-master}
     URL="https://github.com/strongbox/$PROJECT"
@@ -69,7 +69,7 @@ dockerLocal() {
         return
     fi
 
-    IMAGE=${1:-"strongboxci/alpine:jdk8-mvn-3.5"}
+    IMAGE=${1:-"strongboxci/alpine:jdk8-mvn3.6"}
 
     CMD="${@:2}"
     if [[ -z $CMD ]]; then
@@ -90,33 +90,33 @@ dockerLocal() {
 }
 
 dockerMvn35Checkout() {
-    dockerCheckout strongboxci/alpine:jdk8-mvn-3.5 "$@"
+    dockerCheckout strongboxci/alpine:jdk8-mvn3.6 "$@"
 }
 
 dockerNuget34MonoCheckout() {
-    dockerCheckout strongboxci/alpine:nuget-3.4-mono "$@"
+    dockerCheckout strongboxci/alpine:jdk8-mvn3.6-mono5-nuget3.4 "$@"
 }
 
 dockerGradle45Checkout() {
-    dockerCheckout strongboxci/alpine:jdk8-gradle-4.5 "$@"
+    dockerCheckout strongboxci/alpine:jdk8-mvn3.6-gradle5.6 "$@"
 }
 
 dockerSBT11Checkout() {
-    dockerCheckout strongboxci/alpine:jdk8-sbt-1.1 "$@"
+    dockerCheckout strongboxci/alpine:jdk8-mvn3.6-sbt1.3 "$@"
 }
 
 dockerMvn35() {
-    dockerLocal strongboxci/alpine:jdk8-mvn-3.5 "$@"
+    dockerLocal strongboxci/alpine:jdk8-mvn3.6 "$@"
 }
 
 dockerNuget34Mono() {
-    dockerLocal strongboxci/alpine:nuget-3.4-mono "$@"
+    dockerLocal strongboxci/alpine:jdk8-mvn3.6-mono5-nuget3.4 "$@"
 }
 
 dockerGradle45() {
-    dockerLocal strongboxci/alpine:jdk8-gradle-4.5 "$@"
+    dockerLocal strongboxci/alpine:jdk8-mvn3.6-gradle5.6 "$@"
 }
 
 dockerSBT11() {
-    dockerLocal strongboxci/alpine:jdk8-sbt-1.1 "$@"
+    dockerLocal strongboxci/alpine:jdk8-mvn3.6-sbt1.3 "$@"
 }

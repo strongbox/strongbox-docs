@@ -24,7 +24,7 @@ because we have some `docker-compose.yml` files in place to make it easier for y
 
 We have created docker images for the most used distributions (Debian, Centos, OpenSUSE, Ubuntu) and we 
 test for a lot of different scenarios and tools. Our images are published in the Docker hub
-and can be found at [strongboxci](https://hub.docker.com/r/strongboxci/). At the time of writing this, we have the 
+and can be found at [](https://hub.docker.com/r//). At the time of writing this, we have the 
 following distribution images:
 
 * [strongboxci/alpine]
@@ -56,7 +56,7 @@ automatically fix the group id. There are two workarounds which you can apply fo
    This will add your local group id in the docker container and you will be able to work as usual, however it will 
    require typing the `docker run` command every time. Example command:  
    ```
-   docker run -it --rm --group-add `id -g` -v /path/to/strongbox-project:/workspace strongboxci/alpine:jdk8-mvn-3.5
+   docker run -it --rm --group-add `id -g` -v /path/to/strongbox-project:/workspace strongboxci/alpine:jdk8-mvn3.6
    ```
 
 2. You can create a user with `uid=1000` and `gid=1000` and then fix the permissions of the folders:
@@ -89,16 +89,16 @@ Once the build has completed, Strongbox will start and you will be able to acces
 
 To build your code inside a container with our images you need to have cloned the repository you need
 and then start a docker container with the image you need. This is an example of how to build Strongbox
-from sources inside a container using [strongboxci/alpine:jdk8-mvn-3.5]: 
+from sources inside a container using [strongboxci/alpine:jdk8-mvn3.6]: 
 
 ```
 $ git clone https://github.com/strongbox/strongbox.git
 $ cd strongbox
-$ docker pull strongboxci/alpine:jdk8-mvn-3.5
+$ docker pull strongboxci/alpine:jdk8-mvn3.6
 $ docker run -it --rm \
              -v $(pwd):/home/jenkins/workspace \
              -w /home/jenkins/workspace \
-             strongboxci/alpine:jdk8-mvn-3.5
+             strongboxci/alpine:jdk8-mvn3.6
 
 Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T16:41:47+00:00)
 Maven home: /java/mvn-3.3.9
@@ -179,7 +179,7 @@ Have fun building things in docker :smile:
 
 
 [strongboxci/alpine]: https://hub.docker.com/r/strongboxci/alpine/tags
-[strongboxci/alpine:jdk8-mvn-3.5]: https://hub.docker.com/r/strongboxci/alpine/tags 
+[strongboxci/alpine:jdk8-mvn3.6]: https://hub.docker.com/r/strongboxci/alpine/tags 
 [strongboxci/centos]: https://hub.docker.com/r/strongboxci/centos/tags
 [strongboxci/debian]: https://hub.docker.com/r/strongboxci/debian/tags
 [strongboxci/opensuse]: https://hub.docker.com/r/strongboxci/opensuse/tags
