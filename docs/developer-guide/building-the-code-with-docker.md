@@ -56,7 +56,7 @@ automatically fix the group id. There are two workarounds which you can apply fo
    This will add your local group id in the docker container and you will be able to work as usual, however it will 
    require typing the `docker run` command every time. Example command:  
    ```
-   docker run -it --rm --group-add `id -g` -v /path/to/strongbox-project:/workspace strongboxci/alpine:jdk8-mvn-3.5
+   docker run -it --rm --group-add `id -g` -v /path/to/strongbox-project:/workspace strongboxci/alpine:jdk8-mvn3.6
    ```
 
 2. You can create a user with `uid=1000` and `gid=1000` and then fix the permissions of the folders:
@@ -89,16 +89,16 @@ Once the build has completed, Strongbox will start and you will be able to acces
 
 To build your code inside a container with our images you need to have cloned the repository you need
 and then start a docker container with the image you need. This is an example of how to build Strongbox
-from sources inside a container using [strongboxci/alpine:jdk8-mvn-3.5]: 
+from sources inside a container using [strongboxci/alpine:jdk8-mvn3.6]: 
 
 ```
 $ git clone https://github.com/strongbox/strongbox.git
 $ cd strongbox
-$ docker pull strongboxci/alpine:jdk8-mvn-3.5
+$ docker pull strongboxci/alpine:jdk8-mvn3.6
 $ docker run -it --rm \
              -v $(pwd):/home/jenkins/workspace \
              -w /home/jenkins/workspace \
-             strongboxci/alpine:jdk8-mvn-3.5
+             strongboxci/alpine:jdk8-mvn3.6
 
 Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T16:41:47+00:00)
 Maven home: /java/mvn-3.3.9
@@ -134,10 +134,10 @@ get a container up and running
 
 Our `.bashrc` has two types of commands which:
 
-1. Start a container by mounting the current working directory as `workspace` (i.e `dockerMvn35`, `dockerGradle45`, etc)
-2. Start a container and automatically clone a project from github and use that as the `workspace`. (i.e. `dockerMvn35Checkout`, `dockerGradle45Checkout`, etc) 
+1. Start a container by mounting the current working directory as `workspace` (i.e `dockerMvn`, `dockerGradle`, etc)
+2. Start a container and automatically clone a project from github and use that as the `workspace`. (i.e. `dockerMvnCheckout`, `dockerGradleCheckout`, etc) 
 
-If you don't remember arguments the command needs you can always execute `dockerMvn35 --help` and it will print them to you as well as an example.
+If you don't remember arguments the command needs you can always execute `dockerMvn --help` and it will print them to you as well as an example.
 
 ### Setting up `~/.bashrc`
 
@@ -158,28 +158,28 @@ Have fun building things in docker :smile:
 
 * Checkout `strongbox/strongbox.git` and run `mvn clean install`
     ```
-    dockerMvn35Checkout
+    dockerMvnCheckout
     ```
 
 * Checkout `strongbox/strongbox.git` and run `mvn clean install -DskipTests`
     ```
-    dockerMvn35Checkout strongbox master/branch/PR-1234 "mvn clean install"
+    dockerMvnCheckout strongbox master/branch/PR-1234 "mvn clean install"
     ```
 
 * Use current working directory to build project
     ```
     cd /some/path
-    dockerMvn35
+    dockerMvn
     ```
 
 * Checkout `strongbox/strongbox-web-integration-tests.git` and build using Gradle
     ```
-    dockerGradle45Checkout strongbox-web-integration-tests master "cd gradle; mvn clean install"
+    dockerGradleCheckout strongbox-web-integration-tests master "cd gradle; mvn clean install"
     ```
 
 
 [strongboxci/alpine]: https://hub.docker.com/r/strongboxci/alpine/tags
-[strongboxci/alpine:jdk8-mvn-3.5]: https://hub.docker.com/r/strongboxci/alpine/tags 
+[strongboxci/alpine:jdk8-mvn3.6]: https://hub.docker.com/r/strongboxci/alpine/tags 
 [strongboxci/centos]: https://hub.docker.com/r/strongboxci/centos/tags
 [strongboxci/debian]: https://hub.docker.com/r/strongboxci/debian/tags
 [strongboxci/opensuse]: https://hub.docker.com/r/strongboxci/opensuse/tags
