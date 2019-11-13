@@ -134,10 +134,10 @@ get a container up and running
 
 Our `.bashrc` has two types of commands which:
 
-1. Start a container by mounting the current working directory as `workspace` (i.e `dockerMvn35`, `dockerGradle45`, etc)
-2. Start a container and automatically clone a project from github and use that as the `workspace`. (i.e. `dockerMvn35Checkout`, `dockerGradle45Checkout`, etc) 
+1. Start a container by mounting the current working directory as `workspace` (i.e `dockerMvn`, `dockerGradle`, etc)
+2. Start a container and automatically clone a project from github and use that as the `workspace`. (i.e. `dockerMvnCheckout`, `dockerGradleCheckout`, etc) 
 
-If you don't remember arguments the command needs you can always execute `dockerMvn35 --help` and it will print them to you as well as an example.
+If you don't remember arguments the command needs you can always execute `dockerMvn --help` and it will print them to you as well as an example.
 
 ### Setting up `~/.bashrc`
 
@@ -158,23 +158,23 @@ Have fun building things in docker :smile:
 
 * Checkout `strongbox/strongbox.git` and run `mvn clean install`
     ```
-    dockerMvn35Checkout
+    dockerMvnCheckout
     ```
 
 * Checkout `strongbox/strongbox.git` and run `mvn clean install -DskipTests`
     ```
-    dockerMvn35Checkout strongbox master/branch/PR-1234 "mvn clean install"
+    dockerMvnCheckout strongbox master/branch/PR-1234 "mvn clean install"
     ```
 
 * Use current working directory to build project
     ```
     cd /some/path
-    dockerMvn35
+    dockerMvn
     ```
 
 * Checkout `strongbox/strongbox-web-integration-tests.git` and build using Gradle
     ```
-    dockerGradle45Checkout strongbox-web-integration-tests master "cd gradle; mvn clean install"
+    dockerGradleCheckout strongbox-web-integration-tests master "cd gradle; mvn clean install"
     ```
 
 
