@@ -24,7 +24,7 @@ because we have some `docker-compose.yml` files in place to make it easier for y
 
 We have created docker images for the most used distributions (Debian, Centos, OpenSUSE, Ubuntu) and we 
 test for a lot of different scenarios and tools. Our images are published in the Docker hub
-and can be found at [](https://hub.docker.com/r//). At the time of writing this, we have the 
+and can be found at [strongboxci](https://hub.docker.com/r/strongboxci/). At the time of writing this, we have the 
 following distribution images:
 
 * [strongboxci/alpine]
