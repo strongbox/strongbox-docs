@@ -56,7 +56,7 @@ In order to exclude them as transitive dependencies, you will need to have somet
 
 ## Logging Configuration File Location
 
-The logging is controlled via the [strongbox/strongbox-resources/strongbox-common-resources/src/main/resources/logback.xml]. 
+The logging is controlled via the [strongbox/strongbox-resources/strongbox-common-resources/src/main/resources/logback-spring.xml]. 
 This resource should be copied wherever necessary using:
 
 ```xml
@@ -99,4 +99,4 @@ in your Strongbox instance at `http://localhost:48080/docs/rest/api.html`.
 
 
 [logback-configuration]: https://github.com/carlspring/logback-configuration
-[strongbox/strongbox-resources/strongbox-common-resources/src/main/resources/logback.xml]: https://github.com/strongbox/strongbox/blob/master/strongbox-resources/strongbox-common-resources/src/main/resources/logback.xml
+[strongbox/strongbox-resources/strongbox-common-resources/src/main/resources/logback-spring.xml]: https://github.com/strongbox/strongbox/blob/master/strongbox-resources/strongbox-common-resources/src/main/resources/logback-spring.xml
