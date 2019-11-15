@@ -27,7 +27,9 @@ Your `.npmrc` should look like this:
     
     
     ; `_auth` is base64 encoded authentication token
-    ; you can use it instead of `username=admin` and `_password=password` 
+    ; you can use it instead of
+    ; username=admin
+    ; _password=password
     ;_auth = dXNlcjpwYXNzd29yZA==
     
 
