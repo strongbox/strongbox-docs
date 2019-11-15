@@ -23,15 +23,15 @@
 
 ## Test Repositories
 
-As mentoned above every test should have isolated and self-sufficient resources. This requirement can be achieved using the `@TestRepository` annotation. This annotation provides s isolated test repository which can be used as a sandbox for your test method.
+As mentoned above every test should have isolated and self-sufficient resources. This requirement can be achieved using the `@TestRepository` annotation. This annotation provides an isolated test repository which can be used as a sandbox for your test method.
 
 Usage Example:
 
 ```
 @ExtendWith(RepositoryManagementTestExecutionListener.class)
 @Test
-public void testWithRepository(@TestRepository(storage = "storage0",
-                                               repository = "repo1",
+public void testWithRepository(@TestRepository(storageId = "storage0",
+                                               repositoryId = "repo1",
                                                layout = MavenArtifactCoordinates.LAYOUT_NAME) 
                                Repository repository)
 {
@@ -41,16 +41,16 @@ public void testWithRepository(@TestRepository(storage = "storage0",
 
 The test repository is injected as a test method parameter with the help of `RepositoryManagementTestExecutionListener`. The important feature here is the synchronization between the concurrent test executions, so even if there will be other repositories with the same name within other tests, then it will be synchronized by the repository ID and they will not affect each other.
 
-The other feature is that th test repository will be removed and cleaned up after test execution, just like it was created before the test execution from scratch.
+The other feature is that the test repository will be removed and cleaned up after test execution, just like it was created before the test execution from scratch.
 
 Below, you can find the main configuration parameters that are avaliable:
 
-- with `storage` and `repository` you can specifiy the storage and repository ID to use
+- with `storageId` and `repositoryId` you can specifiy the storage and repository ID to use
 - with `layout` you can set the layout format to use (ex. `MavenArtifactCoordinates.LAYOUT_NAME`, `NpmArtifactCoordinates.LAYOUT_NAME`, `NugetArtifactCoordinates.LAYOUT_NAME` etc.)
 - with `setup` parameter you can customize the test repository initialization with `RepositorySetup` strategy, (for example, there is `MavenIndexedRepositorySetup` for indexed maven repositories).
 - for debugging purposes, there is a `cleanup` flag (`true` by default), with which you can disable the test repository clean up by setting it to `false`
 
-By default, `TestRepository` provides [Hosted](https://strongbox.github.io/knowledge-base/repositories.html#hosted) repository, other repository types are also avaliable (check below).
+By default, `TestRepository` provides [Hosted](https://strongbox.github.io/knowledge-base/repositories.html#hosted) repository, other repository types are also available (check below).
 
 ### Proxy Repositories
 
@@ -61,7 +61,7 @@ Example:
 @ExtendWith(RepositoryManagementTestExecutionListener.class)
 @Test
 public void testWithProxyRepository(@TestRepository.Remote(url = "http://repo1.maven.org/maven2/")
-                                    @MavenRepository(repository = "repo1") 
+                                    @MavenRepository(repositoryId = "repo1") 
                                     Repository repository)
 {
     System.out.println(repository.getId());
@@ -76,14 +76,14 @@ Example:
 ```
 @ExtendWith(RepositoryManagementTestExecutionListener.class)
 @Test
-public void testWithGroupRepository(@MavenRepository(repository = "group-member-repo1") 
+public void testWithGroupRepository(@MavenRepository(repositoryId = "group-member-repo1") 
                                     Repository repository1,
-                                    @MavenRepository(repository = "group-member-repo2") 
+                                    @MavenRepository(repositoryId = "group-member-repo2") 
                                     Repository repository2,
-                                    @MavenRepository(repository = "group-member-repo3") 
+                                    @MavenRepository(repositoryId = "group-member-repo3") 
                                     Repository repository3,
                                     @Group({"group-member-repo1", "group-member-repo2", "group-member-repo3"})
-                                    @MavenRepository(repository = "repo1") 
+                                    @MavenRepository(repositoryId = "repo1") 
                                     Repository groupRepository)
 {
     System.out.println(groupRepository.getId());
@@ -142,9 +142,9 @@ It's also possible to inject deployed artifacts:
 @ExtendWith({ RepositoryManagementTestExecutionListener.class,
               ArtifactManagementTestExecutionListener.class })
 @Test
-public void testArtifact(@MavenRepository(repository = "r1")
+public void testArtifact(@MavenRepository(repositoryId = "r1")
                          Repository r1,
-                         @MavenArtifact(repository = "r1",
+                         @MavenArtifact(repositoryId = "r1",
                                         id = "org.carlspring.strongbox.test:another-test-artifact",
                                         versions = {"1.1", "1.2"})
                          List<Path> repositoryArtifacs)
@@ -153,7 +153,7 @@ public void testArtifact(@MavenRepository(repository = "r1")
 }
 ```
 
-With the `repository` attribute the test artifacts `repositoryArtifacts` will be deployed into test repository `r1`, along with other generated files (checksums, poms etc). The above example also shows the case when multiple artifact versions are generated, so the `List` contains ordered artifact versions:
+With the `repositoryId` attribute the test artifacts `repositoryArtifacts` will be deployed into test repository `r1`, along with other generated files (checksums, poms etc). The above example also shows the case when multiple artifact versions are generated, so the `List` contains ordered artifact versions:
 
 ```
 Path v1_1Artifact = repositoryArtifacs.get(0);
@@ -178,7 +178,7 @@ public class NiceArtifactAndRepositoryTest
     
     @Test
     @ExtendWith({ RepositoryManagementTestExecutionListener.class, ArtifactManagementTestExecutionListener.class })
-    public void testOne(@MavenRepository(repository = REPOSITORY_SNAPSHOTS, policy = RepositoryPolicyEnum.SNAPSHOT) Repository repository,
+    public void testOne(@MavenRepository(repositoryId = REPOSITORY_SNAPSHOTS, policy = RepositoryPolicyEnum.SNAPSHOT) Repository repository,
                         @MavenSnapshotArtifactsWithClassifiers(id = "org.carlspring.strongbox.test:snapshot-artifact") Path snapshotArtifacts)
     {
     ...
@@ -186,7 +186,7 @@ public class NiceArtifactAndRepositoryTest
 
     @Test
     @ExtendWith({ RepositoryManagementTestExecutionListener.class, ArtifactManagementTestExecutionListener.class })
-    public void testTwo(@MavenRepository(repository = REPOSITORY_SNAPSHOTS, policy = RepositoryPolicyEnum.SNAPSHOT) Repository repository,
+    public void testTwo(@MavenRepository(repositoryId = REPOSITORY_SNAPSHOTS, policy = RepositoryPolicyEnum.SNAPSHOT) Repository repository,
                         @MavenSnapshotArtifactsWithClassifiers(id = "org.carlspring.strongbox.test:another-snapshot-artifact") Path snapshotArtifacts)
     {
     ...
@@ -196,9 +196,9 @@ public class NiceArtifactAndRepositoryTest
     @Target({ ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
     @Retention(RetentionPolicy.RUNTIME)
     @Documented
-    @MavenTestArtifact(repository = REPOSITORY_SNAPSHOTS, classifiers = { "javadoc",
-                                                                          "sources",
-                                                                          "source-release" })
+    @MavenTestArtifact(repositoryId = REPOSITORY_SNAPSHOTS, classifiers = { "javadoc",
+                                                                            "sources",
+                                                                            "source-release" })
     private static @interface MavenSnapshotArtifactsWithClassifiers
     {
 
