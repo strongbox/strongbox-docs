@@ -32,6 +32,9 @@
 * [[REST API]]
 * [[Searching]]
 * [[Artifact Query Language]]
+* [[Tool Integration]]
+  * [[NPM Integration Example]]
+
 
 **Developer Guide**
 * [[Getting Started]]

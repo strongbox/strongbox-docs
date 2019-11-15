@@ -91,6 +91,8 @@ nav:
     - AQL (search): user-guide/artifact-query-language.md
     - Artifact Routing Rules: user-guide/artifact-routing-rules.md
     - REST API: user-guide/rest-api.md
+    - Tool Integration:
+      - NPM Integration Example: user-guide/tool-integration/npm-example.md
   - Developer guide:
     - Getting started: developer-guide/getting-started.md
     - Building:
