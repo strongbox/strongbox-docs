@@ -70,6 +70,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             snapshots:
               id: snapshots
               policy: snapshot
@@ -82,6 +83,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
         storage-common-proxies:
           id: storage-common-proxies
           repositories:
@@ -100,6 +102,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             carlspring:
               id: carlspring
               policy: mixed
@@ -115,6 +118,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             apache-snapshots:
               id: apache-snapshots
               policy: snapshot
@@ -130,6 +134,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             jboss-public-releases:
               id: jboss-public-releases
               policy: release
@@ -145,6 +150,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             maven-oracle:
               id: maven-oracle
               policy: release
@@ -161,6 +167,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             group-common-proxies:
               id: group-common-proxies
               policy: release
@@ -177,6 +184,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             nuget.org:
               id: nuget.org
               policy: release
@@ -206,6 +214,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             springsource-releases:
               id: springsource-releases
               policy: release
@@ -221,6 +230,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             springsource-milestones:
               id: springsource-milestones
               policy: release
@@ -236,6 +246,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             springsource-proxies:
               id: springsource-proxies
               policy: mixed
@@ -251,6 +262,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
         storage-ivy-proxies:
           id: storage-ivy-proxies
           repositories:
@@ -269,6 +281,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             typesafe-ivy-releases:
               id: typesafe-ivy-releases
               policy: release
@@ -284,6 +297,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             group-ivy-proxies:
               id: group-ivy-proxies
               policy: release
@@ -298,6 +312,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
         storage-sbt-proxies:
           id: storage-sbt-proxies
           repositories:
@@ -316,6 +331,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             group-sbt-proxies:
               id: group-sbt-proxies
               policy: release
@@ -330,6 +346,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
         storage-third-party:
           id: storage-third-party
           repositories:
@@ -420,6 +437,7 @@ The following is an example of a `strongbox.yaml` configuration file:
                 type: Maven 2
                 indexingEnabled: true
                 cronExpression: "0 0 2 * * ?"
+                metadataExpirationStrategy: checksum
             nuget-group:
               id: nuget-group
               policy: mixed
