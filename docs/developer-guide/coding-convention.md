@@ -3,7 +3,7 @@
 ## Reasoning
 
 It is important to have consistency across the codebase. This won't necessarily make your code work better, but it might 
-help make it more understandable, time-consuming and less irritating to go through when doing a code review of your changes.  
+help make it more understandable, less time-consuming and less irritating to go through when doing a code review of your changes.  
   
 While to some this will seem like a nuisance, with no real benefit to the actual code, and while we do understand 
 this point of view, we think that reading `diff`-s should be quick and easy. Accepting a pull request requires for it to
