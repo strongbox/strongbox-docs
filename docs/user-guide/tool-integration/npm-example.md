@@ -30,7 +30,6 @@ Your `.npmrc` should look like this:
     ; you can use it instead of
     ; username=admin
     ; _password=password
-    ;_auth = dXNlcjpwYXNzd29yZA==
     
 
 ## How to publish npm package into Strongbox registry
