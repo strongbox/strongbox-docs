@@ -5,11 +5,13 @@ Make sure that your Strongbox instance is up and running. If you are new to Stro
 
 # Requirements
 You will need the following software installed on your machine to make this example working:
+
 * Java Development Kit (JDK) version 1.8.x or higher
 * [Gradle](http://gradle.org/) version 2.11 or higher
 
 # The `gradle.build` file
 This is a build script written in Groovy. Artifact-related properties could be defined and customized in the following way:
+
 * Add `group` property to specify logical prefix where other similar projects reside (like the `groupId` in a Maven `pom.xml` file)
 * Add `version` to specify artifact's version
 * Customize the `repositories` section to add any artifact repositories such as Maven Central (included by default)

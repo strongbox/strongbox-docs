@@ -35,6 +35,8 @@
 * [[Tool Integration]]
   * [[NPM Integration Example]]
   * [[SBT Integration Example]]
+  * [[Maven Example]]
+  * [[Gradle Example]]
 
 
 **Developer Guide**

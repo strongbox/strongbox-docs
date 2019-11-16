@@ -94,6 +94,8 @@ nav:
     - Tool Integration:
       - NPM Integration Example: user-guide/tool-integration/npm-example.md
       - SBT Integration Example: user-guide/tool-integration/sbt-example.md
+      - Maven Example: user-guide/tool-integration/maven-example.md
+      - Gradle Example: user-guide/tool-integration/gradle-example.md
   - Developer guide:
     - Getting started: developer-guide/getting-started.md
     - Building:
