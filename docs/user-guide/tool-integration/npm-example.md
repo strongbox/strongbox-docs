@@ -1,4 +1,4 @@
-# NPM Integration Example
+# NPM Example
 
 This is an example of how to use the Strongbox artifact repository manager with NPM.
 
