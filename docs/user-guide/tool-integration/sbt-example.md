@@ -1,3 +1,20 @@
+This is an example of how to use SBT with the Strongbox artifact repository manager.
+
+# Before you start
+
+Make sure that your Strongbox instance is up and running. If you are new to Strongbox, please visit the [Installation](https://strongbox.github.io/user-guide/getting-started.html) page first.
+
+# Requirements
+
+You will need the following software installed on your machine to make this example working:
+
+* Java Development Kit (JDK) version 1.8.x or higher
+* [SBT](https://www.scala-sbt.org/) version 1.3 or higher
+
+# The example project
+
+The "Hello, World!" sample application for this can be found [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-sbt).
+
 # SBT Example
 
 This is an example of how to use the Strongbox artifact repository manager with SBT.
