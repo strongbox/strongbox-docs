@@ -1,5 +1,20 @@
 This is an example of how to use the Strongbox artifact repository manager with Maven.
 
+# Before you start
+
+Make sure that your Strongbox instance is up and running. If you are new to Strongbox, please visit the [Installation](https://strongbox.github.io/user-guide/getting-started.html) page first.
+
+# Requirements
+
+You will need the following software installed on your machine to make this example working:
+
+* Java Development Kit (JDK) version 1.8.x or higher
+* [Maven](http://maven.apache.org/) version 3.x or higher
+
+# The example project
+
+The "Hello, World!" sample application for this can be found [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-maven).
+
 # The `pom.xml` file
 
 This file is used to define your project's information about things like youre dependencies, repositories to use to resolve and deploy artifacts, plugins to use, etc.
@@ -85,6 +100,7 @@ This will build the code and deploy it to Strongbox.
     [INFO] ------------------------------------------------------------------------
 
 # See also
+
 * [Maven: POM Reference](https://maven.apache.org/pom.html)
 * [Maven: Settings Reference](https://maven.apache.org/settings.html)
 * [Maven: Credentials Encryption Guide](https://maven.apache.org/guides/mini/guide-encryption.html)
