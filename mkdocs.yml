@@ -92,8 +92,8 @@ nav:
     - Artifact Routing Rules: user-guide/artifact-routing-rules.md
     - REST API: user-guide/rest-api.md
     - Tool Integration:
-      - NPM Integration Example: user-guide/tool-integration/npm-example.md
-      - SBT Integration Example: user-guide/tool-integration/sbt-example.md
+      - NPM Example: user-guide/tool-integration/npm-example.md
+      - SBT Example: user-guide/tool-integration/sbt-example.md
   - Developer guide:
     - Getting started: developer-guide/getting-started.md
     - Building:

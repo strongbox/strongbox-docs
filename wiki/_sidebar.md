@@ -33,8 +33,8 @@
 * [[Searching]]
 * [[Artifact Query Language]]
 * [[Tool Integration]]
-  * [[NPM Integration Example]]
-  * [[SBT Integration Example]]
+  * [[NPM Example]]
+  * [[SBT Example]]
 
 
 **Developer Guide**
