@@ -33,9 +33,10 @@
 * [[Searching]]
 * [[Artifact Query Language]]
 * [[Tool Integration]]
+  * [[Gradle Example]]
+  * [[Maven Example]]
   * [[NPM Example]]
   * [[SBT Example]]
-
 
 **Developer Guide**
 * [[Getting Started]]

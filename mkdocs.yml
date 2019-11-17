@@ -92,6 +92,8 @@ nav:
     - Artifact Routing Rules: user-guide/artifact-routing-rules.md
     - REST API: user-guide/rest-api.md
     - Tool Integration:
+      - Gradle Example: user-guide/tool-integration/gradle-example.md
+      - Maven Example: user-guide/tool-integration/maven-example.md
       - NPM Example: user-guide/tool-integration/npm-example.md
       - SBT Example: user-guide/tool-integration/sbt-example.md
   - Developer guide:
