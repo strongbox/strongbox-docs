@@ -2,7 +2,7 @@ This is an example of how to use the Strongbox artifact repository manager with 
 
 # Before you start
 
-Make sure that your Strongbox instance is up and running. If you are new to Strongbox, please visit the [Installation](https://github.com/strongbox/strongbox#installation) page first.
+Make sure that your Strongbox instance is up and running. If you are new to Strongbox, please visit the [Installation](https://strongbox.github.io/user-guide/getting-started.html) page first.
 
 # Requirements
 
@@ -10,6 +10,10 @@ You will need the following software installed on your machine to make this exam
 
 * Java Development Kit (JDK) version 1.8.x or higher
 * [Gradle](http://gradle.org/) version 2.11 or higher
+
+# The example project
+
+The "Hello, World!" sample application for this can be found [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-gradle).
 
 # The `gradle.build` file
 
