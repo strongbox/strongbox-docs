@@ -33,6 +33,7 @@
 * [[Searching]]
 * [[Artifact Query Language]]
 * [[Tool Integration]]
+  * [[Ant + Ivy Example]]
   * [[Gradle Example]]
   * [[Maven Example]]
   * [[NPM Example]]
