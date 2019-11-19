@@ -94,6 +94,7 @@ nav:
     - Tool Integration:
       - Ant + Ivy Example: user-guide/tool-integration/ant-ivy-example.md
       - Gradle Example: user-guide/tool-integration/gradle-example.md
+      - Nuget + Visual Studio Example: user-guide/tool-integration/nuget-visual-studio-example.md
       - Maven Example: user-guide/tool-integration/maven-example.md
       - NPM Example: user-guide/tool-integration/npm-example.md
       - SBT Example: user-guide/tool-integration/sbt-example.md
