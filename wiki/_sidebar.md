@@ -35,10 +35,10 @@
 * [[Tool Integration]]
   * [[Ant + Ivy Example]]
   * [[Gradle Example]]
-  * [[Nuget + Mono Example]]
-  * [[Nuget + Visual Studio Example]]
   * [[Maven Example]]
   * [[NPM Example]]
+  * [[Nuget + Mono Example]]
+  * [[Nuget + Visual Studio Example]]
   * [[SBT Example]]
 
 **Developer Guide**
