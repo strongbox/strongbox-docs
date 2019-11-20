@@ -14,6 +14,10 @@ The following is a minimal configuration in order to be able to use this tutoria
 
 If using `alias nuget="mono /usr/local/bin/nuget.exe"` then `mono --runtime=v4.0 nuget.exe` can be replaced with `nuget` in commands below.
 
+# The example project
+
+The "Hello, Strongbox!" sample application and package source for this can be found [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget-mono).
+
 ## Prepare project workspace
 
 Go to the root project folder and execute the following commands:
