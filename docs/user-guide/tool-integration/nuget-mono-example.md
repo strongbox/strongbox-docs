@@ -1,5 +1,9 @@
 This is an example of how to use the Strongbox artifact repository manager with NuGet.
 
+# Before you start
+
+Make sure that your Strongbox instance is up and running. If you are new to Strongbox, please visit the [Installation](https://strongbox.github.io/user-guide/getting-started.html) page first.
+
 ## Pre-requisites
 The following is a minimal configuration in order to be able to use this tutorial:
 

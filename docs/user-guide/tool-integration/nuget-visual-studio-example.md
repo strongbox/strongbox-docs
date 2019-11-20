@@ -1,5 +1,9 @@
 This is an example of how to use the Strongbox artifact repository manager with NuGet.
 
+# Before you start
+
+Make sure that your Strongbox instance is up and running. If you are new to Strongbox, please visit the [Installation](https://strongbox.github.io/user-guide/getting-started.html) page first.
+
 ## Pre-requisites
 The following is a minimal configuration in order to be able to use this tutorial:
 
@@ -21,7 +25,7 @@ To manage packages, you'll need to configure NuGet to acccess your storages by p
 3. To add a source, select +, edit the name, enter the URL or path in the Source control, and select Update. The source now appears in the selector drop-down.
 4. The `nuget-public` group repository should be at the top of the list.
 
-![NuGet Package Resources]
+[NuGet Package Resources]
 
 * You cannot deploy to group repositories, as they are only for resolving artifacts. Also, please note that the `nuget-public` group includes the `nuget.org` repository itself
 * The URL when deploying artifacts is the one for the hosted repository (`nuget-releases`, `nuget-snapshot`, etc)
@@ -156,7 +160,7 @@ hello-strongbox-nuget-visual-studio 1.0.0
 
 For example, you can look up log4net like this:
 
-![Search log4net]
+[Search log4net]
 
 ## How to delete a NuGet package
 
@@ -176,16 +180,16 @@ NugetWorld.Hello 1.0.0 was deleted successfully.
 ## How to install a NuGet package with Visual Studio Nuget Manager
 Open your project in Visual Studio and in Solution Explorer, right-click either References or a project and select Manage NuGet Packages.
 
-![Manage NuGet Packages]
+[Manage NuGet Packages]
 
 You should switch to StrongBox repository in source tab and search for the package that you built in previous steps. 
 
-![Switch to Strongbox Repo]
+[Switch to Strongbox Repo]
 
 
 Search for the NuGet package, select and install the version that is available.
 
-![Install NuGet Package]
+[Install NuGet Package]
 
 
 You can check that all of the dependencies are installed that you packed in [How to make NuGet package](#How-to-make-NuGet-package) section.
@@ -235,7 +239,7 @@ Successfully installed 'hello-strongbox-nuget-visual-studio 1.0.0' to hello-stro
 Executing nuget actions took 837,38 ms
 Time Elapsed: 00:00:02.4972295
 ```
-![Install with Package Manager Console]
+[Install with Package Manager Console]
 
 
 # See also:
