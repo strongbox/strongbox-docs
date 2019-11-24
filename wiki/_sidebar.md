@@ -40,7 +40,7 @@
   * [[Nuget + Mono Example]]
   * [[Nuget + Visual Studio Example]]
   * [[SBT Example]]
-  * [[YARN Example]]
+  * [[Yarn Example]]
 
 **Developer Guide**
 * [[Getting Started]]

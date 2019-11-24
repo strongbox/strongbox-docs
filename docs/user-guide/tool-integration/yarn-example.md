@@ -1,4 +1,4 @@
-This is an example of how to use the Strongbox artifact repository manager with YARN.
+This is an example of how to use the Strongbox artifact repository manager with Yarn.
 
 # Before you start
 
@@ -8,8 +8,7 @@ Make sure that your Strongbox instance is up and running. If you are new to Stro
 
 You will need the following software installed on your machine to make this example working:
 
-* [NodeJS](https://nodejs.org/) version 12 or higher
-* NPM
+* [Yarn](https://yarnpkg.com/en/) version 1.19.1 or higher
 
 # The example project
 
@@ -17,7 +16,7 @@ The "Hello, World!" sample application for this can be found [here](https://gith
 
 ## Prepare project workspace
 
-First, you need to configure `yarn` to use Strongbox as a private registry. This can be done in your project by creating a `.npmrc` file, which is local npm configuration applied to your project. The [Strongbox YARN Example] contains an [npmrc.template] file with a set of pre-defined configuration properties that can be used in your own project, or on your machine. Typically, all you'll need to do, is execute the following command, and create your `.npmrc` file:
+First, you need to configure `yarn` to use Strongbox as a private registry. This can be done in your project by creating a `.npmrc` file, which is local npm configuration applied to your project. The [Strongbox Yarn Example] contains an [npmrc.template] file with a set of pre-defined configuration properties that can be used in your own project, or on your machine. Typically, all you'll need to do, is execute the following command, and create your `.npmrc` file:
 
     $ cp npmrc.template .npmrc
 
@@ -60,8 +59,8 @@ The output should look like this:
 
 ## See also:
 
-* [yarn official site](https://yarnpkg.com/en/)
+* [Yarn official site](https://yarnpkg.com/en/)
 
 
-[Strongbox YARN Example]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-yarn
+[Strongbox Yarn Example]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-yarn
 [npmrc.template]: https://github.com/strongbox/strongbox-examples/blob/master/hello-strongbox-npm/npmrc.template
