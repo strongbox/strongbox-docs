@@ -40,6 +40,7 @@
   * [[Nuget + Mono Example]]
   * [[Nuget + Visual Studio Example]]
   * [[SBT Example]]
+  * [[Yarn Example]]
 
 **Developer Guide**
 * [[Getting Started]]
@@ -62,4 +63,3 @@
 * [Code of Conduct](https://github.com/strongbox/strongbox/blob/master/CODE-OF-CONDUCT.md)
 * [Contributing](https://github.com/strongbox/strongbox/blob/master/CONTRIBUTING.md)
 * [Individual Contributor License Agreement (ICLA)](https://github.com/strongbox/strongbox/blob/master/ICLA.md)
-
