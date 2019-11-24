@@ -8,6 +8,7 @@ Make sure that your Strongbox instance is up and running. If you are new to Stro
 
 You will need the following software installed on your machine to make this example working:
 
+* [NodeJS](https://nodejs.org/) version 12 or higher
 * [Yarn](https://yarnpkg.com/en/) version 1.19.1 or higher
 
 # The example project
