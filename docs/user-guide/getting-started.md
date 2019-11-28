@@ -68,6 +68,34 @@ sudo service strongbox start
 
 ```
 
+
+```linuxdeb linenums="1" tab="Linux (deb)"
+# Open a terminal
+
+# First, make sure you have a JRE with version 1.8 or greater
+# installed on your system.  You can use your favorite package manager
+# to find one.
+
+# Install:
+sudo dpkg -i /path/to/strongbox-*.deb
+
+# If you just want to start Strongbox without installing the systemd service:
+su strongbox
+/opt/strongbox/bin/strongbox console
+
+# If you want to configure strongbox to start at system, boot:
+sudo systemctl enable strongbox
+sudo systemctl start strongbox
+
+# Remove the package:
+sudo dpkg -r strongbox
+
+# Purge configuration files, note this does not remove strongbox-vault:
+sudo dpkg -P strongbox
+
+```
+
+
 ```Windows linenums="1" tab=
 
 # Unzip the distribution.
