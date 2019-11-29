@@ -51,7 +51,7 @@ sudo systemctl enable strongbox
 ```linuxrpm linenums="1" tab="Linux (RPM)"
 # Open a terminal
 
-# First, make sure you have a JRE with version 1.8 or greater
+# First, make sure you have a JRE with version 1.8
 # installed on your system.  You can use your favorite package manager
 # to find one.
 
@@ -72,7 +72,7 @@ sudo service strongbox start
 ```linuxdeb linenums="1" tab="Linux (deb)"
 # Open a terminal
 
-# First, make sure you have a JRE with version 1.8 or greater
+# First, make sure you have a JRE with version 1.8
 # installed on your system.  You can use your favorite package manager
 # to find one.
 
