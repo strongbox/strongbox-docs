@@ -33,6 +33,8 @@ Following [CLI commands](https://docs.npmjs.com/cli/npm) supported:
 
 - `npm search`
 
+- `npm unpublish`
+
 ### Classes of Interest
 
 The following are some of the most important classes you will need to be familiar with in order to work on this layout provider:
