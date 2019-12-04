@@ -8,7 +8,7 @@ We encourage you to have a decent version of Docker installed on your machine
 so that you can debug or reproduce issues easier.
 
 You should note that we are mostly using Linux so this guide is more focused on how to do things on Linux distributions.
-Things under Windows shouldn't be that different, however to use the available images switch to use Linux images in Docker For Windows.
+Things under Windows shouldn't be that different, however for the prebuilt available images make sure your Docker For Windows is using [Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 ## Docker installation
 
