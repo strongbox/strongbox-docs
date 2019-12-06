@@ -71,7 +71,17 @@ automatically fix the group id. There are two workarounds which you can apply fo
      chmod -R 775 /path/to/strongbox-project ~/.m2/repository
      ```  
     * You can now proceed with running `docker-compose up` as usual and it should work.
-  
+
+## Windows issues
+
+Running `docker-compose` on Windows may require changes in `docker-compose.yml` where should be added
+a new environment variable:
+
+```yaml
+environment:
+      - COMPOSE_CONVERT_WINDOWS_PATHS=1
+```
+Also be sure that a local drive is available for docker containers (Docker Desktop settings -> Shared Drives)
 
 ## Run strongbox
 
