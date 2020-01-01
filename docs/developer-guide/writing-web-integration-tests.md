@@ -9,7 +9,7 @@
 ## Writing Test
 
 * Will take an example of `pypi layout provider` and `pip` as tool to explain how to write web integration tests.
-* Create a new module in [strongbox-web-integration-tests](https://github.com/strongbox/strongbox-web-integration-tests) for layout provider to be tested.
+* Create a new sub-module in [strongbox-web-integration-tests](https://github.com/strongbox/strongbox-web-integration-tests) for layout provider to be tested.
 * Create Base test class like [PypiWebIntegrationTest](https://github.com/strongbox/strongbox-web-integration-tests/blob/master/pypi/src/it/PypiWebIntegrationTest.groovy) having common methods which should be used by all the tests.
 * For each test case a new [package](https://github.com/strongbox/strongbox-web-integration-tests/blob/master/pypi/src/it/common-flows/pip-package-upload-test) should be created so that test can be executed in isolation without affecting other tests.
 * The package should have all the files and folders required by tool used for test like `setup.cfg`, `setup.py` for `pip`.
@@ -42,3 +42,41 @@
               commandOutput = runCommand(uploadPackageDirectoryPath, pipInstallPackageCommand + " " + uploadedPackageName)
               assert commandOutput.contains("Successfully installed " + uploadedPackageName.replace("_" , "-") + "-1.0")
         ``` 
+      
+## Running Tests
+
+Web Integration tests can be run using both maven and docker.
+
+### Using `maven`
+
+Each sub-module has `pom.xml` file. Go to respective sub-module (`cd pypi`) and execute command `mvn clean install` it will launch the strongbox application instance and will run web integration tests against it.
+
+### Using `docker`
+
+Each sub-module has docker compose file `docker-compose.yml`.
+
+You can run all the tests like this:
+
+```
+for tool in `ls -ap | grep \/ | grep -v -e "\."`; do cd ${tool} && docker-compose up & cd -; done
+```
+
+Alternatively, go to respective tool’s sub-module and execute command:
+```
+docker-compose up
+```
+
+This will automatically build the code using maven after spinning up a Docker container with strongbox application instance  and will run web integration tests against it and then switch it off when it's done.
+
+
+```yaml
+version: '3'
+services:
+  strongbox-web-integration-tests-pypi:
+    image: strongboxci/alpine:jdk8-mvn3.6-pip19.3
+    volumes:
+      - $HOME/.m2/repository:/home/jenkins/.m2/repository
+      - ../:/workspace
+    working_dir: /workspace/pypi
+    command: mvn clean install -U
+```
