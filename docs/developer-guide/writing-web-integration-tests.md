@@ -10,7 +10,7 @@
 
 ## Writing Test
 
-Will take an example of `pypi layout provider` and `pip` as tool to explain how to write web integration tests.
+Let's take an example of `pypi layout provider` and `pip` as tool to explain how to write web integration tests.
 
 * Create a new module in [strongbox-web-integration-tests](https://github.com/strongbox/strongbox-web-integration-tests) for layout provider to be tested.
 * Create Base test class like [PypiWebIntegrationTest](https://github.com/strongbox/strongbox-web-integration-tests/blob/master/pypi/src/it/PypiWebIntegrationTest.groovy) having common methods which should be used by all the tests.
