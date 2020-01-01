@@ -11,7 +11,7 @@ The following build tools have Groovy-based integration tests:
 * NPM
 * NuGet
 * Raw
-* PyPi (`pip`)
+* PyPi (`pip`, `twine`)
 * SBT
 
 Each of the modules in the project is built as a Maven project and:
