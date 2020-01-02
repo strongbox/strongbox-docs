@@ -1,4 +1,6 @@
-# Writing Web Integration Test
+# Writing Web Integration Tests
+
+This article illustrates how to use our web integration test infrastructure and develop tests for it.
 
 ## Introduction
 
@@ -72,6 +74,13 @@ Each module has a `pom.xml` file. Go to the respective module (for example. `cd 
 
 ### Using Docker
 
+To make development and testing easier, we've created Docker images for all of the tools we are testing against, so that 
+you don't have to go through the process of installing them manually.
+
+For this to work, you need to have installed `docker` and `docker-compose` on your machine.
+
+Afterwards, just go to the respective sub-project (i.e. `cd maven`) and execute `docker-compose up`.
+
 Each module has a `docker-compose.yml` file.
 
 You can run all the tests (for all modules) like this:
@@ -100,3 +109,32 @@ services:
     working_dir: /workspace/pypi
     command: mvn clean install -U
 ```
+
+### Windows Notes
+
+If you are using Windows, you need to install all of the [tools](#tools) below and make them available in your `PATH`.
+[Nuget](https://dist.nuget.org/win-x86-commandline/v3.4.4/nuget.exe) requires `.Net Framework v4` and you need to 
+set the `NUGET_V3_EXEC` environment variable to point to the executable `c:/path/to/nuget.exe`.
+
+Alternatively, you can use `docker-compose up`, if you have Docker and `docker-compose` installed.
+
+### Linux Notes
+
+If you are using linux you need to install all of the [tools](#testing) below and make them available in your `PATH`.
+To run Nuget tests here you will need `mono` to be installed. 
+There were many problems with the compatibility of `nuget.exe` and `mono` versions, and the sutable combination is the following:
+
+- `Mono JIT compiler version 5.2.0.215 (tarball Mon Aug 14 15:46:23 UTC 2017)`
+- `nuget.exe` v3.4.4 ( [link](https://dist.nuget.org/win-x86-commandline/v3.4.4/nuget.exe) )
+- `NUGET_V3_EXEC` need to be set with value `mono \path\to\nuget.exe`
+
+# Tools
+
+We are using `Maven 3.6.3` and `JDK 1.8` to execute the tests for the respective tool.
+
+* [Gradle 5.6](https://gradle.org/releases/)
+* [Maven 3.6.3](http://maven.apache.org/download.cgi)
+* [NuGet 3.4.4](https://www.nuget.org/packages/NuGet.CommandLine/3.4.4-rtm-final)
+* [NPM (NodeJS 12](https://nodejs.org/en/download/releases/)
+* [Pip 19.3](https://pypi.org/project/pip/)
+* [SBT 1.1.0](https://www.scala-sbt.org/download.html)
