@@ -120,13 +120,15 @@ Alternatively, you can use `docker-compose up`, if you have Docker and `docker-c
 
 ### Linux Notes
 
-If you are using linux you need to install all of the [tools](#testing) below and make them available in your `PATH`.
+If you are using linux, you need to install all of the [tools](#tools) below and make them available in your `PATH`.
 To run Nuget tests here you will need `mono` to be installed. 
 There were many problems with the compatibility of `nuget.exe` and `mono` versions, and the sutable combination is the following:
 
-- `Mono JIT compiler version 5.2.0.215 (tarball Mon Aug 14 15:46:23 UTC 2017)`
-- `nuget.exe` v3.4.4 ( [link](https://dist.nuget.org/win-x86-commandline/v3.4.4/nuget.exe) )
+- Mono JIT compiler version 5.2.0.215 (tarball Mon Aug 14 15:46:23 UTC 2017)
+- `nuget.exe` [v3.4.4](https://dist.nuget.org/win-x86-commandline/v3.4.4/nuget.exe)
 - `NUGET_V3_EXEC` need to be set with value `mono \path\to\nuget.exe`
+
+Alternatively, you can use `docker-compose up`, if you have Docker and `docker-compose` installed.
 
 # Tools
 
