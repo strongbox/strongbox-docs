@@ -86,7 +86,7 @@ Each module has a `docker-compose.yml` file.
 You can run all the tests (for all modules) like this:
 
 ```
-for tool in `ls -ap | grep \/ | grep -v -e "\."`; do cd ${tool} && docker-compose up & cd -; done
+find . -maxdepth 2 -type f -name "docker-compose.y*ml" -exec docker-compose -f {} up \;
 ```
 
 Alternatively, you can go to respective tool’s module that you're interested in and execute the following command:
