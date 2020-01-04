@@ -66,11 +66,11 @@ Let's take an example of `PyPi layout provider` and the `pip` tool to explain ho
 
 The Web Integration tests can be run using both Maven and Docker.
 
-Typically, you would use Maven to run the tests from one sub-module, (unless you have all the possible tools that are required for executing the tests, for example, Gradle, NuGet, NPM already installed, which is usually not the case). This is why re recommend running the tests using Docker, as the Docker images are pre-configured with everything you will need to run the tests in the exact same way they would run on our CI server (Jenkins).
+Typically, you would use Maven to run the tests from one sub-module, (unless you have all the possible tools that are required for executing the tests, for example, Gradle, NuGet, NPM already installed, which is usually not the case). This is why we recommend running the tests using Docker, as the Docker images are pre-configured with everything you will need to run the tests in the exact same way they would run on our CI server (Jenkins).
 
 ### Using Maven
 
-Each module has a `pom.xml` file. Go to the respective module (for example. `cd pypi`) and execute the `mvn clean install` command. This will launch the Strongbox application instance and will execute web integration tests against it.
+Each module has a `pom.xml` file. Go to the respective module (for example `cd pypi`) and execute the `mvn clean install` command. This will launch the Strongbox application instance and will execute web integration tests against it.
 
 ### Using Docker
 
@@ -137,6 +137,6 @@ We are using `Maven 3.6.3` and `JDK 1.8` to execute the tests for the respective
 * [Gradle 5.6](https://gradle.org/releases/)
 * [Maven 3.6.3](http://maven.apache.org/download.cgi)
 * [NuGet 3.4.4](https://www.nuget.org/packages/NuGet.CommandLine/3.4.4-rtm-final)
-* [NPM (NodeJS 12](https://nodejs.org/en/download/releases/)
+* [NPM (NodeJS 12)](https://nodejs.org/en/download/releases/)
 * [Pip 19.3](https://pypi.org/project/pip/)
 * [SBT 1.1.0](https://www.scala-sbt.org/download.html)
