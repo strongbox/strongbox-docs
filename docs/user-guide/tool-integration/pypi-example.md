@@ -23,7 +23,6 @@ This is an example of how to use the Strongbox artifact repository manager with 
 ## The `setup.py` file
 
 This file is the build script for setuptools. It tells setuptools about your package like its name, a description, the current version etc.The [Strongbox PyPI Example] contains sample [setup.py] file with pre-defined sample information.
-This file
 
 ## The `setup.cfg` file
 
