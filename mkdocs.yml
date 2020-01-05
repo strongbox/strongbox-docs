@@ -134,6 +134,7 @@ nav:
       - JUnit: developer-guide/junit-user-guide.md
       - AssertJ: developer-guide/assertj-user-guide.md
       - Web Form Tests: developer-guide/writing-web-form-tests.md
+      - Web Integration Tests: developer-guide/writing-web-integration-tests.md
     - Using Git:
       - Rebasing vs Merging: developer-guide/git/rebase-vs-merge.md
     - How To Gather Requirements: developer-guide/how-to-gather-requirements.md
