@@ -6,6 +6,10 @@ This article illustrates how to use our web integration test infrastructure and 
 
 The [strongbox-web-integration-tests](https://github.com/strongbox/strongbox-web-integration-tests) project contains various integration tests for the Strongbox project and the different repository layout formats supported by it. We use Maven to for the build, which in term starts a Strongbox instance and executes Groovy-based tests against it.
 
+The code used to start the Spring Boot application is either retrieved from our repository, or, if you've made local modifications, it uses them directly from your local Maven cache.
+
+This project is often referred to as `s-w-i-t` for brevity.
+
 The following build tools have Groovy-based integration tests:
 
 * Gradle
@@ -15,15 +19,6 @@ The following build tools have Groovy-based integration tests:
 * Raw
 * PyPi (`pip`, `twine`)
 * SBT
-
-Each of the modules in the project is built as a Maven project and:
-
-* Starts the Strongbox Spring Boot application
-* Runs the Groovy tests against the Strongbox Spring Boot application
-
-The code used to start the Spring Boot application is either retrieved from our repository, or, if you've made local modifications, it uses them directly from your local Maven cache.
-
-This project is often referred to as `s-w-i-t` for brevity.
 
 ## Writing Web Integration Tests
 
@@ -35,7 +30,7 @@ Let's take an example of `PyPi layout provider` and the `pip` tool to explain ho
 * The package should have all the files and folders required by the tool used for test (In Python's case, these would be `setup.cfg`, `setup.py` for `pip`).
 * Below are the steps which should be followed for tests:
   * Create a groovy based [test class](https://github.com/strongbox/strongbox-web-integration-tests/blob/master/pypi/src/it/common-flows/test-pypi-common-flows.groovy) for the test cases.
-  * Import Base test class.
+  * Import base test class.
     ```java
     def baseScript = new GroovyScriptEngine("$project.basedir/src/it").with
     { 
