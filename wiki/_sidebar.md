@@ -41,7 +41,7 @@
   * [[Nuget + Visual Studio Example]]
   * [[SBT Example]]
   * [[Yarn Example]]
-  * [[PyPI Example]]
+  * [[PyPi Example]]
 
 **Developer Guide**
 * [[Getting Started]]

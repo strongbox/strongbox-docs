@@ -16,13 +16,13 @@ You will need the following software installed on your machine to make this exam
 
 The "Hello, World!" sample application for this can be found [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-pypi).
 
-# Pypi Example
+# PyPi Example
 
 This is an example of how to use the Strongbox artifact repository manager with `twine` and `pip`.
 
 ## The `setup.py` file
 
-This file is the build script for setuptools. It tells setuptools about your package like its name, a description, the current version etc.The [Strongbox PyPI Example] contains sample [setup.py] file with pre-defined sample information.
+This file is the build script for setuptools. It tells setuptools about your package like its name, a description, the current version etc.The [Strongbox PyPi Example] contains sample [setup.py] file with pre-defined sample information.
 
 ## The `setup.cfg` file
 
@@ -145,6 +145,6 @@ The output should look like this:
 * [How to upload python package](https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56)
 
 
-[Strongbox Pypi Example]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-pypi
+[Strongbox PyPi Example]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-pypi/
 [setup.py]: https://github.com/strongbox/strongbox-examples/blob/master/hello-strongbox-pypi/setup.py
 ["See also"]: #see-also
