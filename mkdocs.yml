@@ -100,7 +100,7 @@ nav:
       - Nuget + Visual Studio Example: user-guide/tool-integration/nuget-visual-studio-example.md
       - SBT Example: user-guide/tool-integration/sbt-example.md
       - Yarn Example: user-guide/tool-integration/yarn-example.md
-      - PyPI Example: user-guide/tool-integration/pypi-example.md
+      - PyPi Example: user-guide/tool-integration/pypi-example.md
   - Developer guide:
     - Getting started: developer-guide/getting-started.md
     - Building:
