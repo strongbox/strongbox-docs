@@ -157,7 +157,7 @@ If you are interested in using the commands from our `.bashrc`:
 curl -o ~/.bashrc-strongbox \
      -L {{resources}}/docker/bashrc-strongbox
 chmod 750 ~/.bashrc-strongbox
-echo "\$HOME/.bashrc-strongbox" >> ~/.bashrc
+echo "[ -f \$HOME/.bashrc-strongbox ] && . \$HOME/.bashrc-strongbox" >> ~/.bashrc
 ```
 
 You can now either open up a new terminal or execute `source ~/.bashrc`  
