@@ -4,61 +4,36 @@
 
 This page contains explanations and code samples for developers who need to store their entities into the database. 
 
-The Strongbox project uses [OrientDB](http://orientdb.com/orientdb/) as its internal persistent storage through the 
-corresponding `JPA` implementation and `spring-orm` middle tier. Also we use `JTA` for transaction management and 
-`spring-tx` implementation module from Spring technology stack.
+The Strongbox project uses [JanusGraph](https://janusgraph.org/) as its internal persistent storage through the 
+corresponding [Gremlin](https://tinkerpop.apache.org/gremlin.html) implementation and [spring-data-neo4j](https://spring.io/projects/spring-data-neo4j#overview) middle tier. Also we use `JTA` for transaction management and `spring-tx` implementation module from Spring technology stack.
 
-## OrientDB Studio
+## Persistence stack
 
-As you are learning about Strongbox persistence, you may want to explore the existing persistence implementation.
-For development environments, Strongbox includes an embedded OrientDB server as well as an embedded instance of
-OrientDB Studio. By default, when you run the application from the source tree, you'll use the embedded database
-server. However, OrientDB Studio is disabled by default.
+We using following technology stack to deal with persistence:
 
-### Running OrientDB Studio From Source Tree
+ - Embedded Cassandra as direct storage (`CassandraDaemon` allows to have the Cassandra instance inside same JVM as the application)
+ - JanusGraph as Graph DBMS (it is not directly a data storage, it just allows you to have access to data in the form of a graph)
+ - [Apache TinkerPop](http://tinkerpop.apache.org/docs/current/reference/)  as a set of tools to interact with the database (mainly Gremlin meant here)
+ - [spring-data-neo4j](https://github.com/spring-projects/spring-data-neo4j) to manage transactions in Spring with `Neo4jTransactionManager` and implement custom Cypher queries with Spring Data repositories (by custom queries means `@org.springframework.data.neo4j.annotation.Query` annotation)
+ - [cypher-for-gremlin](https://github.com/opencypher/cypher-for-gremlin) which translates Cypher queries into Gremlin traversals (it has some issues which prevents us to use it for `neo4j-ogm` CRUD operations, these issues will be explained below)
+ - [neo4j-ogm](https://github.com/neo4j/neo4j-ogm) to map Java POJOs into Vertices and Edges of Graph
+ - we also use custom `EntityTraversalAdapters`, which implements anonimous Gremlin traversals for CRUD operations under `neo4j-ogm` entities.
 
-To enable OrientDB Studio, you need only to set the property `strongbox.orientdb.studio.enabled` to `true`. You
-can do this on the Maven command line by running Strongbox as follows:
+# Vertices and Edges
 
-```
-$ mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dstrongbox.orientdb.studio.enabled=true"
-```
+Unlike a Relational DBMS, Graph DBMS have vertices and edges, not rows and tables. So in terms of Graph every persistent entity should be stored as Vertex or Edge. An example of a vertex might be `Artifact` or `AritfactCoordinates` and the relation between them would be an edge. It should be noted that, unlike RDBMS, object relations are represented by separate edge instead of just foreign key column in table. In addition to vertices, persistence objects can also be an edges, as an example the `ArtifactDependency` would be an edge between `ArtifactCoordinates` vertices.
 
-There are two additional properties that can be used to configure OrientDB Studio:
+# Issues of `cypher-for-gremlin` and `neo4j-ogm`
 
-- `strongbox.orientdb.studio.ip.address`
-- `strongbox.orientdb.studio.port`
+First issue was the fact that `cypher-for-gremlin` not fully suport all Cypher syntax that produced by `neo4j-ogm` for CRUD operations. In more detail on every CRUD operation `neo4j-ogm` generate Cypher query which then translates into Gremlin by `cypher-for-gremlin`. As a workadound we modify Cypher queries produced by `neo4j-ogm` and replace some clauses (see `org.opencypher.gremlin.neo4j.ogm.request.GremlinRequest`). 
 
-### Running OrientDB Studio From The Distribution
+Another issue is that `cypher-for-gremlin` have some doubtful concept to work with `null` values in Gremlin. They put a lot of noisy tokens into Gremlin traversals which prevents JanusGraph engine to match expected indexes, this causes heavy fullscan on every query (see [#342](https://github.com/opencypher/cypher-for-gremlin/issues/342)).  This was the main reason of why we can't use `neo4j-ogm` for CRUD operations.
+Anyway we still using it for custom Cypher queries with `@org.springframework.data.neo4j.annotation.Query` annotation. This is good option to have Cypher queries  instead of Gremlin because it looks more clear and takes less time to read existing and write new queries.
 
-If you're running from the `tar.gz`, or `rpm` distributions, you can start Strongbox as follows to enable OrientDB Studio:
+## Gremlin Server
 
-```
-$ cd /opt/strongbox
-$ STRONGBOX_VAULT=/opt/strongbox-vault STRONGBOX_ORIENTDB_STUDIO_ENABLED=true ./bin/strongbox console
-```
+`TODO`
 
-Please, note that the `STRONGBOX_VAULT` environment variable needs to be pointing to an absolute path for this to work.
-
-As with the source distribution, you can set additional environment variables to further configure OrientDB Studio:
-
-```
-$ export STRONGBOX_ORIENTDB_STUDIO_IP_ADDRESS=0.0.0.0
-$ export STRONGBOX_ORIENTDB_STUDIO_PORT=2480
-```
-
-Once the application is running, you can login to OrientDB Studio by visiting
-http://127.0.0.1:2480/studio/index.html in your browser. The initial credentials are `admin` and `password`.
-
-![Login Screen](/assets/screenshots/orientdb-studio/login-screen.png)
-
-After your login, you'll land on the Browse Screen, which allows you to query the embedded database.
-
-![Browse Screen](/assets/screenshots/orientdb-studio/browse-screen.png)
-
-Finally, you can explore the schema defined in the database by clicking `SCHEMA`.
-
-![Schema Screen](/assets/screenshots/orientdb-studio/schema-screen.png)
 
 ## Adding Dependencies
 
@@ -75,173 +50,60 @@ following code snippet to your module's `pom.xml` under the `<dependencies>` sec
 </dependency>
 ```
 
-Notice that there is no need to define any direct dependencies on OrientDB or Spring Data - it's already done via 
+Notice that there is no need to define any direct dependencies on JanusGraph or Spring Data - it's already done via 
 the `strongbox-data-service` module.
 
 ## Creating Your Entity Class
 
 Let's now assume that you have a POJO and you need to save it to the database (and that you probably have at least 
-CRUD operation's implemented in it as well). Place your code under the `org.carlspring.strongbox.domain.yourstuff` 
-package. For the sake of the example, let's pick `MyEntity` as the name of your entity.
+CRUD operation's implemented in it as well). Place your code under the `org.carlspring.strongbox.domain` 
+package. For the sake of the example, let's pick `PetEntity` as the name of your entity.
 
 If you want to store that entity properly you need to adopt the following rules:
 
-* Extend the `org.carlspring.strongbox.data.domain.GenericEntity` class to inherit all required fields and logic from 
-  the superclass.
-* Define getters and setters according to the `JavaBeans` coding convention for all non-transient properties in your 
-  class.
-* Define a default empty constructor for safety (even if the compiler will create one for you, if you don't define any 
-  other constructors) and follow the `JPA` and `java.io.Serializable` standards.
-* Override the `equals() `and `hashCode()` methods according to java `hashCode` contract (because your entity could be 
-  used in collection classes such as `java.util.Set` and if you don't define such methods properly other developers or 
-  yourself will be not able to use your entity).
-* _Optional_ - define a `toString()` implementation to let yourself and other developers see something meaningful in 
-  the debug messages.
+* Create the interface for your entity with all getters and setters that required to interact with the entity according to the `JavaBeans` coding convention. This interface should extend `org.carlspring.strongbox.data.domain.DomainObject`. The need for an interface is due to hide the implementation specific to underlying database, such as inheritance strategy.
+* Create the entity class which implements the above interface and have the `org.carlspring.strongbox.data.domain.DomainEntity` as the superclass. 
+* Define a default empty constructor, this would need to create entity instance from `neo4j-ogm` internals.
 
 The complete source code example that follows all requirements should look something like this:
 
 ```java
 package org.carlspring.strongbox.domain;
 
-import org.carlspring.strongbox.data.domain.GenericEntity;
-
-import com.google.common.base.Objects;
-
-public class MyEntity
-        extends GenericEntity
+public class PetEntity
+        extends DomainEntity
+        implements Pet
 {
 
-    private String property;
+    private Integer age;
 
-    public MyEntity()
+    public PetEntity()
     {
-    }
-
-    public String getProperty()
-    {
-        return property;
-    }
-
-    public void setProperty(String property)
-    {
-        this.property = property;
     }
 
     @Override
-    public boolean equals(Object o)
+    public Integer getAge()
     {
-        if (this == o)
-        {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass())
-        {
-            return false;
-        }
-        
-        MyEntity myEntity = (MyEntity) o;
-
-        return Objects.equal(property, myEntity.property);
+        return age;
     }
 
     @Override
-    public int hashCode()
+    public void setAge(Integer age)
     {
-        return Objects.hashCode(property);
+        this.age = age;
     }
-
-    @Override
-    public String toString()
-    {
-        final StringBuilder sb = new StringBuilder("MyEntity{");
-        sb.append("property='").append(property).append('\'');
-        sb.append('}');
-        
-        return sb.toString();
-    }
-}
-```
-
-## Creating a DAO Layer
-
-First of all you will need to extend the `CrudService` with the second type parameter that corresponds to your ID's data type. Usually it's just strings. 
-
-
-!!! tip "To read more about ID's in OrientDB, check the <a href='http://orientdb.com/docs/2.0/orientdb.wiki/Tutorial-Record-ID.html' target='_blank'>manual</a>"
-
-```java
-package org.carlspring.strongbox.users.service;
-
-import org.carlspring.strongbox.data.service.CrudService;
-import org.carlspring.strongbox.users.domain.MyEntity;
-
-import org.springframework.transaction.annotation.Transactional;
-
-/**
- * CRUD service for managing {@link MyEntity} entities.
- *
- * @author Alex Oreshkevich
- */
-@Transactional
-public interface MyEntityService
-        extends CrudService<MyEntity, String>
-{
-
-    MyEntity findByProperty(String property);
 
 }
 ```
 
-After that you will need to define an implementation of your service class. 
+# Gremlin Repositories
 
-Follow these rules for the service implementation:
+As mentioned above besides `neo4j-ogm` we were forced to have custom CRUD implementation based on Gremlin. This has its advantages as it allow for us to optimize OGM entities and make them faster then common `neo4j-ogm` provide out of the box.  The main thing of the Gremlin based CRUD is `EntityTraversalAdapter` which is a strategy for create/update, read/delete operations. The concrete `EntityTraversalAdapter` provide anonymous traversals for each of the operations on specific entity type. These traversals used in Gremlin based repositories to perform common CRUD operations. The `EntityTraversalAdapter` implementations can also use each other to support relations between entities, inheritance and cascade operations.
 
-* Inherit your CRUD service from `CommonCrudService<MyEntity>` class;
-* Name it like your service interface with an `Impl` suffix, for example `MyEntityServiceImpl`;
-* Annotate your class with the Spring `@Service` and `@Transactional` annotations;
-* Do **not** define your service class as public and use interface instead of class for injection (with `@Autowired`); 
-  this follows the best practice principles from Joshua Bloch 'Effective Java' book called Programming to Interface;
-* _Optional_ - define any methods you need to work with your `MyEntity` class; these methods mostly should be based on 
-  common API form `javax.persistence.EntityManager`, or custom queries (see example below);
+## Creating a `EntityTraversalAdapter`
+`TODO`
 
-* !!! warning "Avoid query parameters construction through string concatenation!"
-      Please avoid using query parameter construction through string concatenation!  
-      This usually leads to [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection) issues!    
-      Bad query example:  
-      `String sQuery = "select * from MyEntity where proprety='" + propertyValue + "'"`;  
-      What you should do instead is to create a service which does properly assigns the parameters.  
-      Here's an example service:
-      ```java
-      @Transactional
-      public class MyEntityServiceImpl
-              extends CommonCrudService<MyEntity> implements MyEntityService
-      {
-          public MyEntity findByProperty(String property)
-          {
-              String sQuery = "select * from MyEntity where property = :propertyValue";
+## Creating a `Repository`
+`TODO`
 
-              OSQLSynchQuery<Long> oQuery = new OSQLSynchQuery<Long>(sQuery);
-              oQuery.setLimit(1);
-
-              HashMap<String, String> params = new HashMap<String, String>();
-              params.put("propertyValue", property);
-      
-              List<MyEntity> resultList = getDelegate().command(oQuery).execute(params);
-              return !resultList.isEmpty() ? resultList.iterator().next() : null;
-          }
-      }
-      ```
-
-## Register entity schema in EntityManager
-Before using entities you will need to register them. Consider the following example:
-
-```java
-@Inject
-private OEntityManager oEntityManager;
-
-@PostConstruct
-public void init() 
-{
-    oEntityManager.registerEntityClass(MyEntity.class);
-}
 ```
