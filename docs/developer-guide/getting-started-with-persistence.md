@@ -5,7 +5,7 @@
 This page contains explanations and code samples for developers who need to store their entities into the database. 
 
 The Strongbox project uses [JanusGraph](https://janusgraph.org/) as its internal persistent storage through the 
-corresponding [Gremlin](https://tinkerpop.apache.org/gremlin.html) implementation and [spring-data-neo4j](https://spring.io/projects/spring-data-neo4j#overview) middle tier. Also we use `JTA` for transaction management and the `spring-tx` implementation module from the Spring technology stack.
+corresponding [Gremlin](https://tinkerpop.apache.org/gremlin.html) implementation and [spring-data-neo4j](https://spring.io/projects/spring-data-neo4j#overview) middle tier. We also use `JTA` for transaction management and the `spring-tx` implementation module from the Spring technology stack.
 
 ## Persistence stack
 
@@ -17,9 +17,9 @@ We're using the following technology stack to deal with persistence:
  - [spring-data-neo4j](https://github.com/spring-projects/spring-data-neo4j) to manage transactions in Spring with `Neo4jTransactionManager` and implement custom Cypher queries with Spring Data repositories (by custom queries via the `@org.springframework.data.neo4j.annotation.Query` annotation)
  - [cypher-for-gremlin](https://github.com/opencypher/cypher-for-gremlin) which translates Cypher queries into Gremlin traversals (it has some issues which prevent us from using it for `neo4j-ogm` CRUD operations, these issues will be explained below)
  - [neo4j-ogm](https://github.com/neo4j/neo4j-ogm) to map Java POJOs into Vertices and Edges of Graph
- - We also use custom `EntityTraversalAdapters`, which implement anonimous Gremlin traversals for CRUD operations under `neo4j-ogm` entities.
+ - We also use custom `EntityTraversalAdapters`, which implement anonymous Gremlin traversals for CRUD operations under `neo4j-ogm` entities.
 
-# Vertices and Edges
+## Vertices and Edges
 
 Unlike a relational DBMS, Graph DBMS have vertices and edges, not rows and tables. So, in terms of Graph, every persistent entity should be stored as vertex or edge. An example of a vertex might be `Artifact` or `AritfactCoordinates` and the relation between them would be an edge. It should be noted that, unlike RDBMS, object relations are represented by a separate edge, instead of just a foreign key column in a table. In addition to vertices, persistence objects can also be edges -- for example, the `ArtifactDependency` would be an edge between `ArtifactCoordinates` vertices.
 
@@ -178,7 +178,7 @@ In addition to CRUD operations, there is also the need to be able to select data
 
 Putting together all the above, the repository for the `PetEntity` will look like below:
 
-```
+```java
 package org.carlspring.strongbox.repositories;
 
 import javax.inject.Inject;
@@ -225,7 +225,7 @@ interface PetQueries
 }
 ```
 
-# Issues of `cypher-for-gremlin` and `neo4j-ogm`
+## Issues of `cypher-for-gremlin` and `neo4j-ogm`
 
 The first issue that we have, is the fact that `cypher-for-gremlin` does not fully suport all Cypher syntax that is produced by `neo4j-ogm` for CRUD operations. To be more specific, on every CRUD operation, `neo4j-ogm` generates a Cypher query which is then translated to Gremlin by `cypher-for-gremlin`. As a workadound, we modify Cypher queries produced by `neo4j-ogm` and replace some clauses (see `org.opencypher.gremlin.neo4j.ogm.request.GremlinRequest`). 
 
