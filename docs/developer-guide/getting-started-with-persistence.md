@@ -93,11 +93,11 @@ public class PetEntity
 
 ## Creating a `EntityTraversalAdapter`
 
-As mentioned above besides `neo4j-ogm` and `spring-data-neo4j` we were forced to use custom CRUD implementations based on Gremlin. This has its advantages as it allow for us to optimize OGM entities and make them faster then common `neo4j-ogm` provide out of the box. The main thing of the Gremlin based CRUD is `EntityTraversalAdapter` which is a strategy for create/update, read/delete operations. The concrete `EntityTraversalAdapter` provide [Anonymous traversals](http://tinkerpop.apache.org/docs/current/tutorials/gremlins-anatomy/) for each of the operations on specific entity type. These traversals used in Gremlin based repositories to perform common CRUD operations:
+As mentioned above, besides `neo4j-ogm` and `spring-data-neo4j`, we were forced to use custom CRUD implementations based on Gremlin. This has its advantages, as it allows us to optimize OGM entities and make them faster than what the common `neo4j-ogm` provides out of the box. The main thing of the Gremlin based CRUD is `EntityTraversalAdapter` which is a strategy for create/update/read/delete operations. The concrete `EntityTraversalAdapter` provides [Anonymous Traversals](http://tinkerpop.apache.org/docs/current/tutorials/gremlins-anatomy/) for each operation of the specific entity type. These traversals are used in Gremlin-based repositories to perform common CRUD operations:
 
-- `fold` to construct entity instance based on Vertex/Edge and it's properties
-- `unfold` to extract entity properties into Vertex/Edge and it's properties
-- `cascade` to cascade other Vertices/Edges within delete if needed
+- `fold` : to construct entity instance based on vertex/edge and its properties
+- `unfold` : to extract entity properties into vertex/edge and its properties
+- `cascade` : to cascade other vertices/edges within delete if needed
 
 The `EntityTraversalAdapter` implementations can also use each other to support relations between entities, inheritance and cascade operations.
 
@@ -173,10 +173,10 @@ public class PetAdapter extends VertexEntityTraversalAdapter<Pet>
 
 ## Creating a `Repository`
 
-All the database interactions should be done through repositories. For the compatibility with `spring-data` we use `org.springframework.data.repository.CrudRepository` as a basis for our repositories. The base class for implementing `EntityTraversalAdapter`-based repositories is `org.carlspring.strongbox.gremlin.repositories.GremlinRepository`. Further repository implementation depends on the type of entity, for Vertex backed entities it should be `GremlinVertexRepository`.
-In addition to CRUD operations, there is also need the ability to select data using queries. Queries could be implemented using [Cypher](https://neo4j.com/docs/cypher-manual/current/introduction/) through  `spring-data-neo4j` and `@org.springframework.data.neo4j.annotation.Query` annotation. So the final repository should be a mixin that extends `GremlinRepository` and delegates custom `Cypher` queries into `org.springframework.data.repository.Repository` instance provided by `spring-data-neo4j`.
+All the database interactions should be done through repositories. For the compatibility with `spring-data`, we use `org.springframework.data.repository.CrudRepository` as a basis for our repositories. The base class for implementing `EntityTraversalAdapter`-based repositories is `org.carlspring.strongbox.gremlin.repositories.GremlinRepository`. Further repository implementation depends on the type of entity; for vertex-backed entities, it should be `GremlinVertexRepository`.
+In addition to CRUD operations, there is also the need to be able to select data using queries. Queries could be implemented using [Cypher](https://neo4j.com/docs/cypher-manual/current/introduction/) through `spring-data-neo4j` using the `@org.springframework.data.neo4j.annotation.Query` annotation. So, the final repository should be a mixin that extends `GremlinRepository` and delegates custom `Cypher` queries to the `org.springframework.data.repository.Repository` instance provided by `spring-data-neo4j`.
 
-Putting all above together the repository for the `PetEntity` will looks like below:
+Putting together all the above, the repository for the `PetEntity` will look like below:
 
 ```
 package org.carlspring.strongbox.repositories;
@@ -227,9 +227,9 @@ interface PetQueries
 
 # Issues of `cypher-for-gremlin` and `neo4j-ogm`
 
-First issue was the fact that `cypher-for-gremlin` not fully suport all Cypher syntax that produced by `neo4j-ogm` for CRUD operations. In more detail on every CRUD operation `neo4j-ogm` generate Cypher query which then translates into Gremlin by `cypher-for-gremlin`. As a workadound we modify Cypher queries produced by `neo4j-ogm` and replace some clauses (see `org.opencypher.gremlin.neo4j.ogm.request.GremlinRequest`). 
+The first issue that we have, is the fact that `cypher-for-gremlin` does not fully suport all Cypher syntax that is produced by `neo4j-ogm` for CRUD operations. To be more specific, on every CRUD operation, `neo4j-ogm` generates a Cypher query which is then translated to Gremlin by `cypher-for-gremlin`. As a workadound, we modify Cypher queries produced by `neo4j-ogm` and replace some clauses (see `org.opencypher.gremlin.neo4j.ogm.request.GremlinRequest`). 
 
-Another issue is that `cypher-for-gremlin` have some doubtful concept to work with `null` values in Gremlin. They put a lot of noisy tokens into Gremlin traversals which prevents JanusGraph engine to match expected indexes, this causes heavy fullscan on every query (see [#342](https://github.com/opencypher/cypher-for-gremlin/issues/342)).  This was the main reason of why we can't use `neo4j-ogm` for CRUD operations.
-Anyway we still using it for custom Cypher queries with `@org.springframework.data.neo4j.annotation.Query` annotation. This is good option to have Cypher queries  instead of Gremlin because it looks more clear and takes less time to read existing and write new queries.
+Another issue is that `cypher-for-gremlin` has an ambiguous concept for working with `null` values in Gremlin. They put a lot of noisy tokens into Gremlin traversals which prevents the JanusGraph engine from matching expected indexes. This, in term, causes heavy full-scans on every query (see [#342](https://github.com/opencypher/cypher-for-gremlin/issues/342)). This was the main reason why we couldn't use the `neo4j-ogm` for CRUD operations.
 
-```
+Either way, we are still using it for custom Cypher queries via the `@org.springframework.data.neo4j.annotation.Query` annotation. This is a good option to have Cypher queries, instead of Gremlin ones, because it looks more clear and takes less time to read and write queries.
+
