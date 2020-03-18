@@ -174,7 +174,7 @@ public class PetAdapter extends VertexEntityTraversalAdapter<Pet>
 ## Creating a `Repository`
 
 All the database interactions should be done through repositories. For the compatibility with `spring-data` we use `org.springframework.data.repository.CrudRepository` as a basis for our repositories. The base class for implementing `EntityTraversalAdapter`-based repositories is `org.carlspring.strongbox.gremlin.repositories.GremlinRepository`. Further repository implementation depends on the type of entity, for Vertex backed entities it should be `GremlinVertexRepository`.
-In addition to CRUD operations, there is also need the ability to select data using queries. Queries could be implemented using [Cypher](https://neo4j.com/docs/cypher-manual/current/introduction/) through  `spring-data-neo4j` and `@org.springframework.data.neo4j.annotation.Query` annotation. So the final repository should be a class that extends `GremlinRepository` and delegates custom `Cypher` queries into `org.springframework.data.repository.Repository` instance provided by `spring-data-neo4j`.
+In addition to CRUD operations, there is also need the ability to select data using queries. Queries could be implemented using [Cypher](https://neo4j.com/docs/cypher-manual/current/introduction/) through  `spring-data-neo4j` and `@org.springframework.data.neo4j.annotation.Query` annotation. So the final repository should be a mixin that extends `GremlinRepository` and delegates custom `Cypher` queries into `org.springframework.data.repository.Repository` instance provided by `spring-data-neo4j`.
 
 Putting all above together the repository for the `PetEntity` will looks like below:
 
