@@ -57,7 +57,7 @@ If you want to store that entity properly you need to adopt the following rules:
 * Create the interface for your entity with all the getters and setters that are required to interact with the entity, according to the `JavaBeans` coding convention. This interface should extend `org.carlspring.strongbox.data.domain.DomainObject`. We need an interface in order to hide the implementation-specific details that depend on the underlying database, such as inheritance strategy.
 * Create the entity class which implements the above interface and extend to `org.carlspring.strongbox.data.domain.DomainEntity`.
 * Declare an entity class with `@NodeEntity` or `@RelationshipEntity`.
-* Define a default empty constructor, this would need to create entity instance from `neo4j-ogm` internals.
+* Define a default empty constructor, as this would be required in order to create entity instances from `neo4j-ogm` internals.
 
 The complete source code example that follows all requirements should look something like this:
 
@@ -98,6 +98,8 @@ As mentioned above, besides `neo4j-ogm` and `spring-data-neo4j`, we were forced 
 - `fold` : to construct entity instance based on vertex/edge and its properties
 - `unfold` : to extract entity properties into vertex/edge and its properties
 - `cascade` : to cascade other vertices/edges within delete if needed
+
+Basically these all these operations are implemented using special `__` class, which represent anonymous traversal in Gremlin.
 
 The `EntityTraversalAdapter` implementations can also use each other to support relations between entities, inheritance and cascade operations.
 
