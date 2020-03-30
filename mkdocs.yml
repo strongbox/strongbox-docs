@@ -96,6 +96,7 @@ nav:
       - Gradle Example: user-guide/tool-integration/gradle-example.md
       - Maven Example: user-guide/tool-integration/maven-example.md
       - NPM Example: user-guide/tool-integration/npm-example.md
+      - Nuget + Chocolatey Example: user-guide/tool-integration/nuget-chocolatey-example.md
       - Nuget + Mono Example: user-guide/tool-integration/nuget-mono-example.md
       - Nuget + Visual Studio Example: user-guide/tool-integration/nuget-visual-studio-example.md
       - SBT Example: user-guide/tool-integration/sbt-example.md
