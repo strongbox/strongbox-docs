@@ -21,12 +21,8 @@ body > .md-container {
     border-top-color: #00bfa5;
 }
 
-.md-typeset .admonition.attention, .md-typeset .admonition.caution, .md-typeset .admonition.warning, .md-typeset details.attention, .md-typeset details.caution, .md-typeset details.warning {
-    border-top-color: #ff9100;
-}
-
-.md-typeset .admonition, .md-typeset details {
-    border-top: .068rem solid #448aff
+.md-typeset .admonition.warning > .admonition-title {
+    background-color: hsl(59, 22%, 29%) !important
 }
 
 .md-typeset {
