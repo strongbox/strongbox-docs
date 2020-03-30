@@ -2,15 +2,13 @@
 
 This is an example of how to use the Strongbox artifact repository manager with Chocolatey using Nuget.
 
-## The example project
-
-The "Hello, Strongbox!" sample application can be found [here][choco-example-project].
-
 ## Pre-requisites
 
-Before you proceed please make sure you have the following pre-requisites in order to be able to use this tutorial:
+Before you proceed please make sure you have installed and configured a [Strongbox Distribution](../getting-started.md).
 
-* [Strongbox Distribution](../getting-started.md)
+## Example project
+
+The "Hello, Strongbox!" example project can be found [here][hello-strongbox-nuget-chocolatey].
 
 ## Installing choco
 
@@ -37,14 +35,14 @@ It is OK to ignore warnings about a system reboot being requested since the noth
 The NuGet protocol assumes that users need to be authenticated with `API Key` to be able to deploy or delete your packages.
 Strongbox provides the REST API to get an API Key for specified user:
     
-``` tab="Linux" linenums="1"
-API_KEY=`curl -u admin http://localhost:48080/api/users/admin/generate-security-token`
-echo $API_KEY
-```
-
 ``` tab="Windows" linenums="1"
 FOR /F %i IN ('curl -u admin http://localhost:48080/api/users/admin/generate-security-token') DO set API_KEY=%i
 echo %API_KEY%
+```
+
+``` tab="Linux" linenums="1"
+API_KEY=`curl -u admin http://localhost:48080/api/users/admin/generate-security-token`
+echo $API_KEY
 ```
 
 Enter your Strongbox password. (Default is: admin/password)
@@ -57,15 +55,15 @@ The output when `echo`ing the `%API_KEY%` should not be empty and should look so
 
 In this step, we will be setting the `apikey` which will be used to authenticate against the `source` in the future steps.
 
-``` tab="Linux" linenums="1"
-REPO_URL=http://localhost:48080/storages/storage-nuget/nuget-releases
-choco apikey -k $API_KEY -s $REPO_URL
-```
-
 ``` tab="Windows" linenums="1"
 # This needs to be run in an administrative command prompt or powershell!
 set REPO_URL=http://localhost:48080/storages/storage-nuget/nuget-releases
-choco apikey -k %API_KEY% -s %REPO_URL%
+choco apikey -k %API_KEY% -s "%REPO_URL%"
+```
+
+``` tab="Linux" linenums="1"
+REPO_URL=http://localhost:48080/storages/storage-nuget/nuget-releases
+choco apikey -k $API_KEY -s "$REPO_URL"
 ```
 
 The output should be like follows:
@@ -79,14 +77,15 @@ Added ApiKey for http://localhost:48080/storages/storage-nuget/nuget-releases
 
 To manage packages, you'll need to configure Chocolatey to access your storages by running the following command:
 
-``` tab="Linux" linenums="1"
-choco source add -n=strongbox -k $API_KEY -s "$REPO_URL" --priority=1
-```
-
 ``` tab="Windows" linenums="1"
 # This needs to be run as administrative command prompt or powershell!
 choco source add -n=strongbox -k %API_KEY% -s "%REPO_URL%" --priority=1
 ``` 
+
+``` tab="Linux" linenums="1"
+choco source add -n=strongbox -k $API_KEY -s "$REPO_URL" --priority=1
+```
+
 
 The output should be like follows:
 
@@ -105,16 +104,16 @@ Added strongbox - http://localhost:48080/storages/storage-nuget/nuget-releases (
 
 ### Create a package
 
-``` tab="Linux" linenums="1"
-cd /some/path
-choco new --name=hello-chocolatey --version=1.0.0
-```
-
 ``` tab="Windows" linenums="1"
 # This needs to be run as administrative command prompt or powershell!
 cd C:\some\path
 choco new --name=hello-chocolatey --version=1.0.0
 ``` 
+
+``` tab="Linux" linenums="1"
+cd /some/path
+choco new --name=hello-chocolatey --version=1.0.0
+```
 
 The output should be like
 
@@ -160,7 +159,15 @@ Successfully generated hello-chocolatey package specification files
 ### Make Chocolatey NuGet package
 
 Execute the following command in the same directory as `hello-chocolatey.nuspec`:
-```sh
+
+``` tab="Windows" linenums="1"
+# This needs to be run as administrative command prompt or powershell!
+cd C:\some\path\hello-chocolatey
+choco pack
+``` 
+
+``` tab="Linux" linenums="1"
+cd /some/path/to/hello-chocolatey
 choco pack
 ```
 
@@ -175,9 +182,17 @@ Successfully created package 'C:\Users\User\Documents\hello-chocolatey\hello-cho
 
 ### Push NuGet package into Strongbox repository
 
-Execute the following command in the directory with hello-chocolatey.1.0.0.nupkg:
-```sh
-choco push --source %REPO_URL% --force
+Execute the following command in the directory with `hello-chocolatey.1.0.0.nupkg`:
+
+``` tab="Windows" linenums="1"
+# This needs to be run as administrative command prompt or powershell!
+cd C:\some\path\hello-chocolatey
+choco push --source "%REPO_URL%" --force
+``` 
+
+``` tab="Linux" linenums="1"
+cd /some/path/to/hello-chocolatey
+choco push --source "$REPO_URL" --force
 ```
 
 The output should be like follows:
@@ -192,8 +207,13 @@ hello-chocolatey 1.0.0 was pushed successfully to http://localhost:48080/storage
 ### Search for packages in Strongbox repositories
 
 Execute the following command:
-```sh
-choco search -s %REPO_URL%
+
+``` tab="Windows" linenums="1"
+choco search -s "%REPO_URL%"
+``` 
+
+``` tab="Linux" linenums="1"
+choco search -s "$REPO_URL"
 ```
 
 The output should be like follows:
@@ -212,12 +232,12 @@ As a workaround, you can use `nuget` to delete packages, see [hello-strongbox-nu
 
 ### Install a package
 
-``` tabname="Linux" linenums="1"
+``` tab="Windows" linenums="1"
+# Execute the following command as a administrator!
 choco install hello-chocolatey
 ```
 
-``` tabname="Windows" linenums="1"
-# Execute the following command as a administrator!
+``` tab="Linux" linenums="1"
 choco install hello-chocolatey
 ```
 
@@ -244,12 +264,12 @@ Chocolatey installed 1/1 packages.
 
 ### Uninstall a package
 
-``` tabname="Linux" linenums="1"
+``` tab="Windows" linenums="1"
+# Execute the following command as a administrator!
 choco uninstall hello-chocolatey
 ```
 
-``` tabname="Windows" linenums="1"
-# Execute the following command as a administrator!
+``` tab="Linux" linenums="1"
 choco uninstall hello-chocolatey
 ```
 
@@ -269,19 +289,20 @@ Chocolatey uninstalled 1/1 packages.
  See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
 ```
 
-# See also:
+## See also
 
 * [Chocolatey commands reference][choco-reference]
 * [Chocolatey docs][choco-docs]
+* [hello-strongbox-nuget-chocolatey]
 
 [choco]: https://chocolatey.org/
 [choco-reference]: https://chocolatey.org/docs/commands-reference
 [choco-docs]: https://chocolatey.org/docs
 [choco-repo]: https://github.com/chocolatey/choco
-[choco-example-project]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget-chocolatey
 [example files]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget-chocolatey
 [mono]: https://www.mono-project.com/
 [official documentation]: https://chocolatey.org/install
 [strongboxci/alpine]: https://hub.docker.com/r/strongboxci/alpine/tags?page=1&name=choco
 [strongbox-examples]: https://github.com/strongbox/strongbox-examples
+[hello-strongbox-nuget-chocolatey]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget-chocolatey
 [hello-strongbox-nuget-visual-studio]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget-visual-studio
