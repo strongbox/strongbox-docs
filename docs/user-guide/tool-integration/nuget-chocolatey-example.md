@@ -79,13 +79,12 @@ To manage packages, you'll need to configure Chocolatey to access your storages 
 
 ``` tab="Windows" linenums="1"
 # This needs to be run as administrative command prompt or powershell!
-choco source add -n=strongbox -k %API_KEY% -s "%REPO_URL%" --priority=1
+choco source add -n=strongbox -s "%REPO_URL%" --priority=1
 ``` 
 
 ``` tab="Linux" linenums="1"
-choco source add -n=strongbox -k $API_KEY -s "$REPO_URL" --priority=1
+choco source add -n=strongbox -s "$REPO_URL" --priority=1
 ```
-
 
 The output should be like follows:
 
@@ -229,14 +228,21 @@ As a workaround, you can use `nuget` to delete packages, see [hello-strongbox-nu
 
 ### Install a package
 
+To install a `choco` package you should use the command below. 
+
 ``` tab="Windows" linenums="1"
 # Execute the following command as a administrator!
-choco install hello-chocolatey
+choco install hello-chocolatey -s "%REPO_URL%"
 ```
 
 ``` tab="Linux" linenums="1"
-choco install hello-chocolatey
+choco install hello-chocolatey -s "$REPO_URL"
 ```
+
+!!! tip "Tip"
+    Adding `-s "{repo_url}"` is optional. However, `choco` will loop through all sources until it finds the package which
+    might be time consuming so you might want to force `choco` using the right source.
+
 
 The output should be like follows:
 
