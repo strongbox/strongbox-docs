@@ -37,6 +37,7 @@
   * [[Gradle Example]]
   * [[Maven Example]]
   * [[NPM Example]]
+  * [[Nuget + Chocolatey Example]]
   * [[Nuget + Mono Example]]
   * [[Nuget + Visual Studio Example]]
   * [[SBT Example]]
