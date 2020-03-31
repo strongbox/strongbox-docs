@@ -105,7 +105,6 @@ Added strongbox - http://localhost:48080/storages/storage-nuget/nuget-releases (
 ### Create a package
 
 ``` tab="Windows" linenums="1"
-# This needs to be run as administrative command prompt or powershell!
 cd C:\some\path
 choco new --name=hello-chocolatey --version=1.0.0
 ``` 
@@ -144,7 +143,7 @@ Successfully generated hello-chocolatey package specification files
 
 1. It will create a folder named `hello-chocolatey` with some files including a `.nuspec` and a folder called tools.
 
-2. Delete `_TODO.txt` and `ReadMe.md` in the hello-chocolatey directory and also.
+2. Delete `_TODO.txt` and `ReadMe.md` in the hello-chocolatey directory.
 
 3. Delete `chocolateybeforemodify.ps1` and `chocolateyuninstall.ps1` in the tools sub-directory. The `LICENSE.txt` and `VERIFICATION.txt` can also be deleted, although this is not required.
 
@@ -161,7 +160,6 @@ Successfully generated hello-chocolatey package specification files
 Execute the following command in the same directory as `hello-chocolatey.nuspec`:
 
 ``` tab="Windows" linenums="1"
-# This needs to be run as administrative command prompt or powershell!
 cd C:\some\path\hello-chocolatey
 choco pack
 ``` 
@@ -185,7 +183,6 @@ Successfully created package 'C:\Users\User\Documents\hello-chocolatey\hello-cho
 Execute the following command in the directory with `hello-chocolatey.1.0.0.nupkg`:
 
 ``` tab="Windows" linenums="1"
-# This needs to be run as administrative command prompt or powershell!
 cd C:\some\path\hello-chocolatey
 choco push --source "%REPO_URL%" --force
 ``` 
