@@ -45,7 +45,7 @@ API_KEY=`curl -u admin http://localhost:48080/api/users/admin/generate-security-
 echo $API_KEY
 ```
 
-Enter your Strongbox password. (Default is: admin/password)
+Enter your Strongbox password. (Default is: `admin/password`)
 
 The output when `echo`ing the `%API_KEY%` should not be empty and should look something like this:
 
