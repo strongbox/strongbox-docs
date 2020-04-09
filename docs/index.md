@@ -46,6 +46,18 @@ for hosting your (binary) artifacts, regardless of your repository layout.
     * [ ] Gems ([contributors, please, check here](https://github.com/strongbox/strongbox/issues/829))
     * [ ] Yum ([contributors, please, check here](https://github.com/strongbox/strongbox/issues/845))
 
+??? success "Supported tools"
+    * [x] [Ant and Ivy](./user-guide/tool-integration/ant-ivy-example.md)
+    * [x] [Gradle](./user-guide/tool-integration/gradle-example.md)
+    * [x] [Maven 2.x/3.x](./user-guide/tool-integration/maven-example.md)
+    * [x] [NPM](./user-guide/tool-integration/npm-example.md)
+    * [x] NuGet v2
+        * [x] [Choco](./user-guide/tool-integration/nuget-chocolatey-example.md)
+        * [x] [Nuget v3 with Mono](./user-guide/tool-integration/nuget-mono-example.md)
+        * [x] [Nuget v3 in Visual Studio](./user-guide/tool-integration/nuget-visual-studio-example.md)
+    * [x] [SBT](./user-guide/tool-integration/sbt-example.md)
+    * [x] [Yarn](./user-guide/tool-integration/yarn-example.md)
+
 
 ??? success "Search providers" 
     Search providers offer a way to execute searches against different search engines. By default, searches are executed 
