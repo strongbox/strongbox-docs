@@ -48,13 +48,12 @@ for hosting your (binary) artifacts, regardless of your repository layout.
 
 ??? success "Supported tools"
     * [x] [Ant and Ivy](./user-guide/tool-integration/ant-ivy-example.md)
+    * [x] [Choco](./user-guide/tool-integration/nuget-chocolatey-example.md)
     * [x] [Gradle](./user-guide/tool-integration/gradle-example.md)
     * [x] [Maven 2.x/3.x](./user-guide/tool-integration/maven-example.md)
     * [x] [NPM](./user-guide/tool-integration/npm-example.md)
-    * [x] NuGet v2
-        * [x] [Choco](./user-guide/tool-integration/nuget-chocolatey-example.md)
-        * [x] [Nuget v3 with Mono](./user-guide/tool-integration/nuget-mono-example.md)
-        * [x] [Nuget v3 in Visual Studio](./user-guide/tool-integration/nuget-visual-studio-example.md)
+    * [x] [Nuget with Mono](./user-guide/tool-integration/nuget-mono-example.md)
+    * [x] [Nuget in Visual Studio](./user-guide/tool-integration/nuget-visual-studio-example.md)
     * [x] [SBT](./user-guide/tool-integration/sbt-example.md)
     * [x] [Yarn](./user-guide/tool-integration/yarn-example.md)
 
