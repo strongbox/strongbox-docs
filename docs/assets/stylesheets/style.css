@@ -117,12 +117,12 @@ body > .md-container {
     text-decoration: underline;
 }
 
-
 .md-typeset .task-list-control [type=checkbox]:checked + .task-list-indicator:before {
     color: hsl(200, 86%, 57%);
 }
 
 .md-typeset .task-list-control .task-list-indicator:before {
+    background-color: rgba(255, 255, 255, 0.26);
     color: hsla(200, 86%, 57%, 0.35);
 }
 
