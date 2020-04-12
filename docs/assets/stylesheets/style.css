@@ -126,10 +126,6 @@ body > .md-container {
     color: hsla(200, 86%, 57%, 0.35);
 }
 
-.md-typeset code {
-    box-shadow: 0.29412em 0 0 hsl(207, 24%, 18%), -0.29412em 0 0 hsl(207, 24%, 18%);
-}
-
 .md-typeset code, .md-typeset pre {
     /*background-color: hsl(199, 19%, 39%);*/
     background-color: hsl(207, 24%, 18%);
