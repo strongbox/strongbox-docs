@@ -140,13 +140,9 @@ body > .md-container {
 .md-typeset .codehilite pre,
 .md-typeset .highlight code,
 .md-typeset .highlight pre,
-.md-typeset .superfences-tabs,
-.md-typeset .superfences-content .codehilite {
+.md-typeset .tabbed-set,
+.md-typeset .tabbed-content .codehilite {
     background-color: hsl(207, 24%, 18%);
-}
-
-.md-typeset .superfences-content .codehilite pre {
-    border-top: 1px solid #1f2933;
 }
 
 .md-typeset .codehilitetable .linenodiv, .md-typeset .highlighttable .linenodiv {
