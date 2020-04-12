@@ -145,6 +145,10 @@ body > .md-container {
     background-color: hsl(207, 24%, 18%);
 }
 
+.md-typeset .tabbed-set label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
 .md-typeset .codehilitetable .linenodiv, .md-typeset .highlighttable .linenodiv {
     padding: 0.6rem 0.5rem 0rem 0.5rem;
 }
