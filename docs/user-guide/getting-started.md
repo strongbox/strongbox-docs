@@ -6,12 +6,13 @@
 * Set the `JAVA_HOME` variable to point to your Java installation.
 * Set the `PATH` variable to include `$JAVA_HOME/bin`.
 
-## System requirements
+## System Requirements
 
-In order to build Strongbox in reasonably short times you need:
-* At least 16 GB RAM
-* An Intel i7 processor (or equivalent)
-* An SSD
+In order to run Strongbox you need to have a machine with minimum:
+
+* 6-8 GB RAM
+* 2 cores
+* Some free space.
 
 ## Installation
 
