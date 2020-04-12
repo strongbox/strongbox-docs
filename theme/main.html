@@ -2,9 +2,4 @@
 
 {% block content %}
     {{super()}}
-
-    {% if page.meta.revision_date %}
-        <small><br><i>Last updated {{ page.meta.revision_date }}</i></small>
-    {% endif %}
-
 {% endblock %}
