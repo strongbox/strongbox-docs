@@ -132,6 +132,14 @@ body > .md-container {
     color: #f7f7f7;
 }
 
+.md-typeset .codehilitetable .linenos, .md-typeset .highlighttable .linenos {
+    background-color: rgb(35, 47, 57);
+}
+
+.md-typeset .codehilitetable pre, .md-typeset .highlighttable pre {
+    color: rgba(255, 255, 255, 0.26);
+}
+
 .md-typeset .codehilite code,
 .md-typeset .codehilite pre,
 .md-typeset .highlight code,
@@ -143,15 +151,6 @@ body > .md-container {
 
 .md-typeset .tabbed-set label {
     color: rgba(255, 255, 255, 0.9);
-}
-
-.md-typeset .codehilitetable .linenodiv, .md-typeset .highlighttable .linenodiv {
-    padding: 0.6rem 0.5rem 0rem 0.5rem;
-}
-
-.md-typeset .codehilitetable .linenos, .md-typeset .highlighttable .linenos {
-    background-color: rgb(35, 47, 57);
-    color: rgba(255, 255, 255, 0.26);
 }
 
 .md-typeset .footnote,
