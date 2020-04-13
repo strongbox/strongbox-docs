@@ -6,6 +6,14 @@
 * Set the `JAVA_HOME` variable to point to your Java installation.
 * Set the `PATH` variable to include `$JAVA_HOME/bin`.
 
+## System Requirements
+
+In order to run Strongbox you need to have a machine with minimum:
+
+* 6-8 GB RAM
+* 2 cores
+* Disk space would vary based on your caching needs
+
 ## Installation
 
 <a href="https://github.com/strongbox/strongbox/releases" target="_blank">Download strongbox</a>
