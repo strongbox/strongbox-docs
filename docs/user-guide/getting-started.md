@@ -12,7 +12,7 @@ In order to run Strongbox you need to have a machine with minimum:
 
 * 6-8 GB RAM
 * 2 cores
-* Some free space.
+* Disk space would vary based on your caching needs
 
 ## Installation
 
