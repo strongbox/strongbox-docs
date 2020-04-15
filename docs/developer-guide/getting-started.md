@@ -6,6 +6,14 @@
 * `OpenJDK 1.8`, or `OracleJDK 1.8` (higher versions will not work yet)
 * `Git` installed and in your `PATH` variable
 
+## System Requirements
+
+In order to build Strongbox in reasonably short times you need:
+
+* At least 16 GB RAM
+* An Intel i7 processor (or equivalent)
+* An SSD
+
 ## Before you continue
 
 Please, place this [settings.xml]({{resources}}/maven/settings.xml) file under your `~/.m2` directory.
