@@ -12,8 +12,6 @@ The "Hello, Strongbox!" example project can be found [here][hello-strongbox-nuge
 
 ## Installing choco
 
-<!-- todo: pymdownx.tabbed -->
-
 !!! success "Windows"
     Chocolatey is available natively on Windows and can be installed following the [official documentation]
 
