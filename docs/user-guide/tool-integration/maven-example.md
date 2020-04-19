@@ -1,49 +1,55 @@
+#Maven
+
 This is an example of how to use the Strongbox artifact repository manager with Maven.
 
-# Before you start
+## Pre-requisites
 
-Make sure that your Strongbox instance is up and running. If you are new to Strongbox, please visit the [Installation](https://strongbox.github.io/user-guide/getting-started.html) page first.
+## Pre-requisites
 
-# Requirements
-
-You will need the following software installed on your machine to make this example working:
-
-* Java Development Kit (JDK) version 1.8.x or higher
+* [Installed and configured a Strongbox Distribution](../getting-started.md)
+* Java Development Kit (JDK) version 1.8.x
 * [Maven](http://maven.apache.org/) version 3.x or higher
 
-# The example project
+## Example project
 
-The "Hello, World!" sample application for this can be found [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-maven).
+The "Hello, Strongbox!" example project can be found [here][hello-strongbox-maven].
 
-# The `pom.xml` file
+## Configuration
 
-This file is used to define your project's information about things like youre dependencies, repositories to use to resolve and deploy artifacts, plugins to use, etc.
+### `pom.xml`
 
-The key things each project needs to have are:
+The `pom.xml` file is used to define your project's dependencies, repositories to use for resolving and deploying 
+artifacts, plugins to use, etc.
 
-* A `groupId` : A logical prefix where other similar projects reside.
-* A `artifactId` : The artifact's name.
-* A `version`: The version of the artifact.
-* A `packaging` (optional, defaults to `jar`, if not specified): The packaging type (jar, war, etc...)
-* A `<repositories/>` section: Defines where to resolve dependencies from.
-* A `<distributionManagement/>` section: Defines where to deploy the artifact(s) produced by this build to.
+Key things each project needs to have:
 
-# The `settings.xml` file
+* `groupId` - logical prefix where other similar projects reside.
+* `artifactId` - the artifact's name.
+* `version` - the version of the artifact.
+* `packaging` (optional, defaults to `jar`, if not specified) - the packaging type (jar, war, etc...)
+* `<repositories/>` section - defines where to resolve dependencies from.
+* `<distributionManagement/>` section - Defines where to deploy the artifact(s) produced by this build to.
 
-This is the Maven configuration file used to define global settings, such as remote repositories, preferred mirrors, proxy settings, repository credentials, etc.
+### `settings.xml`
 
-This file normally needs to reside under `~/.m2` or `C:\Users\youruser\.m2`.
+This is Maven's configuration file used to define global settings, such as remote repositories, 
+preferred mirrors, proxy settings, repository credentials, etc.
 
-It is important to note that the `<repositories/>` and `<distributionManagement/>` sections in your `pom.xml` file always have an `<id/>`. This `<id/>` needs to match the `<id/>` of a corresponding `<server/>` in your `settings.xml` file.
+It is normally located in a `.m2` folder under your home directory - `~/.m2/settings.xml` or `C:\Users\youruser\.m2\settings.xml`.
+You can also use `-s /path/to/settings.xml` to define a custom location (i.e. you might need to have multiple `settings.xml` files)
 
-# How to deploy
+It is important to note that the `<repositories/>` and `<distributionManagement/>` sections in your `pom.xml` file always have an `<id/>`. 
+This `<id/>` needs to match the `<id/>` of a corresponding `<server/>` in your `settings.xml` file.
 
-Execute the following command:
+## Deploy
+
+Execute the following command to build and deploy into Strongbox:
 
     mvn clean deploy
 
-This will build the code and deploy it to Strongbox.
+??? info "Example output"
 
+    ```
     carlspring@linux-70e2:/home/carlspring/strongbox-examples/hello-strongbox-maven> mvn clean deploy
     [INFO] Scanning for projects...
     [INFO]                                                                         
@@ -98,9 +104,13 @@ This will build the code and deploy it to Strongbox.
     [INFO] Finished at: 2016-04-30T04:17:13+01:00
     [INFO] Final Memory: 21M/311M
     [INFO] ------------------------------------------------------------------------
+    ```
 
-# See also
+## See also
 
 * [Maven: POM Reference](https://maven.apache.org/pom.html)
 * [Maven: Settings Reference](https://maven.apache.org/settings.html)
 * [Maven: Credentials Encryption Guide](https://maven.apache.org/guides/mini/guide-encryption.html)
+
+
+[hello-strongbox-maven]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-maven

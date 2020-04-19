@@ -1,56 +1,54 @@
+# Ant and Ivy
+
 This is an example of how to use the Strongbox artifact repository manager with Ant and Ivy.
 
-# Before you start
+## Pre-requisites
 
-Make sure that your Strongbox instance is up and running. If you are new to Strongbox, please visit the [Installation](https://strongbox.github.io/user-guide/getting-started.html) page first.
-
-# Requirements
-
-You will need the following software/jar installed on your machine to make this example working:
-
-* Java Development Kit (JDK) version 1.8.x or higher
+* [Installed and configured a Strongbox Distribution](../getting-started.md)
+* Java Development Kit (JDK) version 1.8.x
 * [Ant](https://ant.apache.org/) version 1.9.14 or higher
 * [Ivy](https://ant.apache.org/ivy/)
 
-# The example project
+## Example project
 
-The "Hello, World!" sample application for this can be found [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-ant-ivy).
+The "Hello, Strongbox!" example project can be found [here][hello-strongbox-ant-ivy].
 
-# Configurations
+## Configuration
 
-Following are minimal configuration in order to be able to use Ivy properly with Strongbox.
+Ensure you have configured the following environment variables in order to be able to use Ivy with Strongbox:
 
 * Define an `IVY_HOME` variable pointing to the base directory of your Ivy installation.
 * Set your `PATH`/`CLASSPATH` variable to include `$IVY_HOME/ivy-${IVY_VERSION}.jar`.
 
-# The `build.xml` file
+### The `build.xml` file
 
 This is the Ant build script which compiles the code, produces a `jar` artifact and publishes (deploys) it to the Strongbox artifact repository.
 
-# The `ivysettings.xml` file
+### The `ivysettings.xml` file
 
 This is where you define things like:
 - `resolvers` : The repositories from which to resolve artifacta
 - `publications` : Which artifacts to publish (deploy) to Strongbox
 
-# The `ivy.xml` file
+### The `ivy.xml` file
 
 This is where you define:
 * Your artifact's coordinates (via the `<info/>` tag)
 * Your dependencies (via the `<dependencies/>` tag)
 
-# The `credentials.properties` file
+### The `credentials.properties` file
 
 This file should be located under your `~/.ivy` directory and not be part of the project under version control. It contains the credentials for the repository to which you will be deploying.
 
-# How to deploy
+## How to deploy
 
-Execute the following command:
+Execute the following command to build and deploy into Strongbox:
 
     ant build deploy
 
-This will build the code and deploy it to Strongbox.
+??? info "Example output"
 
+    ```
     carlspring@linux-70e2:/home/carlspring/strongbox-examples/hello-strongbox-ant-ivy> ant publish-snapshot
     Buildfile: /home/carlspring/strongbox-examples/hello-strongbox-ant-ivy/build.xml
     
@@ -92,7 +90,13 @@ This will build the code and deploy it to Strongbox.
 
     BUILD SUCCESSFUL
     Total time: 1 second
+    ```
 
-# See also:
-* A [useful link](https://theholyjava.wordpress.com/2011/01/26/using-ivy-with-pom-xml/) regarding `pom.xml` file treatment.
-* [Ivy: makepom](http://ant.apache.org/ivy/history/2.4.0/use/makepom.html) documentation.
+## See also
+* A [useful link][ivy-useful-link] regarding `pom.xml` file treatment.
+* [Ivy: makepom][ivy-makepom] documentation.
+
+
+[ivy-makepom]: http://ant.apache.org/ivy/history/2.4.0/use/makepom.html
+[ivy-useful-link]: https://theholyjava.wordpress.com/2011/01/26/using-ivy-with-pom-xml/
+[hello-strongbox-ant-ivy]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-ant-ivy

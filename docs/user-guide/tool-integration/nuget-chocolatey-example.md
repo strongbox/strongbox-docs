@@ -104,6 +104,9 @@ Added strongbox - http://localhost:48080/storages/storage-nuget/nuget-releases (
 
 ### Create a package
 
+The command below will create a folder named `hello-chocolatey` with some files including a `.nuspec` and a folder 
+called `tools`.
+
 === "Windows"
     ``` linenums="1"
     cd C:\some\path
@@ -115,46 +118,41 @@ Added strongbox - http://localhost:48080/storages/storage-nuget/nuget-releases (
     choco new --name=hello-chocolatey --version=1.0.0
     ```
 
-The output should be like
+??? info "Example output"
 
-```log
-Chocolatey <version>
-2 validations performed. 1 success(es), 0 warning(s), and 0 error(s).
+    ```log
+    Chocolatey <version>
+    2 validations performed. 1 success(es), 0 warning(s), and 0 error(s).
+    
+    Creating a new package specification at C:\Users\User\Documents\hello-chocolatey
+    Generating template to a file
+     at 'C:\Users\User\Documents\hello-chocolatey\hello-chocolatey.nuspec'
+    Generating template to a file
+     at 'C:\Users\User\Documents\hello-chocolatey\tools\chocolateyinstall.ps1'
+    Generating template to a file
+     at 'C:\Users\User\Documents\hello-chocolatey\tools\chocolateybeforemodify.ps1'
+    Generating template to a file
+     at 'C:\Users\User\Documents\hello-chocolatey\tools\chocolateyuninstall.ps1'
+    Generating template to a file
+     at 'C:\Users\User\Documents\hello-chocolatey\tools\LICENSE.txt'
+    Generating template to a file
+     at 'C:\Users\User\Documents\hello-chocolatey\tools\VERIFICATION.txt'
+    Generating template to a file
+     at 'C:\Users\User\Documents\hello-chocolatey\ReadMe.md'
+    Generating template to a file
+     at 'C:\Users\User\Documents\hello-chocolatey\_TODO.txt'
+    Successfully generated hello-chocolatey package specification files
+     at 'C:\Users\User\Documents\hello-chocolatey'
+    ```
 
-Creating a new package specification at C:\Users\User\Documents\hello-chocolatey
-Generating template to a file
- at 'C:\Users\User\Documents\hello-chocolatey\hello-chocolatey.nuspec'
-Generating template to a file
- at 'C:\Users\User\Documents\hello-chocolatey\tools\chocolateyinstall.ps1'
-Generating template to a file
- at 'C:\Users\User\Documents\hello-chocolatey\tools\chocolateybeforemodify.ps1'
-Generating template to a file
- at 'C:\Users\User\Documents\hello-chocolatey\tools\chocolateyuninstall.ps1'
-Generating template to a file
- at 'C:\Users\User\Documents\hello-chocolatey\tools\LICENSE.txt'
-Generating template to a file
- at 'C:\Users\User\Documents\hello-chocolatey\tools\VERIFICATION.txt'
-Generating template to a file
- at 'C:\Users\User\Documents\hello-chocolatey\ReadMe.md'
-Generating template to a file
- at 'C:\Users\User\Documents\hello-chocolatey\_TODO.txt'
-Successfully generated hello-chocolatey package specification files
- at 'C:\Users\User\Documents\hello-chocolatey'
-```
+#### Additional instructions
 
-1. It will create a folder named `hello-chocolatey` with some files including a `.nuspec` and a folder called tools.
-
-2. Delete `_TODO.txt` and `ReadMe.md` in the hello-chocolatey directory.
-
-3. Delete `chocolateybeforemodify.ps1` and `chocolateyuninstall.ps1` in the tools sub-directory. The `LICENSE.txt` and `VERIFICATION.txt` can also be deleted, although this is not required.
-
-4. Edit `chocolateyinstall.ps1` in the tools sub-directory with a text editor.
-
-5. Remove all text in the file and replace with `Write-Output 'Package would install here'`. 
-
-6. If you are running on a Linux file system, edit `hello-chocolatey.nuspec` and replace `"tools\**"` with `"tools/**"`(backwards to forwards slash) in the `file` section. It should be the forth row from the bottom.
-
-7. You can also check against the [example files] located in the [strongbox-examples] repository.
+* Delete `_TODO.txt` and `ReadMe.md` in the `hello-chocolatey` directory.
+* Delete `chocolateybeforemodify.ps1` and `chocolateyuninstall.ps1` in the tools sub-directory. 
+  The `LICENSE.txt` and `VERIFICATION.txt` can also be deleted, although this is not required.
+* Edit `chocolateyinstall.ps1` in the `tools` sub-directory with a text editor and replace the entire content with `Write-Output 'Package would install here'`. 
+* If you are running on a Linux file system, edit `hello-chocolatey.nuspec` and replace `"tools\**"` with `"tools/**"`(backwards to forwards slash) in the `file` section. It should be the forth row from the bottom.
+* You can also check against the [example files] located in the [strongbox-examples] repository.
 
 ### Make Chocolatey NuGet package
 
@@ -171,14 +169,15 @@ Execute the following command in the same directory as `hello-chocolatey.nuspec`
     choco pack
     ```
 
-The output should be like follows:
-```log
-Chocolatey <version>
-2 validations performed. 1 success(es), 0 warning(s), and 0 error(s).
+??? info "Example output"
 
-Attempting to build package from 'hello-chocolatey.nuspec'.
-Successfully created package 'C:\Users\User\Documents\hello-chocolatey\hello-chocolatey.1.0.0.nupkg'
-```
+    ```log
+    Chocolatey <version>
+    2 validations performed. 1 success(es), 0 warning(s), and 0 error(s).
+    
+    Attempting to build package from 'hello-chocolatey.nuspec'.
+    Successfully created package 'C:\Users\User\Documents\hello-chocolatey\hello-chocolatey.1.0.0.nupkg'
+    ```
 
 ### Push NuGet package into Strongbox repository
 
@@ -196,14 +195,15 @@ Execute the following command in the directory with `hello-chocolatey.1.0.0.nupk
     choco push --source "$REPO_URL" --force
     ```
 
-The output should be like follows:
-```log
-Chocolatey <version>
-2 validations performed. 1 success(es), 0 warning(s), and 0 error(s).
+??? info "Example output"
 
-Attempting to push hello-chocolatey.1.0.0.nupkg to http://localhost:48080/storages/storage-nuget/nuget-releases
-hello-chocolatey 1.0.0 was pushed successfully to http://localhost:48080/storages/storage-nuget/nuget-releases
-```
+    ```log
+    Chocolatey <version>
+    2 validations performed. 1 success(es), 0 warning(s), and 0 error(s).
+    
+    Attempting to push hello-chocolatey.1.0.0.nupkg to http://localhost:48080/storages/storage-nuget/nuget-releases
+    hello-chocolatey 1.0.0 was pushed successfully to http://localhost:48080/storages/storage-nuget/nuget-releases
+    ```
 
 ### Search for packages in Strongbox repositories
 
@@ -218,14 +218,15 @@ Execute the following command:
     choco search -s "$REPO_URL"
     ```
 
-The output should be like follows:
-```log
-Chocolatey <version>
-2 validations performed. 1 success(es), 0 warning(s), and 0 error(s).
+??? info "Example output"
 
-hello-chocolatey 1.0.0
-1 packages found.
-```
+    ```log
+    Chocolatey <version>
+    2 validations performed. 1 success(es), 0 warning(s), and 0 error(s).
+    
+    hello-chocolatey 1.0.0
+    1 packages found.
+    ```
 
 ### Delete a Chocolatey package from strongbox
 
@@ -251,26 +252,26 @@ To install a `choco` package you should use the command below.
     might be time consuming so you might want to force `choco` using the right source.
 
 
-The output should be like follows:
+??? info "Example output"
 
-```log
-Chocolatey <version>
-2 validations performed. 1 success(es), 0 warning(s), and 0 error(s).
-
-Installing the following packages:
-hello-chocolatey.1.0.0.nupkg
-By installing you accept licenses for the packages.
-
-hello-chocolatey v1.0.0
-hello-chocolatey package files install completed. Performing other installation steps.
-Package would install here
- The install of hello-chocolatey was successful.
-  Software install location not explicitly set, could be in package or
-  default install location if installer.
-
-Chocolatey installed 1/1 packages.
- See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
-```
+    ```log
+    Chocolatey <version>
+    2 validations performed. 1 success(es), 0 warning(s), and 0 error(s).
+    
+    Installing the following packages:
+    hello-chocolatey.1.0.0.nupkg
+    By installing you accept licenses for the packages.
+    
+    hello-chocolatey v1.0.0
+    hello-chocolatey package files install completed. Performing other installation steps.
+    Package would install here
+     The install of hello-chocolatey was successful.
+      Software install location not explicitly set, could be in package or
+      default install location if installer.
+    
+    Chocolatey installed 1/1 packages.
+     See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+    ```
 
 ### Uninstall a package
 
@@ -284,21 +285,22 @@ Chocolatey installed 1/1 packages.
     choco uninstall hello-chocolatey
     ```
 
-The output should be like follows:
-```log
-Chocolatey <version>
-2 validations performed. 1 success(es), 0 warning(s), and 0 error(s).
+??? info "Example output"
 
-Uninstalling the following packages:
-hello-chocolatey
-
-hello-chocolatey v1.0.0
- Skipping auto uninstaller - No registry snapshot.
- hello-chocolatey has been successfully uninstalled.
-
-Chocolatey uninstalled 1/1 packages.
- See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
-```
+    ```log
+    Chocolatey <version>
+    2 validations performed. 1 success(es), 0 warning(s), and 0 error(s).
+    
+    Uninstalling the following packages:
+    hello-chocolatey
+    
+    hello-chocolatey v1.0.0
+     Skipping auto uninstaller - No registry snapshot.
+     hello-chocolatey has been successfully uninstalled.
+    
+    Chocolatey uninstalled 1/1 packages.
+     See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+    ```
 
 ## See also
 

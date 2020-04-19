@@ -1,27 +1,29 @@
+# Nuget using Visual Studio
+
 This is an example of how to use the Strongbox artifact repository manager with NPM.
 
-# Before you start
-
-Make sure that your Strongbox instance is up and running. If you are new to Strongbox, please visit the [Installation](https://strongbox.github.io/user-guide/getting-started.html) page first.
-
-# Requirements
-
-You will need the following software installed on your machine to make this example working:
+## Pre-requisites
 
 * [NodeJS](https://nodejs.org/) version 12 or higher
 * NPM
+* [Installed and configured a Strongbox Distribution](../getting-started.md)
+* Java Development Kit (JDK) version 1.8.x
 
-# The example project
+## Example project
 
-The "Hello, World!" sample application for this can be found [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-npm).
+The "Hello, World!" sample application for this can be found [here][hello-strongbox-npm].
 
 ## Prepare project workspace
 
-First, you need to configure `npm` to use Strongbox as a private registry. This can be done in your project by creating a `.npmrc` file, which is local npm configuration applied to your project. The [Strongbox NPM Example] contains an [npmrc.template] file with a set of pre-defined configuration properties that can be used in your own project, or on your machine. Typically, all you'll need to do, is execute the following command, and create your `.npmrc` file:
+First, you need to configure `npm` to use Strongbox as a private registry. This can be done in your project by 
+creating a `.npmrc` file, which is local npm configuration applied to your project. The [Strongbox NPM Example] 
+contains an [npmrc.template] file with a set of pre-defined configuration properties that can be used in your own project, 
+or on your machine. Typically, all you'll need to do, is execute the following command, and create your `.npmrc` file:
     
     $ cp npmrc.template .npmrc
 
-After that the pre-defined configuration parameters can be changed, according to your needs and environment (Strongbox URL, username and password).
+After that the pre-defined configuration parameters can be changed, according to your needs and environment 
+(Strongbox URL, username and password).
 
 Your `.npmrc` should look like this:
 
@@ -50,10 +52,11 @@ The output should look like this:
     + @strongbox/hello-strongbox-npm@1.0.0
 
 
-## See also:
+## See also
 
 * [npm official site](https://www.npmjs.com/)
 
 
 [Strongbox NPM Example]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-npm
 [npmrc.template]: https://github.com/strongbox/strongbox-examples/blob/master/hello-strongbox-npm/npmrc.template
+[hello-strongbox-npm]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-npm

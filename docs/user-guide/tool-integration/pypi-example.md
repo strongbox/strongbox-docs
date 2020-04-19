@@ -1,41 +1,38 @@
-This is an example of how to use the Strongbox artifact repository manager with pip.
+# Pip / Twine
 
-# Before you start
+This is an example of how to use the Strongbox artifact repository manager with `twine` and `pip`.
 
-Make sure that your Strongbox instance is up and running. If you are new to Strongbox, please visit the [Installation](https://strongbox.github.io/user-guide/getting-started.html) page first.
+## Pre-requisites
 
-# Requirements
-
-You will need the following software installed on your machine to make this example working:
-
+* [Installed and configured a Strongbox Distribution](../getting-started.md)
+* Java Development Kit (JDK) version 1.8.x
 * [Python](https://www.python.org/) version 3 or higher
 * [twine](https://pypi.org/project/twine/)
 * [pip](https://pypi.org/project/pip/)
 
-# The example project
+## Example project
 
-The "Hello, World!" sample application for this can be found [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-pypi).
+The "Hello, World!" sample application for this can be found [here][hello-strongbox-pypi].
 
-# PyPi Example
+## Configuration
 
-This is an example of how to use the Strongbox artifact repository manager with `twine` and `pip`.
+### `setup.py`
 
-## The `setup.py` file
+This file is the build script for `setuptools`. 
+It tells `setuptools` about your package like its name, a description, the current version etc.
+The [Strongbox PyPi Example] contains sample [setup.py] file with pre-defined sample information.
 
-This file is the build script for setuptools. It tells setuptools about your package like its name, a description, the current version etc.The [Strongbox PyPi Example] contains sample [setup.py] file with pre-defined sample information.
+### The `setup.cfg` file
 
-## The `setup.cfg` file
+Used to define metadata information like description file name.
 
-This file is used to define metadata information like description file name.
+### The `LICENCE` file
 
-## The `LICENCE` file
-
-This file is used to define license details.
-
+Used to define license details.
 
 For more details check the ["See also"] section below.
 
-### How to deploy python package
+### How to build python package
 
 Execute the following commands within your project folder.
 
@@ -43,8 +40,9 @@ This will build package:
 
     python3 setup.py sdist bdist_wheel
     
-The output should look like this:
-    
+??? info "Example output"
+
+    ```    
     python3 setup.py sdist bdist_wheel   
     running sdist
     running egg_info
@@ -105,22 +103,24 @@ The output should look like this:
     adding 'hello_world_pypi-1.0.0.dist-info/top_level.txt'
     adding 'hello_world_pypi-1.0.0.dist-info/RECORD'
     removing build/bdist.macosx-10.12-x86_64/wheel    
+    ```
 
+### How to deploy python package
 
 This will deploy python package to Strongbox.
     
     python3 -m twine upload --username admin --password password --repository-url http://localhost:48080/storages/storage-pypi/pypi-releases  dist/* --verbose
 
-The output should look like this:
+??? info "Example output"
 
+    ```
     python3 -m twine upload --username admin --password password --repository-url http://localhost:48080/storages/storage-pypi/pypi-releases  dist/* --verbose
     Uploading distributions to http://localhost:48080/storages/storage-pypi/pypi-releases
     Uploading hello_world_pypi-1.0.0-py3-none-any.whl
     100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9.69k/9.69k [00:07<00:00, 1.38kB/s]
     Uploading hello-world-pypi-1.0.0.tar.gz
     100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5.14k/5.14k [00:00<00:00, 7.30kB/s]
-
-  
+    ```
   
 ### How to install python package
 
@@ -128,8 +128,9 @@ Execute the following to install python package:
 
     pip3 install --extra-index-url http://localhost:48080/storages/storage-pypi/pypi-releases hello-world-pypi
     
-The output should look like this:
+??? info "Example output"
 
+    ```
     pip3 install --extra-index-url http://localhost:48080/storages/storage-pypi/pypi-releases hello-world-pypi
     Looking in indexes: https://pypi.org/simple, http://localhost:48080/storages/storage-pypi/pypi-releases
     Collecting hello-world-pypi
@@ -137,9 +138,9 @@ The output should look like this:
     Processing /Users/ankit.tomar/Library/Caches/pip/wheels/95/70/6e/0f8362d968f0fef63006a07ba4158ac5d921fbcc664f976db3/pip_hello_world-0.1-cp37-none-any.whl
     Installing collected packages: pip-hello-world, hello-world-pypi
     Successfully installed hello-world-pypi-1.0.0 pip-hello-world-0.1
-      
+    ```
         
-# See also
+## See also
 
 * [Python Packages User Guide](https://docs.python.org/3/distributing/index.html#publishing-python-packages)  
 * [How to upload python package](https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56)
@@ -148,3 +149,4 @@ The output should look like this:
 [Strongbox PyPi Example]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-pypi/
 [setup.py]: https://github.com/strongbox/strongbox-examples/blob/master/hello-strongbox-pypi/setup.py
 ["See also"]: #see-also
+[hello-strongbox-pypi]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-pypi

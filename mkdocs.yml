@@ -52,6 +52,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.extra
   - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.magiclink
@@ -100,9 +101,9 @@ nav:
       - Nuget + Chocolatey Example: user-guide/tool-integration/nuget-chocolatey-example.md
       - Nuget + Mono Example: user-guide/tool-integration/nuget-mono-example.md
       - Nuget + Visual Studio Example: user-guide/tool-integration/nuget-visual-studio-example.md
+      - PyPi Example: user-guide/tool-integration/pypi-example.md
       - SBT Example: user-guide/tool-integration/sbt-example.md
       - Yarn Example: user-guide/tool-integration/yarn-example.md
-      - PyPi Example: user-guide/tool-integration/pypi-example.md
   - Developer guide:
     - Getting started: developer-guide/getting-started.md
     - Building:

@@ -1,19 +1,17 @@
+# Yarn
+
 This is an example of how to use the Strongbox artifact repository manager with Yarn.
 
-# Before you start
+## Pre-requisites
 
-Make sure that your Strongbox instance is up and running. If you are new to Strongbox, please visit the [Installation](https://strongbox.github.io/user-guide/getting-started.html) page first.
-
-# Requirements
-
-You will need the following software installed on your machine to make this example working:
-
+* [Installed and configured a Strongbox Distribution](../getting-started.md)
+* Java Development Kit (JDK) version 1.8.x
 * [NodeJS](https://nodejs.org/) version 12 or higher
 * [Yarn](https://yarnpkg.com/en/) version 1.19.1 or higher
 
-# The example project
+## Example project
 
-The "Hello, World!" sample application for this can be found [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-yarn).
+The "Hello, World!" sample application for this can be found [here][hello-strongbox-yarn].
 
 ## Prepare project workspace
 
@@ -44,8 +42,9 @@ Execute the following command within your project folder:
 
     $ yarn publish
 
-The output should look like this:
+??? info "Example output"
 
+    ```
     $ yarn publish v1.19.1
     + [1/4] Bumping version...
     + info Current version: 1.0.0
@@ -55,13 +54,13 @@ The output should look like this:
     + success Published.
     + [4/4] Revoking token...
     + Done in 4.50s.
+    ```
 
-
-
-## See also:
+## See also
 
 * [Yarn official site](https://yarnpkg.com/en/)
 
 
 [Strongbox Yarn Example]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-yarn
 [npmrc.template]: https://github.com/strongbox/strongbox-examples/blob/master/hello-strongbox-npm/npmrc.template
+[hello-strongbox-yarn]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-yarn

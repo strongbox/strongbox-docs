@@ -1,22 +1,22 @@
+# Nuget using Mono
+
 This is an example of how to use the Strongbox artifact repository manager with NuGet.
 
-# Before you start
-
-Make sure that your Strongbox instance is up and running. If you are new to Strongbox, please visit the [Installation](https://strongbox.github.io/user-guide/getting-started.html) page first.
-
 ## Pre-requisites
-The following is a minimal configuration in order to be able to use this tutorial:
 
 * `Linux` OS
 * `Mono` cli environment
-* `nuget.exe`
+* [nuget.exe][nuget3-download-exe]
 * `Microsoft.Build.dll` if running Mono pre version 3
+* [Installed and configured a Strongbox Distribution](../getting-started.md)
+* Java Development Kit (JDK) version 1.8.x
 
-If using `alias nuget="mono /usr/local/bin/nuget.exe"` then `mono --runtime=v4.0 nuget.exe` can be replaced with `nuget` in commands below.
+If using `alias nuget="mono /usr/local/bin/nuget.exe"` then `mono --runtime=v4.0 nuget.exe` can be replaced 
+with `nuget` in commands below.
 
-## The example project
+## Example project
 
-The "Hello, Strongbox!" sample application and package source for this can be found [here](https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget-mono).
+The "Hello, Strongbox!" example project can be found [here][hello-strongbox-nuget-mono].
 
 ## Prepare project workspace
 
@@ -39,7 +39,7 @@ Go to the root project folder and execute the following commands:
 
 Example below (*there should be no output if success*):
     
-    carlspring@linux-70e2:/home/carlspring/strongbox-examples/hello-strongbox-nuget-mono> mono --runtime=v4.0 nuget.exe config -set DefaultPushSource=http://localhost:48080/storages/storage-nuget/nuget-releases -ConfigFile ./.nuget/NuGet.config
+    localhsot:/strongbox-examples/hello-strongbox-nuget-mono$ mono --runtime=v4.0 nuget.exe config -set DefaultPushSource=http://localhost:48080/storages/storage-nuget/nuget-releases -ConfigFile ./.nuget/NuGet.config
 
 ### Get api key to use with your repository
 
@@ -54,10 +54,12 @@ Strongbox provides the REST API to get an API Key for specified user, you can us
 
     $ mono --runtime=v4.0 nuget.exe setApiKey {apiKey} -Source {repositoryUrl} -ConfigFile ./.nuget/NuGet.config
 
-The output should be like follows:
+??? info "Example output"
 
+    ```
     carlspring@linux-70e2:/home/carlspring/strongbox-examples/hello-strongbox-nuget-mono> mono --runtime=v4.0 nuget.exe setApiKey bXktYXBpLWtleQ== -Source http://localhost:48080/storages/storage-nuget/nuget-releases -ConfigFile ./.nuget/NuGet.config
     The API Key 'bXktYXBpLWtleQ==' was saved for 'http://localhost:48080/storages/storage-nuget/nuget-releases'.
+    ```
 
 ### Provide storage authentication (if needed)
 
@@ -99,11 +101,13 @@ Execute the following command:
 
     $ mono --runtime=v4.0 nuget.exe pack ./Hello.Strongbox.Nuget.Mono.nuspec
     
-The output should be like follows:
+??? info "Example output"
 
+    ```
     carlspring@linux-70e2:/home/carlspring/strongbox-examples/hello-strongbox-nuget-mono> mono --runtime=v4.0 nuget.exe pack ./Hello.Strongbox.Nuget.Mono.nuspec 
     Attempting to build package from 'Hello.Strongbox.Nuget.Mono.nuspec'.
     Successfully created package '/home/carlspring/strongbox-examples/hello-strongbox-nuget-mono/Org.Carlspring.Strongbox.Examples.Nuget.Mono.1.0.nupkg'.
+    ```
 
 ## How to push NuGet package into Strongbox repository
 
@@ -111,11 +115,13 @@ Execute the following command:
     
     $ mono --runtime=v4.0 nuget.exe push ./Org.Carlspring.Strongbox.Examples.Nuget.Mono.1.0.0.nupkg -ConfigFile ./.nuget/NuGet.config
 
-The output should be like follows:
+??? info "Example output"
 
+    ```
     carlspring@linux-70e2:/home/carlspring/strongbox-examples/hello-strongbox-nuget-mono> mono --runtime=v4.0 nuget.exe push ./Org.Carlspring.Strongbox.Examples.Nuget.Mono.1.0.nupkg -ConfigFile ./.nuget/NuGet.config
     Pushing Org.Carlspring.Strongbox.Examples.Nuget.Mono 1.0.0 to 'http://localhost:48080/storages/storage-nuget/nuget-releases'...
     Your package was pushed.
+    ```
 
 ## How to search for NuGet packages in Strongbox repositories
 
@@ -123,10 +129,12 @@ Execute the following command:
     
     $ mono --runtime=v4.0 nuget.exe list Org.Carlspring -ConfigFile ./.nuget/NuGet.config
 
-The output should be like follows:
+??? info "Example output"
 
+    ```
     carlspring@linux-70e2:/home/carlspring/strongbox-examples/hello-strongbox-nuget-mono> mono --runtime=v4.0 nuget.exe list Org.Carlspring  -ConfigFile ./.nuget/NuGet.config
     Org.Carlspring.Strongbox.Examples.Nuget.Mono 1.0.0
+    ```
 
 ## How to delete a NuGet package
 
@@ -134,17 +142,23 @@ Execute the following command:
     
     $ mono --runtime=v4.0 nuget.exe delete Org.Carlspring.Strongbox.Examples.Nuget.Mono 1.0.1 -Source strongbox -ConfigFile ./.nuget/NuGet.config
 
-The output should be like follows:
+??? info "Example output"
 
+    ```
     carlspring@linux-70e2:/home/carlspring/strongbox-examples/hello-strongbox-nuget-mono> mono --runtime=v4.0 nuget-4_1_0.exe delete Org.Carlspring.Strongbox.Examples.Nuget.Mono 1.0.1 -Source strongbox -ConfigFile ./.nuget/NuGet.config
     Org.Carlspring.Strongbox.Examples.Nuget.Mono 1.0.1 will be deleted from the 'http://localhost:48080/storages/storage-nuget/nuget-releases'. Would you like to continue? (y/N) y
     WARNING: Deleting Org.Carlspring.Strongbox.Examples.Nuget.Mono 1.0.1 from the 'http://localhost:48080/storages/storage-nuget/nuget-releases'.
     DELETE http://localhost:48080/storages/storage-nuget/nuget-releases/Org.Carlspring.Strongbox.Examples.Nuget.Mono/1.0.1
     OK http://localhost:48080/storages/storage-nuget/nuget-releases/Org.Carlspring.Strongbox.Examples.Nuget.Mono/1.0.1 7277ms
     Org.Carlspring.Strongbox.Examples.Nuget.Mono 1.0.1 was deleted successfully.
+    ```
 
 # See also:
 * [Install Mono on Linux](http://www.mono-project.com/docs/getting-started/install/linux/)
 * [NuGet CLI Reference](https://docs.nuget.org/ndocs/tools/nuget.exe-cli-reference)
 * [Running NuGet command-line on Linux](http://headsigned.com/article/running-nuget-command-line-on-linux)
 * [Nuget: Dependency Resolution In Nuget 3.x](https://docs.microsoft.com/en-us/nuget/consume-packages/dependency-resolution#dependency-resolution-in-nuget-3x)
+
+
+[nuget3-download-exe]: https://www.nuget.org/downloads
+[hello-strongbox-nuget-mono]: https://github.com/strongbox/strongbox-examples/tree/master/hello-strongbox-nuget-mono
