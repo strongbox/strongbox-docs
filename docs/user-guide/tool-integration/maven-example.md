@@ -4,8 +4,6 @@ This is an example of how to use the Strongbox artifact repository manager with 
 
 ## Pre-requisites
 
-## Pre-requisites
-
 * [Installed and configured a Strongbox Distribution](../getting-started.md)
 * Java Development Kit (JDK) version 1.8.x
 * [Maven](http://maven.apache.org/) version 3.x or higher
