@@ -15,21 +15,22 @@ You can start Strongbox in two ways - via `spring-boot` and from `strongbox-dist
 development phase you will mainly start an instance via `spring-boot`. However once you are done with your task you 
 should always ensure the `strongbox-distribution` package works as expected. 
 
-``` linenums="1" tab="Strongbox via spring-boot"
-git clone {{repo_url}}
-mvn clean install -DskipTests
-cd strongbox-web-core
-mvn spring-boot:run
-```
-
-``` linenums="1" tab="Strongbox from strongbox-distribution"
-git clone {{repo_url}}
-mvn clean install -DskipTests
-cd strongbox-distribution/target
-tar -zxf *gz
-cd strongbox-distribution-*/strongbox-*/
-./bin/strongbox console
-```
+=== "Strongbox via spring-boot"
+    ``` linenums="1"
+    git clone {{repo_url}}
+    mvn clean install -DskipTests
+    cd strongbox-web-core
+    mvn spring-boot:run
+    ```
+=== "Strongbox from strongbox-distribution"
+    ``` linenums="1"
+    git clone {{repo_url}}
+    mvn clean install -DskipTests
+    cd strongbox-distribution/target
+    tar -zxf *gz
+    cd strongbox-distribution-*/strongbox-*/
+    ./bin/strongbox console
+    ```
 
 ## Building and Deploying using Strongbox
 
@@ -38,19 +39,20 @@ Following the steps below should result in successful result:
 1. [Did you pay attention?][Strongbox Instance]
 2. Configure your `settings.xml` to point to the local [Strongbox Instance]:
 
-    ``` tab="Download"
-    # Linux / MacOS
-    curl -o {{localSettingsXml}} \ 
-            {{resources}}/maven/settings-local.xml
-       
-    # Windows
-    curl -o %HOMEPATH%\.m2\settings-local.xml ^
-            {{resources}}/maven/settings-local.xml
-    ``` 
-
-    ``` tab="Raw/Copy" 
-    --8<-- "{{resourcesPath}}/maven/settings-local.xml"
-    ``` 
+    === "Download"
+        ```
+        # Linux / MacOS
+        curl -o {{localSettingsXml}} \ 
+                {{resources}}/maven/settings-local.xml
+           
+        # Windows
+        curl -o %HOMEPATH%\.m2\settings-local.xml ^
+                {{resources}}/maven/settings-local.xml
+        ``` 
+    === "Raw/Copy"
+        ```
+        --8<-- "{{resourcesPath}}/maven/settings-local.xml"
+        ``` 
 
 3. Make a clean clone of @strongbox/strongbox into a separate path (i.e. `strongbox-tmp`)
 4. Build Strongbox using a Strongbox instance:

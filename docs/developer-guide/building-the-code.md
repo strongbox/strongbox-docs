@@ -128,7 +128,7 @@ First, you need to have added the original remote (this is a one time only set u
 Then in order to sync your fork with the original remote, execute the following:
 
     git fetch strongbox
-    git checkout master		
+    git checkout master
     git merge strongbox/master
 
 ## See Also

@@ -12,8 +12,6 @@ The "Hello, Strongbox!" example project can be found [here][hello-strongbox-nuge
 
 ## Installing choco
 
-<!-- todo: pymdownx.tabbed -->
-
 !!! success "Windows"
     Chocolatey is available natively on Windows and can be installed following the [official documentation]
 
@@ -34,16 +32,17 @@ It is OK to ignore warnings about a system reboot being requested since the noth
 
 The NuGet protocol assumes that users need to be authenticated with `API Key` to be able to deploy or delete your packages.
 Strongbox provides the REST API to get an API Key for specified user:
-    
-``` tab="Windows" linenums="1"
-FOR /F %i IN ('curl -u admin http://localhost:48080/api/users/admin/generate-security-token') DO set API_KEY=%i
-echo %API_KEY%
-```
 
-``` tab="Linux" linenums="1"
-API_KEY=`curl -u admin http://localhost:48080/api/users/admin/generate-security-token`
-echo $API_KEY
-```
+=== "Windows"
+    ``` linenums="1"
+    FOR /F %i IN ('curl -u admin http://localhost:48080/api/users/admin/generate-security-token') DO set API_KEY=%i
+    echo %API_KEY%
+    ```
+=== "Linux"
+    ``` linenums="1"
+    API_KEY=`curl -u admin http://localhost:48080/api/users/admin/generate-security-token`
+    echo $API_KEY
+    ```
 
 Enter your Strongbox password. (Default is: `admin/password`)
 
@@ -55,16 +54,17 @@ The output when `echo`ing the `%API_KEY%` should not be empty and should look so
 
 In this step, we will be setting the `apikey` which will be used to authenticate against the `source` in the future steps.
 
-``` tab="Windows" linenums="1"
-# This needs to be run in an administrative command prompt or powershell!
-set REPO_URL=http://localhost:48080/storages/storage-nuget/nuget-releases
-choco apikey -k %API_KEY% -s "%REPO_URL%"
-```
-
-``` tab="Linux" linenums="1"
-REPO_URL=http://localhost:48080/storages/storage-nuget/nuget-releases
-choco apikey -k $API_KEY -s "$REPO_URL"
-```
+=== "Windows"
+    ``` linenums="1"
+    # This needs to be run in an administrative command prompt or powershell!
+    set REPO_URL=http://localhost:48080/storages/storage-nuget/nuget-releases
+    choco apikey -k %API_KEY% -s "%REPO_URL%"
+    ```
+=== "Linux"
+    ``` linenums="1"
+    REPO_URL=http://localhost:48080/storages/storage-nuget/nuget-releases
+    choco apikey -k $API_KEY -s "$REPO_URL"
+    ```
 
 The output should be like follows:
 
@@ -77,14 +77,15 @@ Added ApiKey for http://localhost:48080/storages/storage-nuget/nuget-releases
 
 To manage packages, you'll need to configure Chocolatey to access your storages by running the following command:
 
-``` tab="Windows" linenums="1"
-# This needs to be run as administrative command prompt or powershell!
-choco source add -n=strongbox -s "%REPO_URL%" --priority=1
-``` 
-
-``` tab="Linux" linenums="1"
-choco source add -n=strongbox -s "$REPO_URL" --priority=1
-```
+=== "Windows"
+    ``` linenums="1"
+    # This needs to be run as administrative command prompt or powershell!
+    choco source add -n=strongbox -s "%REPO_URL%" --priority=1
+    ``` 
+=== "Linux"
+    ``` linenums="1"
+    choco source add -n=strongbox -s "$REPO_URL" --priority=1
+    ```
 
 The output should be like follows:
 
@@ -103,15 +104,16 @@ Added strongbox - http://localhost:48080/storages/storage-nuget/nuget-releases (
 
 ### Create a package
 
-``` tab="Windows" linenums="1"
-cd C:\some\path
-choco new --name=hello-chocolatey --version=1.0.0
-``` 
-
-``` tab="Linux" linenums="1"
-cd /some/path
-choco new --name=hello-chocolatey --version=1.0.0
-```
+=== "Windows"
+    ``` linenums="1"
+    cd C:\some\path
+    choco new --name=hello-chocolatey --version=1.0.0
+    ``` 
+=== "Linux"
+    ``` linenums="1"
+    cd /some/path
+    choco new --name=hello-chocolatey --version=1.0.0
+    ```
 
 The output should be like
 
@@ -158,15 +160,16 @@ Successfully generated hello-chocolatey package specification files
 
 Execute the following command in the same directory as `hello-chocolatey.nuspec`:
 
-``` tab="Windows" linenums="1"
-cd C:\some\path\hello-chocolatey
-choco pack
-``` 
-
-``` tab="Linux" linenums="1"
-cd /some/path/to/hello-chocolatey
-choco pack
-```
+=== "Windows"
+    ``` linenums="1"
+    cd C:\some\path\hello-chocolatey
+    choco pack
+    ``` 
+=== "Linux"
+    ``` linenums="1"
+    cd /some/path/to/hello-chocolatey
+    choco pack
+    ```
 
 The output should be like follows:
 ```log
@@ -181,15 +184,17 @@ Successfully created package 'C:\Users\User\Documents\hello-chocolatey\hello-cho
 
 Execute the following command in the directory with `hello-chocolatey.1.0.0.nupkg`:
 
-``` tab="Windows" linenums="1"
-cd C:\some\path\hello-chocolatey
-choco push --source "%REPO_URL%" --force
-``` 
+=== "Windows"
+    ``` linenums="1"
+    cd C:\some\path\hello-chocolatey
+    choco push --source "%REPO_URL%" --force
+    ``` 
 
-``` tab="Linux" linenums="1"
-cd /some/path/to/hello-chocolatey
-choco push --source "$REPO_URL" --force
-```
+=== "Linux"
+    ``` linenums="1"
+    cd /some/path/to/hello-chocolatey
+    choco push --source "$REPO_URL" --force
+    ```
 
 The output should be like follows:
 ```log
@@ -204,13 +209,14 @@ hello-chocolatey 1.0.0 was pushed successfully to http://localhost:48080/storage
 
 Execute the following command:
 
-``` tab="Windows" linenums="1"
-choco search -s "%REPO_URL%"
-``` 
-
-``` tab="Linux" linenums="1"
-choco search -s "$REPO_URL"
-```
+=== "Windows"
+    ``` linenums="1"
+    choco search -s "%REPO_URL%"
+    ``` 
+=== "Linux"
+    ``` linenums="1"
+    choco search -s "$REPO_URL"
+    ```
 
 The output should be like follows:
 ```log
@@ -230,14 +236,15 @@ As a workaround, you can use `nuget` to delete packages, see [hello-strongbox-nu
 
 To install a `choco` package you should use the command below. 
 
-``` tab="Windows" linenums="1"
-# Execute the following command as a administrator!
-choco install hello-chocolatey -s "%REPO_URL%"
-```
-
-``` tab="Linux" linenums="1"
-choco install hello-chocolatey -s "$REPO_URL"
-```
+=== "Windows"
+    ``` linenums="1"
+    # Execute the following command as a administrator!
+    choco install hello-chocolatey -s "%REPO_URL%"
+    ```
+=== "Linux"
+    ``` linenums="1"
+    choco install hello-chocolatey -s "$REPO_URL"
+    ```
 
 !!! tip "Tip"
     Adding `-s "{repo_url}"` is optional. However, `choco` will loop through all sources until it finds the package which
@@ -267,14 +274,15 @@ Chocolatey installed 1/1 packages.
 
 ### Uninstall a package
 
-``` tab="Windows" linenums="1"
-# Execute the following command as a administrator!
-choco uninstall hello-chocolatey
-```
-
-``` tab="Linux" linenums="1"
-choco uninstall hello-chocolatey
-```
+=== "Windows"
+    ``` linenums="1"
+    # Execute the following command as a administrator!
+    choco uninstall hello-chocolatey
+    ```
+=== "Linux"
+    ``` linenums="1"
+    choco uninstall hello-chocolatey
+    ```
 
 The output should be like follows:
 ```log

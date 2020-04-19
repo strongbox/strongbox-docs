@@ -117,17 +117,13 @@ body > .md-container {
     text-decoration: underline;
 }
 
-
 .md-typeset .task-list-control [type=checkbox]:checked + .task-list-indicator:before {
     color: hsl(200, 86%, 57%);
 }
 
 .md-typeset .task-list-control .task-list-indicator:before {
+    background-color: rgba(255, 255, 255, 0.26);
     color: hsla(200, 86%, 57%, 0.35);
-}
-
-.md-typeset code {
-    box-shadow: 0.29412em 0 0 hsl(207, 24%, 18%), -0.29412em 0 0 hsl(207, 24%, 18%);
 }
 
 .md-typeset code, .md-typeset pre {
@@ -136,26 +132,25 @@ body > .md-container {
     color: #f7f7f7;
 }
 
+.md-typeset .codehilitetable .linenos, .md-typeset .highlighttable .linenos {
+    background-color: rgb(35, 47, 57);
+}
+
+.md-typeset .codehilitetable pre, .md-typeset .highlighttable pre {
+    color: rgba(255, 255, 255, 0.26);
+}
+
 .md-typeset .codehilite code,
 .md-typeset .codehilite pre,
 .md-typeset .highlight code,
 .md-typeset .highlight pre,
-.md-typeset .superfences-tabs,
-.md-typeset .superfences-content .codehilite {
+.md-typeset .tabbed-set,
+.md-typeset .tabbed-content .codehilite {
     background-color: hsl(207, 24%, 18%);
 }
 
-.md-typeset .superfences-content .codehilite pre {
-    border-top: 1px solid #1f2933;
-}
-
-.md-typeset .codehilitetable .linenodiv, .md-typeset .highlighttable .linenodiv {
-    padding: 0.6rem 0.5rem 0rem 0.5rem;
-}
-
-.md-typeset .codehilitetable .linenos, .md-typeset .highlighttable .linenos {
-    background-color: rgb(35, 47, 57);
-    color: rgba(255, 255, 255, 0.26);
+.md-typeset .tabbed-set label {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .md-typeset .footnote,
@@ -188,6 +183,7 @@ body > .md-container {
 }
 
 .md-typeset table:not([class]) {
+    background-color: rgba(0,0,0,0.0);
     border: 1px solid rgba(0,0,0,0.3);
 }
 
@@ -206,9 +202,11 @@ body > .md-container {
 
 .md-typeset .md-typeset__table {
     width: 100%;
-    display: block;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+}
 
+.md-typeset .md-typeset__table table {
+    display: table;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
 }
 
 @media only screen and (max-width: 76.1875em)

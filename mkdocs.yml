@@ -11,8 +11,8 @@ theme:
     primary: 'blue grey'
     accent: 'indigo'
   language: en
-  feature:
-    tabs: true
+  features:
+    - tabs
 
 extra_css:
   - 'assets/stylesheets/style.css'
@@ -60,6 +60,7 @@ markdown_extensions:
   - pymdownx.snippets:
       base_path: docs
   - pymdownx.superfences
+  - pymdownx.tabbed
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
