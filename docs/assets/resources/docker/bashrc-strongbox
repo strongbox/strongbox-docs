@@ -1,6 +1,7 @@
 dockerCheckout() {
     # Can edit
     CHECKOUT_PATH=/tmp
+    M2_HOST_SETTINGS=~/.m2/settings.xml
     M2_CACHE_PATH=~/.m2/repository-docker
 
     # Don't edit if you don't know what you're doing
@@ -38,26 +39,37 @@ dockerCheckout() {
 
     WORKSPACE=$(mktemp -d $CHECKOUT_PATH/dockerBuild-$PROJECT-$BRANCH.XXXXX)
     echo "Temporary workspace created at: $WORKSPACE"
+    echo "Attaching $M2_HOST_SETTINGS as /home/jenkins/.m2/settings-host.xml"
 
     if [[ ! -d $M2_CACHE_PATH ]]; then
         echo "Creating m2 cache path..."
         (set -x; mkdir -p $M2_CACHE_PATH)
     fi
     echo "M2 cache path is: $M2_CACHE_PATH"
+    echo ""
 
-    docker run -it --rm -v $M2_CACHE_PATH:/home/jenkins/.m2/repository \
+    docker run -it --rm -v $M2_HOST_SETTINGS:/home/jenkins/.m2/settings-host.xml:ro \
+                        -v $M2_CACHE_PATH:/home/jenkins/.m2/repository \
                         -v $WORKSPACE:/home/jenkins/workspace:rw $IMAGE \
                         /bin/bash -c "set -x; $CLONE_CMD && $CMD"
     echo ""
-    echo "Temporary workspace is at: $WORKSPACE. Please remove it when you are done!"
+    echo "Temporary workspace is at: $WORKSPACE"
+
+    read -r -p "Would you like to auto delete the workspace? [y/N] " response
+    if [[ $response =~ ^[Yy]$ ]]; then
+        (set -ex; rm -rf "$WORKSPACE")
+    else
+        echo "Ok, skipping!"
+    fi
+   
     echo ""
 }
 
 
 dockerLocal() {
-
     # Can edit
     CHECKOUT_PATH=/tmp
+    M2_HOST_SETTINGS=~/.m2/settings.xml
     M2_CACHE_PATH=~/.m2/repository-docker
 
     # Don't edit if you don't know what you're doing.
@@ -83,8 +95,11 @@ dockerLocal() {
         (set -x; mkdir -p $M2_CACHE_PATH)
     fi
     echo "M2 cache path is: $M2_CACHE_PATH"
+    echo "Attaching $M2_HOST_SETTINGS as /home/jenkins/.m2/settings-host.xml"
+    echo ""
 
-    docker run -it --rm -v $M2_CACHE_PATH:/home/jenkins/.m2/repository \
+    docker run -it --rm -v $M2_HOST_SETTINGS:/home/jenkins/.m2/settings-host.xml:ro \
+                        -v $M2_CACHE_PATH:/home/jenkins/.m2/repository \
                         -v $(pwd):/home/jenkins/workspace:rw $IMAGE \
                         /bin/bash -c "set -x; cd /home/jenkins/workspace; $CMD"
 }

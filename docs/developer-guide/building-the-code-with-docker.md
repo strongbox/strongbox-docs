@@ -187,6 +187,12 @@ Have fun building things in docker :smile:
     dockerGradleCheckout strongbox-web-integration-tests master "cd gradle; mvn clean install"
     ```
 
+* Use the `host`'s `settings.xml` file instead of the container's
+    ```
+    dockerMvn "mvn clean install -s ~/.m2/settings-host.xml"
+    dockerMvnCheckout strongbox PR-1234 "mvn clean install -DskipTests -s ~/.m2/settings-host.xml"
+    ```
+
 
 [strongboxci/alpine]: https://hub.docker.com/r/strongboxci/alpine/tags
 [strongboxci/alpine:jdk8-mvn3.6]: https://hub.docker.com/r/strongboxci/alpine/tags 
