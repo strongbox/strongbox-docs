@@ -139,6 +139,9 @@ nav:
       - AssertJ: developer-guide/assertj-user-guide.md
       - Web Form Tests: developer-guide/writing-web-form-tests.md
       - Web Integration Tests: developer-guide/writing-web-integration-tests.md
+    - Performance:
+      - YourKit Java Profiler: developer-guide/yourkit/yourkit-java-profiler.md
+      - YourKit YouMonitor: developer-guide/yourkit/yourkit-youmonitor.md
     - Using Git:
       - Rebasing vs Merging: developer-guide/git/rebase-vs-merge.md
     - How To Gather Requirements: developer-guide/how-to-gather-requirements.md
