@@ -127,9 +127,12 @@ body > .md-container {
 }
 
 .md-typeset code, .md-typeset pre {
-    /*background-color: hsl(199, 19%, 39%);*/
-    background-color: hsl(207, 24%, 18%);
+    background-color: hsl(207, 24%, 17%);
     color: #f7f7f7;
+}
+
+.md-typeset code {
+    padding: .25em .5em;
 }
 
 .md-typeset .codehilitetable .linenos, .md-typeset .highlighttable .linenos {
