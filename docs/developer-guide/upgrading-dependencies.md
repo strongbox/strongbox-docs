@@ -51,7 +51,7 @@ Here are the steps you will need to follow in order to do so:
    `docker-compose` for this and you can find instructions on how to run these tests in the project's `README.md`, but
     this is roughly an overview of the steps:
     ```
-    find . -maxdepth 2 -type f -name "docker-compose.y*ml" -exec docker-compose -f {} up \;
+    find . -maxdepth 2 -type f -name "docker-compose.yml" -exec docker-compose -f {} up \;
     ```
 11. If there are issues with the tests in the [strongbox-web-integration-tests] project, you might have to fix them
     there as well and raise a pull request for that project.
