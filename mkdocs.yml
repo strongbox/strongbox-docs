@@ -134,7 +134,7 @@ nav:
       - Maven Indexer: developer-guide/maven-indexer.md
       - Writing custom authenticator: developer-guide/how-to-implement-a-custom-authenticator.md
       - Inspecting Hazelcast: developer-guide/how-to-inspect-a-hazelcast-cache.md
-    - Upgrading Dependencies: developer-guide/upgrading-dependencies.md
+    - Upgrading Dependencies And Plugins: developer-guide/upgrading-dependencies-and-plugins.md
     - Using Git:
       - Rebasing vs Merging: developer-guide/git/rebase-vs-merge.md
     - Writing tests:

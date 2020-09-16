@@ -16,7 +16,7 @@ in any `pom.xml` file that extends the parent. What's more, you can actually def
 in the `<pluginManagement/>` section as well and this will get inherited. Thus, the versions and configurations of
 plugins can be controlled from one central place.
 
-# Steps For Upgrading Dependencies And Plugins
+## Steps For Upgrading Dependencies And Plugins
 
 Here are the steps you will need to follow in order to do so:
 
@@ -44,9 +44,17 @@ Here are the steps you will need to follow in order to do so:
    ```
 9. Similarly to the above, you will need to check that the `strongbox-distribution` is still working as expected:
    ```
-   cd strongbox-distribution
-   mvn spring-boot:run
+   cd strongbox-distribution/target
+   tar -zxf *gz
+   cd strongbox-distribution-*/strongbox-*/
+   bin/strongbox console
    ```
+   This will start Strongbox. You will need keep an eye on the log files in another terminal like this:
+   ```
+   tail -n 500 -F logs/*log
+   ```
+   For developers under Windows, we would recommend running the same steps either in Git-Bash, or under Cygwin. 
+   
 10. Run the [strongbox-web-integration-tests] and make sure that none of them are failing. You will need Docker and 
    `docker-compose` for this and you can find instructions on how to run these tests in the project's `README.md`, but
     this is roughly an overview of the steps:
@@ -58,7 +66,12 @@ Here are the steps you will need to follow in order to do so:
 12. If all of the above is successful, please, raise a pull request against the [strongbox-parent] project. 
 13. If all of the above is successful, please, raise a pull request against the [strongbox] project.
     The automated checks of this pull request are expected to fail the first time. You will need to contact us either
-    via a comment under the pull request, or by pinging us on our [chat] channel.
+    via a comment under the pull request, or by pinging us on our [chat] channel. Please, note that this pull request
+    will only be required in order for us to check, if the build pipeline is still working properly.
+14. Once 13) is confirmed to be successful, you will need to reset the version of the [strongbox-parent] to what it
+    was previously (and, potentially, in the other Strongbox projects that you may have raised a pull request in).
+    At this point, your pull request in the [strongbox] project will be closed and all your other pull requests will be
+    accepted and merged.
 
 Please, make sure that all the steps above work, before raising your pull requests. If the upgrade causes an issue
 which you can't figure out, please raise the pull requests and  try to provide as much information in the issue on our
