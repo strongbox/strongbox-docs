@@ -43,7 +43,7 @@ This is a brief breakdown of the modules:
 * [strongbox-resources]  
 
     * [strongbox-common-resources]    
-        This is the place where common resources which can be used by multiple projects reside. The idea is not have to 
+        This is the place where common resources which can be used by multiple projects reside. The idea is to not have 
         duplicate things such as `logback*xml`, keystores and so on across the other modules. These resources are copied 
         using the `maven-dependency-plugin`.
 
