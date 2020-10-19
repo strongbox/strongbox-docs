@@ -51,10 +51,10 @@ If a popup `Discover m2e connectors` appears - click `Resolve All Later` and `Fi
     * `Project Natures -> Add -> Groovy Nature`
         ![strongbox-aql -> Properties -> Project Natures -> Add -> Confirm Project Nature update -> Groovy Nature][AQL groovy libraries in Build Path]
 
-### Trigger Maven update for `strongbox-masterbuild`
-Select `strongbox-masterbuild` project, Right click -> Maven -> Update Project
+### Trigger Maven update for `strongbox`
+Select `strongbox` project, Right click -> Maven -> Update Project
 
-![strongbox-masterbuild -> Maven -> Update Project][masterbuild Maven update]
+![strongbox -> Maven -> Update Project][masterbuild Maven update]
 
 [Building the code]: ../building-the-code.md#building-strongbox
 [Hide Welcome]: {{assets}}/screenshots/ide/eclipse-setup/09-eclipse-hide-welcome.png "Hide Welcome"
@@ -70,4 +70,4 @@ Select `strongbox-masterbuild` project, Right click -> Maven -> Update Project
 [AQL groovy and twig Build Path]: {{assets}}/screenshots/ide/eclipse-setup/15-eclipse-aql-groovy-twig-to-build-path.png "AQL groovy and twig Build Path"
 [AQL groovy libraries in Build Path]: {{assets}}/screenshots/ide/eclipse-setup/16-eclipse-aql-groovy-libraries.png "AQL groovy libraries in Build Path"
 [AQL groovy project nature]: {{assets}}/screenshots/ide/eclipse-setup/17-eclipse-aql-groovy-nature.png "AQL groovy project nature"
-[masterbuild Maven update]: {{assets}}/screenshots/ide/eclipse-setup/18-eclipse-masterbuild-maven-update.png "masterbuild Maven update"
+[masterbuild Maven update]: {{assets}}/screenshots/ide/eclipse-setup/19-updated-eclipse-masterbuild-maven-update.png "masterbuild Maven update"
