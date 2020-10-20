@@ -16,7 +16,7 @@ We have a helpful community of developers on our channel, please feel free to dr
     <img src="https://chat.carlspring.org/images/join-chat.svg" alt="Community Channel"/>
 </a>  
   
-# Submitting a bug report
+## Submitting a bug report
 
 Before submitting a bug report, please use the issue tracker's search to verify the bug has not been reported yet.
 If the bug has not been reported, please add a new one and mention all of the steps to reproduce it. 
@@ -29,7 +29,7 @@ preferably with a screenshot and steps to reproduce.
     Please ask us in the main channel before submitting a bug report to confirm. 
 
 
-# Submitting pull requests
+## Submitting pull requests
 
 Contributions and contributors are always welcome! If you have decided to work on an issue, please comment before you 
 start the actual work to check if somebody else is not already working on it. If nobody is working, please create a fork
@@ -58,7 +58,7 @@ Please continue reading our [CONTRIBUTING.md](https://github.com/strongbox/stron
     **Refusing to sign the ICLA will leave us with no other choice but to close any pull request you might have opened.**
   
 
-# Special thanks to all of our contributors! 
+## Special thanks to all of our contributors! 
 
 We would like to take a moment and shout out a special **THANK YOU** to all of our contributors for their awesome work!
 Strongbox would not have been the same without you and we deeply appreciate all of your help!
