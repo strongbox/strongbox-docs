@@ -32,7 +32,7 @@ jobs:
           git checkout --orphan gh-pages
           find . -maxdepth 1 ! -name "site" ! -name ".git*" ! -name "." -exec git rm -rf {} \;
           git add --force site
-          git commit -m "${{ github.event.head_commit.message }} (commit: ${{ steps.slug.outputs.short_sha }})"
+          git commit -m "strongbox/strongbox-docs#${{ steps.slug.outputs.short_sha }}: ${{ github.event.head_commit.message }}"
           git log -n 1 --format=oneline
       - name: Deploy
         if: github.ref == 'refs/heads/master'
