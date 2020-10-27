@@ -12,6 +12,10 @@ body > .md-container {
     color: rgba(255, 255, 255, 0.9);
 }
 
+.md-typeset p {
+    text-align: justify;
+}
+
 .md-typeset .admonition.hint,
 .md-typeset .admonition.important,
 .md-typeset .admonition.tip,
