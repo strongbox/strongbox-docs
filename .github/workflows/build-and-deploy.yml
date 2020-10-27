@@ -19,7 +19,7 @@ jobs:
         run: |
           git config user.name "${{ secrets.GH_USER }}"
           git config user.email "${{ secrets.GH_MAIL }}"
-          git remote add strongbox.github.io "https://${{ secrets.GITHUB_TOKEN }}@github.com/strongbox/strongbox.github.io"
+          git remote add strongbox.github.io "https://${{ secrets.GH_USER }}:${{ secrets.GH_TOKEN }}@github.com/strongbox/strongbox.github.io"
           git fetch strongbox.github.io
       - name: Prepare built assets
         if: github.ref == 'refs/heads/master'
