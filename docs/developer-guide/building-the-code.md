@@ -133,6 +133,6 @@ Then in order to sync your fork with the original remote, execute the following:
 
 ## See Also
 
-* [Building Strongbox Against Strongbox](./building-strongbox-against-strongbox.md)
+* [Building Strongbox Against Strongbox](./building-strongbox-using-strongbox-instance.md)
 
 * [Git Tips](https://github.com/git-tips/tips)

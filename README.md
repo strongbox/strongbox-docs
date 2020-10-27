@@ -10,7 +10,7 @@
 * mkdocs-markdownextradata-plugin 
 * mkdocs-git-revision-date-plugin
 
-# Getting started
+# Getting Started
 
 If you prefer to go with locally installed `python` and `pip`, then:
 
@@ -30,10 +30,16 @@ If you prefer plain `docker`:
 Execute one of these (depending on your local setup):
 
 1. `mkdocs build`
-2. `docker-compose up mkdocs mkdocs build`
-3. `docker run -it --rm -v ./:/docs -p 8000:8000 strongboxci/mkdocs:base mkdocs build`
+2. `docker run -it --rm -v ./:/docs -p 8000:8000 strongboxci/mkdocs:base mkdocs build`
 
-# Guidelines for contributors
+# Live Pre-view:
+
+Run the following and then browse to `localhost:8000`:
+```
+docker-compose up
+```
+
+# Guidelines For Contributors
 
 * When adding new pages it is preferable to have the filename with lowercase characters.
 * The first line of the page should be `# Page Title` - this helps in the indexing and search afterwards.

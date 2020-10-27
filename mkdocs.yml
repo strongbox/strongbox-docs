@@ -106,6 +106,7 @@ nav:
       - SBT Example: user-guide/tool-integration/sbt-example.md
       - Yarn Example: user-guide/tool-integration/yarn-example.md
   - Developer guide:
+    - Introduction: developer-guide/index.md
     - Getting started: developer-guide/getting-started.md
     - Building:
       - Building the code: developer-guide/building-the-code.md
@@ -153,6 +154,14 @@ nav:
     - Layout Providers: knowledge-base/layout-providers.md
     - Repositories: knowledge-base/repositories.md
     - Storages: knowledge-base/storages.md
+
+  - Hackfests:
+    - Hackfest Guidelines: hackfests/index.md
+    - Grace Hopper Celebration:
+      - About Grace Hopper Celebration: hackfests/grace-hopper-celebration/index.md
+      - Grace Hopper Opensource Day (2020): hackfests/grace-hopper-celebration/ghc-osd-2020.md
+    - Hacktoberfest: hackfests/hacktoberfest/index.md
+
   - Join chat:
     - Join chat: chat-redirect.md
 

@@ -11,7 +11,7 @@
 In order to build Strongbox in reasonably short times you need:
 
 * At least 16 GB RAM
-* An Intel i7 processor (or equivalent)
+* Minimum 2 cores / 4 threads (recommended: 4 cores / 8 threads or more)
 * An SSD
 
 ## Before you continue
