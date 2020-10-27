@@ -8,6 +8,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     container: strongboxci/mkdocs:base
+    env:
+      # DEPLOY_URL=https://strongbox.github.io, but it's a "secrets" to allow easier changing if necesary without changing the code.
+      DEPLOY_URL: "${{ secrets.DEPLOY_URL }}"
+      GOOGLE_ANALYTICS_KEY: "${{ secrets.GOOGLE_ANALYTICS_KEY }}"
     steps:
       # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
