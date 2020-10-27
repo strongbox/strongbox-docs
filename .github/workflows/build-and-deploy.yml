@@ -1,0 +1,34 @@
+name: Build and Deploy
+
+on:
+  push: ~
+  workflow_dispatch: ~
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    container: strongboxci/mkdocs:base
+    steps:
+      # Downloads a copy of the code in your repository before running CI tests
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Build
+        run: mkdocs build
+      - name: Setup upstream
+        if: github.ref == 'refs/heads/master'
+        run: |
+          git config user.name "${{ secrets.GH_USER }}"
+          git config user.email "${{ secrets.GH_MAIL }}"
+          git remote add strongbox.github.io "https://${{ secrets.GITHUB_TOKEN }}@github.com/strongbox/strongbox.github.io"
+          git fetch strongbox.github.io
+      - name: Prepare built assets
+        if: github.ref == 'refs/heads/master'
+        run: |
+          git checkout --orphan gh-pages
+          find . -maxdepth 1 ! -name "site" ! -name ".git*" ! -name "." -exec git rm -rf {} \;
+          git add --force site
+          git commit -m "Updating documentation site."
+      - name: Deploy
+        if: github.ref == 'refs/heads/master'
+        run: | 
+          git push strongbox.github.io `git subtree split --prefix site gh-pages`:master --force
