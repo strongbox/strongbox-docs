@@ -1,4 +1,4 @@
-mkdocs-material==5.1.0
+mkdocs-material==6.1.4
 mkdocs-markdownextradata-plugin
 mkdocs-git-revision-date-plugin
 mdx_gh_links

@@ -8,11 +8,12 @@ theme:
   custom_dir: 'theme'
   logo: ''
   palette:
-    primary: 'blue grey'
-    accent: 'indigo'
+    - scheme: 'slate'
+      primary: 'blue grey'
+      accent: 'indigo'
   language: en
   features:
-    - tabs
+    - navigation.tabs
 
 extra_css:
   - 'assets/stylesheets/style.css'
