@@ -105,7 +105,7 @@ you even doing here? :smile: )
 
 You need to keep your fork's `master` branch in sync with the `upstream/master`. This is also required 
 for rebasing as you will be pointing your `feature` branch to the `HEAD` of the forked `master` branch. 
-If your fork's `master` is of sync with the `upstream/master` and you rebase - it will likely create a mess.  
+If your fork's `master` is off sync with the `upstream/master` and you rebase - it will likely create a mess.  
 
 Steps: 
 

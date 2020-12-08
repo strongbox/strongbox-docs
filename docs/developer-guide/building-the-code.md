@@ -38,7 +38,7 @@ To skip the Maven tests and just build and install the code, run:
 
 ### Executing a particular test
 
-To execute a particular tests, run:
+To execute a particular test, run:
 
     mvn clean install -Dtest=MyTest
 
